@@ -1,0 +1,5 @@
+services:
+    pim_icecat_connector.reader.file.xml_features:
+        class: Pim\Bundle\IcecatConnectorBundle\Reader\Xml\FeaturesReader
+        arguments:
+            - '@pim_connector.array_converter.flat_to_standard.attribute'
