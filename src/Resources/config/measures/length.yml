@@ -1,0 +1,5 @@
+measures_config:
+    Length:
+        units:
+            MICROMETER:
+                alternative_units: ['µ', '\u03BC'] # \03BC = µ (mu) UTF8 different from µ (micro)

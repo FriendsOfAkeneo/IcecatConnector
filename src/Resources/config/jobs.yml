@@ -1,0 +1,42 @@
+parameters:
+    pim_icecat_connector.job.job_parameters.form_configuration_provider.simple_xml.class: Pim\Bundle\IcecatConnectorBundle\JobParameters\FormConfigurationProvider\SimpleXmlImport
+
+services:
+    pim_icecat_connector.job.xml_attribute_import:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'Icecat features import'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pim_connector.step.charset_validator'
+                - '@pim_icecat_connector.step.xml_attribute.import'
+        tags:
+            -
+                name: akeneo_batch.job
+                connector: 'Icecat'
+                type: '%pim_connector.job.import_type%'
+
+    pim_icecat_connector.job.job_parameters.default_values_provider.empty:
+        class: Pim\Bundle\IcecatConnectorBundle\JobParameters\DefaultValuesProvider\SimpleXmlImport
+        arguments:
+            -
+                - 'Icecat features import'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.default_values_provider }
+
+    pim_icecat_connector.job.job_parameters.constraint_collection_provider.empty:
+        class: '%akeneo_batch.job.job_parameters.empty_constraint_collection_provider.class%'
+        arguments:
+            -
+                - 'Icecat features import'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
+
+    pim_icecat_connector.job.job_parameters.form_configuration_provider.dummy_export:
+        class: '%pim_icecat_connector.job.job_parameters.form_configuration_provider.simple_xml.class%'
+        arguments:
+            -
+                - 'Icecat features import'
+        tags:
+            - { name: pim_import_export.job_parameters.form_configuration_provider }

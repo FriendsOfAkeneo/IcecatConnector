@@ -1,0 +1,7 @@
+measures_config:
+    Pressure:
+        units:
+            BAR:
+                alternative_units: ['bar']
+            MILLIBAR:
+                alternative_units: ['mbar']
