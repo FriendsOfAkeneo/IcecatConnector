@@ -2,7 +2,7 @@
 
 namespace Pim\Bundle\IcecatConnectorBundle\Parser;
 
-use Icecat\Model\Feature;
+use Pim\Bundle\IcecatConnectorBundle\Model\Feature;
 
 /**
  * @author    JM Leroux <jean-marie.leroux@akeneo.com>

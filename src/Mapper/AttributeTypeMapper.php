@@ -1,7 +1,9 @@
 <?php
 
-namespace Icecat\Mapper;
+namespace Pim\Bundle\IcecatConnectorBundle\Mapper;
 
+use Pim\Bundle\IcecatConnectorBundle\Exception\UnresolvableTypeException;
+use Pim\Bundle\IcecatConnectorBundle\Model\Feature;
 use Pim\Component\Catalog\AttributeTypes;
 
 /**
@@ -11,19 +13,25 @@ use Pim\Component\Catalog\AttributeTypes;
  */
 class AttributeTypeMapper
 {
-    public function getPimMType($icecatType, $icecateMeasure)
+    public function resolvePimType(Feature $icecatFeature, $icecateMeasure)
     {
-        $icecatType = strtolower($icecatType);
-        if ('dropdown' === $icecatType) {
+        $type = strtolower($icecatFeature->getType());
+        if ('dropdown' === $type) {
             return AttributeTypes::OPTION_SIMPLE_SELECT;
-        } elseif ('multi_dropdown' === $icecatType) {
+        } elseif ('multi_dropdown' === $type) {
             return AttributeTypes::OPTION_MULTI_SELECT;
-        } elseif ('y_n' === $icecatType) {
+        } elseif ('y_n' === $type) {
             return AttributeTypes::BOOLEAN;
-        } elseif ('y_n_o' === $icecatType) {
+        } elseif ('y_n_o' === $type) {
             return AttributeTypes::BOOLEAN;
-        } elseif ('numerical' === $icecatType) {
+        } elseif ('numerical' === $type) {
             return AttributeTypes::NUMBER;
+        } elseif ('2d' === $type || '3d' === $type) {
+            return AttributeTypes::TEXT;
+        } elseif ('text' === $type || 'textarea' === $type || 'alphanumeric' === $type) {
+            return AttributeTypes::TEXT;
         }
+
+        throw new UnresolvableTypeException($icecatFeature);
     }
 }

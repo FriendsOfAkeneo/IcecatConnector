@@ -1,6 +1,6 @@
 <?php
 
-namespace Icecat\Model;
+namespace Pim\Bundle\IcecatConnectorBundle\Model;
 
 /**
  * @author    JM Leroux <jean-marie.leroux@akeneo.com>
