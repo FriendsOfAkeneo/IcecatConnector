@@ -1,0 +1,9 @@
+measures_config:
+    Duration:
+        units:
+            DAY:
+                alternative_units: ['day(s)']
+            MONTH:
+                alternative_units: ['month(s)']
+            YEAR:
+                alternative_units: ['year(s)']
