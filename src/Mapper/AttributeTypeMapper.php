@@ -13,9 +13,26 @@ use Pim\Component\Catalog\AttributeTypes;
  */
 class AttributeTypeMapper
 {
-    public function resolvePimType(Feature $icecatFeature, $icecateMeasure)
+    /** @var MeasureMapper */
+    protected $measureMappper;
+
+    /**
+     * @param MeasureMapper $measureMappper
+     */
+    public function __construct(MeasureMapper $measureMappper)
+    {
+        $this->measureMappper = $measureMappper;
+    }
+
+    /**
+     * @param Feature $icecatFeature
+     *
+     * @return string
+     */
+    public function resolvePimType(Feature $icecatFeature)
     {
         $type = strtolower($icecatFeature->getType());
+
         if ('dropdown' === $type) {
             return AttributeTypes::OPTION_SIMPLE_SELECT;
         } elseif ('multi_dropdown' === $type) {
@@ -25,13 +42,41 @@ class AttributeTypeMapper
         } elseif ('y_n_o' === $type) {
             return AttributeTypes::BOOLEAN;
         } elseif ('numerical' === $type) {
+            if (null !== $this->resolveUnit($icecatFeature)) {
+                return AttributeTypes::METRIC;
+            }
+
+            return AttributeTypes::NUMBER;
+        } elseif ('range' === $type) {
+            if (null !== $this->resolveUnit($icecatFeature)) {
+                return AttributeTypes::METRIC; //range metric
+            }
+
+            return AttributeTypes::NUMBER; // range
+        } elseif ('ratio' === $type || 'contrast ratio' === $type) {
             return AttributeTypes::NUMBER;
         } elseif ('2d' === $type || '3d' === $type) {
             return AttributeTypes::TEXT;
         } elseif ('text' === $type || 'textarea' === $type || 'alphanumeric' === $type) {
             return AttributeTypes::TEXT;
+        } elseif ('' === $type) {
+            return AttributeTypes::TEXT;
         }
 
         throw new UnresolvableTypeException($icecatFeature);
+    }
+
+    /**
+     * @param $unit
+     *
+     * @return array
+     */
+    protected function resolveUnit($unit)
+    {
+        try {
+            return $this->measureMappper->resolvePimMeasure($unit);
+    } catch (\Exception $e) {
+            return null;
+        }
     }
 }

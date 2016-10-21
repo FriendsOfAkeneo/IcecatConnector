@@ -19,8 +19,9 @@ class UnresolvableTypeException extends \RuntimeException
      */
     public function __construct(Feature $feature, $code = 0, \Exception $previous = null)
     {
-        parent::__construct($this->message, $code, $previous);
         $this->feature = $feature;
+        $message = sprintf($this->message, $feature->getType());
+        parent::__construct($message, $code, $previous);
     }
 
     /**

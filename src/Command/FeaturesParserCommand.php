@@ -2,10 +2,9 @@
 
 namespace Pim\Bundle\IcecatConnectorBundle\Command;
 
-use Pim\Bundle\ExtendedMeasureBundle\Exception\UnknownUnitException;
-use Pim\Bundle\ExtendedMeasureBundle\Exception\UnresolvableUnitException;
 use Pim\Bundle\IcecatConnectorBundle\Exception\UnresolvableTypeException;
 use Pim\Bundle\IcecatConnectorBundle\Mapper\AttributeTypeMapper;
+use Pim\Bundle\IcecatConnectorBundle\Mapper\MeasureMapper;
 use Pim\Bundle\IcecatConnectorBundle\Parser\FeatureToAttributeParser;
 use Prewk\XmlStringStreamer;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
@@ -50,14 +49,15 @@ class FeaturesParserCommand extends ContainerAwareCommand
         ]);
 
         $parser = new FeatureToAttributeParser();
-        $mapper = new AttributeTypeMapper();
+        $measureMapper = new MeasureMapper($this->getContainer()->get('pim_extended_measures.resolver'));
+        $attributeTypeMapper = new AttributeTypeMapper($measureMapper);
 
         while ($node = $streamer->getNode()) {
             try {
                 $simpleXmlNode = simplexml_load_string($node);
                 $feature = $parser->parseNode($simpleXmlNode);
                 //dump($parser->normalize($feature));
-                dump($mapper->resolvePimType($feature, null));
+                dump($attributeTypeMapper->resolvePimType($feature));
             } catch (UnresolvableTypeException $e) {
                 $erroredFeature = $e->getFeature();
                 if (!array_key_exists($erroredFeature->getType(), $this->unresolvableTypes)) {

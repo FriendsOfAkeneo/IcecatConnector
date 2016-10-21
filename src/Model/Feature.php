@@ -22,6 +22,9 @@ class Feature
     private $measureId;
 
     /** @var string */
+    private $measureSign;
+
+    /** @var string */
     private $name;
 
     /** @var string */
@@ -92,6 +95,22 @@ class Feature
     public function setMeasureId($measureId)
     {
         $this->measureId = $measureId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMeasureSign()
+    {
+        return $this->measureSign;
+    }
+
+    /**
+     * @param string $measureSign
+     */
+    public function setMeasureSign($measureSign)
+    {
+        $this->measureSign = $measureSign;
     }
 
     /**

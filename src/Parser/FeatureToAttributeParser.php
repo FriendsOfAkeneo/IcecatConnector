@@ -38,6 +38,7 @@ class FeatureToAttributeParser
         $measure = $element->Measure;
         if ($measure) {
             $feature->setMeasureId((int) $measure->attributes()['ID']);
+            $feature->setMeasureSign((string) $measure->attributes()['Sign']);
         }
 
         $values = $element->RestrictedValues;
