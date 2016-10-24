@@ -2,6 +2,10 @@
 
 namespace Pim\Bundle\IcecatConnectorBundle\Mapper;
 
+use Pim\Bundle\ExtendedAttributeTypeBundle\AttributeType\RangeType;
+use Pim\Bundle\ExtendedMeasureBundle\Exception\UnknownUnitException;
+use Pim\Bundle\ExtendedMeasureBundle\Exception\UnresolvableUnitException;
+use Pim\Bundle\ExtendedMeasureBundle\Repository\MeasureRepositoryInterface;
 use Pim\Bundle\IcecatConnectorBundle\Exception\UnresolvableTypeException;
 use Pim\Bundle\IcecatConnectorBundle\Model\Feature;
 use Pim\Component\Catalog\AttributeTypes;
@@ -13,15 +17,17 @@ use Pim\Component\Catalog\AttributeTypes;
  */
 class AttributeTypeMapper
 {
-    /** @var MeasureMapper */
-    protected $measureMappper;
+    /**
+     * @var MeasureRepositoryInterface
+     */
+    private $measureRepository;
 
     /**
-     * @param MeasureMapper $measureMappper
+     * @param MeasureRepositoryInterface $repository
      */
-    public function __construct(MeasureMapper $measureMappper)
+    public function __construct(MeasureRepositoryInterface $repository)
     {
-        $this->measureMappper = $measureMappper;
+        $this->measureRepository = $repository;
     }
 
     /**
@@ -42,17 +48,17 @@ class AttributeTypeMapper
         } elseif ('y_n_o' === $type) {
             return AttributeTypes::BOOLEAN;
         } elseif ('numerical' === $type) {
-            if (null !== $this->resolveUnit($icecatFeature)) {
+            if (null !== $this->resolveByUnit($icecatFeature)) {
                 return AttributeTypes::METRIC;
             }
 
             return AttributeTypes::NUMBER;
         } elseif ('range' === $type) {
-            if (null !== $this->resolveUnit($icecatFeature)) {
+            if (null !== $this->resolveByUnit($icecatFeature)) {
                 return AttributeTypes::METRIC; //range metric
             }
 
-            return AttributeTypes::NUMBER; // range
+            return RangeType::TYPE_RANGE;
         } elseif ('ratio' === $type || 'contrast ratio' === $type) {
             return AttributeTypes::NUMBER;
         } elseif ('2d' === $type || '3d' === $type) {
@@ -67,16 +73,41 @@ class AttributeTypeMapper
     }
 
     /**
-     * @param $unit
+     * Get attribute
+     *
+     * @param Feature $icecatFeature
+     *
+     * @return string|null
+     */
+    protected function resolveByUnit(Feature $icecatFeature)
+    {
+        $attributeType = $this->getMappedAttributeType($icecatFeature);
+
+        if (null === $attributeType) {
+            $unit = $icecatFeature->getMeasureSign();
+            try {
+                return $this->measureRepository->findByUnit($unit);
+            } catch (UnresolvableUnitException $e) {
+                return null;
+            } catch (UnknownUnitException $e) {
+                return null;
+            }
+        }
+
+        return $attributeType;
+    }
+
+    /**
+     * @param Feature $icecatFeature
      *
      * @return array
      */
-    protected function resolveUnit($unit)
+    protected function getMappedAttributeType(Feature $icecatFeature)
     {
-        try {
-            return $this->measureMappper->resolvePimMeasure($unit);
-    } catch (\Exception $e) {
-            return null;
+        if ('x' === $icecatFeature->getMeasureSign()) {
+            return AttributeTypes::OPTION_SIMPLE_SELECT; // CD speed
         }
+
+        return null;
     }
 }

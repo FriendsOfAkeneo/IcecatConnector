@@ -17,9 +17,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class FeaturesParserCommand extends ContainerAwareCommand
 {
-    /** @var OutputInterface */
-    private $output;
-
+    /** @var string[] */
     private $unresolvableTypes = [];
 
     /**
@@ -40,16 +38,15 @@ class FeaturesParserCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->output = $output;
         $filepath = $input->getArgument('filepath');
-        $this->write(sprintf('Start parsing file <info>%s</info>', $filepath));
+        $this->write($output, sprintf('Start parsing file <info>%s</info>', $filepath));
 
         $streamer = XmlStringStreamer::createStringWalkerParser($filepath, [
             'captureDepth' => 2,
         ]);
 
         $parser = new FeatureToAttributeParser();
-        $measureMapper = new MeasureMapper($this->getContainer()->get('pim_extended_measures.resolver'));
+        $measureMapper = new MeasureMapper($this->getContainer()->get('pim_extended_measures.repository'));
         $attributeTypeMapper = new AttributeTypeMapper($measureMapper);
 
         while ($node = $streamer->getNode()) {
@@ -69,10 +66,11 @@ class FeaturesParserCommand extends ContainerAwareCommand
     }
 
     /**
-     * @param string $message
+     * @param OutputInterface $output
+     * @param string          $message
      */
-    private function write($message)
+    protected function write(OutputInterface $output, $message)
     {
-        $this->output->writeln(sprintf('[%s] %s', date('Y-m-d H:i:s'), $message));
+        $output->writeln(sprintf('[%s] %s', date('Y-m-d H:i:s'), $message));
     }
 }

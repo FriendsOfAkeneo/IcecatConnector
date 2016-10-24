@@ -16,6 +16,10 @@
         },
         {
             "type": "vcs",
+            "url": "git@github.com:akeneo/ExtendedAttributeTypeBundle.git"
+        },
+        {
+            "type": "vcs",
             "url": "git@github.com:akeneo/ExtendedMeasureBundle.git"
         }
     ],

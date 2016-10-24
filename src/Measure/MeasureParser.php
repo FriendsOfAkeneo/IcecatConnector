@@ -1,10 +1,10 @@
 <?php
 
-namespace Pim\Bundle\IcecatConnectorBundle\Parser;
+namespace Pim\Bundle\IcecatConnectorBundle\Measure;
 
 use Pim\Bundle\IcecatConnectorBundle\Model\Measure;
 
-class MeasuresParser
+class MeasureParser
 {
     const XPATH_DESCRIPTION = 'Descriptions/Description[@langid=1]';
     const XPATH_NAME = 'Names/Name[@langid=1]';
@@ -24,16 +24,5 @@ class MeasuresParser
         }
 
         return $measure;
-    }
-
-    public function writeCsv(Measure $measure, $output)
-    {
-        $csv = sprintf('%d;%s;%s;%s' . PHP_EOL,
-            $measure->getId(),
-            $measure->getName(),
-            $measure->getSign(),
-            $measure->getDescription()
-        );
-        file_put_contents($output, $csv, FILE_APPEND);
     }
 }
