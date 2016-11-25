@@ -1,5 +1,0 @@
-measures_config:
-    Weight:
-        units:
-            MICROGRAM:
-                alternative_units: ['\u03BCg'] # \03BC = µ (mu) UTF8 different from µ (micro)

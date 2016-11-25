@@ -1,10 +1,10 @@
 services:
-    pim_icecat_connector.step.xml_attribute.import:
-        class: '%pim_connector.step.item_step.class%'
-        arguments:
-            - 'import'
-            - '@event_dispatcher'
-            - '@akeneo_batch.job_repository'
-            - '@pim_icecat_connector.reader.file.xml_features'
-            - '@pim_connector.processor.denormalization.attribute'
-            - '@pim_connector.writer.database.attribute'
+#    pim_icecat_connector.step.xml_features.mapping:
+#        class: '%pim_connector.step.item_step.class%'
+#        arguments:
+#            - 'import'
+#            - '@event_dispatcher'
+#            - '@akeneo_batch.job_repository'
+#            - '@pim_icecat_connector.reader.file.xml_features'
+#            - '@pim_icecat_connector.mapping.processor.normalization.feature'
+#            - '@pim_connector.writer.file.csv'

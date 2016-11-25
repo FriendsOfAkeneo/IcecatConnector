@@ -28,6 +28,7 @@
         "akeneo/extended-attribute-type": "dev-master",
         "akeneo/extended-measure-bundle": "dev-master",
         "akeneo/pim-community-dev": "~1.6.3",
+        "guzzlehttp/guzzle": "@stable"
         "prewk/xml-string-streamer": "@stable"
     },
     "require-dev": {

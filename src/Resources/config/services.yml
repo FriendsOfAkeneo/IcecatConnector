@@ -1,0 +1,20 @@
+services:
+    pim_icecat_connector.xml.feature_normalizer:
+        class: Pim\Bundle\IcecatConnectorBundle\Xml\XmlFeatureNormalizer
+
+    pim_icecat_connector.http.client:
+        class: Pim\Bundle\IcecatConnectorBundle\Http\HttpClient
+        arguments:
+            - '%pim_icecat_connector.credentials.username%'
+            - '%pim_icecat_connector.credentials.password%'
+            - '%pim_icecat_connector.endpoint.server%'
+
+    pim_icecat_connector.xml.downloader:
+        class: Pim\Bundle\IcecatConnectorBundle\Xml\XmlDownloader
+        arguments:
+            - '@pim_icecat_connector.http.client'
+
+    pim_icecat_connector.decoder.xml.product:
+        class: Pim\Bundle\IcecatConnectorBundle\Xml\XmlProductDecoder
+        arguments:
+            - 'ecommerce'

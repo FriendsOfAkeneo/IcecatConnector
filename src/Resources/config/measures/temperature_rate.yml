@@ -1,0 +1,10 @@
+measures_config:
+    TemperatureRate:
+        standard: DEGREES_KELVIN_PER_HOUR
+        units:
+            DEGREES_KELVIN_PER_HOUR:
+                convert: [{ mul: 1 }]
+                symbol: K/h
+            DEGREES_CELCIUM_PER_HOUR:
+                convert: [{ add: 274.15 }]
+                symbol: °C/h

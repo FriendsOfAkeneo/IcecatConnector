@@ -1,0 +1,30 @@
+Pim\Bundle\IcecatConnectorBundle\Entity\Feature:
+    type: entity
+    table: pim_icecat_feature
+    changeTrackingPolicy: DEFERRED_EXPLICIT
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        type:
+            type: string
+            length: 50
+            nullable: true
+            column: type
+        name:
+            type: string
+            length: 255
+            nullable: true
+            column: name
+        description:
+            type: string
+            length: 255
+            nullable: true
+            column: description
+        sign:
+            type: string
+            length: 20
+            nullable: true
+            column: sign

@@ -2,10 +2,8 @@
 
 namespace Pim\Bundle\IcecatConnectorBundle\Command;
 
-use Pim\Bundle\IcecatConnectorBundle\Exception\UnresolvableTypeException;
-use Pim\Bundle\IcecatConnectorBundle\Mapper\AttributeTypeMapper;
-use Pim\Bundle\IcecatConnectorBundle\Mapper\MeasureMapper;
-use Pim\Bundle\IcecatConnectorBundle\Parser\FeatureToAttributeParser;
+use Pim\Bundle\IcecatConnectorBundle\Entity\Feature;
+use Pim\Bundle\IcecatConnectorBundle\Updater\FeatureUpdater;
 use Prewk\XmlStringStreamer;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -17,9 +15,6 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class FeaturesParserCommand extends ContainerAwareCommand
 {
-    /** @var string[] */
-    private $unresolvableTypes = [];
-
     /**
      * {@inheritdoc}
      */
@@ -28,7 +23,7 @@ class FeaturesParserCommand extends ContainerAwareCommand
         $this
             ->setName('pim-icecat:parser:features')
             ->addArgument(
-                'filepath',
+                'filename',
                 InputArgument::REQUIRED
             );
     }
@@ -38,31 +33,32 @@ class FeaturesParserCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $filepath = $input->getArgument('filepath');
+        $filename = $input->getArgument('filename');
+
+        $this->write($output, sprintf('Start downloading file <info>%s</info>', $filename));
+        $downloader = $this->getContainer()->get('pim_icecat_connector.xml.downloader');
+        $filepath = $downloader->download($filename, true);
+
         $this->write($output, sprintf('Start parsing file <info>%s</info>', $filepath));
-
         $streamer = XmlStringStreamer::createStringWalkerParser($filepath, [
-            'captureDepth' => 2,
+            'captureDepth' => 4,
         ]);
-
-        $parser = new FeatureToAttributeParser();
-        $measureMapper = new MeasureMapper($this->getContainer()->get('pim_extended_measures.repository'));
-        $attributeTypeMapper = new AttributeTypeMapper($measureMapper);
+        $normalizer = $this->getContainer()->get('pim_icecat_connector.xml.feature_normalizer');
+        $em = $this->getContainer()->get('doctrine.orm.entity_manager');
+        $repository = $em->getRepository(Feature::class);
+        $updater = new FeatureUpdater();
 
         while ($node = $streamer->getNode()) {
-            try {
-                $simpleXmlNode = simplexml_load_string($node);
-                $feature = $parser->parseNode($simpleXmlNode);
-                //dump($parser->normalize($feature));
-                dump($attributeTypeMapper->resolvePimType($feature));
-            } catch (UnresolvableTypeException $e) {
-                $erroredFeature = $e->getFeature();
-                if (!array_key_exists($erroredFeature->getType(), $this->unresolvableTypes)) {
-                    $this->unresolvableTypes[$erroredFeature->getType()] = $e->getMessage();
-                }
+            $simpleXmlNode = simplexml_load_string($node);
+            $feature = $normalizer->normalize($simpleXmlNode);
+            $entity = $repository->find($feature['id']);
+            if (null === $entity) {
+                $entity=new Feature();
             }
+            $updater->update($entity, $feature);
+            $em->persist($entity);
         }
-        dump($this->unresolvableTypes);
+        $em->flush();
     }
 
     /**

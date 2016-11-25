@@ -47,6 +47,7 @@ class MeasuresParserCommand extends ContainerAwareCommand
         $measureRepository = $this->getContainer()->get('pim_extended_measures.repository');
 
         $mesureCount = 0;
+        $excludedCount = 0;
         $unknown = [];
 
         while ($node = $streamer->getNode()) {
@@ -54,12 +55,16 @@ class MeasuresParserCommand extends ContainerAwareCommand
                 $simpleXmlNode = simplexml_load_string($node);
                 $measure = $parser->parseNode($simpleXmlNode);
                 $mesureCount++;
-                $measureRepository->findByUnit($measure->getSign());
+                $measureRepository->findBySymbol($measure->getSign());
             } catch (UnknownUnitException $e) {
+                if (in_array($measure->getSign(), $this->getIgnoredSigns())) {
+                    $excludedCount++;
+                    continue;
+                }
                 $code = strtoupper(preg_replace('/[- ]/', '_', $measure->getName()));
                 $unknown[$code] = [
                     'name'        => $measure->getName(),
-                    'conv'        => [['mul' => 1]],
+                    'convert'     => [['mul' => 1]],
                     'symbol'      => $measure->getSign(),
                     'description' => $measure->getDescription(),
                 ];
@@ -71,6 +76,7 @@ class MeasuresParserCommand extends ContainerAwareCommand
 
         $errorRatio = count($unknown) / $mesureCount;
         $this->write($output, 'Read = <info>' . $mesureCount . '</info>');
+        $this->write($output, 'Excluded = <info>' . $excludedCount . '</info>');
         $this->write($output, 'Errors = <info>' . count($unknown) . '</info>');
         $this->write($output, 'Error ratio = <info>' . $errorRatio * 100 . '%</info>');
 
@@ -81,6 +87,36 @@ class MeasuresParserCommand extends ContainerAwareCommand
         ];
         $yaml = Yaml::dump(['measures_config' => $unknown], 5);
         file_put_contents('/tmp/icecat-measures.yml', $yaml);
+    }
+
+    protected function getIgnoredSigns()
+    {
+        return [
+            '',
+            '€',
+            'cent(s)',
+            'x',
+            'lines',
+            'pages',
+            'entries',
+            'slides',
+            'levels of grey',
+            'user(s)',
+            'person(s)',
+            'sheets',
+            'buttons',
+            'locations',
+            'scans',
+            'pass(es)',
+            'scans',
+            'discs',
+            'copies',
+            'clicks',
+            'label(s)', 'coins', 'shots',
+            'coins per minute', 'octave(s)', 'piece(s)', 'EER', 'staples', 'cycles per logical sector',
+            'banknotes/min', 'pc(s)',
+
+        ];
     }
 
     /**
