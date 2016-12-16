@@ -2,7 +2,8 @@
 
 namespace Pim\Bundle\IcecatConnectorBundle\Command;
 
-use GuzzleHttp\Client;
+use Pim\Bundle\IcecatConnectorBundle\Xml\XmlDecodeException;
+use Pim\Component\Catalog\Model\ProductInterface;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -19,11 +20,7 @@ class GetProductCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('pim-icecat:api:product')
-            ->addArgument(
-                'ean',
-                InputArgument::REQUIRED
-            );
+            ->setName('pim-icecat:api:product');
     }
 
     /**
@@ -31,15 +28,28 @@ class GetProductCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $ean = $input->getArgument('ean');
-        $ean = '4960999358246';
-        $sku = '10699783';
+        $this->write($output, '<info>Fetch PIM products with EAN</info>');
 
-        $this->write($output, sprintf('Fetch PIM product EAN <info>%s</info>', $ean));
+        $pqb = $this->getContainer()->get('pim_catalog.query.product_query_builder_factory')
+            ->create([])->addFilter('ean', 'NOT EMPTY', null);
 
-        $productRepository = $this->getContainer()->get('pim_catalog.repository.product');
-        $product = $productRepository->findOneByIdentifier($sku);
+        $cursor = $pqb->execute();
 
+        if (count($cursor) === 0) {
+            $this->write($output, '<info>No product found</info>');
+        }
+
+        while ($cursor->valid()) {
+            $product = $cursor->current();
+            $this->updateProduct($product, $output);
+            $cursor->next();
+        }
+
+    }
+
+    protected function updateProduct(ProductInterface $product, OutputInterface $output)
+    {
+        $ean = $product->getValue('ean');
         $this->write($output, sprintf('Get Icecat product EAN <info>%s</info>', $ean));
 
         $httpClient = $this->getContainer()->get('pim_icecat_connector.http.client');
@@ -52,9 +62,18 @@ class GetProductCommand extends ContainerAwareCommand
             'auth' => $httpClient->getCredentials(),
         ]);
         $decoder = $this->getContainer()->get('pim_icecat_connector.decoder.xml.product');
-        $standardProduct = $decoder->decode($res->getBody()->getContents(), 'xml');
-        $updater = $this->getContainer()->get('pim_catalog.updater.product');
-        $updater->update($product, $standardProduct);
+        try {
+            $standardProduct = $decoder->decode($res->getBody()->getContents(), 'xml');
+            $updater = $this->getContainer()->get('pim_catalog.updater.product');
+            $updater->update($product, $standardProduct);
+            $saver = $this->getContainer()->get('pim_catalog.saver.product');
+            $saver->save($product);
+        } catch (XmlDecodeException $e) {
+            $this->write($output, $e->getMessage());
+            $this->write($output, $e->getPrevious()->getMessage());
+        } catch (\Exception $e) {
+            $this->write($output, $e->getMessage());
+        }
     }
 
     /**

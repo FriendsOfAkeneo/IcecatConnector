@@ -5,6 +5,7 @@ namespace Pim\Bundle\IcecatConnectorBundle\Reader;
 use Akeneo\Component\Batch\Item\ItemReaderInterface;
 use Akeneo\Component\Batch\Model\StepExecution;
 use Akeneo\Component\Batch\Step\StepExecutionAwareInterface;
+use Pim\Bundle\IcecatConnectorBundle\Xml\IcecatDownloader;
 use Prewk\XmlStringStreamer;
 
 /**
@@ -20,6 +21,14 @@ class XmlReader implements ItemReaderInterface, StepExecutionAwareInterface
     /** @var StepExecution */
     protected $stepExecution;
 
+    /** @var IcecatDownloader */
+    private $downloader;
+
+    public function __construct(IcecatDownloader $downloader)
+    {
+        $this->downloader = $downloader;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -27,17 +36,29 @@ class XmlReader implements ItemReaderInterface, StepExecutionAwareInterface
     {
         if (null === $this->xmlStreamer) {
             $jobParameters = $this->stepExecution->getJobParameters();
-            $filePath = $jobParameters->get('filePath');
-            $this->xmlStreamer = XmlStringStreamer::createStringWalkerParser($filePath);
+            $filename = $jobParameters->get('filename');
+            $downloadDirectory = $jobParameters->get('download_directory');
+            $this->stepExecution->addSummaryInfo('download.start', $filename);
+            $downloadedFile = $this->downloader->download($filename, $downloadDirectory, true);
+//            $downloadedFile = '/tmp/FeaturesList.xml';
+            $this->stepExecution->addSummaryInfo('download.success', $downloadedFile);
+            $this->xmlStreamer = XmlStringStreamer::createStringWalkerParser($downloadedFile, [
+                'captureDepth' => 4,
+            ]);
         }
         $node = $this->xmlStreamer->getNode();
-        $this->stepExecution->incrementSummaryInfo('read_lines');
 
         if (null === $node) {
             return null;
         }
 
         $xmlElement = simplexml_load_string($node);
+
+        if (false === $xmlElement) {
+            return null;
+        }
+
+        $this->stepExecution->incrementSummaryInfo('read_lines');
 
         return $xmlElement;
     }

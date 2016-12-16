@@ -28,3 +28,8 @@ Pim\Bundle\IcecatConnectorBundle\Entity\Feature:
             length: 20
             nullable: true
             column: sign
+        pimCode:
+            type: string
+            length: 100
+            nullable: true
+            column: pim_code

@@ -1,3 +1,11 @@
 services:
     pim_icecat_connector.reader.file.xml_features:
         class: Pim\Bundle\IcecatConnectorBundle\Reader\XmlReader
+        arguments:
+            - '@pim_icecat_connector.xml.downloader'
+
+    pim_icecat_connector.reader.file.features_mapping:
+        class: '%pim_connector.reader.file.csv.class%'
+        arguments:
+            - '@pim_connector.reader.file.csv_iterator_factory'
+            - '@pim_connector.array_converter.dummy'

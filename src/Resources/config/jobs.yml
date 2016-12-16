@@ -1,27 +1,32 @@
 parameters:
-    pim_icecat_connector.job.job_parameters.form_configuration_provider.simple_xml.class: Pim\Bundle\IcecatConnectorBundle\JobParameters\FormConfigurationProvider\SimpleXmlImport
+    pim_icecat_connector.job.job_parameters.form_configuration_provider.simple_csv.class: Pim\Bundle\IcecatConnectorBundle\JobParameters\FormConfigurationProvider\SimpleCsvConfiguration
 
 services:
-#    pim_icecat_connector.job.xml_features_prepare_mapping:
-#        class: '%pim_connector.job.simple_job.class%'
-#        arguments:
-#            - 'Icecat features mapping'
-#            - '@event_dispatcher'
-#            - '@akeneo_batch.job_repository'
-#            -
-#                - '@pim_connector.step.charset_validator'
-#                - '@pim_icecat_connector.step.xml_features.mapping'
-#        tags:
-#            -
-#                name: akeneo_batch.job
-#                connector: 'Icecat'
-#                type: '%pim_connector.job.import_type%'
+    #--------------------------------------------------------------------------
+    # prepare features CSV mapping file job
+    #--------------------------------------------------------------------------
+    pim_icecat_connector.job.xml_features_prepare_mapping:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'icecat_import_features'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pim_icecat_connector.step.download_features.mapping'
+        tags:
+            -
+                name: akeneo_batch.job
+                connector: 'Icecat'
+                type: '%pim_connector.job.import_type%'
 
-    pim_icecat_connector.job.job_parameters.default_values_provider.empty:
-        class: Pim\Bundle\IcecatConnectorBundle\JobParameters\DefaultValuesProvider\SimpleXmlImport
+    pim_icecat_connector.job.job_parameters.default_values_provider.import_features:
+        class: Pim\Bundle\IcecatConnectorBundle\JobParameters\DefaultValuesProvider\XmlToCsvDownload
         arguments:
             -
-                - 'Icecat features import'
+                - 'icecat_import_features'
+            -
+                filename: 'FeaturesList.xml.gz'
+                filePath: '/tmp/featuresList.csv'
         tags:
             - { name: akeneo_batch.job.job_parameters.default_values_provider }
 
@@ -29,14 +34,52 @@ services:
         class: '%akeneo_batch.job.job_parameters.empty_constraint_collection_provider.class%'
         arguments:
             -
-                - 'Icecat features import'
+                - 'icecat_import_features'
+                - 'icecat_import_features_mapping'
         tags:
             - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
 
-    pim_icecat_connector.job.job_parameters.form_configuration_provider.dummy_export:
-        class: '%pim_icecat_connector.job.job_parameters.form_configuration_provider.simple_xml.class%'
+    pim_icecat_connector.job.job_parameters.form_configuration_provider.simple_csv_download:
+        class: '%pim_icecat_connector.job.job_parameters.form_configuration_provider.simple_csv.class%'
         arguments:
             -
-                - 'Icecat features import'
+                - 'icecat_import_features'
+        tags:
+            - { name: pim_import_export.job_parameters.form_configuration_provider }
+
+    #--------------------------------------------------------------------------
+    # import features mapping job
+    #--------------------------------------------------------------------------
+    pim_icecat_connector.job.import_features_mapping:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'icecat_import_features_mapping'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pim_connector.step.charset_validator'
+                - '@pim_icecat_connector.step.import_features.mapping'
+        tags:
+            -
+                name: akeneo_batch.job
+                connector: 'Icecat'
+                type: '%pim_connector.job.import_type%'
+
+    pim_icecat_connector.job.job_parameters.default_values_provider.import_features_mapping:
+        class: Pim\Bundle\IcecatConnectorBundle\JobParameters\DefaultValuesProvider\CsvToCsvImport
+        arguments:
+            -
+                - 'icecat_import_features_mapping'
+            -
+                output_filepath: '/tmp/mapping.csv'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.default_values_provider }
+
+
+    pim_icecat_connector.job.job_parameters.form_configuration_provider.simple_csv_import:
+        class: Pim\Bundle\IcecatConnectorBundle\JobParameters\FormConfigurationProvider\CsvToCsvConfiguration
+        arguments:
+            -
+                - 'icecat_import_features_mapping'
         tags:
             - { name: pim_import_export.job_parameters.form_configuration_provider }

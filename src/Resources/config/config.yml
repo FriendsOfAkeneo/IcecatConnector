@@ -1,0 +1,17 @@
+pim_icecat_connector:
+    settings:
+        ean_attribute:
+            value: ~
+            scope: app
+        description:
+            value: ~
+            scope: app
+        short_description:
+            value: ~
+            scope: app
+        summary_description:
+            value: ~
+            scope: app
+        short_summary_description:
+            value: ~
+            scope: app

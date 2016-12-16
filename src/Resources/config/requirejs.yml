@@ -1,0 +1,4 @@
+config:
+    paths:
+        pimicecatconnector/system/configuration: pimicecatconnector/js/form/system
+        pimicecatconnector/template/system/group/configuration: pimicecatconnector/js/templates/system/group/configuration.html

@@ -2,6 +2,7 @@
 
 namespace Pim\Bundle\IcecatConnectorBundle\Xml;
 
+use Akeneo\Component\Batch\Item\ItemProcessorInterface;
 use SimpleXMLElement;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
@@ -12,7 +13,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  * @copyright 2016 Akeneo SAS (http://www.akeneo.com)
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-class XmlFeatureNormalizer implements NormalizerInterface
+class XmlFeatureMappingNormalizer implements NormalizerInterface, ItemProcessorInterface
 {
     const XPATH_DESCRIPTION = 'Descriptions/Description[@langid=1]';
     const XPATH_NAME = 'Names/Name[@langid=1]';
@@ -25,22 +26,29 @@ class XmlFeatureNormalizer implements NormalizerInterface
      */
     public function normalize($xmlFeature, $format = null, array $context = [])
     {
+        if (!$xmlFeature instanceof SimpleXMLElement) {
+            return null;
+        }
+
         $attributes = $xmlFeature->attributes();
         $result = [
-            'id' => (int) $attributes['ID'],
-            'type' => (string) $attributes['Type'],
+            'feature_id'   => (int) $attributes['ID'],
+            'feature_type' => (string) $attributes['Type'],
         ];
 
+        $result['pim_attribute_code'] = sprintf('icecat_%d', $result['feature_id']);
+        $result['ignore_flag'] = 0;
+
         if ($xmlFeature->xpath(self::XPATH_NAME)) {
-            $result['name'] = (string) $xmlFeature->xpath(self::XPATH_NAME)[0];
+            $result['feature_name'] = (string) $xmlFeature->xpath(self::XPATH_NAME)[0];
         }
         if ($xmlFeature->xpath(self::XPATH_DESCRIPTION)) {
-            $result['description'] = (string) $xmlFeature->xpath(self::XPATH_DESCRIPTION)[0];
+            $result['feature_description'] = (string) $xmlFeature->xpath(self::XPATH_DESCRIPTION)[0];
         }
 
         $measure = $xmlFeature->Measure;
         if ($measure) {
-            $result['sign'] = (string) $measure->attributes()['Sign'];
+            $result['feature_unit'] = (string) $measure->attributes()['Sign'];
         }
 
         return $result;
@@ -52,5 +60,13 @@ class XmlFeatureNormalizer implements NormalizerInterface
     public function supportsNormalization($data, $format = null)
     {
         return $data instanceof SimpleXMLElement;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function process($item)
+    {
+        return $this->normalize($item);
     }
 }

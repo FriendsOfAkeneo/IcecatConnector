@@ -2,6 +2,8 @@
 
 namespace Pim\Bundle\IcecatConnectorBundle\Mapping;
 
+use Oro\Bundle\ConfigBundle\Config\ConfigManager;
+
 /**
  * @author    JM Leroux <jean-marie.leroux@akeneo.com>
  * @copyright 2016 Akeneo SAS (http://www.akeneo.com)
@@ -14,14 +16,13 @@ class AttributeMapper implements MapperInterface
      */
     protected $mapping = [];
 
-    public function __construct()
+    /** @var ConfigManager */
+    protected $configManager;
+
+    public function __construct(ConfigManager $configManager)
     {
-        $this->mapping = [
-            'product_description ' => 'product_description',
-            'long_description'     => 'description',
-            'short_description'    => 'short_description',
-//            537=>'537',
-        ];
+        $this->configManager = $configManager;
+        $this->loadMapping();
     }
 
     /**
@@ -35,5 +36,10 @@ class AttributeMapper implements MapperInterface
         }
 
         return $targetItem;
+    }
+
+    protected function loadMapping()
+    {
+
     }
 }

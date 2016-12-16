@@ -6,11 +6,13 @@ use Akeneo\Component\Batch\Job\JobInterface;
 use Pim\Bundle\ImportExportBundle\JobParameters\FormConfigurationProviderInterface;
 
 /**
- * FormsOptions for simple XML import
+ * FormsOptions for simple CSV
  *
  * @author JM Leroux <jean-marie.leroux@akeneo.com>
+ * @copyright 2016 Akeneo SAS (http://www.akeneo.com)
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-class SimpleXmlImport implements FormConfigurationProviderInterface
+class SimpleCsvConfiguration implements FormConfigurationProviderInterface
 {
     /** @var array */
     protected $supportedJobNames;
@@ -31,15 +33,20 @@ class SimpleXmlImport implements FormConfigurationProviderInterface
         return [
             'filePath' => [
                 'options' => [
-                    'label' => 'pim_connector.import.csv.filePath.label',
-                    'help'  => 'pim_connector.import.csv.filePath.help'
+                    'label' => 'pim_connector.export.csv.filePath.label',
+                    'help'  => 'pim_connector.export.csv.filePath.help'
                 ]
             ],
-            'uploadAllowed' => [
-                'type'    => 'switch',
+            'delimiter' => [
                 'options' => [
-                    'label' => 'pim_connector.import.csv.uploadAllowed.label',
-                    'help'  => 'pim_connector.import.csv.uploadAllowed.help'
+                    'label' => 'pim_connector.export.csv.delimiter.label',
+                    'help'  => 'pim_connector.export.csv.delimiter.help'
+                ]
+            ],
+            'enclosure' => [
+                'options' => [
+                    'label' => 'pim_connector.export.csv.enclosure.label',
+                    'help'  => 'pim_connector.export.csv.enclosure.help'
                 ]
             ],
         ];

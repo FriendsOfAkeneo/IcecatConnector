@@ -24,6 +24,9 @@ class Feature
     /** @var string */
     private $sign;
 
+    /** @var string */
+    private $pimCode;
+
     /**
      * @return int
      */
@@ -102,5 +105,21 @@ class Feature
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPimCode()
+    {
+        return $this->pimCode;
+    }
+
+    /**
+     * @param string $pimCode
+     */
+    public function setPimCode($pimCode)
+    {
+        $this->pimCode = $pimCode;
     }
 }

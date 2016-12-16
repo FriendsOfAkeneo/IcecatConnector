@@ -2,8 +2,8 @@
 
 namespace Pim\Bundle\IcecatConnectorBundle\Xml;
 
+use Oro\Bundle\ConfigBundle\Config\ConfigManager;
 use Pim\Bundle\IcecatConnectorBundle\Mapping\AttributeMapper;
-use Pim\Bundle\IcecatConnectorBundle\Mapping\MapperInterface;
 use Symfony\Component\Serializer\Encoder\DecoderInterface;
 
 /**
@@ -15,19 +15,27 @@ use Symfony\Component\Serializer\Encoder\DecoderInterface;
  */
 class XmlProductDecoder implements DecoderInterface
 {
-    /** @var MapperInterface */
-    protected $mapper;
-
     /** @var string */
     protected $scope;
 
+    /** @var AttributeMapper */
+    protected $attributeMapper;
+
+    /** @var ConfigManager */
+    protected $configManager;
+
     /**
-     * @param string $scope
+     * @param ConfigManager   $configManager
+     * @param AttributeMapper $attributeMapper
+     * @param string          $scope
+     *
+     * @internal param ConfigManager $configManager
      */
-    public function __construct($scope)
+    public function __construct(ConfigManager $configManager, AttributeMapper $attributeMapper, $scope)
     {
-        $this->mapper = new AttributeMapper();
         $this->scope = $scope;
+        $this->attributeMapper = $attributeMapper;
+        $this->configManager = $configManager;
     }
 
     /**
@@ -37,33 +45,60 @@ class XmlProductDecoder implements DecoderInterface
     {
         $standardItem = [];
 
-        $simpleXmlNode = simplexml_load_string($xmlString);
-        $icecatProduct = $simpleXmlNode->Product;
+        try {
+            $simpleXmlNode = simplexml_load_string($xmlString);
+            $icecatProduct = $simpleXmlNode->Product;
 
-        $standardItem = $this->addProductValue(
-            $standardItem,
-            'product_description',
-            (string) $icecatProduct->ProductDescription->attributes()['LongDesc']
-        );
-        $standardItem = $this->addProductValue(
-            $standardItem,
-            'long_description',
-            (string) $icecatProduct->SummaryDescription->LongSummaryDescription
-        );
-        $standardItem = $this->addProductValue(
-            $standardItem,
-            'short_description',
-            (string) $icecatProduct->SummaryDescription->ShortSummaryDescription
-        );
+            $pimAttributeCode = $this->configManager->get('pim_icecat_connector.description');
+            if (!empty($pimAttributeCode)) {
+                $standardItem = $this->addProductValue(
+                    $standardItem,
+                    $pimAttributeCode,
+                    (string) $icecatProduct->ProductDescription->attributes()['LongDesc']
+                );
+            }
 
-        foreach ($icecatProduct->ProductFeature as $xmlFeature) {
-            $featureId = (int) $xmlFeature->Feature->attributes()['ID'];
-            $value = (string) $xmlFeature->LocalValue->attributes()['Value'];
-            $standardItem = $this->addProductValue(
-                $standardItem,
-                $featureId,
-                $value
-            );
+            $pimAttributeCode = $this->configManager->get('pim_icecat_connector.short_description');
+            if (!empty($pimAttributeCode)) {
+                $standardItem = $this->addProductValue(
+                    $standardItem,
+                    $pimAttributeCode,
+                    (string) $icecatProduct->ProductDescription->attributes()['ShortDesc']
+                );
+            }
+
+            $pimAttributeCode = $this->configManager->get('pim_icecat_connector.summary_description');
+            if (!empty($pimAttributeCode)) {
+                $standardItem = $this->addProductValue(
+                    $standardItem,
+                    $pimAttributeCode,
+                    (string) $icecatProduct->SummaryDescription->LongSummaryDescription
+                );
+            }
+
+            $pimAttributeCode = $this->configManager->get('pim_icecat_connector.short_summary_description');
+            if (!empty($pimAttributeCode)) {
+                $standardItem = $this->addProductValue(
+                    $standardItem,
+                    $pimAttributeCode,
+                    (string) $icecatProduct->SummaryDescription->ShortSummaryDescription
+                );
+            }
+
+            foreach ($icecatProduct->ProductFeature as $xmlFeature) {
+                $featureId = (int) $xmlFeature->Feature->attributes()['ID'];
+                $pimCode = $this->attributeMapper->getMapped($featureId);
+                if (!empty($pimCode)) {
+                    $value = (string) $xmlFeature->LocalValue->attributes()['Value'];
+                    $standardItem = $this->addProductValue(
+                        $standardItem,
+                        $pimCode,
+                        $value
+                    );
+                }
+            }
+        } catch (\Exception $e) {
+            throw new XmlDecodeException(sprintf('XML decode error for string %s', $xmlString), 0, $e);
         }
 
         dump($standardItem);
@@ -71,13 +106,8 @@ class XmlProductDecoder implements DecoderInterface
         return $standardItem;
     }
 
-    protected function addProductValue(array $standardItem, $sourceItem, $value)
+    protected function addProductValue(array $standardItem, $pimCode, $value)
     {
-        $pimCode = $this->mapper->getMapped($sourceItem);
-
-        if (null === $pimCode) {
-            return $standardItem;
-        }
         $standardItem[$pimCode] = [
             [
                 'data'   => $value,

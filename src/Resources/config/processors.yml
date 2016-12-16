@@ -1,0 +1,7 @@
+services:
+    pim_icecat_connector.processor.mapping.features_mapping:
+        class: Pim\Bundle\IcecatConnectorBundle\Mapping\MappingProcessor
+        arguments:
+            - '@validator'
+            - '@pim_catalog.repository.attribute'
+            - '@akeneo_storage_utils.doctrine.object_detacher'

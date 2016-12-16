@@ -1,0 +1,6 @@
+extensions:
+    textmaster-system-configuration:
+        module: pimicecatconnector/system/configuration
+        parent: oro-system-config-system
+        targetZone: content
+        position: 120

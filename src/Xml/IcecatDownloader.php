@@ -11,30 +11,35 @@ use Pim\Bundle\IcecatConnectorBundle\Http\HttpClient;
  * @copyright 2016 Akeneo SAS (http://www.akeneo.com)
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-class XmlDownloader
+class IcecatDownloader
 {
+    /** @const string Icecat base url */
     const URI_FREEXML_REFS = 'http://data.icecat.biz/export/freexml.int/refs/';
 
     /** @var HttpClient */
     protected $httpClient;
-    protected $targetDir;
 
+    /**
+     * IcecatDownloader constructor.
+     *
+     * @param HttpClient $httpClient
+     */
     public function __construct(HttpClient $httpClient)
     {
         $this->httpClient = $httpClient;
-        $this->targetDir = '/tmp';
     }
 
     /**
      * @param string $basename
-     * @param bool $gunzip
+     * @param string $targetDirectory
+     * @param bool   $gunzip
      *
      * @return string
      */
-    public function download($basename, $gunzip)
+    public function download($basename, $targetDirectory, $gunzip)
     {
         $featureListUri = sprintf('%s%s', self::URI_FREEXML_REFS, $basename);
-        $targetFile = $this->targetDir . '/' . $basename;
+        $targetFile = $targetDirectory . '/' . $basename;
         $guzzle = $this->httpClient->getGuzzle();
         $guzzle->request('GET', $featureListUri, [
             'auth' => $this->httpClient->getCredentials(),
@@ -43,17 +48,21 @@ class XmlDownloader
 
         $outputPath = $targetFile;
         if ($gunzip) {
-            $outputPath = $this->uncompress($basename);
+            $outputPath = $this->uncompress($targetFile);
         }
 
         return $outputPath;
     }
 
-    protected function uncompress($filename)
+    /**
+     * @param string $sourceFile compressed source file
+     *
+     * @return mixed Uncompressed output file path
+     */
+    protected function uncompress($sourceFile)
     {
-        $input = gzopen($this->targetDir . '/' . $filename, 'rb');
-        $outputBasename = str_replace('.gz', '', $filename);
-        $outputPath = $this->targetDir . '/' . $outputBasename;
+        $input = gzopen($sourceFile, 'rb');
+        $outputPath = str_replace('.gz', '', basename($sourceFile));
         $ouput = fopen($outputPath, 'wb');
 
         while (!gzeof($input)) {

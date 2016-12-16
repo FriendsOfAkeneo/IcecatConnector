@@ -13,7 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * @author JM Leroux <jean-marie.leroux@akeneo.com>
  */
-class FeaturesParserCommand extends ContainerAwareCommand
+class ImportMappingCommand extends ContainerAwareCommand
 {
     /**
      * {@inheritdoc}
@@ -21,11 +21,12 @@ class FeaturesParserCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('pim-icecat:parser:features')
-            ->addArgument(
-                'filename',
-                InputArgument::REQUIRED
-            );
+            ->setName('pim-icecat:mapping:import')
+//            ->addArgument(
+//                'filename',
+//                InputArgument::REQUIRED
+//            )
+        ;
     }
 
     /**
@@ -33,32 +34,16 @@ class FeaturesParserCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $filename = $input->getArgument('filename');
-
-        $this->write($output, sprintf('Start downloading file <info>%s</info>', $filename));
-        $downloader = $this->getContainer()->get('pim_icecat_connector.xml.downloader');
-        $filepath = $downloader->download($filename, true);
+//        $filename = $input->getArgument('filename');
+        $filepath = '/tmp/featuresList.csv';
 
         $this->write($output, sprintf('Start parsing file <info>%s</info>', $filepath));
-        $streamer = XmlStringStreamer::createStringWalkerParser($filepath, [
-            'captureDepth' => 4,
-        ]);
         $normalizer = $this->getContainer()->get('pim_icecat_connector.xml.feature_normalizer');
-        $em = $this->getContainer()->get('doctrine.orm.entity_manager');
-        $repository = $em->getRepository(Feature::class);
-        $updater = new FeatureUpdater();
 
         while ($node = $streamer->getNode()) {
             $simpleXmlNode = simplexml_load_string($node);
             $feature = $normalizer->normalize($simpleXmlNode);
-            $entity = $repository->find($feature['id']);
-            if (null === $entity) {
-                $entity=new Feature();
-            }
-            $updater->update($entity, $feature);
-            $em->persist($entity);
         }
-        $em->flush();
     }
 
     /**
