@@ -1,5 +1,0 @@
-measures_config:
-    Temperature:
-        units:
-            KELVIN:
-                alternative_units: ['K']

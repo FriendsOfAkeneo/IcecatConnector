@@ -1,5 +1,0 @@
-measures_config:
-    Volume:
-        units:
-            LITER:
-                alternative_units: ['L']

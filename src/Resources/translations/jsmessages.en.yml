@@ -1,0 +1,9 @@
+pim_icecat_connector:
+    configuration:
+        tab:
+            label: Icecat
+        ean_attribute: EAN attribute
+        description: Description
+        short_description: Short description
+        summary_description: Summary description
+        short_summary_description: Short summary description

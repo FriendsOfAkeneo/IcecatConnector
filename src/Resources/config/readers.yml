@@ -1,5 +1,21 @@
 services:
     pim_icecat_connector.reader.file.xml_features:
-        class: Pim\Bundle\IcecatConnectorBundle\Reader\Xml\FeaturesReader
+        class: Pim\Bundle\IcecatConnectorBundle\Reader\XmlReader
         arguments:
-            - '@pim_connector.array_converter.flat_to_standard.attribute'
+            - '@pim_icecat_connector.xml.downloader'
+
+    pim_icecat_connector.reader.file.features_mapping:
+        class: '%pim_connector.reader.file.csv.class%'
+        arguments:
+            - '@pim_connector.reader.file.csv_iterator_factory'
+            - '@pim_connector.array_converter.dummy'
+
+    pim_icecat_connector.reader.database.product:
+        class: Pim\Bundle\IcecatConnectorBundle\Reader\ProductReader
+        arguments:
+            - '@pim_catalog.query.product_query_builder_factory'
+            - '@pim_catalog.repository.channel'
+            - '@pim_catalog.manager.completeness'
+            - '@pim_catalog.converter.metric'
+            - '@oro_config.global'
+            - false

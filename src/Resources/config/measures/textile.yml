@@ -1,8 +1,0 @@
-measures_config:
-    Textile:
-        standard: DENIER
-        units:
-            DENIER:
-                convert: [{'mul': 1}]
-                symbol: 'D'
-                name: 'denier'

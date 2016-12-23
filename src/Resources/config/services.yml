@@ -1,0 +1,40 @@
+services:
+    pim_icecat_connector.xml.feature_normalizer:
+        class: Pim\Bundle\IcecatConnectorBundle\Xml\XmlFeatureMappingNormalizer
+
+    pim_icecat_connector.http.client:
+        class: Pim\Bundle\IcecatConnectorBundle\Http\HttpClient
+        arguments:
+            - '%pim_icecat_connector.credentials.username%'
+            - '%pim_icecat_connector.credentials.password%'
+            - '%pim_icecat_connector.endpoint.server%'
+
+    pim_icecat_connector.xml.downloader:
+        class: Pim\Bundle\IcecatConnectorBundle\Xml\IcecatDownloader
+        arguments:
+            - '@pim_icecat_connector.http.client'
+
+    pim_icecat_connector.decoder.xml.product:
+        class: Pim\Bundle\IcecatConnectorBundle\Xml\XmlProductDecoder
+        arguments:
+            - '@oro_config.global'
+            - '@pim_icecat_connector.mapping.attribute_mapper'
+            - '@pim_catalog.repository.attribute'
+            - '@pim_extended_measures.repository'
+            - 'ecommerce'
+            - 'en_US'
+
+    pim_icecat_connector.mapping.attribute_mapper:
+        class: Pim\Bundle\IcecatConnectorBundle\Mapping\AttributeMapper
+        arguments:
+            - '@oro_config.global'
+
+    pim_icecat_connector.validator.mapping.feature_ignore_flag:
+        class: Pim\Bundle\IcecatConnectorBundle\Mapping\Constraint\IgnoreFlagConstraintValidator
+        tags:
+            - { name: validator.constraint_validator }
+
+    pim_icecat_connector.validator.mapping.feature_invalid_type:
+        class: Pim\Bundle\IcecatConnectorBundle\Mapping\Constraint\InvalidTypeConstraintValidator
+        tags:
+            - { name: validator.constraint_validator }

@@ -1,0 +1,11 @@
+job_execution.summary.download.start: Start downloading
+job_execution.summary.download.success: Successfull download
+job_execution.summary.skipped_mapping: skipped
+
+batch_jobs.icecat_download_features.label: Download features
+batch_jobs.icecat_download_features.import.label: Download features
+batch_jobs.icecat_import_features_mapping.validation.label: Validate file encoding
+batch_jobs.icecat_import_features_mapping.label: Import features mapping
+batch_jobs.icecat_import_features_mapping.import.label: Import features mapping
+batch_jobs.icecat_enrich_products.label: Enrich products from Icecat
+batch_jobs.icecat_enrich_products.import.label: Enrich products from Icecat

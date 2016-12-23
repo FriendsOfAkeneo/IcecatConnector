@@ -1,0 +1,32 @@
+services:
+    pim_icecat_connector.writer.file.default.column_sorter:
+        class: '%pim_connector.writer.file.default.column_sorter.class%'
+        arguments:
+            - '@pim_connector.array_converter.flat_to_standard.product.field_splitter'
+            -
+                - 'feature_id'
+                - 'pim_attribute_code'
+                - 'ignore_flag'
+                - 'feature_type'
+                - 'feature_name'
+                - 'feature_description'
+                - 'feature_unit'
+
+    pim_icecat_connector.writer.file.csv_ouput:
+        class: Pim\Bundle\IcecatConnectorBundle\Writer\File\CsvWriter
+        arguments:
+            - '@pim_connector.array_converter.dummy'
+            - '@pim_connector.factory.flat_item_buffer'
+            - '@pim_icecat_connector.writer.file.product.flat_item_buffer_flusher'
+
+    pim_icecat_connector.writer.file.csv_feature_mapping:
+        class: '%pim_connector.writer.file.csv.class%'
+        arguments:
+            - '@pim_connector.array_converter.dummy'
+            - '@pim_connector.factory.flat_item_buffer'
+            - '@pim_icecat_connector.writer.file.product.flat_item_buffer_flusher'
+
+    pim_icecat_connector.writer.file.product.flat_item_buffer_flusher:
+        class: '%pim_connector.writer.file.flat_item_buffer_flusher.class%'
+        arguments:
+             - '@pim_icecat_connector.writer.file.default.column_sorter'

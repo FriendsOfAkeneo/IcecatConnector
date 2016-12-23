@@ -1,0 +1,75 @@
+measures_config:
+    Temperature:
+        units:
+            KELVIN:
+                alternative_symbols: ['K']
+
+    Duration:
+        units:
+            DAY:
+                alternative_symbols: ['day(s)']
+            MONTH:
+                alternative_symbols: ['month(s)']
+            YEAR:
+                alternative_symbols: ['year(s)']
+            WEEK:
+                alternative_symbols: ['week(s)']
+
+    Length:
+        units:
+            MICROMETER:
+                alternative_symbols: ['µ', '\u03BC'] # \03BC = µ (mu) UTF8 different from µ (micro)
+    Pressure:
+        units:
+            BAR:
+                alternative_symbols: ['bar']
+            MILLIBAR:
+                alternative_symbols: ['mbar']
+
+    Volume:
+        units:
+            LITER:
+                alternative_symbols: ['L']
+
+    Weight:
+        units:
+            MICROGRAM:
+                alternative_symbols: ['\u03BCg'] # \03BC = µ (mu) UTF8 different from µ (micro)
+
+    MassFlowRate:
+        units:
+            KILOGRAM_PER_DAY:
+                alternative_symbols: ['kg/24h']
+
+    Binary:
+        units:
+            KILOBYTE:
+                alternative_symbols: ['KB']
+
+    VolumeFlowRate:
+        units:
+            MILLILITRE_PER_HOUR:
+                alternative_symbols: ['ml/hr']
+
+    DataTransferRate:
+        units:
+            KILOBIT_PER_SECOND:
+                alternative_symbols: ['Kbit/s']
+            KILOBYTE_PER_SECOND:
+                alternative_symbols: ['KB/s']
+            GIGABYTE_PER_SECOND:
+                alternative_symbols: ['GB/s']
+            GIGABYTE_PER_MINUTE:
+                alternative_symbols: ['GB/min']
+            GIGABYTE_PER_HOUR:
+                alternative_symbols: ['GB/h']
+            MEGABYTE_PER_SECOND:
+                alternative_symbols: ['MB/s']
+            MEGABYTE_PER_HOUR:
+                alternative_symbols: ['MB/h']
+
+    Energy:
+        units:
+            WATT_SECOND:
+                convert: [{ mul: 1 }]
+                symbol: Ws

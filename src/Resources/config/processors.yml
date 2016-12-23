@@ -1,0 +1,16 @@
+services:
+    pim_icecat_connector.processor.mapping.features_mapping:
+        class: Pim\Bundle\IcecatConnectorBundle\Mapping\MappingProcessor
+        arguments:
+            - '@validator'
+            - '@pim_catalog.repository.attribute'
+            - '@akeneo_storage_utils.doctrine.object_detacher'
+
+    pim_icecat_connector.processor.enrich.product:
+        class: Pim\Bundle\IcecatConnectorBundle\Enrich\EnrichProductProcessor
+        arguments:
+            - '@pim_icecat_connector.http.client'
+            - '@pim_icecat_connector.decoder.xml.product'
+            - '@pim_catalog.updater.product'
+            - '@oro_config.global'
+            - '%pim_icecat_connector.endpoint.product.prod_id%'
