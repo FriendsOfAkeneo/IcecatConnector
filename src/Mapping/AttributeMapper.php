@@ -14,7 +14,7 @@ class AttributeMapper implements MapperInterface
     /**
      * @var array
      */
-    protected $mapping = [];
+    protected $mapping = null;
 
     /** @var ConfigManager */
     protected $configManager;
@@ -22,7 +22,6 @@ class AttributeMapper implements MapperInterface
     public function __construct(ConfigManager $configManager)
     {
         $this->configManager = $configManager;
-        $this->loadMapping();
     }
 
     /**
@@ -30,6 +29,9 @@ class AttributeMapper implements MapperInterface
      */
     public function getMapped($sourceItem)
     {
+        if (null === $this->mapping) {
+            $this->mapping = $this->loadMapping();
+        }
         $targetItem = null;
         if (isset($this->mapping[$sourceItem])) {
             $targetItem = $this->mapping[$sourceItem];
@@ -40,6 +42,18 @@ class AttributeMapper implements MapperInterface
 
     protected function loadMapping()
     {
+        $mappingFilePath = '/tmp/mapping.csv';
+        $fileHandle = fopen($mappingFilePath, 'r');
 
+        // skip headers
+        fgetcsv($fileHandle, 0, ';');
+
+        $mapping = [];
+        while ($row = fgetcsv($fileHandle, 0, ';')) {
+            list($icecatId, $pimCode) = $row;
+            $mapping[$icecatId] = $pimCode;
+        }
+
+        return $mapping;
     }
 }

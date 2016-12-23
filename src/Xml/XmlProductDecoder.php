@@ -2,8 +2,15 @@
 
 namespace Pim\Bundle\IcecatConnectorBundle\Xml;
 
+use Akeneo\Component\StorageUtils\Detacher\ObjectDetacherInterface;
 use Oro\Bundle\ConfigBundle\Config\ConfigManager;
+use Pim\Bundle\CatalogBundle\Entity\AttributeOption;
+use Pim\Bundle\ExtendedMeasureBundle\Repository\MeasureRepositoryInterface;
 use Pim\Bundle\IcecatConnectorBundle\Mapping\AttributeMapper;
+use Pim\Component\Catalog\AttributeTypes;
+use Pim\Component\Catalog\Model\AttributeInterface;
+use Pim\Component\Catalog\Repository\AttributeRepositoryInterface;
+use Pim\Component\Catalog\Updater\Remover\RemoverInterface;
 use Symfony\Component\Serializer\Encoder\DecoderInterface;
 
 /**
@@ -15,27 +22,49 @@ use Symfony\Component\Serializer\Encoder\DecoderInterface;
  */
 class XmlProductDecoder implements DecoderInterface
 {
-    /** @var string */
-    protected $scope;
-
     /** @var AttributeMapper */
     protected $attributeMapper;
 
     /** @var ConfigManager */
     protected $configManager;
 
+    /** @var AttributeRepositoryInterface */
+    protected $attributeRepository;
+
+    /** @var string */
+    protected $locale;
+
+    /** @var string */
+    protected $scope;
+
+    /** @var MeasureRepositoryInterface */
+    protected $measureRepository;
+
     /**
-     * @param ConfigManager   $configManager
-     * @param AttributeMapper $attributeMapper
-     * @param string          $scope
+     * @param ConfigManager                $configManager
+     * @param AttributeMapper              $attributeMapper
+     * @param AttributeRepositoryInterface $attributeRepository
+     * @param MeasureRepositoryInterface   $extendedMeasureRepository
+     * @param string                       $scope
+     * @param string                       $locale
      *
      * @internal param ConfigManager $configManager
      */
-    public function __construct(ConfigManager $configManager, AttributeMapper $attributeMapper, $scope)
+    public function __construct(
+        ConfigManager $configManager,
+        AttributeMapper $attributeMapper,
+        AttributeRepositoryInterface $attributeRepository,
+        MeasureRepositoryInterface $extendedMeasureRepository,
+        $scope,
+        $locale
+    )
     {
         $this->scope = $scope;
         $this->attributeMapper = $attributeMapper;
         $this->configManager = $configManager;
+        $this->attributeRepository = $attributeRepository;
+        $this->locale = $locale;
+        $this->measureRepository = $extendedMeasureRepository;
     }
 
     /**
@@ -54,7 +83,8 @@ class XmlProductDecoder implements DecoderInterface
                 $standardItem = $this->addProductValue(
                     $standardItem,
                     $pimAttributeCode,
-                    (string) $icecatProduct->ProductDescription->attributes()['LongDesc']
+                    (string) $icecatProduct->ProductDescription->attributes()['LongDesc'],
+                    null
                 );
             }
 
@@ -63,7 +93,8 @@ class XmlProductDecoder implements DecoderInterface
                 $standardItem = $this->addProductValue(
                     $standardItem,
                     $pimAttributeCode,
-                    (string) $icecatProduct->ProductDescription->attributes()['ShortDesc']
+                    (string) $icecatProduct->ProductDescription->attributes()['ShortDesc'],
+                    null
                 );
             }
 
@@ -72,7 +103,8 @@ class XmlProductDecoder implements DecoderInterface
                 $standardItem = $this->addProductValue(
                     $standardItem,
                     $pimAttributeCode,
-                    (string) $icecatProduct->SummaryDescription->LongSummaryDescription
+                    (string) $icecatProduct->SummaryDescription->LongSummaryDescription,
+                    null
                 );
             }
 
@@ -81,7 +113,8 @@ class XmlProductDecoder implements DecoderInterface
                 $standardItem = $this->addProductValue(
                     $standardItem,
                     $pimAttributeCode,
-                    (string) $icecatProduct->SummaryDescription->ShortSummaryDescription
+                    (string) $icecatProduct->SummaryDescription->ShortSummaryDescription,
+                    null
                 );
             }
 
@@ -90,33 +123,121 @@ class XmlProductDecoder implements DecoderInterface
                 $pimCode = $this->attributeMapper->getMapped($featureId);
                 if (!empty($pimCode)) {
                     $value = (string) $xmlFeature->LocalValue->attributes()['Value'];
+                    $unit = (string) $xmlFeature->LocalValue->Measure->Signs->Sign;
                     $standardItem = $this->addProductValue(
                         $standardItem,
                         $pimCode,
-                        $value
+                        $value,
+                        $unit
                     );
                 }
             }
+
+            $pictures = [];
+            foreach ($icecatProduct->ProductGallery as $xmlPicture) {
+                if (count($xmlPicture->ProductPicture) > 0) {
+                    $url = (string) $xmlPicture->ProductPicture->attributes()['Original'];
+                    if ('' !== trim($url)) {
+                        $pictures[] = $url;
+                    }
+                }
+            }
+            $standardItem = $this->addProductValue(
+                $standardItem,
+                'icecat_pictures',
+                json_encode(array_values($pictures)),
+                null
+            );
         } catch (\Exception $e) {
             throw new XmlDecodeException(sprintf('XML decode error for string %s', $xmlString), 0, $e);
         }
 
-        dump($standardItem);
-
         return $standardItem;
     }
 
-    protected function addProductValue(array $standardItem, $pimCode, $value)
+    /**
+     * @param array  $standardItem
+     * @param string $pimCode
+     * @param mixed  $value
+     * @param string $unit
+     *
+     * @return array
+     */
+    protected function addProductValue(array $standardItem, $pimCode, $value, $unit)
     {
+        /** @var AttributeInterface $pimAttribute */
+        $pimAttribute = $this->attributeRepository->findOneByIdentifier($pimCode);
+
+        $locale = null;
+        if ($pimAttribute->isLocalizable()) {
+            $locale = $this->locale;
+        }
+
+        $scope = null;
+        if ($pimAttribute->isScopable()) {
+            $scope = $this->scope;
+        }
+
+        if (AttributeTypes::METRIC === $pimAttribute->getAttributeType() && null !== $unit) {
+            $value = $this->formatMetricValue($value, $unit);
+        } else if (AttributeTypes::PRICE_COLLECTION === $pimAttribute->getAttributeType() && null !== $unit) {
+            $value = $this->formatPriceValue($value, $unit);
+        } else {
+            $value = $this->findOptionCode($pimAttribute, $value);
+        }
+
         $standardItem[$pimCode] = [
             [
                 'data'   => $value,
-                'locale' => 'en_US',
-                'scope'  => $this->scope,
+                'locale' => $locale,
+                'scope'  => $scope,
             ],
         ];
 
         return $standardItem;
+    }
+
+    /**
+     * @param string $icecatValue
+     * @param string $icecatUnit
+     *
+     * @return array
+     */
+    protected function formatMetricValue($icecatValue, $icecatUnit)
+    {
+        $measure = $this->measureRepository->findBySymbol($icecatUnit);
+        return [
+            'data' => $icecatValue,
+            'unit' => $measure['unit']
+        ];
+    }
+
+    /**
+     * @param string $icecatValue
+     * @param string $icecatUnit
+     *
+     * @return array
+     */
+    protected function formatPriceValue($icecatValue, $icecatUnit)
+    {
+        return [[
+            'data' => $icecatValue,
+            'currency' => $icecatUnit,
+        ]];
+    }
+
+    protected function findOptionCode(AttributeInterface $pimAttribute, $icecatValue)
+    {
+        foreach ($pimAttribute->getOptions() as $option) {
+            /** @var AttributeOption $option */
+            $option->setLocale($this->locale);
+            $optionValue = $option->getOptionValue()->getValue();
+            if ($optionValue == $icecatValue) {
+                return $option->getCode();
+            }
+        }
+
+        return $icecatValue;
     }
 
     /**

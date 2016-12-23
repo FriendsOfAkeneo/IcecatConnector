@@ -40,7 +40,6 @@ class XmlReader implements ItemReaderInterface, StepExecutionAwareInterface
             $downloadDirectory = $jobParameters->get('download_directory');
             $this->stepExecution->addSummaryInfo('download.start', $filename);
             $downloadedFile = $this->downloader->download($filename, $downloadDirectory, true);
-//            $downloadedFile = '/tmp/FeaturesList.xml';
             $this->stepExecution->addSummaryInfo('download.success', $downloadedFile);
             $this->xmlStreamer = XmlStringStreamer::createStringWalkerParser($downloadedFile, [
                 'captureDepth' => 4,

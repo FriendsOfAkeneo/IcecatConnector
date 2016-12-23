@@ -13,7 +13,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Yaml\Yaml;
 
 /**
+ * Parse all Icecat measures and check their existence in Akeneo
+ *
  * @author JM Leroux <jean-marie.leroux@akeneo.com>
+ * @copyright 2016 Akeneo SAS (http://www.akeneo.com)
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class MeasuresParserCommand extends ContainerAwareCommand
 {

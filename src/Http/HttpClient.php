@@ -5,6 +5,13 @@ namespace Pim\Bundle\IcecatConnectorBundle\Http;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 
+/**
+ * Http client used to fetch Icecat files
+ *
+ * @author    JM Leroux <jean-marie.leroux@akeneo.com>
+ * @copyright 2016 Akeneo SAS (http://www.akeneo.com)
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
 class HttpClient
 {
     /** @var string[] */

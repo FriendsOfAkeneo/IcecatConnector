@@ -12,6 +12,9 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class PimIcecatConnectorBundle extends Bundle
 {
+    /**
+     * {@inheritdoc}
+     */
     public function build(ContainerBuilder $container)
     {
         parent::build($container);

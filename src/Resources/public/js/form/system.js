@@ -75,7 +75,8 @@ define([
                     options: {
                         types: [
                             'pim_catalog_identifier',
-                            'pim_catalog_text'
+                            'pim_catalog_text',
+                            'pim_catalog_number'
                         ]
                     }
                 };

@@ -7,13 +7,11 @@ use Akeneo\Component\Batch\Job\JobParameters\DefaultValuesProviderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * DefaultParameters for simple CSV to CSV import
- *
  * @author    JM Leroux <jean-marie.leroux@akeneo.com>
  * @copyright 2016 Akeneo SAS (http://www.akeneo.com)
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-class CsvToCsvImport implements DefaultValuesProviderInterface
+class EnrichProducts implements DefaultValuesProviderInterface
 {
     /** @var array */
     protected $supportedJobNames;
@@ -38,12 +36,8 @@ class CsvToCsvImport implements DefaultValuesProviderInterface
     {
         $resolver = new OptionsResolver();
         $resolver->setDefaults([
-            'filePath'        => '/tmp/featuresList.csv',
-            'output_filepath' => null,
-            'uploadAllowed'   => true,
-            'withHeader'      => true,
-            'delimiter'       => ';',
-            'enclosure'       => '"',
+            'filters' => [],
+            'realTimeVersioning' => false,
         ]);
 
         return $resolver->resolve($this->config);

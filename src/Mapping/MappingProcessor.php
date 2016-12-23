@@ -30,6 +30,11 @@ class MappingProcessor extends AbstractProcessor
     /** @var ObjectDetacherInterface */
     protected $objectDetacher;
 
+    /**
+     * @param ValidatorInterface           $validator
+     * @param AttributeRepositoryInterface $repository
+     * @param ObjectDetacherInterface      $objectDetacher
+     */
     public function __construct(
         ValidatorInterface $validator,
         AttributeRepositoryInterface $repository,

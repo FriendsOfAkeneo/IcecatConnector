@@ -19,10 +19,10 @@ services:
         arguments:
             - '@oro_config.global'
             - '@pim_icecat_connector.mapping.attribute_mapper'
+            - '@pim_catalog.repository.attribute'
+            - '@pim_extended_measures.repository'
             - 'ecommerce'
-
-    pim_icecat_connector.updater.attribute_mapping:
-        class: Pim\Bundle\IcecatConnectorBundle\Updater\FeatureUpdater
+            - 'en_US'
 
     pim_icecat_connector.mapping.attribute_mapper:
         class: Pim\Bundle\IcecatConnectorBundle\Mapping\AttributeMapper

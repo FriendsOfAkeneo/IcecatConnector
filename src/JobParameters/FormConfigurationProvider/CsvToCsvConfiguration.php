@@ -6,7 +6,7 @@ use Akeneo\Component\Batch\Job\JobInterface;
 use Pim\Bundle\ImportExportBundle\JobParameters\FormConfigurationProviderInterface;
 
 /**
- * FormsOptions for simple CSV
+ * Form options for a CSV to CSV import
  *
  * @author JM Leroux <jean-marie.leroux@akeneo.com>
  * @copyright 2016 Akeneo SAS (http://www.akeneo.com)
@@ -47,6 +47,13 @@ class CsvToCsvConfiguration implements FormConfigurationProviderInterface
                 'options' => [
                     'label' => 'pim_connector.export.csv.enclosure.label',
                     'help'  => 'pim_connector.export.csv.enclosure.help'
+                ]
+            ],
+            'uploadAllowed' => [
+                'type'    => 'switch',
+                'options' => [
+                    'label' => 'pim_connector.import.csv.uploadAllowed.label',
+                    'help'  => 'pim_connector.import.csv.uploadAllowed.help'
                 ]
             ],
         ];

@@ -6,7 +6,7 @@ use Akeneo\Component\Batch\Job\JobInterface;
 use Pim\Bundle\ImportExportBundle\JobParameters\FormConfigurationProviderInterface;
 
 /**
- * FormsOptions for simple CSV
+ * Form options for simple CSV
  *
  * @author JM Leroux <jean-marie.leroux@akeneo.com>
  * @copyright 2016 Akeneo SAS (http://www.akeneo.com)

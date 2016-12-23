@@ -9,7 +9,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * DefaultParameters for simple XML import
  *
- * @author JM Leroux <jean-marie.leroux@akeneo.com>
+ * @author    JM Leroux <jean-marie.leroux@akeneo.com>
+ * @copyright 2016 Akeneo SAS (http://www.akeneo.com)
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class XmlToCsvDownload implements DefaultValuesProviderInterface
 {

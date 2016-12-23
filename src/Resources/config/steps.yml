@@ -18,3 +18,13 @@ services:
             - '@pim_icecat_connector.reader.file.features_mapping'
             - '@pim_icecat_connector.processor.mapping.features_mapping'
             - '@pim_icecat_connector.writer.file.csv_ouput'
+
+    pim_icecat_connector.step.enrich_products_init:
+        class: '%pim_connector.step.item_step.class%'
+        arguments:
+            - 'import'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            - '@pim_icecat_connector.reader.database.product'
+            - '@pim_icecat_connector.processor.enrich.product'
+            - '@pim_connector.writer.database.product'
