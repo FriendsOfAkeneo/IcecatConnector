@@ -24,6 +24,8 @@ On the other hand, it is not possible to initialize an empty Akeneo with this ex
 
 ## Configuration
 
+![Configuration screen](docs/img/icecat-config-01.png)
+
 The connector provides a configuration screen to set some important informations:
 - Icecat product ID: the product attribute containing the Icecat product ID
 - Description, Short Description, Summary Description, Short Summary Description: these are common data in the Icecat XML payload and they can be mapped to any Akeneo text attribute.
@@ -34,3 +36,5 @@ There are 3 differents imports profiles in this extension:
 - `icecat_download_features`: a profile to download all Icecat featufres and prepare the attributes mapping CSV file.
 - `icecat_import_features_mapping`: to upload the final attributes mapping CSV file.
 - `icecat_enrich_products`: this profile is used by a CRON task to enrich product content.
+
+![Import profiles](docs/img/icecat-import-01.png)
