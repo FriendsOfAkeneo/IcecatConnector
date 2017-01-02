@@ -1,6 +1,6 @@
 # Icecat Connector extension
 
-The Icecat Connector gives the capability to enrich Akeneo PIM product data with the rich Icecat Catalog. It can be used with both Open free catalog or Full Icecat paid catalog.
+The Icecat Connector gives the capability to enrich Akeneo PIM product data with the rich Icecat Catalog. It can be used with both Open Icecat free catalog or Full Icecat paid catalog.
 
 ## Requirements
 
@@ -8,7 +8,7 @@ The Icecat Connector gives the capability to enrich Akeneo PIM product data with
 |:---------------------:|:----------------------------:|
 | dev-master            | v1.6.*                       |
 
-The Akeneo instance must be conected to the internet to be able to reach the Icecat XML web API.
+The Akeneo instance must be connected to the internet to be able to reach the Icecat XML web API.
 
 # Features
 
@@ -19,7 +19,7 @@ Existing Akeneo attributes must be mapped to Icecat features with a CSV file con
 
 Once this mapping is done, the products data will be fetched with a cron task using Icecat XML web API.
 
-This extension does not relie on Icecat taxonomy, and so there is no requirements or limitation on the Akeneo catalog structure.
+This extension does not rely on Icecat taxonomy, and so there is no requirement or limitation on the Akeneo catalog structure.
 On the other hand, it is not possible to initialize an empty Akeneo with this extension.
 
 ## Configuration
