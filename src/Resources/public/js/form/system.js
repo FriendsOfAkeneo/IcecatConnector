@@ -41,7 +41,9 @@ define([
                     summary_description: this.getFormData()['pim_icecat_connector___summary_description'] ?
                         this.getFormData()['pim_icecat_connector___summary_description'].value : '',
                     short_summary_description: this.getFormData()['pim_icecat_connector___short_summary_description'] ?
-                        this.getFormData()['pim_icecat_connector___short_summary_description'].value : ''
+                        this.getFormData()['pim_icecat_connector___short_summary_description'].value : '',
+                    pictures: this.getFormData()['pim_icecat_connector___pictures'] ?
+                        this.getFormData()['pim_icecat_connector___pictures'].value : ''
                 }));
 
                 var searchOptions = {
@@ -64,7 +66,7 @@ define([
                                 return attributeChoice;
                             })
                             .value();
-                        initSelect2.init(this.$('input.select-field'), {
+                        initSelect2.init(this.$('input.pim-icecat-config-text'), {
                             data: choices,
                             multiple: false,
                             containerCssClass: 'input-xxlarge'
@@ -96,6 +98,32 @@ define([
                             })
                             .value();
                         initSelect2.init(this.$('#pim_icecat_connector___ean_attribute'), {
+                            data: choices,
+                            multiple: false,
+                            containerCssClass: 'input-xxlarge'
+                        });
+                    }.bind(this));
+
+                searchOptions = {
+                    options: {
+                        types: [
+                            'pim_catalog_text_collection'
+                        ]
+                    }
+                };
+
+                FetcherRegistry.getFetcher('attribute').search(searchOptions)
+                    .then(function (attributes) {
+                        var choices = _.chain(attributes)
+                            .map(function (attribute) {
+                                var attributeGroup = ChoicesFormatter.formatOne(attribute.group);
+                                var attributeChoice = ChoicesFormatter.formatOne(attribute);
+                                attributeChoice.group = attributeGroup;
+
+                                return attributeChoice;
+                            })
+                            .value();
+                        initSelect2.init(this.$('#pim_icecat_connector___pictures'), {
                             data: choices,
                             multiple: false,
                             containerCssClass: 'input-xxlarge'

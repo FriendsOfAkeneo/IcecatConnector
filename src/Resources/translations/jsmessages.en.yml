@@ -7,3 +7,4 @@ pim_icecat_connector:
         short_description: Short description attribute
         summary_description: Summary description attribute
         short_summary_description: Short summary description attribute
+        pictures: Pictures collection
