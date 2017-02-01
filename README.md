@@ -38,3 +38,36 @@ There are 3 differents imports profiles in this extension:
 - `icecat_enrich_products`: this profile is used by a CRON task to enrich product content.
 
 ![Import profiles](docs/img/icecat-import-01.png)
+
+# Installation
+
+First, you must require the connector dependencies:
+
+```php
+composer require akeneo/icecat-connector
+```
+
+Activate the dependencies bundles:
+
+In `app/AppKernel.php`
+```php
+    protected function registerProjectBundles()
+    {
+        return [
+            new \Pim\Bundle\ExtendedAttributeTypeBundle\PimExtendedAttributeTypeBundle(),
+            new \Pim\Bundle\ExtendedMeasureBundle\PimExtendedMeasureBundle(),
+            new \Pim\Bundle\IcecatConnectorBundle\PimIcecatConnectorBundle(),
+            new Acme\Bundle\AppBundle\AcmeAppBundle(), // bundle to activate the extended attributes
+        ];
+    }
+```
+
+Configure the Icecat credentials:
+
+In `app/config/parameters.yml`
+```yml
+    pim_icecat_connector.credentials.username: 'your_username'
+    pim_icecat_connector.credentials.password: 'your_password'
+```
+
+

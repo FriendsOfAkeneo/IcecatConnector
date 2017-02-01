@@ -55,6 +55,12 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('scope')->end()
                     ->end()
                 ->end()
+                ->arrayNode('pictures')
+                    ->children()
+                        ->scalarNode('value')->end()
+                        ->scalarNode('scope')->end()
+                    ->end()
+                ->end()
             ->end()
         ->end();
 
