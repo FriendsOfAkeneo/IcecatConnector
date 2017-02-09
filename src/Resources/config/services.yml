@@ -5,8 +5,7 @@ services:
     pim_icecat_connector.http.client:
         class: Pim\Bundle\IcecatConnectorBundle\Http\HttpClient
         arguments:
-            - '%pim_icecat_connector.credentials.username%'
-            - '%pim_icecat_connector.credentials.password%'
+            - '@oro_config.global'
             - '%pim_icecat_connector.endpoint.server%'
 
     pim_icecat_connector.xml.downloader:

@@ -1,5 +1,11 @@
 pim_icecat_connector:
     settings:
+        credentials_username:
+            value: ~
+            scope: app
+        credentials_password:
+            value: ~
+            scope: app
         ean_attribute:
             value: ~
             scope: app

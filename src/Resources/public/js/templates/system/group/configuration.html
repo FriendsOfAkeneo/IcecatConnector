@@ -5,6 +5,20 @@
 <div>
     <div class="control-group">
         <label class="control-label"
+               for="pim_icecat_connector___credentials_username"><%- _.__('pim_icecat_connector.configuration.credentials_username') %></label>
+        <input class="pim-icecat-config pim-icecat-credentials"
+               id="pim_icecat_connector___credentials_username" name="pim_icecat_connector___credentials_username"
+               type="text" value="<%- credentials_username %>"/>
+    </div>
+    <div class="control-group">
+        <label class="control-label"
+               for="pim_icecat_connector___credentials_password"><%- _.__('pim_icecat_connector.configuration.credentials_password') %></label>
+        <input class="pim-icecat-config pim-icecat-credentials"
+               id="pim_icecat_connector___credentials_password" name="pim_icecat_connector___credentials_password"
+               type="password" value="<%- credentials_password %>"/>
+    </div>
+    <div class="control-group">
+        <label class="control-label"
                for="pim_icecat_connector___ean_attribute"><%- _.__('pim_icecat_connector.configuration.ean_attribute') %></label>
         <input class="pim-icecat-config select-field"
                id="pim_icecat_connector___ean_attribute" name="pim_icecat_connector___ean_attribute"

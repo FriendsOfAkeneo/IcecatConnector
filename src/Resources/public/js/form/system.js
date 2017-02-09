@@ -32,6 +32,10 @@ define([
              */
             render: function () {
                 this.$el.html(this.template({
+                    credentials_username: this.getFormData()['pim_icecat_connector___credentials_username'] ?
+                        this.getFormData()['pim_icecat_connector___credentials_username'].value : '',
+                    credentials_password: this.getFormData()['pim_icecat_connector___credentials_password'] ?
+                        this.getFormData()['pim_icecat_connector___credentials_password'].value : '',
                     ean_attribute: this.getFormData()['pim_icecat_connector___ean_attribute'] ?
                         this.getFormData()['pim_icecat_connector___ean_attribute'].value : '',
                     description: this.getFormData()['pim_icecat_connector___description'] ?
