@@ -4,6 +4,7 @@ namespace Pim\Bundle\IcecatConnectorBundle\Http;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use Oro\Bundle\ConfigBundle\Config\ConfigManager;
 
 /**
  * Http client used to fetch Icecat files
@@ -14,20 +15,26 @@ use GuzzleHttp\ClientInterface;
  */
 class HttpClient
 {
-    /** @var string[] */
+    /**
+     * Icecat API credentials = [ username, password ]
+     *
+     * @var string[]
+     */
     private $credentials;
 
     /** @var ClientInterface */
     private $guzzle;
 
     /**
-     * @param string $username
-     * @param string $password
-     * @param string $baseUri
+     * @param ConfigManager $configManager
+     * @param string        $baseUri
      */
-    public function __construct($username, $password, $baseUri)
+    public function __construct(ConfigManager $configManager, $baseUri)
     {
-        $this->credentials = [$username, $password];
+        $this->credentials = [
+            $configManager->get('pim_icecat_connector.credentials_username'),
+            $configManager->get('pim_icecat_connector.credentials_password'),
+        ];
         $this->guzzle = new Client(['base_uri' => $baseUri]);
     }
 

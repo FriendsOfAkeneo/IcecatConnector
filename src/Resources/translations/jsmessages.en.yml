@@ -2,6 +2,8 @@ pim_icecat_connector:
     configuration:
         tab:
             label: Icecat
+        credentials_username: API username
+        credentials_password: API password
         ean_attribute: Icecat ID attribute
         description: Description attribute
         short_description: Short description attribute

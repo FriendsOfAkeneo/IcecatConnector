@@ -13,4 +13,4 @@ services:
             - '@pim_icecat_connector.decoder.xml.product'
             - '@pim_catalog.updater.product'
             - '@oro_config.global'
-            - '%pim_icecat_connector.endpoint.product.prod_id%'
+            - '%pim_icecat_connector.endpoint.product.ean%'
