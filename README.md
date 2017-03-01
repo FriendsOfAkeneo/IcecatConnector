@@ -27,7 +27,7 @@ On the other hand, it is not possible to initialize an empty Akeneo PIM with thi
 ![Configuration screen](docs/img/icecat-config-01.png)
 
 The connector provides a configuration screen to set some important informations:
-- Icecat product ID: the product attribute containing the Icecat product ID
+- Icecat product EAN: the product attribute containing the Icecat product EAN. This attribute must be unique.
 - Description, Short Description, Summary Description, Short Summary Description: these are common data in the Icecat XML payload and they can be mapped to any Akeneo PIM text attribute.
 
 ## Import profiles
@@ -69,5 +69,3 @@ In `app/config/parameters.yml`
     pim_icecat_connector.credentials.username: 'your_username'
     pim_icecat_connector.credentials.password: 'your_password'
 ```
-
-
