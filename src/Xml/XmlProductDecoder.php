@@ -57,8 +57,7 @@ class XmlProductDecoder implements DecoderInterface
         MeasureRepositoryInterface $extendedMeasureRepository,
         $scope,
         $locale
-    )
-    {
+    ) {
         $this->scope = $scope;
         $this->attributeMapper = $attributeMapper;
         $this->configManager = $configManager;
@@ -180,7 +179,7 @@ class XmlProductDecoder implements DecoderInterface
 
         if (AttributeTypes::METRIC === $pimAttribute->getAttributeType() && null !== $unit) {
             $value = $this->formatMetricValue($value, $unit);
-        } else if (AttributeTypes::PRICE_COLLECTION === $pimAttribute->getAttributeType() && null !== $unit) {
+        } elseif (AttributeTypes::PRICE_COLLECTION === $pimAttribute->getAttributeType() && null !== $unit) {
             $value = $this->formatPriceValue($value, $unit);
         } else {
             $value = $this->findOptionCode($pimAttribute, $value);

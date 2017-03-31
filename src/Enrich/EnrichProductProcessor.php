@@ -47,8 +47,7 @@ class EnrichProductProcessor extends AbstractProcessor
         ProductUpdater $productUpdater,
         ConfigManager $config,
         $icecatProductEndpoint
-    )
-    {
+    ) {
         $this->httpClient = $httpClient;
         $this->xmlProductDecoder = $xmlProductDecoder;
         $this->icecatProductEndpoint = $icecatProductEndpoint;
