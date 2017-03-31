@@ -39,8 +39,7 @@ class MappingProcessor extends AbstractProcessor
         ValidatorInterface $validator,
         AttributeRepositoryInterface $repository,
         ObjectDetacherInterface $objectDetacher
-    )
-    {
+    ) {
         $this->validator = $validator;
         $this->repository = $repository;
         $this->objectDetacher = $objectDetacher;

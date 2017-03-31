@@ -34,8 +34,7 @@ class ProductReader extends BaseReader
         MetricConverter $metricConverter,
         ConfigManager $configManager,
         $generateCompleteness
-    )
-    {
+    ) {
         parent::__construct($pqbFactory, $channelRepository, $completenessManager, $metricConverter, $generateCompleteness);
         $this->eanAttributeCode = $configManager->get('pim_icecat_connector.ean_attribute');
     }
