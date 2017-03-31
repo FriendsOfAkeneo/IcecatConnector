@@ -3,7 +3,7 @@
 def phpVersion = "5.6"
 def mysqlVersion = "5.5"
 def launchUnitTests = "yes"
-def launchIntegrationTests = "yes"
+def launchIntegrationTests = "no"
 
 class Globals {
     static pimVersion = "1.6"

@@ -38,6 +38,9 @@
     "autoload": {
         "psr-4": {
             "Pim\\Bundle\\IcecatConnectorBundle\\": "src/"
+        },
+        "psr-0": {
+            "spec": "spec/"
         }
     },
     "config": {
