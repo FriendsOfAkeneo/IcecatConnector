@@ -6,7 +6,7 @@ def launchUnitTests = "yes"
 def launchIntegrationTests = "no"
 
 class Globals {
-    static pimVersion = "1.6"
+    static pimVersion = "1.7"
     static extensionBranch = "dev-master"
 }
 
