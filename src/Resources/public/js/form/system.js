@@ -19,7 +19,6 @@ define([
               initSelect2,
               template) {
         return BaseForm.extend({
-            className: 'tab-pane',
             events: {
                 'change .pim-icecat-config': 'updateModel'
             },
@@ -101,7 +100,7 @@ define([
                                 return attributeChoice;
                             })
                             .value();
-                        initSelect2.init(this.$('#pim_icecat_connector___ean_attribute'), {
+                        initSelect2.init(this.$('#ean_attribute'), {
                             data: choices,
                             multiple: false,
                             containerCssClass: 'input-xxlarge'
@@ -127,7 +126,7 @@ define([
                                 return attributeChoice;
                             })
                             .value();
-                        initSelect2.init(this.$('#pim_icecat_connector___pictures'), {
+                        initSelect2.init(this.$('#pictures'), {
                             data: choices,
                             multiple: false,
                             containerCssClass: 'input-xxlarge'
@@ -147,7 +146,7 @@ define([
              * @param {Event}
              */
             updateModel: function (event) {
-                var name = event.target.name;
+                var name = 'pim_icecat_connector___' + event.target.name;
                 var data = this.getFormData();
                 var newValue = event.target.value;
                 if (name in data) {
