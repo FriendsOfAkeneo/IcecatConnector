@@ -25,7 +25,7 @@
     ],
     "require": {
         "php": ">=5.6.0",
-        "akeneo/extended-attribute-type": "dev-master",
+        "akeneo/extended-attribute-type": "1.0.x-dev",
         "akeneo/extended-measure-bundle": "dev-master",
         "akeneo/pim-community-dev": "~1.6.7",
         "guzzlehttp/guzzle": "@stable",
