@@ -55,7 +55,7 @@ if (launchUnitTests.equals("yes")) {
 
 if (launchIntegrationTests.equals("yes")) {
     stage("Integration tests") {
-        buildApplication()
+        buildApplication(phpVersion)
 
         def tasks = [:]
 
@@ -193,7 +193,7 @@ def runIntegrationTestEe(version) {
     }
 }
 
-def buildApplication() {
+def buildApplication(phpVersion) {
     node('docker') {
         deleteDir()
         cleanUpEnvironment()
