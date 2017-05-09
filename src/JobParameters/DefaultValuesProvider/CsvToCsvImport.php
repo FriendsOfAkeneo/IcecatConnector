@@ -39,7 +39,7 @@ class CsvToCsvImport implements DefaultValuesProviderInterface
         $resolver = new OptionsResolver();
         $resolver->setDefaults([
             'filePath'        => '/tmp/featuresList.csv',
-            'output_filepath' => null,
+            'outputFilePath' => null,
             'uploadAllowed'   => true,
             'withHeader'      => true,
             'delimiter'       => ';',

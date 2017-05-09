@@ -141,9 +141,10 @@ class XmlProductDecoder implements DecoderInterface
                     }
                 }
             }
+            $pimAttributeCode = $this->configManager->get('pim_icecat_connector.pictures');
             $standardItem = $this->addProductValue(
                 $standardItem,
-                'icecat_pictures',
+                $pimAttributeCode,
                 json_encode(array_values($pictures)),
                 null
             );
@@ -167,6 +168,10 @@ class XmlProductDecoder implements DecoderInterface
         /** @var AttributeInterface $pimAttribute */
         $pimAttribute = $this->attributeRepository->findOneByIdentifier($pimCode);
 
+        if (null === $pimAttribute) {
+            return $standardItem;
+        }
+
         $locale = null;
         if ($pimAttribute->isLocalizable()) {
             $locale = $this->locale;
@@ -177,15 +182,15 @@ class XmlProductDecoder implements DecoderInterface
             $scope = $this->scope;
         }
 
-        if (AttributeTypes::METRIC === $pimAttribute->getAttributeType() && null !== $unit) {
+        if (AttributeTypes::METRIC === $pimAttribute->getType() && null !== $unit) {
             $value = $this->formatMetricValue($value, $unit);
-        } elseif (AttributeTypes::PRICE_COLLECTION === $pimAttribute->getAttributeType() && null !== $unit) {
+        } elseif (AttributeTypes::PRICE_COLLECTION === $pimAttribute->getType() && null !== $unit) {
             $value = $this->formatPriceValue($value, $unit);
         } else {
             $value = $this->findOptionCode($pimAttribute, $value);
         }
 
-        $standardItem[$pimCode] = [
+        $standardItem['values'][$pimCode] = [
             [
                 'data'   => $value,
                 'locale' => $locale,
