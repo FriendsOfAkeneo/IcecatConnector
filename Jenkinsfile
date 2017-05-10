@@ -5,7 +5,7 @@ def launchIntegrationTests = "no"
 
 class Globals {
     static pimVersion = "1.7"
-    static extensionBranch = "dev-master"
+    static extensionBranch = "dev-akeneo-1.7-migration"
     static mysqlVersion = "5.5"
 }
 
@@ -122,8 +122,9 @@ def runIntegrationTestCe(phpVersion) {
             '''
             sh """
                 composer require --no-update --no-interaction --no-progress --prefer-dist \
-                    akeneo/icecat-connector:${Globals.extensionBranch} \
-                    akeneo/extended-attribute-type:1.0.x-dev akeneo/extended-measure-bundle:dev-master
+                    akeneo/extended-attribute-type:dev-master \
+                    akeneo/extended-measure-bundle:dev-master \
+                    akeneo/icecat-connector:${Globals.extensionBranch}
                 composer install --ignore-platform-reqs --no-interaction --no-progress --prefer-dist
             """
 
