@@ -66,8 +66,9 @@ class EnrichProductProcessor extends AbstractProcessor
         $query = sprintf($this->icecatProductEndpoint, $eanValue);
 
         $guzzle = $this->httpClient->getGuzzle();
-        $res = $guzzle->request('GET', $query, [
+        $res = $guzzle->request('GET', '', [
             'auth' => $this->httpClient->getCredentials(),
+            'query' => $query
         ]);
         $standardProduct = $this->xmlProductDecoder->decode($res->getBody()->getContents(), 'xml');
         try {

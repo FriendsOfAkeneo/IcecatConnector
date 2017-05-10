@@ -10,3 +10,7 @@ pim_icecat_connector:
         summary_description: Summary description attribute
         short_summary_description: Short summary description attribute
         pictures: Pictures collection
+
+    form.job_instance:
+      tab.properties:
+          output_file_path.title: Output file path

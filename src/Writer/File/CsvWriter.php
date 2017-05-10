@@ -9,7 +9,7 @@ class CsvWriter extends Writer
     public function getPath(array $placeholders = [])
     {
         $parameters = $this->stepExecution->getJobParameters();
-        $filePath = $parameters->get('output_filepath');
+        $filePath = $parameters->get('outputFilePath');
 
         if (false !== strpos($filePath, '%')) {
             $defaultPlaceholders = ['%datetime%' => date($this->datetimeFormat), '%job_label%' => ''];

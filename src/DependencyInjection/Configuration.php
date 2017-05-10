@@ -2,6 +2,7 @@
 
 namespace Pim\Bundle\IcecatConnectorBundle\DependencyInjection;
 
+use Oro\Bundle\ConfigBundle\DependencyInjection\SettingsBuilder;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -19,66 +20,34 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
 
-        $root = $treeBuilder->root('pim_icecat_connector');
+        $rootNode = $treeBuilder->root('pim_icecat_connector');
 
-        $children = $root->children();
-
-        $children->arrayNode('settings')
-            ->children()
-                ->arrayNode('credentials_username')
-                    ->children()
-                        ->scalarNode('value')->end()
-                        ->scalarNode('scope')->end()
-                    ->end()
-                ->end()
-                ->arrayNode('credentials_password')
-                    ->children()
-                        ->scalarNode('value')->end()
-                        ->scalarNode('scope')->end()
-                    ->end()
-                ->end()
-                ->arrayNode('ean_attribute')
-                    ->children()
-                        ->scalarNode('value')->end()
-                        ->scalarNode('scope')->end()
-                    ->end()
-                ->end()
-                ->arrayNode('description')
-                    ->children()
-                        ->scalarNode('value')->end()
-                        ->scalarNode('scope')->end()
-                    ->end()
-                ->end()
-                ->arrayNode('short_description')
-                    ->children()
-                        ->scalarNode('value')->end()
-                        ->scalarNode('scope')->end()
-                    ->end()
-                ->end()
-                ->arrayNode('summary_description')
-                    ->children()
-                        ->scalarNode('value')->end()
-                        ->scalarNode('scope')->end()
-                    ->end()
-                ->end()
-                ->arrayNode('short_summary_description')
-                    ->children()
-                        ->scalarNode('value')->end()
-                        ->scalarNode('scope')->end()
-                    ->end()
-                ->end()
-                ->arrayNode('pictures')
-                    ->children()
-                        ->scalarNode('value')->end()
-                        ->scalarNode('scope')->end()
-                    ->end()
-                ->end()
-            ->end()
-        ->end();
+        $children = $rootNode->children()
+            ->scalarNode('credentials_username')->end()
+            ->scalarNode('credentials_password')->end()
+            ->scalarNode('ean_attribute')->end()
+            ->scalarNode('description')->end()
+            ->scalarNode('short_description')->end()
+            ->scalarNode('summary_description')->end()
+            ->scalarNode('short_summary_description')->end()
+            ->scalarNode('pictures')->end();
 
         $children->end();
+        $rootNode->end();
 
-        $root->end();
+        SettingsBuilder::append(
+            $rootNode,
+            [
+                'credentials_username' => ['value' => null],
+                'credentials_password' => ['value' => null],
+                'ean_attribute' => ['value' => null],
+                'description' => ['value' => null],
+                'short_description' => ['value' => null],
+                'summary_description' => ['value' => null],
+                'short_summary_description' => ['value' => null],
+                'pictures' => ['value' => null],
+            ]
+        );
 
         return $treeBuilder;
     }

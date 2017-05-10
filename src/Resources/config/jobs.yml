@@ -83,7 +83,7 @@ services:
             -
                 - 'icecat_import_features_mapping'
             -
-                output_filepath: '/tmp/mapping.csv'
+                outputFilePath: '/tmp/mapping.csv'
                 uploadAllowed: true
         tags:
             - { name: akeneo_batch.job.job_parameters.default_values_provider }
@@ -99,25 +99,25 @@ services:
             - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
 
     pim_icecat_connector.job.job_parameters.form_configuration_provider.empty:
-        class: Pim\Bundle\IcecatConnectorBundle\JobParameters\FormConfigurationProvider\EnrichProductsConfiguration
+        class: '%pim_enrich.provider.form.job_instance.class%'
         arguments:
             -
-                - 'icecat_enrich_products'
+                icecat_enrich_products: pim-job-instance-csv-base-import
         tags:
-            - { name: pim_import_export.job_parameters.form_configuration_provider }
+            - { name: pim_enrich.provider.form, priority: 100 }
 
     pim_icecat_connector.job.job_parameters.form_configuration_provider.simple_csv_download:
-        class: '%pim_icecat_connector.job.job_parameters.form_configuration_provider.simple_csv.class%'
+        class: '%pim_enrich.provider.form.job_instance.class%'
         arguments:
             -
-                - 'icecat_download_features'
+                icecat_download_features: icecat-job-instance-csv-base-import
         tags:
-            - { name: pim_import_export.job_parameters.form_configuration_provider }
+            - { name: pim_enrich.provider.form, priority: 100 }
 
     pim_icecat_connector.job.job_parameters.form_configuration_provider.csv_to_csv:
-        class: Pim\Bundle\IcecatConnectorBundle\JobParameters\FormConfigurationProvider\CsvToCsvConfiguration
+        class: '%pim_enrich.provider.form.job_instance.class%'
         arguments:
             -
-                - 'icecat_import_features_mapping'
+                icecat_import_features_mapping: icecat-job-instance-csv-to-csv-import
         tags:
-            - { name: pim_import_export.job_parameters.form_configuration_provider }
+            - { name: pim_enrich.provider.form, priority: 100 }

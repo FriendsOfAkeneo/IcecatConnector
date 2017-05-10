@@ -6,7 +6,8 @@ The Icecat Connector gives the capability to enrich Akeneo PIM product data with
 
 | IcecatConnectorBundle | Akeneo PIM Community Edition |
 |:---------------------:|:----------------------------:|
-| dev-master            | v1.6.*                       |
+| dev-master            | v1.7.*                       |
+| 1.0.*                 | v1.6.*                       |
 
 The Akeneo PIM instance must be connected to the internet to be able to reach the Icecat XML web API.
 
@@ -62,10 +63,4 @@ In `app/AppKernel.php`
     }
 ```
 
-Configure the Icecat credentials:
-
-In `app/config/parameters.yml`
-```yml
-    pim_icecat_connector.credentials.username: 'your_username'
-    pim_icecat_connector.credentials.password: 'your_password'
-```
+Configure the Icecat credentials in the PIM configuration screen.

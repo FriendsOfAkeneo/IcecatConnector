@@ -13,26 +13,17 @@
         {
             "type": "vcs",
             "url": "https://github.com/akeneo/pim-community-dev.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:akeneo/ExtendedAttributeTypeBundle.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:akeneo/ExtendedMeasureBundle.git"
         }
     ],
     "require": {
         "php": ">=5.6.0",
-        "akeneo/extended-attribute-type": "1.0.x-dev",
+        "akeneo/extended-attribute-type": "dev-master",
         "akeneo/extended-measure-bundle": "dev-master",
-        "akeneo/pim-community-dev": "~1.6.7",
         "guzzlehttp/guzzle": "@stable",
         "prewk/xml-string-streamer": "@stable"
     },
     "require-dev": {
-        "fabpot/php-cs-fixer": "@stable",
+        "friendsofphp/php-cs-fixer": "@stable",
         "phpspec/phpspec": "@stable"
     },
     "autoload": {
@@ -48,7 +39,8 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.1.x-dev"
+            "dev-master": "1.1.x-dev",
+            "dev-1.0": "1.0.x-dev"
         }
     }
 }
