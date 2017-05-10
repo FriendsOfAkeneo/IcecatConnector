@@ -60,7 +60,7 @@ def runPhpSpecTest(phpVersion) {
     node('docker') {
         deleteDir()
         try {
-            docker.image("carcel/php:${phpVersion}").inside("-v /home/akeneo/.composer:/home/akeneo/.composer -e COMPOSER_HOME=/home/akeneo/.composer") {
+            docker.image("carcel/php:${phpVersion}").inside("-v /home/akeneo/.composer:/home/doker/.composer -e COMPOSER_HOME=/home/doker/.composer") {
                 unstash "icecat_extension"
 
                 if (phpVersion != "5.6") {
@@ -83,7 +83,7 @@ def runPhpCsFixerTest(phpVersion) {
     node('docker') {
         deleteDir()
         try {
-            docker.image("carcel/php:${phpVersion}").inside("-v /home/akeneo/.composer:/home/akeneo/.composer -e COMPOSER_HOME=/home/akeneo/.composer") {
+            docker.image("carcel/php:${phpVersion}").inside("-v /home/akeneo/.composer:/home/doker/.composer -e COMPOSER_HOME=/home/doker/.composer") {
                 unstash "icecat_extension"
 
                 if (phpVersion != "5.6") {
@@ -113,9 +113,26 @@ def runIntegrationTestCe(phpVersion) {
             docker pull carcel/akeneo-behat:php-${phpVersion}
         """
 
+        docker.image("carcel/php:${phpVersion}").inside("-v /home/akeneo/.composer:/home/doker/.composer -e COMPOSER_HOME=/home/docker/.composer") {
+            unstash "pim_community"
+
+            sh 'docker exec akeneo composer config repositories.icecat \'{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git"}\''
+            sh 'cat composer.json'
+            sh "docker exec akeneo composer require --no-update akeneo/icecat-connector:${Globals.extensionBranch}"
+            sh "docker exec akeneo composer update --ignore-platform-reqs --no-interaction --no-progress --prefer-dist -vvv"
+
+            dir("vendor/akeneo/icecat-connector") {
+                deleteDir()
+                unstash "icecat_extension"
+            }
+            sh "docker exec akeneo composer dump-autoload -o"
+
+            stash "pim_community_full"
+        }
+
         def workspace = "/home/docker/pim"
 
-        unstash "pim_community"
+        unstash "pim_community_full"
 
         sh "docker run -d --network akeneo --name mysql \
             -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=akeneo_pim -e MYSQL_PASSWORD=akeneo_pim -e MYSQL_DATABASE=akeneo_pim \
@@ -130,20 +147,6 @@ def runIntegrationTestCe(phpVersion) {
         sh "docker ps -a"
 
         try {
-            sh 'docker exec akeneo composer config repositories.icecat \'{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git"}\''
-            sh 'cat composer.json'
-            //sh "docker exec akeneo composer require --no-update akeneo/icecat-connector:${Globals.extensionBranch}"
-            sh "docker exec akeneo composer update --ignore-platform-reqs --no-interaction --no-progress --prefer-dist -vvv"
-
-            dir("vendor/akeneo") {
-                sh "mkdir icecat-connector"
-            }
-            dir("vendor/akeneo/icecat-connector") {
-                deleteDir()
-                unstash "icecat_extension"
-            }
-            sh "docker exec akeneo composer dump-autoload -o"
-
             sh "docker exec akeneo ./app/console --env=test pim:install --force"
         } finally {
             deleteDir()
