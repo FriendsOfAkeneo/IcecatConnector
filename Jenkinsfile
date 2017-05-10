@@ -121,8 +121,10 @@ def runIntegrationTestCe(phpVersion) {
                 cat composer.json
             '''
             sh """
-                composer require --no-update akeneo/icecat-connector:${Globals.extensionBranch}
-                composer install --ignore-platform-reqs --no-interaction --no-progress --prefer-dist -vvv
+                composer require --no-update --no-interaction --no-progress --prefer-dist \
+                    akeneo/icecat-connector:${Globals.extensionBranch} \
+                    akeneo/extended-attribute-type:1.0.x-dev akeneo/extended-measure-bundle:dev-master
+                composer install --ignore-platform-reqs --no-interaction --no-progress --prefer-dist
             """
 
             sh '''
