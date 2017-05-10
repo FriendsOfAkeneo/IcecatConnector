@@ -118,6 +118,7 @@ def runIntegrationTestCe(phpVersion) {
 
             sh '''
                 composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git"}'
+                composer config repositories.pim_ce '{"type": "vcs", "url": "git@github.com:akeneo/pim-community-dev.git"}'
                 cat composer.json
             '''
             sh """
