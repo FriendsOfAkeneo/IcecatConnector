@@ -110,6 +110,7 @@ def runIntegrationTestCe(phpVersion) {
         sh "docker network create akeneo"
         sh """
             docker pull mysql:${Globals.mysqlVersion}
+            docker pull carcel/php:${phpVersion}
             docker pull carcel/akeneo-behat:php-${phpVersion}
         """
 
@@ -118,8 +119,6 @@ def runIntegrationTestCe(phpVersion) {
 
             sh '''
                 composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git"}'
-                composer config repositories.pim_ce '{"type": "vcs", "url": "git@github.com:akeneo/pim-community-dev.git"}'
-                cat composer.json
             '''
             sh """
                 composer require --no-update --no-interaction --no-progress --prefer-dist \

@@ -13,14 +13,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/akeneo/pim-community-dev.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:akeneo/ExtendedAttributeTypeBundle.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:akeneo/ExtendedMeasureBundle.git"
         }
     ],
     "require": {
