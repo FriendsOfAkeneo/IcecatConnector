@@ -130,7 +130,7 @@ def runIntegrationTestCe(phpVersion) {
                 deleteDir()
                 unstash "icecat_extension"
             }
-            sh "docker exec akeneo composer dump-autoload -o"
+            sh "composer dump-autoload -o"
 
             stash "pim_community_full"
         }
