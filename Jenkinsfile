@@ -116,15 +116,22 @@ def runIntegrationTestCe(phpVersion) {
         docker.image("carcel/php:${phpVersion}").inside("-v /home/akeneo/.composer:/home/docker/.composer -e COMPOSER_HOME=/home/docker/.composer") {
             unstash "pim_community"
 
-//            sh '''
-//                composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git"}'
-//                cat composer.json
-//            '''
+            sh '''
+                composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git"}'
+                cat composer.json
+            '''
             sh """
-                composer install --ignore-platform-reqs --no-interaction --no-progress --prefer-dist -vvv
                 composer require --no-update akeneo/icecat-connector:${Globals.extensionBranch}
-                mkdir -p vendor/akeneo/icecat-connector
+                composer install --ignore-platform-reqs --no-interaction --no-progress --prefer-dist -vvv
             """
+
+            sh '''
+                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedEeBundle\\\\ExtendedEeBundle(),#' app/AppKernel.php
+                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\IcecatConnectorBundle\\\\PimIcecatConnectorBundle(),#' app/AppKernel.php
+                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedMeasureBundle\\\\PimExtendedMeasureBundle(),#' app/AppKernel.php
+                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedAttributeTypeBundle\\\\PimExtendedAttributeTypeBundle(),#' app/AppKernel.php
+                sed -i 's@// new Doctrine@new Doctrine@g' app/AppKernel.php
+            '''
 
             dir("vendor/akeneo/icecat-connector") {
                 deleteDir()
@@ -152,7 +159,8 @@ def runIntegrationTestCe(phpVersion) {
         sh "docker ps -a"
 
         try {
-            sh "docker exec akeneo ./app/console --env=test pim:install --force"
+            sh "cp app/config/parameters.yml app/config/parameters_test.yml"
+            sh "docker exec akeneo ./app/console pim:install --force"
         } finally {
             deleteDir()
         }
