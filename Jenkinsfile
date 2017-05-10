@@ -113,16 +113,16 @@ def runIntegrationTestCe(phpVersion) {
             docker pull carcel/akeneo-behat:php-${phpVersion}
         """
 
-        docker.image("carcel/php:${phpVersion}").inside("-v /home/akeneo/.composer:/home/doker/.composer -e COMPOSER_HOME=/home/docker/.composer") {
+        docker.image("carcel/php:${phpVersion}").inside("-v /home/akeneo/.composer:/home/docker/.composer -e COMPOSER_HOME=/home/docker/.composer") {
             unstash "pim_community"
 
 //            sh '''
-//                composer config repositories.icecat \'{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git"}\'
+//                composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git"}'
 //                cat composer.json
 //            '''
             sh """
                 composer install --ignore-platform-reqs --no-interaction --no-progress --prefer-dist -vvv
-                //composer require --no-update akeneo/icecat-connector:${Globals.extensionBranch}
+                composer require --no-update akeneo/icecat-connector:${Globals.extensionBranch}
                 mkdir -p vendor/akeneo/icecat-connector
             """
 
