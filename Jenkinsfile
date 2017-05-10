@@ -4,7 +4,7 @@ def launchUnitTests = "yes"
 def launchIntegrationTests = "no"
 
 class Globals {
-    static pimVersion = "1.7"
+    static pimVersion = "dev-1.7"
     static extensionBranch = "dev-akeneo-1.7-migration"
     static mysqlVersion = "5.5"
 }
