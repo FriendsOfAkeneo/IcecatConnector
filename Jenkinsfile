@@ -4,7 +4,7 @@ def launchUnitTests = "yes"
 def launchIntegrationTests = "no"
 
 class Globals {
-    static pimVersion = "dev-1.7"
+    static pimVersion = "1.7"
     static extensionBranch = "dev-akeneo-1.7-migration"
     static mysqlVersion = "5.5"
 }
@@ -14,11 +14,9 @@ stage("Checkout") {
     if (env.BRANCH_NAME =~ /^PR-/) {
         userInput = input(message: 'Launch tests?', parameters: [
             choice(choices: 'yes\nno', description: 'Run unit tests', name: 'launchUnitTests'),
-            choice(choices: 'yes\nno', description: 'Run integration tests', name: 'launchIntegrationTests'),
         ])
 
         launchUnitTests = userInput['launchUnitTests']
-        launchIntegrationTests = userInput['launchIntegrationTests']
     }
 
     milestone 2
@@ -59,6 +57,7 @@ if (launchIntegrationTests.equals("yes")) {
 def runPhpSpecTest(phpVersion) {
     node('docker') {
         deleteDir()
+        cleanUpEnvironment()
         try {
             docker.image("carcel/php:${phpVersion}").inside("-v /home/akeneo/.composer:/home/doker/.composer -e COMPOSER_HOME=/home/doker/.composer") {
                 unstash "icecat_extension"
@@ -82,6 +81,7 @@ def runPhpSpecTest(phpVersion) {
 def runPhpCsFixerTest(phpVersion) {
     node('docker') {
         deleteDir()
+        cleanUpEnvironment()
         try {
             docker.image("carcel/php:${phpVersion}").inside("-v /home/akeneo/.composer:/home/doker/.composer -e COMPOSER_HOME=/home/doker/.composer") {
                 unstash "icecat_extension"
@@ -97,75 +97,6 @@ def runPhpCsFixerTest(phpVersion) {
         } finally {
             sh "sed -i \"s/testcase name=\\\"/testcase name=\\\"[php-${phpVersion}] /\" aklogs/*.xml"
             junit "aklogs/*.xml"
-            deleteDir()
-        }
-    }
-}
-
-def runIntegrationTestCe(phpVersion) {
-    node('docker') {
-        deleteDir()
-        cleanUpEnvironment()
-
-        sh "docker network create akeneo"
-        sh """
-            docker pull mysql:${Globals.mysqlVersion}
-            docker pull carcel/php:${phpVersion}
-            docker pull carcel/akeneo-behat:php-${phpVersion}
-        """
-
-        docker.image("carcel/php:${phpVersion}").inside("-v /home/akeneo/.composer:/home/docker/.composer -e COMPOSER_HOME=/home/docker/.composer") {
-            unstash "pim_community"
-
-            sh '''
-                composer config repositories.icecat '{"type": "vcs", "url": "https://github.com/akeneo/icecat-connector.git"}'
-                composer config repositories.pim '{"type": "vcs", "url": "https://github.com/akeneo/pim-community-dev.git"}'
-            '''
-            sh """
-                composer require --no-update --no-interaction --no-progress --prefer-dist \
-                    akeneo/extended-attribute-type:dev-master \
-                    akeneo/extended-measure-bundle:dev-master \
-                    akeneo/icecat-connector:${Globals.extensionBranch}
-                composer install --ignore-platform-reqs --no-interaction --no-progress --prefer-dist
-            """
-
-            sh '''
-                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedEeBundle\\\\ExtendedEeBundle(),#' app/AppKernel.php
-                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\IcecatConnectorBundle\\\\PimIcecatConnectorBundle(),#' app/AppKernel.php
-                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedMeasureBundle\\\\PimExtendedMeasureBundle(),#' app/AppKernel.php
-                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedAttributeTypeBundle\\\\PimExtendedAttributeTypeBundle(),#' app/AppKernel.php
-                sed -i 's@// new Doctrine@new Doctrine@g' app/AppKernel.php
-            '''
-
-            dir("vendor/akeneo/icecat-connector") {
-                deleteDir()
-                unstash "icecat_extension"
-            }
-            sh "composer dump-autoload -o"
-
-            stash "pim_community_full"
-        }
-
-        def workspace = "/home/docker/pim"
-
-        unstash "pim_community_full"
-
-        sh "docker run -d --network akeneo --name mysql \
-            -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=akeneo_pim -e MYSQL_PASSWORD=akeneo_pim -e MYSQL_DATABASE=akeneo_pim \
-            mysql:${Globals.mysqlVersion} \
-            --sql-mode=ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
-        sh "docker run -d --network akeneo --name akeneo \
-            -e WORKSPACE=${workspace} -e COMPOSER_HOME=/home/docker/.composer \
-            -v /home/akeneo/.composer:/home/docker/.composer -v \$(pwd):${workspace} \
-            -w ${workspace} \
-            carcel/akeneo-behat:php-${phpVersion}"
-
-        sh "docker ps -a"
-
-        try {
-            sh "cp app/config/parameters.yml app/config/parameters_test.yml"
-            sh "docker exec akeneo ./app/console pim:install --force"
-        } finally {
             deleteDir()
         }
     }
