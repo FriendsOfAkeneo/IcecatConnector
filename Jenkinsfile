@@ -130,10 +130,14 @@ def runIntegrationTestCe(phpVersion) {
         sh "docker ps -a"
 
         try {
-            sh 'docker exec akeneo composer config repositories.icecat \'{"type": "vcs", "url": "https://github.com/akeneo/icecat-connector.git"}\''
-            sh "docker exec akeneo composer require --no-update phpunit/phpunit:5.4 akeneo/icecat-connector:${Globals.extensionBranch}"
-            sh "docker exec akeneo composer update --ignore-platform-reqs --no-interaction --no-progress --prefer-dist"
+            sh 'docker exec akeneo composer config repositories.icecat \'{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git"}\''
+            sh 'cat composer.json'
+            //sh "docker exec akeneo composer require --no-update akeneo/icecat-connector:${Globals.extensionBranch}"
+            sh "docker exec akeneo composer update --ignore-platform-reqs --no-interaction --no-progress --prefer-dist -vvv"
 
+            dir("vendor/akeneo") {
+                sh "mkdir icecat-connector"
+            }
             dir("vendor/akeneo/icecat-connector") {
                 deleteDir()
                 unstash "icecat_extension"
