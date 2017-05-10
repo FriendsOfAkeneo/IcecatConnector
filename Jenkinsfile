@@ -116,10 +116,14 @@ def runIntegrationTestCe(phpVersion) {
         docker.image("carcel/php:${phpVersion}").inside("-v /home/akeneo/.composer:/home/doker/.composer -e COMPOSER_HOME=/home/docker/.composer") {
             unstash "pim_community"
 
-            sh 'docker exec akeneo composer config repositories.icecat \'{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git"}\''
-            sh 'cat composer.json'
-            sh "docker exec akeneo composer require --no-update akeneo/icecat-connector:${Globals.extensionBranch}"
-            sh "docker exec akeneo composer update --ignore-platform-reqs --no-interaction --no-progress --prefer-dist -vvv"
+            sh '''
+                composer config repositories.icecat \'{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git"}\'
+                cat composer.json
+            '''
+            sh """
+                composer require --no-update akeneo/icecat-connector:${Globals.extensionBranch}
+                composer update --ignore-platform-reqs --no-interaction --no-progress --prefer-dist -vvv
+            """
 
             dir("vendor/akeneo/icecat-connector") {
                 deleteDir()
