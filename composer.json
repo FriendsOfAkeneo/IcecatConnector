@@ -19,7 +19,8 @@
         "php": ">=5.6.0",
         "akeneo/extended-attribute-type": "dev-master",
         "akeneo/extended-measure-bundle": "dev-master",
-        "guzzlehttp/guzzle": "@stable",
+        "akeneo/pim-community-dev": "1.7.*",
+        "guzzlehttp/guzzle": "6.*",
         "prewk/xml-string-streamer": "@stable"
     },
     "require-dev": {
