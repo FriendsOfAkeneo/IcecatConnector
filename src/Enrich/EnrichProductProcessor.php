@@ -5,6 +5,7 @@ namespace Pim\Bundle\IcecatConnectorBundle\Enrich;
 use Akeneo\Component\Batch\Item\DataInvalidItem;
 use Oro\Bundle\ConfigBundle\Config\ConfigManager;
 use Pim\Bundle\EnrichBundle\Connector\Processor\AbstractProcessor;
+use Pim\Bundle\IcecatConnectorBundle\Exception\MapperException;
 use Pim\Bundle\IcecatConnectorBundle\Http\HttpClient;
 use Pim\Bundle\IcecatConnectorBundle\Xml\XmlProductDecoder;
 use Pim\Component\Catalog\Exception\InvalidArgumentException;
@@ -66,13 +67,22 @@ class EnrichProductProcessor extends AbstractProcessor
         $query = sprintf($this->icecatProductEndpoint, $eanValue);
 
         $guzzle = $this->httpClient->getGuzzle();
-        $res = $guzzle->request('GET', $query, [
+        $res = $guzzle->request('GET', '', [
             'auth' => $this->httpClient->getCredentials(),
+            'query' => $query
         ]);
-        $standardProduct = $this->xmlProductDecoder->decode($res->getBody()->getContents(), 'xml');
         try {
+            $standardProduct = $this->xmlProductDecoder->decode($res->getBody()->getContents(), 'xml');
             $this->productUpdater->update($item, $standardProduct);
         } catch (InvalidArgumentException $e) {
+            $this->stepExecution->addWarning($e->getMessage(), [], new DataInvalidItem($item));
+
+            return null;
+        } catch (MapperException $e) {
+            $this->stepExecution->addFailureException($e);
+
+            return null;
+        } catch (\Exception $e) {
             $this->stepExecution->addWarning($e->getMessage(), [], new DataInvalidItem($item));
 
             return null;

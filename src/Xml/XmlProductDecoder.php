@@ -2,15 +2,14 @@
 
 namespace Pim\Bundle\IcecatConnectorBundle\Xml;
 
-use Akeneo\Component\StorageUtils\Detacher\ObjectDetacherInterface;
 use Oro\Bundle\ConfigBundle\Config\ConfigManager;
 use Pim\Bundle\CatalogBundle\Entity\AttributeOption;
 use Pim\Bundle\ExtendedMeasureBundle\Repository\MeasureRepositoryInterface;
+use Pim\Bundle\IcecatConnectorBundle\Exception\MapperException;
 use Pim\Bundle\IcecatConnectorBundle\Mapping\AttributeMapper;
 use Pim\Component\Catalog\AttributeTypes;
 use Pim\Component\Catalog\Model\AttributeInterface;
 use Pim\Component\Catalog\Repository\AttributeRepositoryInterface;
-use Pim\Component\Catalog\Updater\Remover\RemoverInterface;
 use Symfony\Component\Serializer\Encoder\DecoderInterface;
 
 /**
@@ -72,6 +71,7 @@ class XmlProductDecoder implements DecoderInterface
     public function decode($xmlString, $format, array $context = [])
     {
         $standardItem = [];
+        $icecatProduct = null;
 
         try {
             $simpleXmlNode = simplexml_load_string($xmlString);
@@ -141,13 +141,19 @@ class XmlProductDecoder implements DecoderInterface
                     }
                 }
             }
+            $pimAttributeCode = $this->configManager->get('pim_icecat_connector.pictures');
             $standardItem = $this->addProductValue(
                 $standardItem,
-                'icecat_pictures',
+                $pimAttributeCode,
                 json_encode(array_values($pictures)),
                 null
             );
+        } catch (MapperException $e) {
+            throw $e;
         } catch (\Exception $e) {
+            if ($icecatProduct instanceof \SimpleXMLElement && (string) $icecatProduct['Code'] === '-1') {
+                throw new XmlDecodeException($icecatProduct['ErrorMessage'], 0, $e);
+            }
             throw new XmlDecodeException(sprintf('XML decode error for string %s', $xmlString), 0, $e);
         }
 
@@ -166,6 +172,10 @@ class XmlProductDecoder implements DecoderInterface
     {
         /** @var AttributeInterface $pimAttribute */
         $pimAttribute = $this->attributeRepository->findOneByIdentifier($pimCode);
+
+        if (null === $pimAttribute) {
+            return $standardItem;
+        }
 
         $locale = null;
         if ($pimAttribute->isLocalizable()) {

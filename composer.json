@@ -25,11 +25,11 @@
     ],
     "require": {
         "php": ">=5.6.0",
-        "akeneo/extended-attribute-type": "dev-master",
-        "akeneo/extended-measure-bundle": "dev-master",
+        "akeneo/extended-attribute-type": "1.0.*",
+        "akeneo/extended-measure-bundle": "0.1.*",
         "akeneo/pim-community-dev": "~1.6.7",
         "guzzlehttp/guzzle": "@stable",
-        "prewk/xml-string-streamer": "@stable"
+        "prewk/xml-string-streamer": "0.9.*"
     },
     "require-dev": {
         "fabpot/php-cs-fixer": "@stable",
