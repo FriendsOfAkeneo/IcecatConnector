@@ -13,14 +13,15 @@ The Akeneo PIM instance must be connected to the internet to be able to reach th
 
 # Features
 
-This extension allows to enrich an already existing catalog with Icecat catalog data. It does not import any structural content like categories or families.
+This extension allows to enrich an already existing catalog with Icecat catalog data. It does not import any structural content like categories or families. This way you keep control of your catalog structuration and are not tied to Icecat taxonomy.
 
-In order to be able to enrich product data, the existing products must know the corresponding Icecat ID linked to the product.
-Existing Akeneo PIM attributes must be mapped to Icecat features with a CSV file containing two main columns: the Akeneo attribute code and the corresponding Icecat feature ID. An import profile is provided by the extension to help in this mapping step.
+To enrich your product with Icecat content, you will also needs to have a unique attribute containing the product EAN. This attribute will be used to match Icecat product via their web API.
+
+Existing Akeneo PIM attributes must also be mapped to Icecat features with a CSV file containing two main columns: the Akeneo attribute code and the corresponding Icecat feature ID. An import profile is provided by the extension to help in this mapping step.
 
 Once this mapping is done, the products data will be fetched with a cron task using Icecat XML web API.
 
-This extension does not rely on Icecat taxonomy, and so there is no requirement or limitation on the Akeneo catalog structure.
+**Important**: This extension does not rely on Icecat taxonomy, and so there is no requirement or limitation on the Akeneo catalog structure.
 On the other hand, it is not possible to initialize an empty Akeneo PIM with this extension.
 
 ## Configuration
@@ -45,7 +46,7 @@ There are 3 differents imports profiles in this extension:
 First, you must require the connector dependencies:
 
 ```php
-composer require akeneo/icecat-connector
+composer require akeneo/icecat-connector 1.1.*
 ```
 
 Activate the dependencies bundles:

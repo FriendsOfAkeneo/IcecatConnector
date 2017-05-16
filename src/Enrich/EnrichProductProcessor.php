@@ -5,6 +5,7 @@ namespace Pim\Bundle\IcecatConnectorBundle\Enrich;
 use Akeneo\Component\Batch\Item\DataInvalidItem;
 use Oro\Bundle\ConfigBundle\Config\ConfigManager;
 use Pim\Bundle\EnrichBundle\Connector\Processor\AbstractProcessor;
+use Pim\Bundle\IcecatConnectorBundle\Exception\MapperException;
 use Pim\Bundle\IcecatConnectorBundle\Http\HttpClient;
 use Pim\Bundle\IcecatConnectorBundle\Xml\XmlProductDecoder;
 use Pim\Component\Catalog\Exception\InvalidArgumentException;
@@ -35,11 +36,11 @@ class EnrichProductProcessor extends AbstractProcessor
     /**
      * EnrichProductProcessor constructor.
      *
-     * @param HttpClient        $httpClient
+     * @param HttpClient $httpClient
      * @param XmlProductDecoder $xmlProductDecoder
-     * @param ProductUpdater    $productUpdater
-     * @param ConfigManager     $config
-     * @param string            $icecatProductEndpoint
+     * @param ProductUpdater $productUpdater
+     * @param ConfigManager $config
+     * @param string $icecatProductEndpoint
      */
     public function __construct(
         HttpClient $httpClient,
@@ -61,7 +62,7 @@ class EnrichProductProcessor extends AbstractProcessor
      */
     public function process($item)
     {
-        $eanValue = (int) $item->getValue($this->eanAttributeCode)->getData();
+        $eanValue = (int)$item->getValue($this->eanAttributeCode)->getData();
 
         $query = sprintf($this->icecatProductEndpoint, $eanValue);
 
@@ -70,10 +71,18 @@ class EnrichProductProcessor extends AbstractProcessor
             'auth' => $this->httpClient->getCredentials(),
             'query' => $query
         ]);
-        $standardProduct = $this->xmlProductDecoder->decode($res->getBody()->getContents(), 'xml');
         try {
+            $standardProduct = $this->xmlProductDecoder->decode($res->getBody()->getContents(), 'xml');
             $this->productUpdater->update($item, $standardProduct);
         } catch (InvalidArgumentException $e) {
+            $this->stepExecution->addWarning($e->getMessage(), [], new DataInvalidItem($item));
+
+            return null;
+        } catch (MapperException $e) {
+            $this->stepExecution->addFailureException($e);
+
+            return null;
+        } catch (\Exception $e) {
             $this->stepExecution->addWarning($e->getMessage(), [], new DataInvalidItem($item));
 
             return null;

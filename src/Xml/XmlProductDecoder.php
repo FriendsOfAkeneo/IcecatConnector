@@ -6,6 +6,7 @@ use Akeneo\Component\StorageUtils\Detacher\ObjectDetacherInterface;
 use Oro\Bundle\ConfigBundle\Config\ConfigManager;
 use Pim\Bundle\CatalogBundle\Entity\AttributeOption;
 use Pim\Bundle\ExtendedMeasureBundle\Repository\MeasureRepositoryInterface;
+use Pim\Bundle\IcecatConnectorBundle\Exception\MapperException;
 use Pim\Bundle\IcecatConnectorBundle\Mapping\AttributeMapper;
 use Pim\Component\Catalog\AttributeTypes;
 use Pim\Component\Catalog\Model\AttributeInterface;
@@ -148,6 +149,8 @@ class XmlProductDecoder implements DecoderInterface
                 json_encode(array_values($pictures)),
                 null
             );
+        } catch (MapperException $e) {
+            throw $e;
         } catch (\Exception $e) {
             throw new XmlDecodeException(sprintf('XML decode error for string %s', $xmlString), 0, $e);
         }
