@@ -3,6 +3,7 @@
 namespace Pim\Bundle\IcecatConnectorBundle\Mapping;
 
 use Oro\Bundle\ConfigBundle\Config\ConfigManager;
+use Pim\Bundle\IcecatConnectorBundle\Exception\MapperException;
 
 /**
  * @author    JM Leroux <jean-marie.leroux@akeneo.com>
@@ -43,6 +44,13 @@ class AttributeMapper implements MapperInterface
     protected function loadMapping()
     {
         $mappingFilePath = '/tmp/mapping.csv';
+
+        if (!file_exists($mappingFilePath)) {
+            throw new MapperException(
+                sprintf('Mapping file "%s" does not exists', $mappingFilePath),
+                MapperException::FILE_NOT_FOUND
+            );
+        }
         $fileHandle = fopen($mappingFilePath, 'r');
 
         // skip headers
