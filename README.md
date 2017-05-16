@@ -6,7 +6,7 @@ The Icecat Connector gives the capability to enrich Akeneo PIM product data with
 
 | IcecatConnectorBundle | Akeneo PIM Community Edition |
 |:---------------------:|:----------------------------:|
-| dev-master            | v1.7.*                       |
+| 1.1.*, dev-master     | v1.7.*                       |
 | 1.0.*                 | v1.6.*                       |
 
 The Akeneo PIM instance must be connected to the internet to be able to reach the Icecat XML web API.
@@ -43,15 +43,21 @@ There are 3 differents imports profiles in this extension:
 
 # Installation
 
+## Composer
+
 First, you must require the connector dependencies:
 
 ```php
+composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git", "branch": "master"}'
 composer require akeneo/icecat-connector 1.1.*
 ```
 
+## Override product value model
+
 Activate the dependencies bundles:
 
-In `app/AppKernel.php`
+In `app/AppKernel.php`:
+
 ```php
     protected function registerProjectBundles()
     {
@@ -59,9 +65,49 @@ In `app/AppKernel.php`
             new \Pim\Bundle\ExtendedAttributeTypeBundle\PimExtendedAttributeTypeBundle(),
             new \Pim\Bundle\ExtendedMeasureBundle\PimExtendedMeasureBundle(),
             new \Pim\Bundle\IcecatConnectorBundle\PimIcecatConnectorBundle(),
-            new Acme\Bundle\AppBundle\AcmeAppBundle(), // bundle to activate the extended attributes
         ];
     }
 ```
 
-Configure the Icecat credentials in the PIM configuration screen.
+### (Optionnal) Example bundles
+
+This connector is shipped with complete example bundle, especially to override the ProductValue model.
+This is needed to use the new TextCollection attribute type.
+
+The easiest way to enable it is to use a symbolic link:
+
+```
+cd src
+ln -s ../vendor/akeneo/extended-attribute-type/doc/example/Pim Pim
+```
+
+After that, you will be able to use the example bundles in `app/AppKernel.php`:
+
+```php
+    protected function registerProjectBundles()
+    {
+        return [
+            new \Pim\Bundle\ExtendedAttributeTypeBundle\PimExtendedAttributeTypeBundle(),
+            new \Pim\Bundle\ExtendedMeasureBundle\PimExtendedMeasureBundle(),
+            new \Pim\Bundle\IcecatConnectorBundle\PimIcecatConnectorBundle(),
+            new \Pim\Bundle\ExtendedCeBundle\ExtendedCeBundle(),   // example CE bundle to activate the extended attributes
+            //new \Pim\Bundle\ExtendedEeBundle\ExtendedEeBundle(), // example EE bundle to activate the extended attributes
+        ];
+    }
+```
+
+## (optionnal) Fixtures examples
+
+This extension provides examples fixtures for attributes and family.
+They are meant to be used in conjonction with the PimInstallerBundle:icecat_demo_dev.
+
+Once your application is installed with the `icecat_demo_dev` data, you can load these attributes and family with the
+shipped import profiles `attributes_csv_import` and `family_csv_import`.
+
+## Extension configuration
+
+Configure the Icecat credentials and special attributes in the PIM configuration screen.
+
+## Build attributes mappings
+
+*TODO*
