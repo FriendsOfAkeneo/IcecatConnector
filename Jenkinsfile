@@ -14,7 +14,7 @@ stage("Checkout") {
     if (env.BRANCH_NAME =~ /^PR-/) {
         userInput = input(message: 'Launch tests?', parameters: [
             choice(choices: 'yes\nno', description: 'Run unit tests', name: 'launchUnitTests'),
-            choice(choices: 'no', description: 'Run integration tests', name: 'launchIntegrationTests'),
+            choice(choices: 'yes\nno', description: 'Run integration tests', name: 'launchIntegrationTests'),
         ])
 
         launchUnitTests = userInput['launchUnitTests']
