@@ -133,7 +133,7 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
         sh "docker ps -a"
 
         try {
-            if (version != "5.6") {
+            if (phpVersion != "5.6") {
                 sh "docker exec akeneo composer require --no-update alcaeus/mongo-php-adapter"
             }
 
