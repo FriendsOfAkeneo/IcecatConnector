@@ -122,7 +122,7 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
             mysql:${mysqlVersion} \
             --sql-mode=ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
 
-        unstash "pim_community"
+        unstash "pim_enterprise"
 
         sh "docker run -d --network akeneo --name akeneo \
             -e WORKSPACE=${workspace} -e COMPOSER_HOME=/home/docker/.composer \
