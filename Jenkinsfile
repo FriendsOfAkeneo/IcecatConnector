@@ -112,6 +112,54 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
         def workspace = "/home/docker/pim"
 
         sh "docker network create akeneo"
+        sh """
+            docker pull mysql:${mysqlVersion}
+            docker pull carcel/akeneo:php-${phpVersion}
+        """
+
+        sh "docker run -d --network akeneo --name mysql \
+            -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=akeneo_pim -e MYSQL_PASSWORD=akeneo_pim -e MYSQL_DATABASE=akeneo_pim \
+            mysql:${mysqlVersion} \
+            --sql-mode=ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+
+        unstash "pim_community"
+
+        sh "docker run -d --network akeneo --name akeneo \
+            -e WORKSPACE=${workspace} -e COMPOSER_HOME=/home/docker/.composer \
+            -v /home/akeneo/.composer:/home/docker/.composer -v \$(pwd):${workspace} \
+            -w ${workspace} \
+            carcel/akeneo:php-${phpVersion}"
+
+        sh "docker ps -a"
+
+        try {
+            if (version != "5.6") {
+                sh "docker exec akeneo composer require --no-update alcaeus/mongo-php-adapter"
+            }
+
+            sh """
+                docker exec akeneo composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git", "branch": "master"}'
+                docker exec akeneo composer require --no-update akeneo/icecat-connector:${Globals.extensionBranch}
+                docker exec akeneo composer update --ignore-platform-reqs --optimize-autoloader --no-interaction --no-progress --prefer-dist
+            """
+
+            dir("vendor/akeneo/icecat-connector") {
+                deleteDir()
+                unstash "icecat_extension"
+            }
+            sh 'docker exec akeneo composer dump-autoload -o'
+
+            sh """
+                mkdir -p app/build/logs/
+                rm ./app/cache/* -rf
+                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\IcecatConnectorBundle\\\\PimIcecatConnectorBundle(),#' app/AppKernel.php
+                cat app/AppKernel.php
+            """
+
+            sh "docker exec akeneo app/console pim:install --force"
+        } finally {
+            deleteDir()
+        }
     }
 }
 
