@@ -125,7 +125,7 @@ def runIntegrationTestCe(version) {
             --sql-mode=ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
 
         docker.image("carcel/akeneo-behat:php-${version}").inside(
-            "--network akeneo --name akeneo-behat -e WORKSPACE=${workspace} -e COMPOSER_HOME=/home/docker/.composer
+            "--network akeneo --name akeneo-behat -e WORKSPACE=${workspace} -e COMPOSER_HOME=/home/docker/.composer \
             -v /home/akeneo/.composer:/home/docker/.composer -w ${workspace}"
         ) {
 
