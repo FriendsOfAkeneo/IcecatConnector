@@ -135,7 +135,7 @@ def runIntegrationTestCe(version) {
                 sh "composer require --no-update alcaeus/mongo-php-adapter"
             }
 
-            sh 'composer config repositories.icecat {"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git"}'
+            sh 'composer config repositories.icecat \'{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git"}\''
             sh "composer require --no-update phpunit/phpunit:5.4 akeneo/icecat-connector:${Globals.extensionBranch}"
             sh "composer update --ignore-platform-reqs --optimize-autoloader --no-interaction --no-progress --prefer-dist"
             dir("vendor/akeneo/extended-attribute-type") {
