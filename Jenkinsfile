@@ -1,12 +1,12 @@
 #!groovy
 
-def phpVersion = "5.6"
-def mysqlVersion = "5.5"
 def launchUnitTests = "yes"
 def launchIntegrationTests = "no"
 
 class Globals {
     static pimVersion = "1.6"
+    static phpVersion = "5.6"
+    static mysqlVersion = "5.5"
     static extensionBranch = "dev-master"
 }
 
@@ -14,12 +14,9 @@ stage("Checkout") {
     milestone 1
     if (env.BRANCH_NAME =~ /^PR-/) {
         userInput = input(message: 'Launch tests?', parameters: [
-            choice(choices: '1.6\n1.7', description: 'PIM version to use', name: 'pimVersion'),
             choice(choices: 'yes\nno', description: 'Run unit tests', name: 'launchUnitTests'),
             choice(choices: 'yes\nno', description: 'Run integration tests', name: 'launchIntegrationTests'),
         ])
-
-        Globals.pimVersion = userInput['pimVersion']
         launchUnitTests = userInput['launchUnitTests']
         launchIntegrationTests = userInput['launchIntegrationTests']
     }
