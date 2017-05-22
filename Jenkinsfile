@@ -50,7 +50,7 @@ if (launchIntegrationTests.equals("yes")) {
     stage("Integration tests") {
         def tasks = [:]
 
-        tasks["phpunit-5.6-ce"] = {runIntegrationTest("5.6", "5.5")}
+        tasks["phpunit-5.6-ce"] = {runIntegrationTest("5.6", "${Globals.mysqlVersion}")}
 
         parallel tasks
     }
