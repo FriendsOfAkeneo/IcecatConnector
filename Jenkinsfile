@@ -127,6 +127,45 @@ def runIntegrationTestCe(version) {
             mysql:${Globals.mysqlVersion} \
             --sql-mode=ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
 
+        docker.image("carcel/akeneo-behat:php-${version}").inside(
+            "--network akeneo --name akeneo-behat -e WORKSPACE=${workspace} -e COMPOSER_HOME=/home/docker/.composer
+            -v /home/akeneo/.composer:/home/docker/.composer -w ${workspace}"
+        ) {
+
+            unstash "pim_community"
+
+            if (version != "5.6") {
+                sh "composer require --no-update alcaeus/mongo-php-adapter"
+            }
+
+            sh "composer require --no-update phpunit/phpunit:5.4 akeneo/icecat-connector:${Globals.extensionBranch}"
+            sh "composer update --ignore-platform-reqs --optimize-autoloader --no-interaction --no-progress --prefer-dist"
+            dir("vendor/akeneo/extended-attribute-type") {
+                deleteDir()
+                unstash "icecat_extension"
+            }
+            sh 'ln -s $(pwd)/vendor/akeneo/extended-attribute-type/doc/example/Pim src/Pim'
+            sh 'composer dump-autoload -o'
+
+            sh "cp vendor/akeneo/extended-attribute-type/doc/example/Pim/Bundle/ExtendedCeBundle/Resources/config/config_test.yml app/config/config_test.yml"
+            sh "cp vendor/akeneo/extended-attribute-type/doc/example/Pim/Bundle/ExtendedCeBundle/Resources/config/parameters_test.yml app/config/parameters_test.yml"
+
+            sh "sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedCeBundle\\\\ExtendedCeBundle(),#' app/AppKernel.php"
+            sh "sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedAttributeTypeBundle\\\\PimExtendedAttributeTypeBundle(),#' app/AppKernel.php"
+            sh "cat app/AppKernel.php"
+
+
+            sh "rm ./app/cache/* -rf"
+            sh "./app/console --env=test pim:install --force"
+            sh "mkdir -p app/build/logs/"
+            try {
+                sh "./bin/phpunit -c app/ --log-junit app/build/logs/phpunit.xml  vendor/akeneo/extended-attribute-type/Tests"
+            } finally {
+                sh "sed -i \"s/testcase name=\\\"/testcase name=\\\"[php-${version}] /\" app/build/logs/*.xml"
+                junit "app/build/logs/*.xml"
+                deleteDir()
+            }
+        }
     }
 }
 
