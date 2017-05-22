@@ -111,6 +111,7 @@ def runPhpCsFixerTest(version) {
 def runIntegrationTestCe(version) {
     node('docker') {
         deleteDir()
+        cleanUpEnvironment()
         def workspace = "/home/docker/pim"
 
         sh "docker network create akeneo"
@@ -210,3 +211,11 @@ def runIntegrationTestEe(version) {
     }
 }
 
+def cleanUpEnvironment() {
+    deleteDir()
+    sh '''
+        docker ps -a -q | xargs -n 1 -P 8 -I {} docker rm -f {} > /dev/null
+        docker volume ls -q | xargs -n 1 -P 8 -I {} docker volume rm {} > /dev/null
+        docker network ls --filter name=akeneo -q | xargs -n 1 -P 8 -I {} docker network rm {} > /dev/null
+    '''
+}
