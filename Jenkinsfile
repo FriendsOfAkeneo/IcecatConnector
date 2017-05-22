@@ -112,15 +112,6 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
         def workspace = "/home/docker/pim"
 
         sh "docker network create akeneo"
-        sh """
-            docker pull mysql:${mysqlVersion}
-            docker pull carcel/akeneo:php-${phpVersion}
-        """
-
-        sh "docker run -d --network akeneo --name mysql \
-            -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=akeneo_pim -e MYSQL_PASSWORD=akeneo_pim -e MYSQL_DATABASE=akeneo_pim \
-            mysql:${mysqlVersion} \
-            --sql-mode=ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
     }
 }
 
