@@ -7,7 +7,7 @@ class Globals {
     static pimVersion = "1.6"
     static phpVersion = "5.6"
     static mysqlVersion = "5.5"
-    static extensionBranch = "dev-master"
+    static extensionBranch = "dev-1.0@dev"
 }
 
 stage("Checkout") {
