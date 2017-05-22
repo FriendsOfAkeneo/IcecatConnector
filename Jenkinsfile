@@ -158,7 +158,11 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
                 cat app/AppKernel.php
             """
 
-            sh "docker exec akeneo app/console pim:install --force"
+            sh """
+                cp vendor/akeneo/icecat-connector/src/Resources/jenkins/parameters_test.yml app/config/parameters_test.yml
+            """
+
+            sh "docker exec akeneo app/console pim:install --force --env=test"
         } finally {
             deleteDir()
         }
