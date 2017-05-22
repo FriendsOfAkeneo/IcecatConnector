@@ -126,6 +126,25 @@ def runIntegrationTestCe(version) {
 
                     sh "composer require --no-update phpunit/phpunit:5.4 akeneo/icecat-connector:${Globals.extensionBranch}"
                     sh "composer update --ignore-platform-reqs --optimize-autoloader --no-interaction --no-progress --prefer-dist"
+                    dir("vendor/akeneo/extended-attribute-type") {
+                        deleteDir()
+                        unstash "icecat_extension"
+                    }
+                    sh 'ln -s $(pwd)/vendor/akeneo/extended-attribute-type/doc/example/Pim src/Pim'
+                    sh 'composer dump-autoload -o'
+
+                    sh "cp vendor/akeneo/extended-attribute-type/doc/example/Pim/Bundle/ExtendedCeBundle/Resources/config/config_test.yml app/config/config_test.yml"
+                    sh "cp vendor/akeneo/extended-attribute-type/doc/example/Pim/Bundle/ExtendedCeBundle/Resources/config/parameters_test.yml app/config/parameters_test.yml"
+
+                    sh "sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedCeBundle\\\\ExtendedCeBundle(),#' app/AppKernel.php"
+                    sh "sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedAttributeTypeBundle\\\\PimExtendedAttributeTypeBundle(),#' app/AppKernel.php"
+                    sh "cat app/AppKernel.php"
+
+
+                    sh "rm ./app/cache/* -rf"
+                    sh "./app/console --env=test pim:install --force"
+                    sh "mkdir -p app/build/logs/"
+                    sh "./bin/phpunit -c app/ --log-junit app/build/logs/phpunit.xml  vendor/akeneo/extended-attribute-type/Tests"
                 }
             }
         } finally {
