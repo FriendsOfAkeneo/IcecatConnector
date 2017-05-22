@@ -153,10 +153,16 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
                 mkdir -p app/build/logs/
                 rm ./app/cache/* -rf
                 sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\IcecatConnectorBundle\\\\PimIcecatConnectorBundle(),#' app/AppKernel.php
+                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedMeasureBundle\\\\PimExtendedMeasureBundle(),#' app/AppKernel.php
+                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedAttributeTypeBundle\\\\PimExtendedAttributeTypeBundle(),#' app/AppKernel.php
                 cat app/AppKernel.php
             """
 
-            sh "docker exec akeneo app/console pim:install --force"
+            sh """
+                cp vendor/akeneo/icecat-connector/src/Resources/jenkins/parameters_test.yml app/config/parameters_test.yml
+            """
+
+            sh "docker exec akeneo app/console pim:install --force --env=test"
         } finally {
             deleteDir()
         }
