@@ -110,5 +110,5 @@ Configure the Icecat credentials and special attributes in the PIM configuration
 
 ## Build attributes mappings
 
-This is a big setup step.
+This is a big setup step. The opération consists in mapping Akeneo attributes on Icecat features.
 *TODO*
