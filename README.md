@@ -110,4 +110,5 @@ Configure the Icecat credentials and special attributes in the PIM configuration
 
 ## Build attributes mappings
 
+This is a big setup step.
 *TODO*
