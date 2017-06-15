@@ -23,6 +23,7 @@ You can find an example of this file [here](files/featuresList.csv).
 You probably will not need to map all Icecat features. Setting this flag to 1 will tell the mapper to ignore this feature.
 This flag system is here to ensure you didn't forget some features.
 Features not mapped and not ignored will raise an error in the import mapping job.
+Alternatively, we can also simply delete the unwanted features lines.
 
 #### Helpers
 
@@ -32,4 +33,10 @@ It is easier to identify the Icecat features by their name and description than 
 
 ## Mapping import
 
-_TODO_
+Once the mapping is finished, we can upload the file using the corresponding job `icecat_import_features_mapping`.
+
+This import will perform some simple validations and warn you in case of inconsistent mapping,
+like a text feature mapped to a number attribute.
+All these validations are just warnings and you will be responsible to keep the existing mapping or to fix it.
+For instance, it is possible that you need a number feature into a text attribute.
+In this case, the validation will emit a warning but you will keep the mapping.

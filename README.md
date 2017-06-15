@@ -120,4 +120,5 @@ You will find more documentation on mapping in the [docs folder](docs/mapping.md
 
 ## Enrich products  
 
-*TODO*
+The extension provides an `icecat_enrich_products` job that can be used manually or in a cron task via a dedicated import profile.
+This import profile will chack all products with an Icecat EAN attribute and call the Icecat API to get the data. 
