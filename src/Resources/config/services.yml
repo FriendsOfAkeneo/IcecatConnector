@@ -1,4 +1,11 @@
 services:
+    pim_icecat_connector.controller.connection:
+        class: Pim\Bundle\IcecatConnectorBundle\Controller\ConnectionController
+        arguments:
+            - '@pim_icecat_connector.http.client'
+            - '@oro_config.global'
+            - '%pim_icecat_connector.endpoint.product.ean%'
+
     pim_icecat_connector.xml.feature_normalizer:
         class: Pim\Bundle\IcecatConnectorBundle\Xml\XmlFeatureMappingNormalizer
 

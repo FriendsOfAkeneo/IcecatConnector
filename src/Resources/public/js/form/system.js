@@ -4,6 +4,7 @@ define([
         'underscore',
         'oro/translator',
         'routing',
+        'jquery',
         'pim/form',
         'pim/fetcher-registry',
         'pim/formatter/choices/base',
@@ -13,6 +14,7 @@ define([
     function (_,
               __,
               Routing,
+              $,
               BaseForm,
               FetcherRegistry,
               ChoicesFormatter,
@@ -20,11 +22,51 @@ define([
               template) {
         return BaseForm.extend({
             events: {
-                'change .pim-icecat-config': 'updateModel'
+                'change .pim-icecat-config': 'updateModel',
+                'click #check-connection': 'checkConnection'
             },
             isGroup: true,
             label: __('pim_icecat_connector.configuration.tab.label'),
             template: _.template(template),
+            areCredentialsValid: null,
+            checkConnection : function () {
+                var form_username =  this.getFormData()['pim_icecat_connector___credentials_username'] ?
+                    this.getFormData()['pim_icecat_connector___credentials_username'].value : '';
+                var form_password = this.getFormData()['pim_icecat_connector___credentials_password'] ?
+                    this.getFormData()['pim_icecat_connector___credentials_password'].value : '';
+                $.ajax
+                ({
+                    type: "POST",
+                    url: Routing.generate('pim_icecat_connector_check'),
+                    data: { username: form_username, password: form_password},
+                    success: function () {
+                        var prototype = $('#connection-status-prototype').html();
+                        var replacements = {
+                            '%granted%':'granted',
+                            '%icon%':'ok',
+                            '%status_message%':'Credentials are valid'
+                        };
+                        var connectionStatusHtml = prototype.replace(/%\w+%/g, function(all) {
+                            return replacements[all] || all;
+                        });
+                        $('#connection-status').html(connectionStatusHtml);
+                    },
+                    error: function(xhr, status, error) {
+                        var prototype = $('#connection-status-prototype').html();
+                        var replacements = {
+                            '%granted%':'nonGranted',
+                            '%icon%':'remove',
+                            '%status_message%':'Login and/or password is not valid'
+                        };
+                        var connectionStatusHtml = prototype.replace(/%\w+%/g, function(all) {
+                            return replacements[all] || all;
+                        });
+                        $('#connection-status').html(connectionStatusHtml);
+                    }
+                });
+
+                this.render();
+            },
 
             /**
              * {@inheritdoc}
