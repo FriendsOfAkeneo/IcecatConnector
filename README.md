@@ -52,7 +52,17 @@ composer config repositories.icecat '{"type": "vcs", "url": "ssh://git@distribut
 composer require akeneo/icecat-connector 1.1.*
 ```
 
-## Override product value model
+## Registering the bundle
+
+### Import routing file
+
+In `app/config/routing.yml`:
+```yml
+pim_icecat_connector:
+    resource: "@PimIcecatConnectorBundle/Resources/config/routing.yml"
+    prefix: /icecat
+```
+### Override product value model
 
 Activate the dependencies bundles:
 

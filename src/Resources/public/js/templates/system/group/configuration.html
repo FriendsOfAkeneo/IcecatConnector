@@ -26,7 +26,20 @@
                    id="credentials_password" name="credentials_password"
                    type="password" value="<%- credentials_password %>"/>
         </div>
+
     </div>
+    <div class="AknFieldContainer">
+        <div class="AknButtonList">
+            <div class="AknButton AknButtonList-item" id="check-connection">Check connection</div>
+        </div>
+        <div id="connection-status-prototype" style="display:none">
+            <i class="AknAcl-icon AknAcl-icon--%granted% icon-%icon%"></i>
+            %status_message%
+        </div>
+        <div id="connection-status" class="AknAcl">
+        </div>
+    </div>
+
     <div class="AknFieldContainer">
         <div class="AknFieldContainer-header">
             <label class="AknFieldContainer-label"
