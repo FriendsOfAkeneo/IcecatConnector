@@ -121,5 +121,15 @@ Configure the Icecat credentials and special attributes in the PIM configuration
 
 ## Build attributes mappings
 
-This is a big setup step. The opération consists in mapping Akeneo attributes on Icecat features.
-*TODO*
+This is a big setup step. The operation consists in mapping Akeneo attributes on Icecat features.
+This can be splitted in three steps:
+* download the full Icecat features CSV file. It provides an empty CSV file ready for the mapping.
+* map needed features ID with Akeneo attributes codes in the CSV file. This step can be very long if you have many attributes to map.
+* upload the CSV mapping.
+
+You will find more documentation on mapping in the [docs folder](docs/mapping.md).
+
+## Enrich products  
+
+The extension provides an `icecat_enrich_products` job that can be used manually or in a cron task via a dedicated import profile.
+This import profile will chack all products with an Icecat EAN attribute and call the Icecat API to get the data. 
