@@ -6,7 +6,8 @@ The Icecat Connector gives the capability to enrich Akeneo PIM product data with
 
 | IcecatConnectorBundle | Akeneo PIM Community Edition |
 |:---------------------:|:----------------------------:|
-| 1.1.*, dev-master     | v1.7.*                       |
+| 1.2.*                 | v1.7.*                       |
+| 1.1.*                 | v1.7.*                       |
 | 1.0.*                 | v1.6.*                       |
 
 The Akeneo PIM instance must be connected to the internet to be able to reach the Icecat XML web API.
