@@ -140,7 +140,7 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
             sh """
                 docker exec akeneo composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git", "branch": "master"}'
                 docker exec akeneo composer require --no-update akeneo/icecat-connector:${Globals.extensionBranch}
-                docker exec akeneo composer update --ignore-platform-reqs --optimize-autoloader --no-interaction --no-progress --prefer-dist
+                docker exec akeneo php -d memory_limit=3G /usr/local/bin/composer update --ignore-platform-reqs --optimize-autoloader --no-interaction --no-progress --prefer-dist
             """
 
             dir("vendor/akeneo/icecat-connector") {

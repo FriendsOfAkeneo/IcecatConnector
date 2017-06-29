@@ -27,8 +27,8 @@ services:
             - '@pim_icecat_connector.mapping.attribute_mapper'
             - '@pim_catalog.repository.attribute'
             - '@pim_extended_measures.repository'
-            - 'ecommerce'
-            - 'en_US'
+            - '%pim_icecat_connector.fallback_channel%'
+            - '%pim_icecat_connector.fallback_locale%'
 
     pim_icecat_connector.mapping.attribute_mapper:
         class: Pim\Bundle\IcecatConnectorBundle\Mapping\AttributeMapper

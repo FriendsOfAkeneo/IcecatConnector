@@ -63,6 +63,7 @@ pim_icecat_connector:
     resource: "@PimIcecatConnectorBundle/Resources/config/routing.yml"
     prefix: /icecat
 ```
+
 ### Override product value model
 
 Activate the dependencies bundles:
@@ -115,7 +116,23 @@ They are meant to be used in conjonction with the PimInstallerBundle:icecat_demo
 Once your application is installed with the `icecat_demo_dev` data, you can load these attributes and family with the
 shipped import profiles `attributes_csv_import` and `family_csv_import`.
 
-## Extension configuration
+## Extension parameters
+
+You may also need need to adjust some internal parameters if you want to use another locale.
+You can do it in the standard `app/config/parameters.yml` for a Symfony2 application.
+
+* `pim_icecat_connector.endpoint.product.ean: 'ean_upc=%%s;lang=en;output=productxml'`. 
+  This parameter set the product data endpoint and you should change it if you need to have the data in another locale.
+  You could for example use `ean_upc=%%s;lang=de;output=productxml` to get the german data.
+  
+* `pim_icecat_connector.fallback_locale: 'en_US'`. This parameter set the targeted locale in Akeneo.
+  Chances are that if you change the Icecat endpoint, you may alos change this parameter with `de_DE`.
+
+* `pim_icecat_connector.fallback_channel: 'ecommerce'`. 
+  The default target channel in Akeneo, but you can change it to enrich another channel.
+
+
+## Extension UI configuration
 
 Configure the Icecat credentials and special attributes in the PIM configuration screen.
 
