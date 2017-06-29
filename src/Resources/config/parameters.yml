@@ -1,4 +1,6 @@
 parameters:
-    pim_icecat_connector.endpoint.server: 'https://data.Icecat.biz/xml_s3/xml_server3.cgi'
+    pim_icecat_connector.endpoint.server: 'https://data.icecat.biz/xml_s3/xml_server3.cgi'
     pim_icecat_connector.endpoint.product.prod_id: 'prod_id=%%s;vendor=%%s;lang=int;output=productxml'
     pim_icecat_connector.endpoint.product.ean: 'ean_upc=%%s;lang=en;output=productxml'
+    pim_icecat_connector.fallback_locale: 'en_US'
+    pim_icecat_connector.fallback_channel: 'ecommerce'
