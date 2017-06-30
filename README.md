@@ -64,9 +64,10 @@ pim_icecat_connector:
     prefix: /icecat
 ```
 
-### Override product value model
+### Register dependencies and override product value model
 
-Activate the dependencies bundles:
+The Icecat connector uses a new attribute type to store pictures url collection.
+You must then activate the dependencies bundles and add a custom one to override the original ProductValue class:
 
 In `app/AppKernel.php`:
 
@@ -77,9 +78,22 @@ In `app/AppKernel.php`:
             new \Pim\Bundle\ExtendedAttributeTypeBundle\PimExtendedAttributeTypeBundle(),
             new \Pim\Bundle\ExtendedMeasureBundle\PimExtendedMeasureBundle(),
             new \Pim\Bundle\IcecatConnectorBundle\PimIcecatConnectorBundle(),
+            new \MyCompany\Bundle\MyBundle\MyPimBundle(), // Your custom bundle with overriden ProductValue
         ];
     }
 ```
+
+More explanation about the ProductValue override can be found in Akeneo documentation: 
+https://docs.akeneo.com/1.7/cookbook/catalog_structure/overriding_the_orm_product_value.html
+
+### Update the DB schema
+
+The ExtendedAttributeTypeBundle need to add some tables from the ProductValue override and you must update the Doctrine schema.
+
+One way to this is using the command `app/console doctrine:schema:update`. 
+You will habe to specify an option for this command:
+ * `dump-sql` will show you the changes without applying them.
+ * `force` will apply the changes.
 
 ### (Optionnal) Example bundles
 
