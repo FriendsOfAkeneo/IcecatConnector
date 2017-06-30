@@ -6,7 +6,6 @@ The Icecat Connector gives the capability to enrich Akeneo PIM product data with
 
 | IcecatConnectorBundle | Akeneo PIM Community Edition |
 |:---------------------:|:----------------------------:|
-| 1.2.*                 | v1.7.*                       |
 | 1.1.*                 | v1.7.*                       |
 | 1.0.*                 | v1.6.*                       |
 
@@ -86,18 +85,6 @@ In `app/AppKernel.php`:
 More explanation about the ProductValue override can be found in Akeneo documentation: 
 https://docs.akeneo.com/1.7/cookbook/catalog_structure/overriding_the_orm_product_value.html
 
-### Update the DB schema
-
-The ExtendedAttributeTypeBundle need to add some tables from the ProductValue override and you must update the Doctrine schema.
-
-One way to this is using the command `app/console doctrine:schema:update`. 
-You will habe to specify an option for this command:
-
-* `dump-sql` will show you the changes without applying them.
-
-* `force` will apply the changes.
-
-
 ### (Optionnal) Example bundles
 
 This connector is shipped with complete example bundle, especially to override the ProductValue model.
@@ -125,13 +112,16 @@ After that, you will be able to use the example bundles in `app/AppKernel.php`:
     }
 ```
 
-## (optionnal) Fixtures examples
+### Update the DB schema
 
-This extension provides examples fixtures for attributes and family.
-They are meant to be used in conjonction with the PimInstallerBundle:icecat_demo_dev.
+The ExtendedAttributeTypeBundle need to add some tables from the ProductValue override and you must update the Doctrine schema.
 
-Once your application is installed with the `icecat_demo_dev` data, you can load these attributes and family with the
-shipped import profiles `attributes_csv_import` and `family_csv_import`.
+One way to this is using the command `app/console doctrine:schema:update`. 
+You will habe to specify an option for this command:
+
+* `dump-sql` will show you the changes without applying them.
+
+* `force` will apply the changes.
 
 ## Extension parameters
 
@@ -148,6 +138,13 @@ You can do it in the standard `app/config/parameters.yml` for a Symfony2 applica
 * `pim_icecat_connector.fallback_channel: 'ecommerce'`. 
   The default target channel in Akeneo, but you can change it to enrich another channel.
 
+## (optionnal) Fixtures examples
+
+This extension provides examples fixtures for attributes and family.
+They are meant to be used in conjonction with the PimInstallerBundle:icecat_demo_dev.
+
+Once your application is installed with the `icecat_demo_dev` data, you can load these attributes and family with the
+shipped import profiles `attributes_csv_import` and `family_csv_import`.
 
 ## Extension UI configuration
 
