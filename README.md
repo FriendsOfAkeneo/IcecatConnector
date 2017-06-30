@@ -92,8 +92,11 @@ The ExtendedAttributeTypeBundle need to add some tables from the ProductValue ov
 
 One way to this is using the command `app/console doctrine:schema:update`. 
 You will habe to specify an option for this command:
- * `dump-sql` will show you the changes without applying them.
- * `force` will apply the changes.
+
+* `dump-sql` will show you the changes without applying them.
+
+* `force` will apply the changes.
+
 
 ### (Optionnal) Example bundles
 
