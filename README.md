@@ -57,6 +57,7 @@ composer require akeneo/icecat-connector 1.1.*
 ### Import routing file
 
 In `app/config/routing.yml`:
+
 ```yml
 pim_icecat_connector:
     resource: "@PimIcecatConnectorBundle/Resources/config/routing.yml"
@@ -84,6 +85,16 @@ In `app/AppKernel.php`:
 
 More explanation about the ProductValue override can be found in Akeneo documentation: 
 https://docs.akeneo.com/1.7/cookbook/catalog_structure/overriding_the_orm_product_value.html
+
+Do not forget to update the mapping for your brand new product value in `app/config/config.yml`:
+
+```yaml
+akeneo_storage_utils:
+    mapping_overrides:
+        -
+            original: PimEnterprise\Component\Catalog\Model\ProductValue
+            override: Pim\Bundle\ExtendedCeBundle\Model\ProductValue
+```
 
 ### (Optionnal) Example bundles
 
