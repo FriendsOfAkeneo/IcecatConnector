@@ -105,6 +105,36 @@
     <div class="AknFieldContainer">
         <div class="AknFieldContainer-header">
             <label class="AknFieldContainer-label"
+                   for="locales">Locales selector</label>
+        </div>
+        <div class="AknFieldContainer-inputContainer">
+            <input class="pim-icecat-config select-field"
+                   id="locales" name="locales"
+                   type="hidden" value="<%- locales %>"/>
+        </div>
+        <div class="AknFieldContainer-footer">
+            Select locales from Icecat
+        </div>
+    </div>
+
+    <div class="AknFieldContainer">
+        <div class="AknFieldContainer-header">
+            <label class="AknFieldContainer-label"
+                   for="fallback_locale">Fallback locale selector</label>
+        </div>
+        <div class="AknFieldContainer-inputContainer">
+            <input class="pim-icecat-config select-field"
+                   id="fallback_locale" name="fallback_locale"
+                   type="hidden" value="<%- fallback_locale %>"/>
+        </div>
+        <div class="AknFieldContainer-footer">
+            Select one locale from Icecat
+        </div>
+    </div>
+
+    <div class="AknFieldContainer">
+        <div class="AknFieldContainer-header">
+            <label class="AknFieldContainer-label"
                    for="short_summary_description"><%-
                 _.__('pim_icecat_connector.configuration.short_summary_description') %></label>
         </div>

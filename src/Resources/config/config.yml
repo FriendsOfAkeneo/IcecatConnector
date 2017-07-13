@@ -6,6 +6,12 @@ pim_icecat_connector:
         credentials_password:
             value: ~
             scope: app
+        locales:
+            value: ~
+            scope: app
+        fallback_locale:
+            value: ~
+            scope: app
         ean_attribute:
             value: ~
             scope: app
