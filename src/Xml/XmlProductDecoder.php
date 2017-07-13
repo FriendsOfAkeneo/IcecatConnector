@@ -214,7 +214,7 @@ class XmlProductDecoder implements DecoderInterface
      */
     protected function formatMetricValue($icecatValue, $icecatUnit)
     {
-        $measure = $this->measureRepository->findBySymbol($icecatUnit);
+        $measure = $this->measureRepository->find($icecatUnit);
         return [
             'data' => $icecatValue,
             'unit' => $measure['unit']

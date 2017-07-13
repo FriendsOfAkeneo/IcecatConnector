@@ -113,7 +113,7 @@ class ProductFixturesParserCommand extends ContainerAwareCommand
             $measure = $parser->parseNode($simpleXmlNode);
             try {
                 $mesureCount++;
-                $measureRepository->findBySymbol($measure->getSign());
+                $measureRepository->find($measure->getSign());
             } catch (UnknownUnitException $e) {
                 if (in_array($measure->getSign(), $this->getIgnoredSigns())) {
                     $excludedCount++;
