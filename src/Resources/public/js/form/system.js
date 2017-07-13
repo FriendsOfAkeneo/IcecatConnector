@@ -29,8 +29,50 @@ define([
             label: __('pim_icecat_connector.configuration.tab.label'),
             template: _.template(template),
             areCredentialsValid: null,
-            checkConnection : function () {
-                var form_username =  this.getFormData()['pim_icecat_connector___credentials_username'] ?
+            supportedLocales: [
+                {id: 'INT', text: "International standardized version"},
+                {id: 'EN', text: "Standard or UK English"},
+                {id: 'US', text: "US English"},
+                {id: 'NL', text: "Dutch"},
+                {id: 'FR', text: "French"},
+                {id: 'DE', text: "German"},
+                {id: 'IT', text: "Italian"},
+                {id: 'ES', text: "Spanish"},
+                {id: 'DK', text: "Danish"},
+                {id: 'RU', text: "Russian"},
+                {id: 'PT', text: "Portuguese"},
+                {id: 'ZH', text: "Chinese (simplified)"},
+                {id: 'SE', text: "Swedish"},
+                {id: 'PL', text: "Polish"},
+                {id: 'CZ', text: "Czech"},
+                {id: 'HU', text: "Hungarian"},
+                {id: 'FI', text: "Finnish"},
+                {id: 'NO', text: "Norwegian"},
+                {id: 'TR', text: "Turkish"},
+                {id: 'BG', text: "Bulgarian"},
+                {id: 'KA', text: "Georgian"},
+                {id: 'RO', text: "Romanian"},
+                {id: 'SR', text: "Serbian"},
+                {id: 'JA', text: "Japanese"},
+                {id: 'UK', text: "Ukrainian"},
+                {id: 'CA', text: "Catalan"},
+                {id: 'HR', text: "Croatian"},
+                {id: 'AR', text: "Arabic"},
+                {id: 'VI', text: "Vietnamese"},
+                {id: 'HE', text: "Hebrew"},
+                {id: 'ZH', text: "Chinese (traditional)"},
+                {id: 'BR', text: "Brasilian Portuguese"},
+                {id: 'KO', text: "Korean"},
+                {id: 'EN_SG', text: "Singapore English"},
+                {id: 'EN_IN', text: "Indian English"},
+                {id: 'LT', text: "Lithuanian"},
+                {id: 'LV', text: "Latvian"},
+                {id: 'DE_CH', text: "Swiss German"},
+                {id: 'ID', text: "Indonesian"},
+                {id: 'SK', text: "Slovakian "}
+            ],
+            checkConnection: function () {
+                var form_username = this.getFormData()['pim_icecat_connector___credentials_username'] ?
                     this.getFormData()['pim_icecat_connector___credentials_username'].value : '';
                 var form_password = this.getFormData()['pim_icecat_connector___credentials_password'] ?
                     this.getFormData()['pim_icecat_connector___credentials_password'].value : '';
@@ -38,27 +80,27 @@ define([
                 ({
                     type: "POST",
                     url: Routing.generate('pim_icecat_connector_check'),
-                    data: { username: form_username, password: form_password},
+                    data: {username: form_username, password: form_password},
                     success: function () {
                         var prototype = $('#connection-status-prototype').html();
                         var replacements = {
-                            '%granted%':'granted',
-                            '%icon%':'ok',
-                            '%status_message%':'Credentials are valid'
+                            '%granted%': 'granted',
+                            '%icon%': 'ok',
+                            '%status_message%': 'Credentials are valid'
                         };
-                        var connectionStatusHtml = prototype.replace(/%\w+%/g, function(all) {
+                        var connectionStatusHtml = prototype.replace(/%\w+%/g, function (all) {
                             return replacements[all] || all;
                         });
                         $('#connection-status').html(connectionStatusHtml);
                     },
-                    error: function(xhr, status, error) {
+                    error: function (xhr, status, error) {
                         var prototype = $('#connection-status-prototype').html();
                         var replacements = {
-                            '%granted%':'nonGranted',
-                            '%icon%':'remove',
-                            '%status_message%':'Login and/or password is not valid'
+                            '%granted%': 'nonGranted',
+                            '%icon%': 'remove',
+                            '%status_message%': 'Login and/or password is not valid'
                         };
-                        var connectionStatusHtml = prototype.replace(/%\w+%/g, function(all) {
+                        var connectionStatusHtml = prototype.replace(/%\w+%/g, function (all) {
                             return replacements[all] || all;
                         });
                         $('#connection-status').html(connectionStatusHtml);
@@ -73,6 +115,10 @@ define([
              */
             render: function () {
                 this.$el.html(this.template({
+                    locales: this.getFormData()['pim_icecat_connector___locales'] ?
+                        this.getFormData()['pim_icecat_connector___locales'].value : '',
+                    fallback_locale: this.getFormData()['pim_icecat_connector___fallback_locale'] ?
+                        this.getFormData()['pim_icecat_connector___fallback_locale'].value : '',
                     credentials_username: this.getFormData()['pim_icecat_connector___credentials_username'] ?
                         this.getFormData()['pim_icecat_connector___credentials_username'].value : '',
                     credentials_password: this.getFormData()['pim_icecat_connector___credentials_password'] ?
@@ -90,7 +136,7 @@ define([
                     pictures: this.getFormData()['pim_icecat_connector___pictures'] ?
                         this.getFormData()['pim_icecat_connector___pictures'].value : ''
                 }));
-
+                
                 var searchOptions = {
                     options: {
                         types: [
@@ -174,6 +220,18 @@ define([
                             containerCssClass: 'input-xxlarge'
                         });
                     }.bind(this));
+
+                initSelect2.init(this.$('#locales'), {
+                    data: this.supportedLocales,
+                    multiple: true,
+                    containerCssClass: 'input-xxlarge'
+                });
+
+                initSelect2.init(this.$('#fallback_locale'), {
+                    data: this.supportedLocales,
+                    multiple: false,
+                    containerCssClass: 'input-xxlarge'
+                });
 
                 this.$('.switch').bootstrapSwitch();
 

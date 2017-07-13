@@ -26,6 +26,8 @@ class Configuration implements ConfigurationInterface
             ->scalarNode('credentials_username')->end()
             ->scalarNode('credentials_password')->end()
             ->scalarNode('ean_attribute')->end()
+            ->scalarNode('fallback_locale')->end()
+            ->scalarNode('locales')->end()
             ->scalarNode('description')->end()
             ->scalarNode('short_description')->end()
             ->scalarNode('summary_description')->end()
@@ -41,6 +43,8 @@ class Configuration implements ConfigurationInterface
                 'credentials_username' => ['value' => null],
                 'credentials_password' => ['value' => null],
                 'ean_attribute' => ['value' => null],
+                'fallback_locale' => ['value' => null],
+                'locales' => ['value' => null],
                 'description' => ['value' => null],
                 'short_description' => ['value' => null],
                 'summary_description' => ['value' => null],
