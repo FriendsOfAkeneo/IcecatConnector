@@ -59,7 +59,7 @@ class MeasuresParserCommand extends ContainerAwareCommand
                 $simpleXmlNode = simplexml_load_string($node);
                 $measure = $parser->parseNode($simpleXmlNode);
                 $mesureCount++;
-                $measureRepository->findBySymbol($measure->getSign());
+                $measureRepository->find($measure->getSign());
             } catch (UnknownUnitException $e) {
                 if (in_array($measure->getSign(), $this->getIgnoredSigns())) {
                     $excludedCount++;

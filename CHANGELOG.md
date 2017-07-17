@@ -1,4 +1,6 @@
-# 1.2.1 - current
+# 1.2.1
+## Bug fixes
+- fixes MeasureRepository::find calls
 
 ## Improvements
 - MKP-362: add locales (icecat locales + fallback locale)
