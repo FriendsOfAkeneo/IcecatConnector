@@ -48,7 +48,6 @@ There are 3 differents imports profiles in this extension:
 First, you must require the connector dependencies:
 
 ```php
-composer config repositories.icecat '{"type": "vcs", "url": "ssh://git@distribution.akeneo.com:443/IcecatConnector", "branch": "master"}'
 composer require akeneo/icecat-connector 1.1.*
 ```
 
