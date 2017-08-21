@@ -1,0 +1,5 @@
+services:
+    pim_icecat.mass_action.form.type.icecat_enrichment:
+        class: Pim\Bundle\IcecatConnectorBundle\Form\Type\MassAction\IcecatEnrichmentType
+        tags:
+            - { name: form.type, alias: pim_icecat_mass_action_operation_icecat_enrichment }

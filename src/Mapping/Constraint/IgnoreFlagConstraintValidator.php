@@ -18,8 +18,8 @@ class IgnoreFlagConstraintValidator extends ConstraintValidator
     public function validate($item, Constraint $constraint)
     {
         $ignoreFlag = $item['ignore_flag'];
-        $alowedValues = ['0', '1'];
-        if (!in_array($ignoreFlag, $alowedValues)) {
+        $allowedValues = ['0', '1'];
+        if (!in_array($ignoreFlag, $allowedValues)) {
             $message = sprintf($constraint->message, $ignoreFlag);
             $this->context->buildViolation($message)->addViolation();
         }
