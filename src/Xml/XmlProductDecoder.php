@@ -145,13 +145,15 @@ class XmlProductDecoder implements DecoderInterface
                 $pictures = $this->extractPictures($icecatGallery['ProductPicture']);
             }
             $pimAttributeCode = $this->configManager->get('pim_icecat_connector.pictures');
-            $standardItem = $this->addProductValue(
-                $standardItem,
-                $pimAttributeCode,
-                null,
-                json_encode(array_values($pictures)),
-                null
-            );
+            if (!empty($pimAttributeCode)) {
+                $standardItem = $this->addProductValue(
+                    $standardItem,
+                    $pimAttributeCode,
+                    null,
+                    json_encode(array_values($pictures)),
+                    null
+                );
+            }
         } catch (MapperException $e) {
             throw $e;
         } catch (\Exception $e) {
@@ -221,10 +223,11 @@ class XmlProductDecoder implements DecoderInterface
      */
     protected function formatMetricValue($icecatValue, $icecatUnit)
     {
+        var_dump($icecatUnit);
         $measure = $this->measureRepository->find($icecatUnit);
         return [
             'amount' => $icecatValue,
-            'unit' => $measure['unit']
+            'unit' => $measure['unit'],
         ];
     }
 
@@ -242,6 +245,11 @@ class XmlProductDecoder implements DecoderInterface
         ]];
     }
 
+    /**
+     * @param AttributeInterface $pimAttribute
+     * @param string             $icecatValue
+     * @return string
+     */
     protected function findOptionCode(AttributeInterface $pimAttribute, $icecatValue)
     {
         foreach ($pimAttribute->getOptions() as $option) {
