@@ -1,0 +1,2037 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ICECAT-interface SYSTEM "http://data.icecat.biz/dtd/ICECAT-interface_response.dtd">
+<!-- source: Icecat.biz 2017 -->
+<ICECAT-interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://data.icecat.biz/xsd/ICECAT-interface_response.xsd">
+   <Product Code="1" HighPic="http://images.icecat.biz/img/gallery/pic1.jpg" HighPicHeight="2768" HighPicSize="734516" HighPicWidth="1520" ID="31040076" LowPic="http://images.icecat.biz/img/gallery_lows/pic1.jpg" LowPicHeight="200" LowPicSize="12641" LowPicWidth="109" Name="SM-G930F" Pic500x500="http://images.icecat.biz/img/gallery_mediums/pic1.jpg" Pic500x500Height="500" Pic500x500Size="48117" Pic500x500Width="274" Prod_id="SM-G930FZKAPHN" Quality="ICECAT" ReleaseDate="2016-02-22" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/pic1.jpg" ThumbPicSize="1571" Title="Samsung Galaxy S7 SM-G930F Single SIM 4G 32GB Black">
+   <CategoryFeatureGroup ID="6884" No="96"><FeatureGroup ID="1"><Name ID="1222500" langid="1" Value="Processor"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="19936" No="94"><FeatureGroup ID="3"><Name ID="4863" langid="1" Value="Memory"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="6883" No="100"><FeatureGroup ID="5"><Name ID="4867" langid="1" Value="Display"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="6889" No="80"><FeatureGroup ID="12"><Name ID="4995" langid="1" Value="Ports &amp; interfaces"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="6881" No="-1"><FeatureGroup ID="14"><Name ID="5023" langid="1" Value="Weight &amp; dimensions"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="6921" No="-10"><FeatureGroup ID="28"><Name ID="5067" langid="1" Value="Operational conditions"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="11007" No="-100"><FeatureGroup ID="0"><Name ID="5073" langid="1" Value="Technical details"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="7476" No="30"><FeatureGroup ID="31"><Name ID="5075" langid="1" Value="Keyboard"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="6890" No="84"><FeatureGroup ID="35"><Name ID="5167" langid="1" Value="Networking"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="6887" No="92"><FeatureGroup ID="47"><Name ID="8858" langid="1" Value="Storage"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="6919" No="75"><FeatureGroup ID="50"><Name ID="11136" langid="1" Value="Messaging"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="11005" No="60"><FeatureGroup ID="54"><Name ID="11868" langid="1" Value="Navigation"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="6936" No="-5"><FeatureGroup ID="76"><Name ID="28540" langid="1" Value="Certificates"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="18401" No="20"><FeatureGroup ID="90"><Name ID="30562" langid="1" Value="Software"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="6888" No="88"><FeatureGroup ID="95"><Name ID="31282" langid="1" Value="Camera"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="18402" No="69"><FeatureGroup ID="96"><Name ID="31318" langid="1" Value="Ergonomics"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="6933" No="-20"><FeatureGroup ID="116"><Name ID="78852" langid="1" Value="Packaging content"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="6901" No="35"><FeatureGroup ID="118"><Name ID="80021" langid="1" Value="Call management"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="11681" No="0"><FeatureGroup ID="121"><Name ID="92760" langid="1" Value="Tablet"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="6892" No="5"><FeatureGroup ID="143"><Name ID="618812" langid="1" Value="Battery"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="8176" No="-100"><FeatureGroup ID="146"><Name ID="624346" langid="1" Value="Other features"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="11003" No="70"><FeatureGroup ID="148"><Name ID="630457" langid="1" Value="Design"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="12476" No="10"><FeatureGroup ID="183"><Name ID="1210971" langid="1" Value="Processor special features"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="11002" No="65"><FeatureGroup ID="184"><Name ID="1218765" langid="1" Value="Performance"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="19219" No="-3"><FeatureGroup ID="185"><Name ID="1219853" langid="1" Value="Features"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="11006" No="55"><FeatureGroup ID="186"><Name ID="1222838" langid="1" Value="Multimedia"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="18408" No="83"><FeatureGroup ID="211"><Name ID="2316647" langid="1" Value="Subscription"/></FeatureGroup></CategoryFeatureGroup>
+   <Category ID="1893"><Name ID="730427" langid="1" Value="smartphones"/></Category>
+     <EANCode EAN="8806088281285"/>
+   <FeatureLogo ID="4294967296" Feature_ID="2183" Value="Y" LogoPic="http://images.icecat.biz/img/feature_logo/1-3750.png" Width="200" Height="200" Size="27992">
+</FeatureLogo>
+
+   <ReasonsToBuy/>
+   <BulletPoints/>
+   <ProductBundled/>
+       <ProductDescription ID="49444013" LongDesc="This is the en_US long description." ManualPDFSize="0" ManualPDFURL="" PDFSize="0" PDFURL="" ShortDesc="en_US short description" URL="http://foo.bar" WarrantyInfo="" langid="1"/>
+
+   <ProductFamily ID="63895" LowPic="" ThumbPic=""><Name ID="1057505" langid="1" Value="Galaxy"/><Series ID="4708"><Name ID="1984236" langid="1" Value="S7"/></Series></ProductFamily>
+
+    <ProductFeature Localized="0" ID="209266270" Local_ID="0" Value="5.1" CategoryFeature_ID="51494" CategoryFeatureGroup_ID="6883" No="10100500" Presentation_Value="12.9 cm (5.1&quot;)" Translated="0" Mandatory="1" Searchable="1">
+      <LocalValue Value="12.9">
+      <Measure ID="34">
+        <Signs><Sign ID="18" langid="1"><![CDATA[cm]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="944">
+        <Measure ID="16" Sign="">
+          <Signs><Sign ID="11" langid="1"><![CDATA["]]></Sign></Signs>
+        </Measure>
+        <Name ID="3429" langid="1" Value="Display diagonal"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266350" Local_ID="0" Value="2560 x 1440" CategoryFeature_ID="51495" CategoryFeatureGroup_ID="6883" No="10100026" Presentation_Value="2560 x 1440 pixels" Translated="0" Mandatory="1" Searchable="1">
+      <LocalValue Value="2560 x 1440">
+      <Measure ID="39">
+        <Signs><Sign ID="23" langid="1"><![CDATA[pixels]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1585">
+        <Measure ID="39" Sign="">
+          <Signs><Sign ID="23" langid="1"><![CDATA[pixels]]></Sign></Signs>
+        </Measure>
+        <Name ID="4927" langid="1" Value="Display resolution"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266382" Local_ID="0" Value="Y" CategoryFeature_ID="51496" CategoryFeatureGroup_ID="6883" No="10100022" Presentation_Value="Y" Translated="1" Mandatory="1" Searchable="1">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="4963">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="61603" langid="1" Value="Touchscreen"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266396" Local_ID="0" Value="Y" CategoryFeature_ID="51531" CategoryFeatureGroup_ID="6883" No="10100000" Presentation_Value="Y" Translated="1" Mandatory="1" Searchable="1">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="7350">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="495103" langid="1" Value="Orientation sensor"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245902290" Local_ID="0" Value="Flat screen" CategoryFeature_ID="166023" CategoryFeatureGroup_ID="6883" No="100032" Presentation_Value="Flat" Translated="1" Mandatory="1" Searchable="0">
+      <LocalValue Value="Flat">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="17554">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1247341" langid="1" Value="Screen shape"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245905558" Local_ID="0" Value="N" CategoryFeature_ID="176246" CategoryFeatureGroup_ID="6883" No="100023" Presentation_Value="N" Translated="1" Mandatory="1" Searchable="0">
+      <LocalValue Value="N">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="3989">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="56104" langid="1" Value="Second display"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266441" Local_ID="0" Value="SAMOLED" CategoryFeature_ID="92510" CategoryFeatureGroup_ID="6883" No="100030" Presentation_Value="SAMOLED" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="SAMOLED">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="9104">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="761213" langid="1" Value="Display type"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="210237833" Local_ID="0" Value="16.78 million colours" CategoryFeature_ID="154140" CategoryFeatureGroup_ID="6883" No="100024" Presentation_Value="16.78 million colours" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="16.78 million colours">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="24847">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="2065760" langid="1" Value="Display number of colours"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245864483" Local_ID="0" Value="16:9" CategoryFeature_ID="51738" CategoryFeatureGroup_ID="6883" No="100021" Presentation_Value="16:9" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="16:9">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="39">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1415" langid="1" Value="Aspect ratio"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266454" Local_ID="0" Value="Multi-touch" CategoryFeature_ID="51557" CategoryFeatureGroup_ID="6883" No="100020" Presentation_Value="Multi-touch" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Multi-touch">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="7698">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="596189" langid="1" Value="Touch technology"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209271180" Local_ID="0" Value="Capacitive" CategoryFeature_ID="59555" CategoryFeatureGroup_ID="6883" No="100000" Presentation_Value="Capacitive" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Capacitive">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="8097">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="625055" langid="1" Value="Touchscreen type"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266458" Local_ID="0" Value="577" CategoryFeature_ID="103274" CategoryFeatureGroup_ID="6883" No="100000" Presentation_Value="577 ppi" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="577">
+      <Measure ID="243">
+        <Signs><Sign ID="14247" langid="1"><![CDATA[ppi]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="13246">
+        <Measure ID="243" Sign="">
+          <Signs><Sign ID="14247" langid="1"><![CDATA[ppi]]></Sign></Signs>
+        </Measure>
+        <Name ID="1097254" langid="1" Value="Pixel density"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266460" Local_ID="0" Value="2.3" CategoryFeature_ID="73732" CategoryFeatureGroup_ID="6884" No="10100499" Presentation_Value="2.3 GHz" Translated="0" Mandatory="1" Searchable="1">
+      <LocalValue Value="2.3">
+      <Measure ID="37">
+        <Signs><Sign ID="21" langid="1"><![CDATA[GHz]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="11379">
+        <Measure ID="37" Sign="">
+          <Signs><Sign ID="21" langid="1"><![CDATA[GHz]]></Sign></Signs>
+        </Measure>
+        <Name ID="1036524" langid="1" Value="Processor frequency"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266461" Local_ID="0" Value="Samsung Exynos" CategoryFeature_ID="101566" CategoryFeatureGroup_ID="6884" No="100040" Presentation_Value="Samsung Exynos" Translated="0" Mandatory="1" Searchable="0">
+      <LocalValue Value="Samsung Exynos">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2196">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="11271" langid="1" Value="Processor family"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209292304" Local_ID="0" Value="4" CategoryFeature_ID="93997" CategoryFeatureGroup_ID="6884" No="100000" Presentation_Value="4" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="4">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="6089">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="138113" langid="1" Value="Processor cores"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245873595" Local_ID="0" Value="Y" CategoryFeature_ID="94724" CategoryFeatureGroup_ID="6884" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="6088">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="138093" langid="1" Value="64-bit computing"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209293228" Local_ID="0" Value="Y" CategoryFeature_ID="105116" CategoryFeatureGroup_ID="6884" No="99989" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="17981">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1326151" langid="1" Value="Coprocessor"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209293415" Local_ID="0" Value="1.6" CategoryFeature_ID="105117" CategoryFeatureGroup_ID="6884" No="99988" Presentation_Value="1.6 GHz" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="1.6">
+      <Measure ID="37">
+        <Signs><Sign ID="21" langid="1"><![CDATA[GHz]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="17982">
+        <Measure ID="37" Sign="">
+          <Signs><Sign ID="21" langid="1"><![CDATA[GHz]]></Sign></Signs>
+        </Measure>
+        <Name ID="1326197" langid="1" Value="Coprocessor frequency"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209293602" Local_ID="0" Value="4" CategoryFeature_ID="105119" CategoryFeatureGroup_ID="6884" No="99986" Presentation_Value="4" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="4">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="17983">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1326243" langid="1" Value="Coprocessor cores"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266470" Local_ID="0" Value="4" CategoryFeature_ID="180947" CategoryFeatureGroup_ID="6887" No="10100040" Presentation_Value="4 GB" Translated="0" Mandatory="1" Searchable="1">
+      <LocalValue Value="4">
+      <Measure ID="20">
+        <Signs><Sign ID="7" langid="1"><![CDATA[GB]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="7861">
+        <Measure ID="20" Sign="">
+          <Signs><Sign ID="7" langid="1"><![CDATA[GB]]></Sign></Signs>
+        </Measure>
+        <Name ID="608573" langid="1" Value="RAM capacity"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266465" Local_ID="0" Value="32" CategoryFeature_ID="51697" CategoryFeatureGroup_ID="6887" No="10100038" Presentation_Value="32 GB" Translated="0" Mandatory="1" Searchable="1">
+      <LocalValue Value="32">
+      <Measure ID="20">
+        <Signs><Sign ID="7" langid="1"><![CDATA[GB]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="8730">
+        <Measure ID="20" Sign="">
+          <Signs><Sign ID="7" langid="1"><![CDATA[GB]]></Sign></Signs>
+        </Measure>
+        <Name ID="734192" langid="1" Value="Internal storage capacity"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266481" Local_ID="0" Value="MicroSD (TransFlash),MicroSDHC,MicroSDXC" CategoryFeature_ID="51501" CategoryFeatureGroup_ID="6887" No="100020" Presentation_Value="MicroSD (TransFlash),MicroSDHC,MicroSDXC" Translated="0" Mandatory="1" Searchable="0">
+      <LocalValue Value="MicroSD (TransFlash),MicroSDHC,MicroSDXC">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="730">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="2991" langid="1" Value="Compatible memory cards"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245905769" Local_ID="0" Value="24.5" CategoryFeature_ID="108878" CategoryFeatureGroup_ID="6887" No="100040" Presentation_Value="24.5 GB" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="24.5">
+      <Measure ID="20">
+        <Signs><Sign ID="7" langid="1"><![CDATA[GB]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="13908">
+        <Measure ID="20" Sign="">
+          <Signs><Sign ID="7" langid="1"><![CDATA[GB]]></Sign></Signs>
+        </Measure>
+        <Name ID="1124719" langid="1" Value="User memory"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266476" Local_ID="0" Value="LPDDR4" CategoryFeature_ID="125427" CategoryFeatureGroup_ID="6887" No="100039" Presentation_Value="LPDDR4" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="LPDDR4">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="12991">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1095884" langid="1" Value="RAM type"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266484" Local_ID="0" Value="200" CategoryFeature_ID="51502" CategoryFeatureGroup_ID="6887" No="100016" Presentation_Value="200 GB" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="200">
+      <Measure ID="20">
+        <Signs><Sign ID="7" langid="1"><![CDATA[GB]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="7021">
+        <Measure ID="20" Sign="">
+          <Signs><Sign ID="7" langid="1"><![CDATA[GB]]></Sign></Signs>
+        </Measure>
+        <Name ID="334646" langid="1" Value="Maximum memory card size"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266499" Local_ID="0" Value="Y" CategoryFeature_ID="51784" CategoryFeatureGroup_ID="6887" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="3797">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="43258" langid="1" Value="USB mass storage"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245905382" Local_ID="0" Value="Single camera" CategoryFeature_ID="175569" CategoryFeatureGroup_ID="6888" No="10100060" Presentation_Value="Single camera" Translated="1" Mandatory="1" Searchable="1">
+      <LocalValue Value="Single camera">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="27587">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="2433206" langid="1" Value="Rear camera type"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266527" Local_ID="0" Value="12" CategoryFeature_ID="175570" CategoryFeatureGroup_ID="6888" No="10100050" Presentation_Value="12 MP" Translated="0" Mandatory="1" Searchable="1">
+      <LocalValue Value="12">
+      <Measure ID="165">
+        <Signs><Sign ID="3126" langid="1"><![CDATA[MP]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="12435">
+        <Measure ID="165" Sign="">
+          <Signs><Sign ID="3126" langid="1"><![CDATA[MP]]></Sign></Signs>
+        </Measure>
+        <Name ID="1089247" langid="1" Value="Rear camera resolution (numeric)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266528" Local_ID="0" Value="Y" CategoryFeature_ID="51507" CategoryFeatureGroup_ID="6888" No="10100044" Presentation_Value="Y" Translated="1" Mandatory="1" Searchable="1">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1614">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="5009" langid="1" Value="Auto focus"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266529" Local_ID="0" Value="Y" CategoryFeature_ID="53995" CategoryFeatureGroup_ID="6888" No="10100000" Presentation_Value="Y" Translated="1" Mandatory="1" Searchable="1">
+      <LocalValue Value="Y">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1289">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="4119" langid="1" Value="Built-in flash"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="252317382" Local_ID="0" Value="Single camera" CategoryFeature_ID="222716" CategoryFeatureGroup_ID="6888" No="10099995" Presentation_Value="Single camera" Translated="1" Mandatory="1" Searchable="1">
+      <LocalValue Value="Single camera">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="33562">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="3407684" langid="1" Value="Front camera type"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209271822" Local_ID="0" Value="5" CategoryFeature_ID="175580" CategoryFeatureGroup_ID="6888" No="100049" Presentation_Value="5 MP" Translated="0" Mandatory="1" Searchable="0">
+      <LocalValue Value="5">
+      <Measure ID="165">
+        <Signs><Sign ID="3126" langid="1"><![CDATA[MP]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="12437">
+        <Measure ID="165" Sign="">
+          <Signs><Sign ID="3126" langid="1"><![CDATA[MP]]></Sign></Signs>
+        </Measure>
+        <Name ID="1089335" langid="1" Value="Front camera resolution (numeric)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266806" Local_ID="0" Value="1/2.6" CategoryFeature_ID="51763" CategoryFeatureGroup_ID="6888" No="100048" Presentation_Value="25.4 / 2.6 mm (1 / 2.6&quot;)" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="25.4 / 2.6">
+      <Measure ID="24">
+        <Signs><Sign ID="3" langid="1"><![CDATA[mm]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1618">
+        <Measure ID="16" Sign="">
+          <Signs><Sign ID="11" langid="1"><![CDATA["]]></Sign></Signs>
+        </Measure>
+        <Name ID="5017" langid="1" Value="Optical sensor size"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266738" Local_ID="0" Value="Y" CategoryFeature_ID="53994" CategoryFeatureGroup_ID="6888" No="100047" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="472">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="2475" langid="1" Value="Zoom capability"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245864972" Local_ID="0" Value="1.7" CategoryFeature_ID="175601" CategoryFeatureGroup_ID="6888" No="100044" Presentation_Value="1.7" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="1.7">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="27597">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="2433722" langid="1" Value="Rear camera aperture number"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245865185" Local_ID="0" Value="1.7" CategoryFeature_ID="175652" CategoryFeatureGroup_ID="6888" No="100042" Presentation_Value="1.7" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="1.7">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="27601">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="2433926" langid="1" Value="Front camera aperture number"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209271577" Local_ID="0" Value="Y" CategoryFeature_ID="51560" CategoryFeatureGroup_ID="6888" No="100040" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="7114">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="345800" langid="1" Value="Face detection"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209271598" Local_ID="0" Value="Y" CategoryFeature_ID="51505" CategoryFeatureGroup_ID="6888" No="100030" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="8649">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="727927" langid="1" Value="Video recording"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209271611" Local_ID="0" Value="1080p,2160p,720p" CategoryFeature_ID="51508" CategoryFeatureGroup_ID="6888" No="100028" Presentation_Value="1080p,2160p,720p" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="1080p,2160p,720p">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="8745">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="734863" langid="1" Value="Video recording modes"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209271616" Local_ID="0" Value="120" CategoryFeature_ID="51713" CategoryFeatureGroup_ID="6888" No="100027" Presentation_Value="120 fps" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="120">
+      <Measure ID="85">
+        <Signs><Sign ID="67" langid="1"><![CDATA[fps]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="7515">
+        <Measure ID="85" Sign="">
+          <Signs><Sign ID="67" langid="1"><![CDATA[fps]]></Sign></Signs>
+        </Measure>
+        <Name ID="566478" langid="1" Value="Maximum frame rate"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209271625" Local_ID="0" Value="1280x720@120fps,1920x1080@60fps,3840x2160@30fps" CategoryFeature_ID="106230" CategoryFeatureGroup_ID="6888" No="100027" Presentation_Value="1280x720@120fps,1920x1080@60fps,3840x2160@30fps" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="1280x720@120fps,1920x1080@60fps,3840x2160@30fps">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2963">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="28197" langid="1" Value="Resolution at capture speed"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209271643" Local_ID="0" Value="LED" CategoryFeature_ID="51506" CategoryFeatureGroup_ID="6888" No="100014" Presentation_Value="LED" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="LED">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="6697">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="247847" langid="1" Value="Flash type"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209271651" Local_ID="0" Value="Y" CategoryFeature_ID="51555" CategoryFeatureGroup_ID="6888" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="8697">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="730550" langid="1" Value="Geotagging"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209271675" Local_ID="0" Value="Y" CategoryFeature_ID="53999" CategoryFeatureGroup_ID="6888" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="9043">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="758543" langid="1" Value="Self-timer"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209271776" Local_ID="0" Value="3840 x 2160" CategoryFeature_ID="54001" CategoryFeatureGroup_ID="6888" No="100000" Presentation_Value="3840 x 2160 pixels" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="3840 x 2160">
+      <Measure ID="39">
+        <Signs><Sign ID="23" langid="1"><![CDATA[pixels]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1597">
+        <Measure ID="39" Sign="">
+          <Signs><Sign ID="23" langid="1"><![CDATA[pixels]]></Sign></Signs>
+        </Measure>
+        <Name ID="4957" langid="1" Value="Video capture resolution (max)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272170" Local_ID="0" Value="Y" CategoryFeature_ID="55074" CategoryFeatureGroup_ID="6888" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2681">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="13563" langid="1" Value="Night mode"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245859651" Local_ID="0" Value="CMOS" CategoryFeature_ID="55089" CategoryFeatureGroup_ID="6888" No="100000" Presentation_Value="CMOS" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="CMOS">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1574">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="4899" langid="1" Value="Sensor type"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209271775" Local_ID="0" Value="Y" CategoryFeature_ID="71980" CategoryFeatureGroup_ID="6888" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="9147">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="763048" langid="1" Value="Smile detection"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266816" Local_ID="0" Value="Single SIM" CategoryFeature_ID="115466" CategoryFeatureGroup_ID="6890" No="10100497" Presentation_Value="Single SIM" Translated="1" Mandatory="1" Searchable="1">
+      <LocalValue Value="Single SIM">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="19653">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1492752" langid="1" Value="SIM card capability"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266818" Local_ID="0" Value="Y" CategoryFeature_ID="95628" CategoryFeatureGroup_ID="6890" No="10100100" Presentation_Value="Y" Translated="1" Mandatory="1" Searchable="1">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="6644">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="244818" langid="1" Value="3G"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266824" Local_ID="0" Value="Y" CategoryFeature_ID="95629" CategoryFeatureGroup_ID="6890" No="10100099" Presentation_Value="Y" Translated="1" Mandatory="1" Searchable="1">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="16921">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1217801" langid="1" Value="4G"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209266820" Local_ID="0" Value="Y" CategoryFeature_ID="51513" CategoryFeatureGroup_ID="6890" No="10100036" Presentation_Value="Y" Translated="1" Mandatory="1" Searchable="1">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="3239">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="30766" langid="1" Value="Wi-Fi"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272185" Local_ID="0" Value="NanoSIM" CategoryFeature_ID="56682" CategoryFeatureGroup_ID="6890" No="100099" Presentation_Value="NanoSIM" Translated="0" Mandatory="1" Searchable="0">
+      <LocalValue Value="NanoSIM">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="9166">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="763836" langid="1" Value="SIM card type"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="210238612" Local_ID="0" Value="GSM" CategoryFeature_ID="95630" CategoryFeatureGroup_ID="6890" No="100070" Presentation_Value="GSM" Translated="0" Mandatory="1" Searchable="0">
+      <LocalValue Value="GSM">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="16924">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1217936" langid="1" Value="2G standards"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209297705" Local_ID="0" Value="HSPA+,UMTS,WCDMA" CategoryFeature_ID="95631" CategoryFeatureGroup_ID="6890" No="100069" Presentation_Value="HSPA+,UMTS,WCDMA" Translated="0" Mandatory="1" Searchable="0">
+      <LocalValue Value="HSPA+,UMTS,WCDMA">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="16923">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1217891" langid="1" Value="3G standards"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209297706" Local_ID="0" Value="LTE" CategoryFeature_ID="95632" CategoryFeatureGroup_ID="6890" No="100068" Presentation_Value="LTE" Translated="0" Mandatory="1" Searchable="0">
+      <LocalValue Value="LTE">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="16922">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1217846" langid="1" Value="4G standard"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272250" Local_ID="0" Value="Y" CategoryFeature_ID="51515" CategoryFeatureGroup_ID="6890" No="100033" Presentation_Value="Y" Translated="1" Mandatory="1" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2183">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="11148" langid="1" Value="Bluetooth"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209273623" Local_ID="0" Value="IEEE 802.11a,IEEE 802.11ac,IEEE 802.11b,IEEE 802.11g,IEEE 802.11n" CategoryFeature_ID="51514" CategoryFeatureGroup_ID="6890" No="100035" Presentation_Value="IEEE 802.11a,IEEE 802.11ac,IEEE 802.11b,IEEE 802.11g,IEEE 802.11n" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="IEEE 802.11a,IEEE 802.11ac,IEEE 802.11b,IEEE 802.11g,IEEE 802.11n">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="432">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="2231" langid="1" Value="Wi-Fi standards"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272253" Local_ID="0" Value="4.2 LE" CategoryFeature_ID="51516" CategoryFeatureGroup_ID="6890" No="100032" Presentation_Value="4.2 LE" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="4.2 LE">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1208">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="3957" langid="1" Value="Bluetooth version"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209273559" Local_ID="0" Value="A2DP,AVRCP,HFP,HID,HOGP,HSP,MAP,OPP,PAN,PBAP" CategoryFeature_ID="51527" CategoryFeatureGroup_ID="6890" No="100031" Presentation_Value="A2DP, AVRCP, HFP, HID, HOGP, HSP, MAP, OPP, Pan, PBAP" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="A2DP, AVRCP, HFP, HID, HOGP, HSP, MAP, OPP, Pan, PBAP">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="4133">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="58884" langid="1" Value="Bluetooth profiles"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="210238620" Local_ID="0" Value="850,900,1800,1900" CategoryFeature_ID="51524" CategoryFeatureGroup_ID="6890" No="100010" Presentation_Value="850,900,1800,1900 MHz" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="850,900,1800,1900">
+      <Measure ID="18">
+        <Signs><Sign ID="9" langid="1"><![CDATA[MHz]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="7061">
+        <Measure ID="18" Sign="">
+          <Signs><Sign ID="9" langid="1"><![CDATA[MHz]]></Sign></Signs>
+        </Measure>
+        <Name ID="342491" langid="1" Value="2G bands (primary SIM)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="210238622" Local_ID="0" Value="850,900,1900,2100" CategoryFeature_ID="119090" CategoryFeatureGroup_ID="6890" No="100008" Presentation_Value="850,900,1900,2100 MHz" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="850,900,1900,2100">
+      <Measure ID="18">
+        <Signs><Sign ID="9" langid="1"><![CDATA[MHz]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="8367">
+        <Measure ID="18" Sign="">
+          <Signs><Sign ID="9" langid="1"><![CDATA[MHz]]></Sign></Signs>
+        </Measure>
+        <Name ID="641365" langid="1" Value="3G bands supported"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="210238623" Local_ID="0" Value="700,800,850,900,1800,1900,2100,2300,2500,2600" CategoryFeature_ID="90956" CategoryFeatureGroup_ID="6890" No="100006" Presentation_Value="700,800,850,900,1800,1900,2100,2300,2500,2600 MHz" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="700,800,850,900,1800,1900,2100,2300,2500,2600">
+      <Measure ID="18">
+        <Signs><Sign ID="9" langid="1"><![CDATA[MHz]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="14695">
+        <Measure ID="18" Sign="">
+          <Signs><Sign ID="9" langid="1"><![CDATA[MHz]]></Sign></Signs>
+        </Measure>
+        <Name ID="1143655" langid="1" Value="4G bands supported"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272318" Local_ID="0" Value="Y" CategoryFeature_ID="54169" CategoryFeatureGroup_ID="6890" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="9097">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="760926" langid="1" Value="Tethering (modem-mode)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209273961" Local_ID="0" Value="Y" CategoryFeature_ID="138770" CategoryFeatureGroup_ID="6890" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="9779">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="816915" langid="1" Value="Wi-Fi Direct"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272325" Local_ID="0" Value="Y" CategoryFeature_ID="63985" CategoryFeatureGroup_ID="6890" No="99995" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="10157">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="878154" langid="1" Value="Near Field Communication (NFC)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272959" Local_ID="0" Value="No subscription" CategoryFeature_ID="55137" CategoryFeatureGroup_ID="18408" No="100046" Presentation_Value="No subscription" Translated="1" Mandatory="1" Searchable="0">
+      <LocalValue Value="No subscription">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="8578">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="722468" langid="1" Value="Subscription type"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272330" Local_ID="0" Value="Y" CategoryFeature_ID="146621" CategoryFeatureGroup_ID="6889" No="100070" Presentation_Value="Y" Translated="1" Mandatory="1" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="23798">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1953766" langid="1" Value="USB port"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209274049" Local_ID="0" Value="Micro-USB" CategoryFeature_ID="51510" CategoryFeatureGroup_ID="6889" No="100060" Presentation_Value="Micro-USB" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="Micro-USB">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1742">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="5431" langid="1" Value="USB connector type"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272651" Local_ID="0" Value="2.0" CategoryFeature_ID="53993" CategoryFeatureGroup_ID="6889" No="100050" Presentation_Value="2.0" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="2.0">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="8541">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="718602" langid="1" Value="USB version"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272687" Local_ID="0" Value="3.5 mm" CategoryFeature_ID="51511" CategoryFeatureGroup_ID="6889" No="100016" Presentation_Value="3.5 mm" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="3.5 mm">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="4163">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="59050" langid="1" Value="Headphone connectivity"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245902943" Local_ID="0" Value="Y" CategoryFeature_ID="184925" CategoryFeatureGroup_ID="6889" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="16404">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1207415" langid="1" Value="ANT+ enabled"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275520" Local_ID="0" Value="Y" CategoryFeature_ID="51656" CategoryFeatureGroup_ID="6919" No="100100" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1901">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="5893" langid="1" Value="Short Message Service (SMS)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275528" Local_ID="0" Value="Y" CategoryFeature_ID="51654" CategoryFeatureGroup_ID="6919" No="100090" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2180">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="11139" langid="1" Value="MMS (Multimedia Messaging Service)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275529" Local_ID="0" Value="Y" CategoryFeature_ID="51655" CategoryFeatureGroup_ID="6919" No="100080" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="6621">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="241348" langid="1" Value="Instant messaging (IM)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275530" Local_ID="0" Value="Y" CategoryFeature_ID="54008" CategoryFeatureGroup_ID="6919" No="100050" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2182">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="11145" langid="1" Value="Chat"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275534" Local_ID="0" Value="Y" CategoryFeature_ID="146646" CategoryFeatureGroup_ID="6919" No="100040" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="23802">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1960088" langid="1" Value="E-mail"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272879" Local_ID="0" Value="Bar" CategoryFeature_ID="51570" CategoryFeatureGroup_ID="11003" No="10100055" Presentation_Value="Bar" Translated="1" Mandatory="1" Searchable="1">
+      <LocalValue Value="Bar">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="771">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="3073" langid="1" Value="Form factor"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272882" Local_ID="0" Value="Black" CategoryFeature_ID="143786" CategoryFeatureGroup_ID="11003" No="10100035" Presentation_Value="Black" Translated="1" Mandatory="1" Searchable="1">
+      <LocalValue Value="Black">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1766">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="5487" langid="1" Value="Colour of product"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="246437994" Local_ID="0" Value="Black Onyx" CategoryFeature_ID="143568" CategoryFeatureGroup_ID="11003" No="100034" Presentation_Value="Black Onyx" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="Black Onyx">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="23475">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1843502" langid="1" Value="Brand colour"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272920" Local_ID="0" Value="IP68" CategoryFeature_ID="81142" CategoryFeatureGroup_ID="11003" No="100010" Presentation_Value="IP68" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="IP68">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="7900">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="610776" langid="1" Value="International Protection (IP) code"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272895" Local_ID="0" Value="Dust resistant,Water resistant" CategoryFeature_ID="70015" CategoryFeatureGroup_ID="11003" No="100000" Presentation_Value="Dust resistant, Water resistant" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Dust resistant, Water resistant">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="8072">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="622852" langid="1" Value="Protection features"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209274119" Local_ID="0" Value="Y" CategoryFeature_ID="94723" CategoryFeatureGroup_ID="11003" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="3577">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="39580" langid="1" Value="Fingerprint reader"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272960" Local_ID="0" Value="Y" CategoryFeature_ID="51566" CategoryFeatureGroup_ID="18402" No="100011" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="8698">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="730603" langid="1" Value="Proximity sensor"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272961" Local_ID="0" Value="Y" CategoryFeature_ID="57380" CategoryFeatureGroup_ID="18402" No="100011" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="9731">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="811310" langid="1" Value="Accelerometer"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209273034" Local_ID="0" Value="Y" CategoryFeature_ID="59559" CategoryFeatureGroup_ID="18402" No="100011" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="8720">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="733782" langid="1" Value="Ambient light sensor"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209273039" Local_ID="0" Value="Y" CategoryFeature_ID="106231" CategoryFeatureGroup_ID="18402" No="100010" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="9732">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="811351" langid="1" Value="Gyroscope"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275733" Local_ID="0" Value="Y" CategoryFeature_ID="51712" CategoryFeatureGroup_ID="11002" No="100080" Presentation_Value="Y" Translated="1" Mandatory="1" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="7018">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="334549" langid="1" Value="Video call"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209273051" Local_ID="0" Value="Alarm clock,Calculator,Calendar,Events reminder,Notes,To-do list" CategoryFeature_ID="51526" CategoryFeatureGroup_ID="11002" No="100000" Presentation_Value="Alarm clock, Calculator, Calendar, Events reminder, Notes, To-do list" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Alarm clock, Calculator, Calendar, Events reminder, Notes, To-do list">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="4277">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="59896" langid="1" Value="Personal info management (PIM)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209273059" Local_ID="0" Value="Y" CategoryFeature_ID="51787" CategoryFeatureGroup_ID="11002" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="7351">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="495139" langid="1" Value="Flight mode"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209273062" Local_ID="0" Value="Icons,Menu,Themes" CategoryFeature_ID="55087" CategoryFeatureGroup_ID="11002" No="100000" Presentation_Value="Icons, Menu, Themes" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Icons, Menu, Themes">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1455">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="4607" langid="1" Value="Personalization"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209273101" Local_ID="0" Value="Y" CategoryFeature_ID="55111" CategoryFeatureGroup_ID="11002" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="6627">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="241537" langid="1" Value="Support for contact groups"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209273118" Local_ID="0" Value="Y" CategoryFeature_ID="55120" CategoryFeatureGroup_ID="11002" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2673">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="13539" langid="1" Value="Microphone mute"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209273160" Local_ID="0" Value="Wallpapers" CategoryFeature_ID="59634" CategoryFeatureGroup_ID="11002" No="100000" Presentation_Value="Wallpapers" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Wallpapers">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="9832">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="822025" langid="1" Value="Themes"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="218616259" Local_ID="0" Value="Y" CategoryFeature_ID="166073" CategoryFeatureGroup_ID="11005" No="10100000" Presentation_Value="Y" Translated="1" Mandatory="1" Searchable="1">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="26425">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="2268247" langid="1" Value="Position location"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209273426" Local_ID="0" Value="Y" CategoryFeature_ID="51652" CategoryFeatureGroup_ID="11005" No="100040" Presentation_Value="Y" Translated="1" Mandatory="1" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="6623">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="241402" langid="1" Value="Assisted GPS (A-GPS)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209273253" Local_ID="0" Value="Y" CategoryFeature_ID="51755" CategoryFeatureGroup_ID="11005" No="100030" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="3329">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="31840" langid="1" Value="GPS (satellite)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209273440" Local_ID="0" Value="Y" CategoryFeature_ID="94591" CategoryFeatureGroup_ID="11005" No="100008" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="15618">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1177617" langid="1" Value="GLONASS"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245902402" Local_ID="0" Value="Y" CategoryFeature_ID="184929" CategoryFeatureGroup_ID="11005" No="100008" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="28694">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="2579566" langid="1" Value="BeiDou"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245869552" Local_ID="0" Value="Y" CategoryFeature_ID="51517" CategoryFeatureGroup_ID="11005" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1733">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="5409" langid="1" Value="Electronic compass"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209273037" Local_ID="0" Value="Y" CategoryFeature_ID="106232" CategoryFeatureGroup_ID="11005" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="7609">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="590467" langid="1" Value="Barometer"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209273454" Local_ID="0" Value="Y" CategoryFeature_ID="51754" CategoryFeatureGroup_ID="11005" No="99998" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="8742">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="734725" langid="1" Value="Wi-Fi positioning"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245900482" Local_ID="0" Value="N" CategoryFeature_ID="51556" CategoryFeatureGroup_ID="11006" No="100040" Presentation_Value="N" Translated="1" Mandatory="1" Searchable="0">
+      <LocalValue Value="N">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2172">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="10005" langid="1" Value="FM radio"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245902777" Local_ID="0" Value="2160p" CategoryFeature_ID="86002" CategoryFeatureGroup_ID="11006" No="100000" Presentation_Value="2160p" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="2160p">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="4851">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="61313" langid="1" Value="Supported video modes"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275502" Local_ID="0" Value="3GA,AAC,AMR,AWB,FLAC,IMY,M4A,MID,MP3,MXMF,OGA,OGG,OTA,RTTTL,RTX,WAV,WMA,XMF" CategoryFeature_ID="51528" CategoryFeatureGroup_ID="11006" No="99989" Presentation_Value="3GA, AAC, AMR, AWB, FLAC, IMY, M4A, Mid, MP3, MXMF, OGA, OGG, OTA, RTTTL, RTX, WAV, WMA, XMF" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="3GA, AAC, AMR, AWB, FLAC, IMY, M4A, Mid, MP3, MXMF, OGA, OGG, OTA, RTTTL, RTX, WAV, WMA, XMF">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2224">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="11430" langid="1" Value="Audio formats supported"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275509" Local_ID="0" Value="3G2,3GP,ASF,AVI,FLV,M4V,MKV,MP4,WEBM,WMV" CategoryFeature_ID="51529" CategoryFeatureGroup_ID="11006" No="99988" Presentation_Value="3G2,3GP,ASF,AVI,FLV,M4V,MKV,MP4,WEBM,WMV" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="3G2,3GP,ASF,AVI,FLV,M4V,MKV,MP4,WEBM,WMV">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="6893">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="331780" langid="1" Value="Video formats supported"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275547" Local_ID="0" Value="Y" CategoryFeature_ID="51561" CategoryFeatureGroup_ID="6901" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2748">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="13914" langid="1" Value="Call waiting"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275551" Local_ID="0" Value="Y" CategoryFeature_ID="51562" CategoryFeatureGroup_ID="6901" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="7349">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="495028" langid="1" Value="Call divert"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275552" Local_ID="0" Value="Y" CategoryFeature_ID="51563" CategoryFeatureGroup_ID="6901" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="6698">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="247875" langid="1" Value="Call hold"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275558" Local_ID="0" Value="Y" CategoryFeature_ID="51720" CategoryFeatureGroup_ID="6901" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2672">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="13536" langid="1" Value="Caller ID"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275560" Local_ID="0" Value="Y" CategoryFeature_ID="51721" CategoryFeatureGroup_ID="6901" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1805">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="5593" langid="1" Value="Speakerphone"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275561" Local_ID="0" Value="Y" CategoryFeature_ID="51747" CategoryFeatureGroup_ID="6901" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1808">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="5601" langid="1" Value="Conference call"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275564" Local_ID="0" Value="Y" CategoryFeature_ID="51748" CategoryFeatureGroup_ID="6901" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2962">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="28191" langid="1" Value="Speed dialing"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275569" Local_ID="0" Value="Y" CategoryFeature_ID="51786" CategoryFeatureGroup_ID="6901" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="3541">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="33988" langid="1" Value="Vibrating alert"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275572" Local_ID="0" Value="Y" CategoryFeature_ID="55108" CategoryFeatureGroup_ID="6901" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="6619">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="241294" langid="1" Value="Call timer"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272934" Local_ID="0" Value="Android" CategoryFeature_ID="83499" CategoryFeatureGroup_ID="18401" No="10100495" Presentation_Value="Android" Translated="1" Mandatory="1" Searchable="1">
+      <LocalValue Value="Android">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="3233">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="30700" langid="1" Value="Operating system installed"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209272949" Local_ID="0" Value="6" CategoryFeature_ID="54618" CategoryFeatureGroup_ID="18401" No="100059" Presentation_Value="6" Translated="0" Mandatory="1" Searchable="0">
+      <LocalValue Value="6">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="7697">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="596009" langid="1" Value="Operating system version"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275676" Local_ID="0" Value="3000" CategoryFeature_ID="51519" CategoryFeatureGroup_ID="6892" No="100038" Presentation_Value="3000 mAh" Translated="0" Mandatory="1" Searchable="0">
+      <LocalValue Value="3000">
+      <Measure ID="51">
+        <Signs><Sign ID="35" langid="1"><![CDATA[mAh]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="909">
+        <Measure ID="51" Sign="">
+          <Signs><Sign ID="35" langid="1"><![CDATA[mAh]]></Sign></Signs>
+        </Measure>
+        <Name ID="3359" langid="1" Value="Battery capacity"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275680" Local_ID="0" Value="22" CategoryFeature_ID="51521" CategoryFeatureGroup_ID="6892" No="100026" Presentation_Value="22 h" Translated="0" Mandatory="1" Searchable="0">
+      <LocalValue Value="22">
+      <Measure ID="46">
+        <Signs><Sign ID="30" langid="1"><![CDATA[h]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="7283">
+        <Measure ID="46" Sign="">
+          <Signs><Sign ID="30" langid="1"><![CDATA[h]]></Sign></Signs>
+        </Measure>
+        <Name ID="354861" langid="1" Value="Talk time (3G)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245873199" Local_ID="0" Value="15" CategoryFeature_ID="90957" CategoryFeatureGroup_ID="6892" No="100020" Presentation_Value="15 h" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="15">
+      <Measure ID="46">
+        <Signs><Sign ID="30" langid="1"><![CDATA[h]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="15264">
+        <Measure ID="46" Sign="">
+          <Signs><Sign ID="30" langid="1"><![CDATA[h]]></Sign></Signs>
+        </Measure>
+        <Name ID="1159244" langid="1" Value="Browsing time (Wi-Fi)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245871328" Local_ID="0" Value="11" CategoryFeature_ID="90958" CategoryFeatureGroup_ID="6892" No="100018" Presentation_Value="11 h" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="11">
+      <Measure ID="46">
+        <Signs><Sign ID="30" langid="1"><![CDATA[h]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="15265">
+        <Measure ID="46" Sign="">
+          <Signs><Sign ID="30" langid="1"><![CDATA[h]]></Sign></Signs>
+        </Measure>
+        <Name ID="1159288" langid="1" Value="Browsing time (3G)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245871441" Local_ID="0" Value="13" CategoryFeature_ID="90959" CategoryFeatureGroup_ID="6892" No="100017" Presentation_Value="13 h" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="13">
+      <Measure ID="46">
+        <Signs><Sign ID="30" langid="1"><![CDATA[h]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="15266">
+        <Measure ID="46" Sign="">
+          <Signs><Sign ID="30" langid="1"><![CDATA[h]]></Sign></Signs>
+        </Measure>
+        <Name ID="1159332" langid="1" Value="Browsing time (4G)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245871639" Local_ID="0" Value="45" CategoryFeature_ID="51657" CategoryFeatureGroup_ID="6892" No="100002" Presentation_Value="45 h" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="45">
+      <Measure ID="46">
+        <Signs><Sign ID="30" langid="1"><![CDATA[h]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2169">
+        <Measure ID="46" Sign="">
+          <Signs><Sign ID="30" langid="1"><![CDATA[h]]></Sign></Signs>
+        </Measure>
+        <Name ID="9936" langid="1" Value="Continuous audio playback time"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245872423" Local_ID="0" Value="62" CategoryFeature_ID="184939" CategoryFeatureGroup_ID="6892" No="100002" Presentation_Value="62 h" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="62">
+      <Measure ID="46">
+        <Signs><Sign ID="30" langid="1"><![CDATA[h]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="28695">
+        <Measure ID="46" Sign="">
+          <Signs><Sign ID="30" langid="1"><![CDATA[h]]></Sign></Signs>
+        </Measure>
+        <Name ID="2579617" langid="1" Value="Continuous audio playback time (display off)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245902098" Local_ID="0" Value="15" CategoryFeature_ID="51658" CategoryFeatureGroup_ID="6892" No="100001" Presentation_Value="15 h" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="15">
+      <Measure ID="46">
+        <Signs><Sign ID="30" langid="1"><![CDATA[h]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2173">
+        <Measure ID="46" Sign="">
+          <Signs><Sign ID="30" langid="1"><![CDATA[h]]></Sign></Signs>
+        </Measure>
+        <Name ID="10047" langid="1" Value="Continuous video playback time"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="246436971" Local_ID="0" Value="Y" CategoryFeature_ID="80089" CategoryFeatureGroup_ID="6892" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="12148">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1087259" langid="1" Value="Wireless charging"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275767" Local_ID="0" Value="152" CategoryFeature_ID="51491" CategoryFeatureGroup_ID="6881" No="10100007" Presentation_Value="152 g" Translated="0" Mandatory="1" Searchable="1">
+      <LocalValue Value="152">
+      <Measure ID="38">
+        <Signs><Sign ID="22" langid="1"><![CDATA[g]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="94">
+        <Measure ID="38" Sign="">
+          <Signs><Sign ID="22" langid="1"><![CDATA[g]]></Sign></Signs>
+        </Measure>
+        <Name ID="1525" langid="1" Value="Weight"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275779" Local_ID="0" Value="69.6" CategoryFeature_ID="51488" CategoryFeatureGroup_ID="6881" No="100010" Presentation_Value="69.6 mm" Translated="0" Mandatory="1" Searchable="0">
+      <LocalValue Value="69.6">
+      <Measure ID="24">
+        <Signs><Sign ID="3" langid="1"><![CDATA[mm]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1649">
+        <Measure ID="24" Sign="">
+          <Signs><Sign ID="3" langid="1"><![CDATA[mm]]></Sign></Signs>
+        </Measure>
+        <Name ID="5143" langid="1" Value="Width"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275785" Local_ID="0" Value="7.9" CategoryFeature_ID="51489" CategoryFeatureGroup_ID="6881" No="100009" Presentation_Value="7.9 mm" Translated="0" Mandatory="1" Searchable="0">
+      <LocalValue Value="7.9">
+      <Measure ID="24">
+        <Signs><Sign ID="3" langid="1"><![CDATA[mm]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1650">
+        <Measure ID="24" Sign="">
+          <Signs><Sign ID="3" langid="1"><![CDATA[mm]]></Sign></Signs>
+        </Measure>
+        <Name ID="5145" langid="1" Value="Depth"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275784" Local_ID="0" Value="142.4" CategoryFeature_ID="51490" CategoryFeatureGroup_ID="6881" No="100008" Presentation_Value="142.4 mm" Translated="0" Mandatory="1" Searchable="0">
+      <LocalValue Value="142.4">
+      <Measure ID="24">
+        <Signs><Sign ID="3" langid="1"><![CDATA[mm]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1464">
+        <Measure ID="24" Sign="">
+          <Signs><Sign ID="3" langid="1"><![CDATA[mm]]></Sign></Signs>
+        </Measure>
+        <Name ID="4625" langid="1" Value="Height"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245870710" Local_ID="0" Value="0.406" CategoryFeature_ID="101013" CategoryFeatureGroup_ID="6936" No="99979" Presentation_Value="0.406 W/kg" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="0.406">
+      <Measure ID="203">
+        <Signs><Sign ID="9684" langid="1"><![CDATA[W/kg]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="17669">
+        <Measure ID="203" Sign="">
+          <Signs><Sign ID="9684" langid="1"><![CDATA[W/kg]]></Sign></Signs>
+        </Measure>
+        <Name ID="1258174" langid="1" Value="Head SAR (EU)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245870237" Local_ID="0" Value="0.621" CategoryFeature_ID="101015" CategoryFeatureGroup_ID="6936" No="99977" Presentation_Value="0.621 W/kg" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="0.621">
+      <Measure ID="203">
+        <Signs><Sign ID="9684" langid="1"><![CDATA[W/kg]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="17670">
+        <Measure ID="203" Sign="">
+          <Signs><Sign ID="9684" langid="1"><![CDATA[W/kg]]></Sign></Signs>
+        </Measure>
+        <Name ID="1258220" langid="1" Value="Body SAR (EU)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275806" Local_ID="0" Value="Y" CategoryFeature_ID="51757" CategoryFeatureGroup_ID="6933" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="3981">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="56096" langid="1" Value="Quick start guide"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245866530" Local_ID="0" Value="USB" CategoryFeature_ID="55071" CategoryFeatureGroup_ID="6933" No="100000" Presentation_Value="USB" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="USB">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1830">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="5653" langid="1" Value="Cables included"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245859963" Local_ID="0" Value="Y" CategoryFeature_ID="79959" CategoryFeatureGroup_ID="6933" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="4023">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="56154" langid="1" Value="Warranty card"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245858261" Local_ID="0" Value="Y" CategoryFeature_ID="106235" CategoryFeatureGroup_ID="6933" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1230">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="4001" langid="1" Value="AC adapter included"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="209275816" Local_ID="0" Value="Google Maps,Google Play,YouTube" CategoryFeature_ID="97522" CategoryFeatureGroup_ID="11007" No="100000" Presentation_Value="Google Maps,Google Play,YouTube" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="Google Maps,Google Play,YouTube">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="9780">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="817038" langid="1" Value="Google applications"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245869216" Local_ID="0" Value="Hall, HR, RGB Light" CategoryFeature_ID="100190" CategoryFeatureGroup_ID="11007" No="100000" Presentation_Value="Hall, HR, RGB Light" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="Hall, HR, RGB Light">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1883">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="5797" langid="1" Value="Built-in sensors details"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="245858717" Local_ID="0" Value="Y" CategoryFeature_ID="100191" CategoryFeatureGroup_ID="11007" No="100000" Presentation_Value="Y" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Y">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="46">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1429" langid="1" Value="Colour"/>
+      </Feature>
+    </ProductFeature>
+
+   <ProductGallery>
+     <ProductPicture IsMain="Y" LowPic="http://images.icecat.biz/img/gallery_lows/pic1.jpg" LowPicHeight="200" LowPicWidth="109" LowSize="12641" No="1" Original="http://images.icecat.biz/img/gallery_raw/pic1.jpeg" OriginalSize="532936" Pic="http://images.icecat.biz/img/gallery/pic1.jpg" Pic500x500="http://images.icecat.biz/img/gallery_mediums/pic1.jpg" Pic500x500Height="500" Pic500x500Size="48117" Pic500x500Width="274" PicHeight="2768" PicWidth="1520" ProductPicture_ID="22148629" Size="734516" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/pic1.jpg" ThumbSize="1571" Type="ProductImage"/>
+     <ProductPicture LowPic="http://images.icecat.biz/img/gallery_lows/pic2.jpg" LowPicHeight="200" LowPicWidth="200" LowSize="8758" No="3" Original="http://images.icecat.biz/img/gallery_raw/pic2.jpeg" OriginalSize="46244" Pic="http://images.icecat.biz/img/gallery/pic2.jpg" Pic500x500="http://images.icecat.biz/img/gallery_mediums/pic2.jpg" Pic500x500Height="500" Pic500x500Size="36416" Pic500x500Width="500" PicHeight="650" PicWidth="650" ProductPicture_ID="17024153" Size="44414" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/pic2.jpg" ThumbSize="1341" Type="ProductImage"/>
+     <ProductPicture LowPic="http://images.icecat.biz/img/gallery_lows/pic3.jpg" LowPicHeight="200" LowPicWidth="200" LowSize="2706" No="4" Original="http://images.icecat.biz/img/gallery_raw/pic3.jpeg" OriginalSize="17320" Pic="http://images.icecat.biz/img/gallery/pic3.jpg" Pic500x500="http://images.icecat.biz/img/gallery_mediums/pic3.jpg" Pic500x500Height="500" Pic500x500Size="10894" Pic500x500Width="500" PicHeight="650" PicWidth="650" ProductPicture_ID="17024151" Size="14923" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/pic3.jpg" ThumbSize="618" Type="ProductImage"/>
+     <ProductPicture LowPic="http://images.icecat.biz/img/gallery_lows/pic4.jpg" LowPicHeight="200" LowPicWidth="200" LowSize="11522" No="5" Original="http://images.icecat.biz/img/gallery_raw/pic4.jpeg" OriginalSize="50620" Pic="http://images.icecat.biz/img/gallery/pic4.jpg" Pic500x500="http://images.icecat.biz/img/gallery_mediums/pic4.jpg" Pic500x500Height="500" Pic500x500Size="44847" Pic500x500Width="500" PicHeight="650" PicWidth="650" ProductPicture_ID="17024149" Size="52230" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/pic4.jpg" ThumbSize="1720" Type="ProductImage"/>
+   </ProductGallery>
+       <ProductMultimediaObject>
+      <MultimediaObject ContentType="video/mp4" Date="2017-08-02 12:56:28" Description="Samsung Galaxy S7 and S7 edge- Official Introduction" Height="0" KeepAsURL="0" MultimediaObject_ID="2857432" OriginalMD5="5d364326f6dc9d8a9a768ac4d0c5624a" PreviewHeight="0" PreviewSize="0" PreviewUrl="http://objects.icecat.biz/objects/preview/31040076_2857432_preview.png" PreviewWidth="0" Size="27420396" ThumbUrl="http://objects.icecat.biz/objects/thumb/31040076_2857432_thumb.png" Type="video/mp4" URL="http://objects.icecat.biz/objects/31040076_2857432.mp4" UUID="1c221022-18a2-478c-a807-12193dfdf973" Width="0" langid="1"/>
+      <MultimediaObject ContentType="video/mp4" Date="2017-08-02 12:56:28" Description="Samsung Galaxy S7 Official TVC- Unpacking S7" Height="0" KeepAsURL="0" MultimediaObject_ID="2857477" OriginalMD5="7d7f1e8172873cb91add4eab7c643cc4" PreviewHeight="0" PreviewSize="0" PreviewUrl="http://objects.icecat.biz/objects/preview/31040076_2857477_preview.png" PreviewWidth="0" Size="13115691" ThumbUrl="http://objects.icecat.biz/objects/thumb/31040076_2857477_thumb.png" Type="video/mp4" URL="http://objects.icecat.biz/objects/31040076_2857477.mp4" UUID="8c7d7f71-ebd6-44a4-afb2-abd874b6be72" Width="0" langid="1"/>
+      <MultimediaObject ContentType="video/mp4" Date="2017-08-02 12:56:28" Description="Samsung Galaxy S7 and S7 edge- Official Unboxing" Height="0" KeepAsURL="0" MultimediaObject_ID="2857511" OriginalMD5="afc4b3971362da7a08cf934cbb1a2c42" PreviewHeight="0" PreviewSize="0" PreviewUrl="http://objects.icecat.biz/objects/preview/31040076_2857511_preview.png" PreviewWidth="0" Size="14009739" ThumbUrl="http://objects.icecat.biz/objects/thumb/31040076_2857511_thumb.png" Type="video/mp4" URL="http://objects.icecat.biz/objects/31040076_2857511.mp4" UUID="d96f3c57-0ce3-4c23-bc4c-1be6c5da8b53" Width="0" langid="1"/>
+    </ProductMultimediaObject>
+
+   	  <ProductRelated ID="153189055" Category_ID="2779" Reversed="0" Preferred="0">
+	    <Product ID="31010368" Prod_id="EF-CG930PBEGWW" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/31010368_8934.jpg" Name="S View Cover">
+	      <Supplier ID="26" Name="Samsung"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="153189054" Category_ID="2779" Reversed="0" Preferred="0">
+	    <Product ID="31010374" Prod_id="EF-NG930PSEGWW" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/31010374_1578.jpg" Name="LED Cover">
+	      <Supplier ID="26" Name="Samsung"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="153189056" Category_ID="2779" Reversed="0" Preferred="0">
+	    <Product ID="31010367" Prod_id="EF-CG930PFEGWW" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/31010367_1873.jpg" Name="S View Cover">
+	      <Supplier ID="26" Name="Samsung"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="153189057" Category_ID="2779" Reversed="0" Preferred="0">
+	    <Product ID="31010366" Prod_id="EF-QG930CSEGWW" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/31010366_6405.jpg" Name="Clear Cover">
+	      <Supplier ID="26" Name="Samsung"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="153189053" Category_ID="2779" Reversed="0" Preferred="0">
+	    <Product ID="31010372" Prod_id="EF-NG930PBEGWW" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/31010372_2373.jpg" Name="LED Cover">
+	      <Supplier ID="26" Name="Samsung"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="154262264" Category_ID="2778" Reversed="0" Preferred="0">
+	    <Product ID="29741472" Prod_id="ZGAMP3-BK0" ThumbPic="http://inishop.com/img/gallery_thumbs/29741472_0100.jpg" Name="Power Amp 3">
+	      <Supplier ID="6166" Name="Zagg"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="154262556" Category_ID="2778" Reversed="0" Preferred="0">
+	    <Product ID="29731985" Prod_id="ZGAP18-BK0" ThumbPic="http://inishop.com/img/gallery_thumbs/29731985_4477.jpg" Name="Power Amp 18">
+	      <Supplier ID="6166" Name="Zagg"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="154262490" Category_ID="2778" Reversed="0" Preferred="0">
+	    <Product ID="29741477" Prod_id="ZGAMP6-BK0" ThumbPic="http://inishop.com/img/gallery_thumbs/29741477_7108.jpg" Name="Power Amp 6">
+	      <Supplier ID="6166" Name="Zagg"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="154262244" Category_ID="2778" Reversed="0" Preferred="0">
+	    <Product ID="29741473" Prod_id="ZGAMP3-BL0" ThumbPic="http://inishop.com/img/gallery_thumbs/29741473_6340.jpg" Name="Power Amp 3">
+	      <Supplier ID="6166" Name="Zagg"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="154262523" Category_ID="2778" Reversed="0" Preferred="0">
+	    <Product ID="29741478" Prod_id="ZGAMP6-BL0" ThumbPic="http://inishop.com/img/gallery_thumbs/29741478_6308.jpg" Name="Power Amp 6">
+	      <Supplier ID="6166" Name="Zagg"/>
+	    </Product>
+	  </ProductRelated>
+
+
+
+<SummaryDescription>
+<ShortSummaryDescription langid="1">en_US short summary description</ShortSummaryDescription>
+<LongSummaryDescription langid="1">This is the en_US long summary description</LongSummaryDescription>
+</SummaryDescription>
+
+   <Supplier ID="26" Name="Samsung"/>
+   </Product>
+</ICECAT-interface>

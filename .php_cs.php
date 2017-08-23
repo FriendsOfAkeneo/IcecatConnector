@@ -4,9 +4,12 @@ return PhpCsFixer\Config::create()
         '@PSR2'                       => true,
         'linebreak_after_opening_tag' => true,
         'ordered_imports'             => true,
+        'array_syntax'                => ['syntax' => 'short'],
     ])
     ->setFinder(
         PhpCsFixer\Finder::create()
             ->name('*.php')
             ->in(__DIR__ . '/src')
+            ->notName('*Spec.php')
+            ->notName('*Integration.php')
     );

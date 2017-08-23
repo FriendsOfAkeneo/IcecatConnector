@@ -1,4 +1,8 @@
-# 1.2.1
+# 1.1.6
+## Bug fixes
+- MKP-475: fixes metric, boolean and pictures enrichment 
+
+# 1.1.5
 ## Bug fixes
 - fixes MeasureRepository::find calls
 

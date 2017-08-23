@@ -10,6 +10,7 @@ use Pim\Bundle\IcecatConnectorBundle\Mapping\AttributeMapper;
 use Pim\Component\Catalog\AttributeTypes;
 use Pim\Component\Catalog\Model\AttributeInterface;
 use Pim\Component\Catalog\Repository\AttributeRepositoryInterface;
+use SimpleXMLElement;
 use Symfony\Component\Serializer\Encoder\DecoderInterface;
 
 /**
@@ -82,7 +83,8 @@ class XmlProductDecoder implements DecoderInterface
                 $standardItem = $this->addProductValue(
                     $standardItem,
                     $pimAttributeCode,
-                    (string) $icecatProduct->ProductDescription->attributes()['LongDesc'],
+                    null,
+                    (string)$icecatProduct->ProductDescription->attributes()['LongDesc'],
                     null
                 );
             }
@@ -92,7 +94,8 @@ class XmlProductDecoder implements DecoderInterface
                 $standardItem = $this->addProductValue(
                     $standardItem,
                     $pimAttributeCode,
-                    (string) $icecatProduct->ProductDescription->attributes()['ShortDesc'],
+                    null,
+                    (string)$icecatProduct->ProductDescription->attributes()['ShortDesc'],
                     null
                 );
             }
@@ -102,7 +105,8 @@ class XmlProductDecoder implements DecoderInterface
                 $standardItem = $this->addProductValue(
                     $standardItem,
                     $pimAttributeCode,
-                    (string) $icecatProduct->SummaryDescription->LongSummaryDescription,
+                    null,
+                    (string)$icecatProduct->SummaryDescription->LongSummaryDescription,
                     null
                 );
             }
@@ -112,46 +116,48 @@ class XmlProductDecoder implements DecoderInterface
                 $standardItem = $this->addProductValue(
                     $standardItem,
                     $pimAttributeCode,
-                    (string) $icecatProduct->SummaryDescription->ShortSummaryDescription,
+                    null,
+                    (string)$icecatProduct->SummaryDescription->ShortSummaryDescription,
                     null
                 );
             }
 
             foreach ($icecatProduct->ProductFeature as $xmlFeature) {
-                $featureId = (int) $xmlFeature->Feature->attributes()['ID'];
+                $featureId = (int)$xmlFeature->Feature->attributes()['ID'];
                 $pimCode = $this->attributeMapper->getMapped($featureId);
                 if (!empty($pimCode)) {
-                    $value = (string) $xmlFeature->LocalValue->attributes()['Value'];
-                    $unit = (string) $xmlFeature->LocalValue->Measure->Signs->Sign;
+                    $value = (string)$xmlFeature->attributes()['Value'];
+                    $localValue = (string)$xmlFeature->LocalValue->attributes()['Value'];
+                    $unit = (string)$xmlFeature->LocalValue->Measure->Signs->Sign;
                     $standardItem = $this->addProductValue(
                         $standardItem,
                         $pimCode,
                         $value,
+                        $localValue,
                         $unit
                     );
                 }
             }
 
             $pictures = [];
-            foreach ($icecatProduct->ProductGallery as $xmlPicture) {
-                if (count($xmlPicture->ProductPicture) > 0) {
-                    $url = (string) $xmlPicture->ProductPicture->attributes()['Original'];
-                    if ('' !== trim($url)) {
-                        $pictures[] = $url;
-                    }
-                }
+            $icecatGallery = (array)$icecatProduct->ProductGallery;
+            if (isset($icecatGallery['ProductPicture'])) {
+                $pictures = $this->extractPictures($icecatGallery['ProductPicture']);
             }
             $pimAttributeCode = $this->configManager->get('pim_icecat_connector.pictures');
-            $standardItem = $this->addProductValue(
-                $standardItem,
-                $pimAttributeCode,
-                json_encode(array_values($pictures)),
-                null
-            );
+            if (!empty($pimAttributeCode)) {
+                $standardItem = $this->addProductValue(
+                    $standardItem,
+                    $pimAttributeCode,
+                    null,
+                    json_encode(array_values($pictures)),
+                    null
+                );
+            }
         } catch (MapperException $e) {
             throw $e;
         } catch (\Exception $e) {
-            if ($icecatProduct instanceof \SimpleXMLElement && (string) $icecatProduct['Code'] === '-1') {
+            if ($icecatProduct instanceof \SimpleXMLElement && (string)$icecatProduct['Code'] === '-1') {
                 throw new XmlDecodeException($icecatProduct['ErrorMessage'], 0, $e);
             }
             throw new XmlDecodeException(sprintf('XML decode error for string %s', $xmlString), 0, $e);
@@ -164,11 +170,12 @@ class XmlProductDecoder implements DecoderInterface
      * @param array  $standardItem
      * @param string $pimCode
      * @param mixed  $value
+     * @param mixed  $localValue
      * @param string $unit
      *
      * @return array
      */
-    protected function addProductValue(array $standardItem, $pimCode, $value, $unit)
+    protected function addProductValue(array $standardItem, $pimCode, $value, $localValue, $unit)
     {
         /** @var AttributeInterface $pimAttribute */
         $pimAttribute = $this->attributeRepository->findOneByIdentifier($pimCode);
@@ -188,18 +195,20 @@ class XmlProductDecoder implements DecoderInterface
         }
 
         if (AttributeTypes::METRIC === $pimAttribute->getType() && null !== $unit) {
-            $value = $this->formatMetricValue($value, $unit);
+            $localValue = $this->formatMetricValue($localValue, $unit);
         } elseif (AttributeTypes::PRICE_COLLECTION === $pimAttribute->getType() && null !== $unit) {
-            $value = $this->formatPriceValue($value, $unit);
+            $localValue = $this->formatPriceValue($localValue, $unit);
+        } elseif (AttributeTypes::BOOLEAN === $pimAttribute->getType()) {
+            $localValue = $value == 'Y' ? true : false;
         } else {
-            $value = $this->findOptionCode($pimAttribute, $value);
+            $localValue = $this->findOptionCode($pimAttribute, $localValue);
         }
 
         $standardItem['values'][$pimCode] = [
             [
-                'data'   => $value,
+                'data' => $localValue,
                 'locale' => $locale,
-                'scope'  => $scope,
+                'scope' => $scope,
             ],
         ];
 
@@ -216,8 +225,8 @@ class XmlProductDecoder implements DecoderInterface
     {
         $measure = $this->measureRepository->find($icecatUnit);
         return [
-            'data' => $icecatValue,
-            'unit' => $measure['unit']
+            'amount' => $icecatValue,
+            'unit' => $measure['unit'],
         ];
     }
 
@@ -235,6 +244,11 @@ class XmlProductDecoder implements DecoderInterface
         ]];
     }
 
+    /**
+     * @param AttributeInterface $pimAttribute
+     * @param string             $icecatValue
+     * @return string
+     */
     protected function findOptionCode(AttributeInterface $pimAttribute, $icecatValue)
     {
         foreach ($pimAttribute->getOptions() as $option) {
@@ -247,6 +261,24 @@ class XmlProductDecoder implements DecoderInterface
         }
 
         return $icecatValue;
+    }
+
+    /**
+     * @param SimpleXMLElement[] $icecatGallery
+     *
+     * @return string[]
+     */
+    protected function extractPictures(array $icecatGallery)
+    {
+        $pictures = [];
+        foreach ($icecatGallery as $xmlPicture) {
+            $url = (string)$xmlPicture->attributes()['Original'];
+            if ('' !== trim($url)) {
+                $pictures[] = $url;
+            }
+        }
+
+        return $pictures;
     }
 
     /**
