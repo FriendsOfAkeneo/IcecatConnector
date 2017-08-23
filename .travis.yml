@@ -17,5 +17,5 @@ install:
   - composer --prefer-dist --no-interaction install
 
 script:
-  - ./bin/php-cs-fixer --dry-run -v fix . --rules=@PSR2
+  - ./bin/php-cs-fixer --dry-run -v fix --config=.php_cs.php
   - ./bin/phpspec run
