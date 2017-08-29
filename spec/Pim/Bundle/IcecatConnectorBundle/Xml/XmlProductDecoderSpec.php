@@ -30,6 +30,15 @@ class XmlProductDecoderSpec extends ObjectBehavior
      */
     private $icecatMetricFeatureId = 7861;
 
+    /** @var int */
+    private $icecatNumberIntegerFeatureId = 17983;
+
+    /** @var int */
+    private $icecatNumberFloatFeatureId = 27597;
+
+    /** @var int */
+    private $icecatTextFeatureId = 19653;
+
     function let(
         ConfigManager $configManager,
         AttributeMapper $attributeMapper,
@@ -216,5 +225,107 @@ class XmlProductDecoderSpec extends ObjectBehavior
         ];
 
         $this->decode($this->enXml, null, [])->shouldReturn($standardItem);
+    }
+
+    function it_can_decode_a_en_string_with_number_integer_attributes(
+        AttributeInterface $numberAttribute,
+        $attributeMapper,
+        $attributeRepository
+    ) {
+        $attributeMapper->getMapped($this->icecatNumberIntegerFeatureId)->willReturn('pim_number');
+        $attributeMapper->getMapped(Argument::any())->willReturn(null);
+
+        $numberAttribute->isLocalizable()->willReturn(false);
+        $numberAttribute->isScopable()->willReturn(false);
+        $numberAttribute->getType()->willReturn(AttributeTypes::NUMBER);
+        $numberAttribute->getOptions()->willReturn([]);
+
+        $attributeRepository->findOneByIdentifier('pim_number')->willReturn($numberAttribute);
+
+        $standardItem = [
+            'values' =>
+                [
+                    'pim_number' =>
+                        [
+                            [
+                                'data' => 4,
+                                'locale' => NULL,
+                                'scope' => NULL,
+                            ],
+                        ],
+                ],
+        ];
+
+        $this->decode($this->enXml, null, [])->shouldReturn($standardItem);
+    }
+
+    function it_can_decode_a_en_string_with_number_float_attributes(
+        AttributeInterface $numberAttribute,
+        $attributeMapper,
+        $attributeRepository
+    ) {
+        $attributeMapper->getMapped($this->icecatNumberFloatFeatureId)->willReturn('pim_number');
+        $attributeMapper->getMapped(Argument::any())->willReturn(null);
+
+        $numberAttribute->isLocalizable()->willReturn(false);
+        $numberAttribute->isScopable()->willReturn(false);
+        $numberAttribute->getType()->willReturn(AttributeTypes::NUMBER);
+        $numberAttribute->getOptions()->willReturn([]);
+
+        $attributeRepository->findOneByIdentifier('pim_number')->willReturn($numberAttribute);
+
+        $standardItem = [
+            'values' =>
+                [
+                    'pim_number' =>
+                        [
+                            [
+                                'data' => '1.7',
+                                'locale' => NULL,
+                                'scope' => NULL,
+                            ],
+                        ],
+                ],
+        ];
+
+        $this->decode($this->enXml, null, [])->shouldReturn($standardItem);
+    }
+
+    function it_can_decode_a_en_string_with_text_attributes(
+        AttributeInterface $textAttribute,
+        $attributeMapper,
+        $attributeRepository
+    ) {
+        $attributeMapper->getMapped($this->icecatTextFeatureId)->willReturn('pim_text');
+        $attributeMapper->getMapped(Argument::any())->willReturn(null);
+
+        $textAttribute->isLocalizable()->willReturn(false);
+        $textAttribute->isScopable()->willReturn(false);
+        $textAttribute->getType()->willReturn(AttributeTypes::TEXT);
+        $textAttribute->getOptions()->willReturn([]);
+
+        $attributeRepository->findOneByIdentifier('pim_text')->willReturn($textAttribute);
+
+        $standardItem = [
+            'values' =>
+                [
+                    'pim_text' =>
+                        [
+                            [
+                                'data' => 'Single SIM',
+                                'locale' => null,
+                                'scope' => null,
+                            ],
+                        ],
+                ],
+        ];
+
+        $this->decode($this->enXml, null, [])->shouldReturn($standardItem);
+    }
+
+    function it_can_only_decode_xml_format()
+    {
+        $this->supportsDecoding('xml')->shouldReturn(true);
+        $this->supportsDecoding('foo')->shouldReturn(false);
     }
 }
