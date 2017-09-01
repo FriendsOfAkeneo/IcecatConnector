@@ -52,7 +52,7 @@ class InvalidTypeConstraintValidator extends ConstraintValidator
         $expectedType = null;
         if (array_key_exists($featureType, $typesSimpleMapping)) {
             $expectedType = $typesSimpleMapping[$featureType];
-        } elseif ('numerical' === $featureType && empty($featureUnit) && AttributeTypes::NUMBER !== $attributeType) {
+        } elseif ('numerical' === $featureType && empty($featureUnit)) {
             $expectedType = AttributeTypes::NUMBER;
         } elseif ('numerical' === $featureType) {
             $expectedType = AttributeTypes::METRIC;
