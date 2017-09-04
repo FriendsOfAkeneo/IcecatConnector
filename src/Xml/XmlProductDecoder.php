@@ -200,6 +200,8 @@ class XmlProductDecoder implements DecoderInterface
             $localValue = $this->formatPriceValue($localValue, $unit);
         } elseif (AttributeTypes::BOOLEAN === $pimAttribute->getType()) {
             $localValue = $value == 'Y' ? true : false;
+        } elseif (AttributeTypes::NUMBER === $pimAttribute->getType()) {
+            $localValue = $this->formatNumberValue($value);
         } else {
             $localValue = $this->findOptionCode($pimAttribute, $localValue);
         }
@@ -242,6 +244,17 @@ class XmlProductDecoder implements DecoderInterface
             'data' => $icecatValue,
             'currency' => $icecatUnit,
         ]];
+    }
+
+    /**
+     * @param string $icecatValue
+     *
+     * @return string|int
+     */
+    protected function formatNumberValue($icecatValue)
+    {
+        $intValue = filter_var($icecatValue, FILTER_VALIDATE_INT);
+        return false !== $intValue ? $intValue : $icecatValue;
     }
 
     /**

@@ -28,7 +28,7 @@ class InvalidTypeConstraintValidator extends ConstraintValidator
     protected function validateAttributeType($item, InvalidTypeConstraint $constraint)
     {
         $pimAttribute = $constraint->getAttribute();
-        $attributeType = $pimAttribute->getAttributeType();
+        $attributeType = $pimAttribute->getType();
         $featureType = trim($item['feature_type']);
         $featureUnit = trim($item['feature_unit']);
 
@@ -37,7 +37,7 @@ class InvalidTypeConstraintValidator extends ConstraintValidator
             '2d'              => AttributeTypes::TEXT,
             '3d'              => AttributeTypes::TEXT,
             'alphanumeric'    => AttributeTypes::TEXT,
-            'constrast_ratio' => AttributeTypes::TEXT,
+            'contrast ratio'  => AttributeTypes::TEXT,
             'ratio'           => AttributeTypes::TEXT,
             'text'            => AttributeTypes::TEXT,
             'textarea'        => AttributeTypes::TEXTAREA,
@@ -52,7 +52,7 @@ class InvalidTypeConstraintValidator extends ConstraintValidator
         $expectedType = null;
         if (array_key_exists($featureType, $typesSimpleMapping)) {
             $expectedType = $typesSimpleMapping[$featureType];
-        } elseif ('numerical' === $featureType && empty($featureUnit) && AttributeTypes::NUMBER !== $attributeType) {
+        } elseif ('numerical' === $featureType && empty($featureUnit)) {
             $expectedType = AttributeTypes::NUMBER;
         } elseif ('numerical' === $featureType) {
             $expectedType = AttributeTypes::METRIC;
@@ -72,7 +72,7 @@ class InvalidTypeConstraintValidator extends ConstraintValidator
         $featureId = $item['feature_id'];
         $featureType = $item['feature_type'];
         $pimAttributeCode = $pimAttribute->getCode();
-        $pimAttributeType = $pimAttribute->getAttributeType();
+        $pimAttributeType = $pimAttribute->getType();
         $message = sprintf($constraint->message, $featureId, $featureType, $pimAttributeCode, $pimAttributeType, $expectedType);
         $this->context->buildViolation($message)->addViolation();
     }
