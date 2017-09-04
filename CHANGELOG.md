@@ -1,3 +1,7 @@
+# 1.1.7
+## Improvements
+- MKP-477: Icecat connector PHPSpec tests
+
 # 1.1.6
 ## Bug fixes
 - MKP-475: fixes metric, boolean and pictures enrichment 
