@@ -1,0 +1,11 @@
+pim_icecat_connector:
+    settings:
+        credentials_username:
+            value: akeneo-test
+            scope: app
+        credentials_password:
+            value: akeneo-test44
+            scope: app
+        ean_attribute:
+            value: icecat_ean
+            scope: app

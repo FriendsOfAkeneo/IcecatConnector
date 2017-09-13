@@ -1,0 +1,4 @@
+pim_icecat_connector:
+    resource: "@PimIcecatConnectorBundle/Resources/config/routing.yml"
+    prefix: /icecat
+

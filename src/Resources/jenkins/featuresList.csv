@@ -1,0 +1,6 @@
+feature_id;pim_attribute_code;ignore_flag;feature_type;feature_name;feature_description;feature_unit
+1006;icecat_numeric_keypad;0;y_n;Numeric keypad;Small, palm-sized, seventeen key section of a computer keyboard, usually on the very far right. The numeric keypad features digits 0 to 9, addition (+), subtraction (-), multiplication (*) and division (/) symbols, a decimal point (.) and Num Lock and Enter keys. Laptop keyboards often do not have a numpad, but may provide numpad input by holding a modifier key (typically labelled "Fn") and operating keys on the standard keyboard.;
+11379;icecat_processor_frequency;0;numerical;Microprocessor frequency;;MHz
+3233;icecat_operating_system;0;dropdown;Operating system installed;Type of operating system on a device e.g. IOS on Apple devices, Android for mobile devices.;
+11381;icecat_installed_ram;0;numerical;Internal memory;A computer's memory which is directly accessible to the CPU.;
+21719;icecat_processor_series;0;dropdown;Processor series;
