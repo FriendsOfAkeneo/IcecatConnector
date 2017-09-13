@@ -98,16 +98,16 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
                 cp vendor/akeneo/icecat-connector/src/Resources/jenkins/parameters_test.yml app/config/parameters_test.yml
                 cat vendor/akeneo/icecat-connector/src/Resources/jenkins/routing.yml >> app/config/routing.yml
                 cp vendor/akeneo/icecat-connector/src/Resources/jenkins/phpunit.xml app/phpunit.xml
-                cat vendor/akeneo/icecat-connector-bundle/src/Resources/jenkins/config_test.yml >> app/config/config_test.yml
+                cat vendor/akeneo/icecat-connector/src/Resources/jenkins/config_test.yml >> app/config/config_test.yml
             """
 
             sh "docker exec akeneo app/console pim:install --force --env=test"
 
-            sh "mkdir -p app/build/logs/"
-            sh "docker exec akeneo bin/phpunit -c app/phpunit.xml --log-junit app/build/logs/phpunit.xml"
+            sh 'mkdir -p app/build/logs/'
+            sh 'docker exec akeneo bin/phpunit -c app/phpunit.xml --log-junit app/build/logs/phpunit.xml'
 
         } finally {
-            junit app/build/logs/*.xml
+            junit "app/build/logs/*.xml"
             deleteDir()
         }
     }
