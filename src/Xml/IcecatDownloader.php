@@ -62,7 +62,7 @@ class IcecatDownloader
     protected function uncompress($sourceFile)
     {
         $input = gzopen($sourceFile, 'rb');
-        $outputPath = str_replace('.gz', '', basename($sourceFile));
+        $outputPath = preg_replace('/.gz$/', '', $sourceFile);
         $ouput = fopen($outputPath, 'wb');
 
         while (!gzeof($input)) {
