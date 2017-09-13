@@ -1,0 +1,66 @@
+<?php
+
+namespace Pim\Bundle\IcecatConnectorBundle\Tests\Controller;
+
+use Pim\Bundle\IcecatConnectorBundle\Controller\ConnectionController;
+use Pim\Bundle\IcecatConnectorBundle\Tests\AbstractTestCase;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+/**
+ * @author    Mathias METAYER <mathias.metayer@akeneo.com>
+ * @copyright ${YEAR} Akeneo SAS (http://www.akeneo.com)
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+class ConnectionControllerTest extends AbstractTestCase
+{
+    public function testIcecatConnectionOk()
+    {
+        $credentials = $this->getCredentials();
+        /** @var ConnectionController $controller */
+        $controller = $this->get('pim_icecat_connector.controller.connection');
+        $request = $this->getRequestMock($credentials['username'], $credentials['password']);
+        $response = $controller->checkCredentials($request);
+
+        $this->assertEquals(Response::HTTP_OK, $response->getStatusCode());
+    }
+
+    public function testIcecatConnectionKo()
+    {
+        /** @var ConnectionController $controller */
+        $controller = $this->get('pim_icecat_connector.controller.connection');
+        $request = $this->getRequestMock('foo', 'bar');
+        $response = $controller->checkCredentials($request);
+
+        $this->assertEquals(Response::HTTP_UNAUTHORIZED, $response->getStatusCode());
+        $this->assertContains(ConnectionController::INVALID_LOGIN, $response->getContent());
+
+        $request = $this->getRequestMock($this->getCredentials()['username'], 'invalidpassword');
+        $response = $controller->checkCredentials($request);
+
+        $this->assertEquals(Response::HTTP_UNAUTHORIZED, $response->getStatusCode());
+        $this->assertContains(ConnectionController::INVALID_PASSWORD, $response->getContent());
+    }
+
+    /**
+     * @param $username
+     * @param $password
+     * @return \PHPUnit_Framework_MockObject_MockObject
+     */
+    private function getRequestMock($username, $password)
+    {
+        $map = [
+            ['username', null, false, $username],
+            ['password', null, false, $password],
+        ];
+
+        $requestMock = $this->getMockBuilder(Request::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $requestMock->expects($this->any())
+            ->method('get')
+            ->will($this->returnValueMap($map));
+
+        return $requestMock;
+    }
+}
