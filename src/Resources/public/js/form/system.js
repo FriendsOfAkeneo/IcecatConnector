@@ -29,6 +29,7 @@ define([
             label: __('pim_icecat_connector.configuration.tab.label'),
             template: _.template(template),
             areCredentialsValid: null,
+            fallbackChannel: null,
             supportedLocales: [
                 {id: 'INT', text: "International standardized version"},
                 {id: 'EN', text: "Standard or UK English"},
@@ -119,6 +120,8 @@ define([
                         this.getFormData()['pim_icecat_connector___locales'].value : '',
                     fallback_locale: this.getFormData()['pim_icecat_connector___fallback_locale'] ?
                         this.getFormData()['pim_icecat_connector___fallback_locale'].value : '',
+                    scope:  this.getFormData()['pim_icecat_connector___scope'] ?
+                        this.getFormData()['pim_icecat_connector___scope'].value : '',
                     credentials_username: this.getFormData()['pim_icecat_connector___credentials_username'] ?
                         this.getFormData()['pim_icecat_connector___credentials_username'].value : '',
                     credentials_password: this.getFormData()['pim_icecat_connector___credentials_password'] ?
@@ -145,6 +148,22 @@ define([
                         ]
                     }
                 };
+
+
+
+                FetcherRegistry.getFetcher('channel').search()
+                    .then(function (channel) {
+                        var choices = _.chain(channel)
+                            .map(function (channel) {
+                                return ChoicesFormatter.formatOne(channel);
+                            })
+                            .value();
+                        initSelect2.init(this.$('#scope'), {
+                            data: choices,
+                            multiple: false,
+                            containerCssClass: 'input-xxlarge'
+                        });
+                    }.bind(this));
 
                 FetcherRegistry.getFetcher('attribute').search(searchOptions)
                     .then(function (attributes) {

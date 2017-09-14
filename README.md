@@ -48,6 +48,7 @@ There are 3 differents imports profiles in this extension:
 First, you must require the connector dependencies:
 
 ```php
+composer config repositories.icecat '{"type": "vcs", "url": "ssh://git@distribution.akeneo.com:443/IcecatConnector", "branch": "master"}'
 composer require akeneo/icecat-connector 1.1.*
 ```
 
@@ -82,7 +83,7 @@ In `app/AppKernel.php`:
     }
 ```
 
-Add new Mass Operation:
+### Add new Mass Operation:
 ```
 app/console akeneo:batch:create-job "Akeneo Mass Edit Connector" "mass_edit_icecat_enrichment" "mass_edit" "mass_edit_icecat_enrichment"
 ```
@@ -99,6 +100,65 @@ akeneo_storage_utils:
             original: PimEnterprise\Component\Catalog\Model\ProductValue
             override: Pim\Bundle\ExtendedCeBundle\Model\ProductValue
 ```
+
+### Mapping between Icecat locales and PIM locales
+By default, content in specific language are set into one locale. Here is the existing mapping:
+
+| Icecat locale | PIM Locale
+|---------------|-----------
+ZH_TW | zh_TW (Chinese - traditional))
+EN_SG | en_SG (Singapore English)
+EN_IN | en_IN (Indian English)
+DE_CH | de_CH (Swiss German)
+INT | null (International standardized version)
+EN | en_GB (Standard or UK English)
+US | en_US (US English)
+NL | nl_NL (Dutch)
+FR | fr_FR (French)
+DE | de_DE (German)
+IT | it_IT (Italian)
+ES | es_ES (Spanish)
+DK | da_DK (Danish)
+RU | ru_RU (Russian)
+PT | pt_PT (Portuguese)
+BR | pt_BR (Brazilian Portuguese)
+ZH | zh_CN (Chinese (simplified))
+SE | sv_SE (Swedish)
+PL | pl_PL (Polish)
+CZ | cs_CZ (Czech)
+HU | hu_HU (Hungarian)
+FI | fi_FI (Finnish)
+NO | nn_NO (Norwegian)
+TR | tr_TR (Turkish)
+BG | bg_BG (Bulgarian)
+KA | ka_GE (Georgian)
+RO | ro_RO (Romanian)
+SR | sr_RS (Serbian)
+JA | ja_JP (Japanese)
+UK | uk_UA (Ukrainian)
+CA | ca_ES (Catalan)
+HR | hr_HR (Croatian)
+AR | ar_SA (Arabic (Saudi Arabia))
+VI | vi_VN (Vietnamese)
+HE | he_IL (Hebrew)
+KO | ko_KR (Korean)
+LT | lt_LT (Lithuanian)
+LV | lv_LV (Latvian)
+ID | id_ID (Indonesian)
+SK | sk_SK (Slovakian)
+
+If you need to customize, please add the following section in your `app/config/config.yml`:
+
+```yaml
+pim_icecat_connector:
+    locale_mapping:
+        EN:
+         label: "Standard or UK English"
+         locale: en_GB
+```
+
+You can change any mapping this way. Only your changes are to be redefined, no need to rewrite
+all of them.
 
 ### (Optionnal) Example bundles
 

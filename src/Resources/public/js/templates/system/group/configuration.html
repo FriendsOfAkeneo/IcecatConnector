@@ -135,6 +135,21 @@
     <div class="AknFieldContainer">
         <div class="AknFieldContainer-header">
             <label class="AknFieldContainer-label"
+                   for="scope">Channel selector</label>
+        </div>
+        <div class="AknFieldContainer-inputContainer">
+            <input class="pim-icecat-config select-field"
+                   id="scope" name="scope"
+                   type="hidden" value="<%- scope %>"/>
+        </div>
+        <div class="AknFieldContainer-footer">
+            Select one channel to enrich from Icecat.
+        </div>
+    </div>
+
+    <div class="AknFieldContainer">
+        <div class="AknFieldContainer-header">
+            <label class="AknFieldContainer-label"
                    for="short_summary_description"><%-
                 _.__('pim_icecat_connector.configuration.short_summary_description') %></label>
         </div>
