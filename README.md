@@ -82,6 +82,11 @@ In `app/AppKernel.php`:
     }
 ```
 
+Add new Mass Operation:
+```
+app/console akeneo:batch:create-job "Akeneo Mass Edit Connector" "mass_edit_icecat_enrichment" "mass_edit" "mass_edit_icecat_enrichment"
+```
+
 More explanation about the ProductValue override can be found in Akeneo documentation: 
 https://docs.akeneo.com/1.7/cookbook/catalog_structure/overriding_the_orm_product_value.html
 
