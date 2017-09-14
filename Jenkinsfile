@@ -1,6 +1,5 @@
 #!groovy
 
-def launchUnitTests = "yes"
 def launchIntegrationTests = "no"
 
 class Globals {
@@ -12,11 +11,9 @@ class Globals {
 stage("Checkout") {
     milestone 1
     if (env.BRANCH_NAME =~ /^PR-/) {
-        userInput = input(message: 'Launch tests?', parameters: [
+        launchIntegrationTests = input(message: 'Launch tests?', parameters: [
             choice(choices: 'yes\nno', description: 'Run integration tests', name: 'launchIntegrationTests'),
         ])
-
-        launchIntegrationTests = userInput['launchIntegrationTests']
     }
 
     milestone 2
@@ -37,7 +34,7 @@ if (launchIntegrationTests.equals("yes")) {
     stage("Integration tests") {
         def tasks = [:]
 
-        tasks["phpunit-5.6-ce"] = {runIntegrationTest("5.6", "${Globals.mysqlVersion}")}
+        tasks["phpunit-5.6-ee"] = {runIntegrationTest("5.6", "${Globals.mysqlVersion}")}
 
         parallel tasks
     }
@@ -79,7 +76,7 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
             sh """
                 docker exec akeneo composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git", "branch": "master"}'
                 docker exec akeneo composer require --no-update akeneo/icecat-connector:${Globals.extensionBranch}
-                docker exec akeneo php -d memory_limit=3G /usr/local/bin/composer update --ignore-platform-reqs --optimize-autoloader --no-interaction --no-progress --prefer-dist
+                docker exec akeneo php -d memory_limit=3G /usr/local/bin/composer update --optimize-autoloader --no-interaction --no-progress --prefer-dist
             """
 
             dir("vendor/akeneo/icecat-connector") {
@@ -99,10 +96,18 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
 
             sh """
                 cp vendor/akeneo/icecat-connector/src/Resources/jenkins/parameters_test.yml app/config/parameters_test.yml
+                cat vendor/akeneo/icecat-connector/src/Resources/jenkins/routing.yml >> app/config/routing.yml
+                cp vendor/akeneo/icecat-connector/src/Resources/jenkins/phpunit.xml app/phpunit.xml
+                cat vendor/akeneo/icecat-connector/src/Resources/jenkins/config_test.yml >> app/config/config_test.yml
             """
 
             sh "docker exec akeneo app/console pim:install --force --env=test"
+
+            sh 'mkdir -p app/build/logs/'
+            sh 'docker exec akeneo bin/phpunit -c app/phpunit.xml --log-junit app/build/logs/phpunit.xml'
+
         } finally {
+            junit "app/build/logs/*.xml"
             deleteDir()
         }
     }

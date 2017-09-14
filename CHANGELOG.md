@@ -1,3 +1,7 @@
+# 1.1.8
+## Improvements
+- MKP-478: Icecat connector integration tests
+
 # 1.1.7
 ## Improvements
 - MKP-477: Icecat connector PHPSpec tests

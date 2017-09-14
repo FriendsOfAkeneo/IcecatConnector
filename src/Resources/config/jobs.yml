@@ -1,6 +1,3 @@
-parameters:
-    pim_icecat_connector.job.job_parameters.form_configuration_provider.simple_csv.class: Pim\Bundle\IcecatConnectorBundle\JobParameters\FormConfigurationProvider\SimpleCsvConfiguration
-
 services:
     #--------------------------------------------------------------------------
     # prepare features CSV mapping file job
