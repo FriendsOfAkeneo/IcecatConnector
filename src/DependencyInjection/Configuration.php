@@ -28,6 +28,7 @@ class Configuration implements ConfigurationInterface
             ->scalarNode('ean_attribute')->end()
             ->scalarNode('fallback_locale')->end()
             ->scalarNode('locales')->end()
+            ->scalarNode('scope')->end()
             ->scalarNode('description')->end()
             ->scalarNode('short_description')->end()
             ->scalarNode('summary_description')->end()
@@ -45,6 +46,7 @@ class Configuration implements ConfigurationInterface
                 'ean_attribute' => ['value' => null],
                 'fallback_locale' => ['value' => null],
                 'locales' => ['value' => null],
+                'scope' => ['value' => null],
                 'description' => ['value' => null],
                 'short_description' => ['value' => null],
                 'summary_description' => ['value' => null],

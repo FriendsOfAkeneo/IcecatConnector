@@ -15,12 +15,14 @@ class PimIcecatConnectorExtension extends Extension
     public function load(array $configs, ContainerBuilder $container)
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-        $loader->load('parameters.yml');
+        $loader->load('form_types.yml');
         $loader->load('jobs.yml');
-        $loader->load('steps.yml');
-        $loader->load('readers.yml');
+        $loader->load('mass_actions.yml');
+        $loader->load('parameters.yml');
         $loader->load('processors.yml');
-        $loader->load('writers.yml');
+        $loader->load('readers.yml');
         $loader->load('services.yml');
+        $loader->load('steps.yml');
+        $loader->load('writers.yml');
     }
 }

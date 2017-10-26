@@ -42,70 +42,50 @@ if (launchIntegrationTests.equals("yes")) {
 
 def runIntegrationTest(phpVersion, mysqlVersion) {
     node('docker') {
-        deleteDir()
         cleanUpEnvironment()
 
-        def workspace = "/home/docker/pim"
-
-        sh "docker network create akeneo"
-        sh """
-            docker pull mysql:${mysqlVersion}
-            docker pull carcel/akeneo:php-${phpVersion}
-        """
-
-        sh "docker run -d --network akeneo --name mysql \
-            -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=akeneo_pim -e MYSQL_PASSWORD=akeneo_pim -e MYSQL_DATABASE=akeneo_pim \
-            mysql:${mysqlVersion} \
-            --sql-mode=ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
-
-        unstash "pim_enterprise"
-
-        sh "docker run -d --network akeneo --name akeneo \
-            -e WORKSPACE=${workspace} -e COMPOSER_HOME=/home/docker/.composer \
-            -v /home/akeneo/.composer:/home/docker/.composer -v \$(pwd):${workspace} \
-            -w ${workspace} \
-            carcel/akeneo:php-${phpVersion}"
-
-        sh "docker ps -a"
-
         try {
-            if (phpVersion != "5.6") {
-                sh "docker exec akeneo composer require --no-update alcaeus/mongo-php-adapter"
+            docker.image("mysql:5.5")
+            .withRun("--name mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=akeneo_pim -e MYSQL_PASSWORD=akeneo_pim -e MYSQL_DATABASE=akeneo_pim --tmpfs=/var/lib/mysql/:rw,noexec,nosuid,size=1000m --tmpfs=/tmp/:rw,noexec,nosuid,size=300m") {
+                docker.image("akeneo/php:5.6")
+                .inside("--link mysql:mysql -v /home/akeneo/.composer:/home/akeneo/.composer -e COMPOSER_HOME=/home/akeneo/.composer") {
+                    unstash "pim_enterprise"
+
+                    if (phpVersion != "5.6") {
+                        sh "composer require --no-update alcaeus/mongo-php-adapter"
+                    }
+
+                    sh """
+                        composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git", "branch": "master"}'
+                        php -d memory_limit=3G /usr/local/bin/composer require phpunit/phpunit:5.4.* akeneo/icecat-connector:${Globals.extensionBranch} --no-interaction --no-progress --prefer-dist
+                    """
+
+                    dir("vendor/akeneo/icecat-connector") {
+                        deleteDir()
+                        unstash "icecat_extension"
+                    }
+                    sh 'composer dump-autoload -o'
+
+                    sh """
+                        rm app/cache/* -rf
+                        sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\IcecatConnectorBundle\\\\PimIcecatConnectorBundle(),#' app/AppKernel.php
+                        sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedMeasureBundle\\\\PimExtendedMeasureBundle(),#' app/AppKernel.php
+                        sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedAttributeTypeBundle\\\\PimExtendedAttributeTypeBundle(),#' app/AppKernel.php
+                        cat app/AppKernel.php
+                    """
+
+                    sh """
+                        cp vendor/akeneo/icecat-connector/src/Resources/jenkins/parameters_test.yml app/config/parameters_test.yml
+                        cat vendor/akeneo/icecat-connector/src/Resources/jenkins/routing.yml >> app/config/routing.yml
+                        cp vendor/akeneo/icecat-connector/src/Resources/jenkins/phpunit.xml app/phpunit.xml
+                        cat vendor/akeneo/icecat-connector/src/Resources/jenkins/config_test.yml >> app/config/config_test.yml
+                        mkdir -p app/build/logs
+                    """
+
+                    sh "app/console pim:install --force --env=test"
+                    sh "bin/phpunit -c app/phpunit.xml --log-junit app/build/logs/phpunit.xml"
+                }
             }
-
-            sh """
-                docker exec akeneo composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git", "branch": "master"}'
-                docker exec akeneo composer require --no-update akeneo/icecat-connector:${Globals.extensionBranch}
-                docker exec akeneo php -d memory_limit=3G /usr/local/bin/composer update --optimize-autoloader --no-interaction --no-progress --prefer-dist
-            """
-
-            dir("vendor/akeneo/icecat-connector") {
-                deleteDir()
-                unstash "icecat_extension"
-            }
-            sh 'docker exec akeneo composer dump-autoload -o'
-
-            sh """
-                mkdir -p app/build/logs/
-                rm ./app/cache/* -rf
-                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\IcecatConnectorBundle\\\\PimIcecatConnectorBundle(),#' app/AppKernel.php
-                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedMeasureBundle\\\\PimExtendedMeasureBundle(),#' app/AppKernel.php
-                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedAttributeTypeBundle\\\\PimExtendedAttributeTypeBundle(),#' app/AppKernel.php
-                cat app/AppKernel.php
-            """
-
-            sh """
-                cp vendor/akeneo/icecat-connector/src/Resources/jenkins/parameters_test.yml app/config/parameters_test.yml
-                cat vendor/akeneo/icecat-connector/src/Resources/jenkins/routing.yml >> app/config/routing.yml
-                cp vendor/akeneo/icecat-connector/src/Resources/jenkins/phpunit.xml app/phpunit.xml
-                cat vendor/akeneo/icecat-connector/src/Resources/jenkins/config_test.yml >> app/config/config_test.yml
-            """
-
-            sh "docker exec akeneo app/console pim:install --force --env=test"
-
-            sh 'mkdir -p app/build/logs/'
-            sh 'docker exec akeneo bin/phpunit -c app/phpunit.xml --log-junit app/build/logs/phpunit.xml'
-
         } finally {
             junit "app/build/logs/*.xml"
             deleteDir()

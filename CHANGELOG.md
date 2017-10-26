@@ -1,6 +1,7 @@
-# 1.1.8
+# 1.2.0
 ## Improvements
 - MKP-478: Icecat connector integration tests
+- MKP-362: add mass edit operation to enrich products
 
 # 1.1.7
 ## Improvements

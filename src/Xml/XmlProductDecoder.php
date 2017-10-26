@@ -32,9 +32,6 @@ class XmlProductDecoder implements DecoderInterface
     protected $attributeRepository;
 
     /** @var string */
-    protected $locale;
-
-    /** @var string */
     protected $scope;
 
     /** @var MeasureRepositoryInterface */
@@ -46,7 +43,6 @@ class XmlProductDecoder implements DecoderInterface
      * @param AttributeRepositoryInterface $attributeRepository
      * @param MeasureRepositoryInterface   $extendedMeasureRepository
      * @param string                       $scope
-     * @param string                       $locale
      *
      * @internal param ConfigManager $configManager
      */
@@ -55,14 +51,12 @@ class XmlProductDecoder implements DecoderInterface
         AttributeMapper $attributeMapper,
         AttributeRepositoryInterface $attributeRepository,
         MeasureRepositoryInterface $extendedMeasureRepository,
-        $scope,
-        $locale
+        $scope
     ) {
         $this->scope = $scope;
         $this->attributeMapper = $attributeMapper;
         $this->configManager = $configManager;
         $this->attributeRepository = $attributeRepository;
-        $this->locale = $locale;
         $this->measureRepository = $extendedMeasureRepository;
     }
 
@@ -177,7 +171,6 @@ class XmlProductDecoder implements DecoderInterface
      */
     protected function addProductValue(array $standardItem, $pimCode, $value, $localValue, $unit)
     {
-        /** @var AttributeInterface $pimAttribute */
         $pimAttribute = $this->attributeRepository->findOneByIdentifier($pimCode);
 
         if (null === $pimAttribute) {

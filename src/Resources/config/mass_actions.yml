@@ -1,0 +1,14 @@
+services:
+    pim_icecat_mass_action.operation.icecat_enrichment:
+        public: false
+        class: Pim\Bundle\IcecatConnectorBundle\MassEditAction\Operation\IcecatEnrichment
+        arguments:
+            - 'mass_edit_icecat_enrichment'
+        tags:
+            -
+                name: pim_enrich.mass_edit_action
+                alias: icecat-enrichment
+                acl: pim_enrich_product_edit_attributes
+                datagrid: product-grid
+                operation_group: mass-edit
+                form_type: pim_icecat_mass_action_operation_icecat_enrichment
