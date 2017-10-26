@@ -16,16 +16,12 @@
         }
     ],
     "require": {
-        "php": ">=5.6.0",
-        "akeneo/extended-attribute-type": "1.1.*",
+        "php": ">=7.1",
+        "akeneo/extended-attribute-type": "2.0.*",
         "akeneo/extended-measure-bundle": "0.1.*",
-        "akeneo/pim-community-dev": "1.7.*",
+        "akeneo/pim-community-dev": "2.0.*",
         "guzzlehttp/guzzle": "6.*",
         "prewk/xml-string-streamer": "0.9.*"
-    },
-    "require-dev": {
-        "friendsofphp/php-cs-fixer": "@stable",
-        "phpspec/phpspec": "@stable"
     },
     "autoload": {
         "psr-4": {
@@ -40,7 +36,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.1.x-dev",
+            "dev-master": "2.0.x-dev",
             "dev-1.0": "1.0.x-dev"
         }
     }

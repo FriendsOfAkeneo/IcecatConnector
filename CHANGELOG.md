@@ -1,3 +1,7 @@
+# 2.0.0
+## Improvements
+- MKP-688: PIM 2.0 compatibility
+
 # 1.2.2
 ## Improvements
 - MKP-719: MKP-719: revert enrich job to its previous name to avoid BC break

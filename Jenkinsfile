@@ -3,9 +3,9 @@
 def launchIntegrationTests = "no"
 
 class Globals {
-    static pimVersion = "1.7"
-    static extensionBranch = "1.2.x-dev"
-    static mysqlVersion = "5.5"
+    static pimVersion = "2.0"
+    static extensionBranch = "2.0.x-dev"
+    static mysqlVersion = "5.7"
 }
 
 stage("Checkout") {
@@ -34,7 +34,7 @@ if (launchIntegrationTests.equals("yes")) {
     stage("Integration tests") {
         def tasks = [:]
 
-        tasks["phpunit-5.6-ee"] = {runIntegrationTest("5.6", "${Globals.mysqlVersion}")}
+        tasks["phpunit-7.1-ee"] = {runIntegrationTest("7.1", "${Globals.mysqlVersion}")}
 
         parallel tasks
     }
@@ -45,15 +45,11 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
         cleanUpEnvironment()
 
         try {
-            docker.image("mysql:5.5")
+            docker.image("mysql:5.7")
             .withRun("--name mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=akeneo_pim -e MYSQL_PASSWORD=akeneo_pim -e MYSQL_DATABASE=akeneo_pim --tmpfs=/var/lib/mysql/:rw,noexec,nosuid,size=1000m --tmpfs=/tmp/:rw,noexec,nosuid,size=300m") {
-                docker.image("akeneo/php:5.6")
+                docker.image("akeneo/php:7.1")
                 .inside("--link mysql:mysql -v /home/akeneo/.composer:/home/akeneo/.composer -e COMPOSER_HOME=/home/akeneo/.composer") {
                     unstash "pim_enterprise"
-
-                    if (phpVersion != "5.6") {
-                        sh "composer require --no-update alcaeus/mongo-php-adapter"
-                    }
 
                     sh """
                         composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git", "branch": "master"}'
