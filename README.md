@@ -6,6 +6,7 @@ The Icecat Connector gives the capability to enrich Akeneo PIM product data with
 
 | IcecatConnectorBundle | Akeneo PIM Community Edition |
 |:---------------------:|:----------------------------:|
+| 1.2.*                 | v1.7.*                       |
 | 1.1.*                 | v1.7.*                       |
 | 1.0.*                 | v1.6.*                       |
 
