@@ -7,6 +7,7 @@ It can be used with both Open Icecat free catalog or Full Icecat paid catalog.
 
 | IcecatConnectorBundle | Akeneo PIM Community Edition |
 |:---------------------:|:----------------------------:|
+| 2.0.*                 | v2.0.*                       |
 | 1.2.*                 | v1.7.*                       |
 | 1.1.*                 | v1.7.*                       |
 | 1.0.*                 | v1.6.*                       |
@@ -64,7 +65,7 @@ First, you must require the connector dependencies:
 
 ```php
 composer config repositories.icecat '{"type": "vcs", "url": "ssh://git@distribution.akeneo.com:443/IcecatConnector", "branch": "master"}'
-composer require akeneo/icecat-connector 1.2.*
+composer require akeneo/icecat-connector 2.0.*
 ```
 
 ## Registering the bundle
@@ -93,9 +94,13 @@ In `app/AppKernel.php`:
             new \Pim\Bundle\ExtendedAttributeTypeBundle\PimExtendedAttributeTypeBundle(),
             new \Pim\Bundle\ExtendedMeasureBundle\PimExtendedMeasureBundle(),
             new \Pim\Bundle\IcecatConnectorBundle\PimIcecatConnectorBundle(),
-            new \MyCompany\Bundle\MyBundle\MyPimBundle(), // Your custom bundle with overriden ProductValue
         ];
     }
+```
+
+### Add new Mass Operation:
+```
+app/console akeneo:batch:create-job "Akeneo Mass Edit Connector" "mass_edit_icecat_enrichment" "mass_edit" "mass_edit_icecat_enrichment"
 ```
 
 More explanation about the ProductValue override can be found in Akeneo documentation: 
