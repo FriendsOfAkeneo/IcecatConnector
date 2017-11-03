@@ -12,6 +12,9 @@ use Pim\Component\Catalog\Exception\InvalidArgumentException;
 use Pim\Component\Catalog\Updater\ProductUpdater;
 
 /**
+ * Processor to enrich product information from Icecat.
+ * It calls Icecat API on every configured locales and enrich attribute data
+ *
  * @author    JM Leroux <jean-marie.leroux@akeneo.com>
  * @copyright 2016 Akeneo SAS (http://www.akeneo.com)
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)

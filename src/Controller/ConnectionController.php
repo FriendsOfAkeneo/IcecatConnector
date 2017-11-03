@@ -59,7 +59,7 @@ class ConnectionController
         $username = $request->get('username');
         $password = $request->get('password');
 
-        $query = sprintf($this->icecatProductEndpoint, $eanValue);
+        $query = sprintf($this->icecatProductEndpoint, $eanValue, 'US');
 
         $guzzle = $this->client->getGuzzle();
         $guzzleResponse = $guzzle->request(
