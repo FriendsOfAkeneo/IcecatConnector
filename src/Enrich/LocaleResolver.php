@@ -2,7 +2,6 @@
 
 namespace Pim\Bundle\IcecatConnectorBundle\Enrich;
 
-
 class LocaleResolver implements LocaleResolverInterface
 {
     /** @var array */
