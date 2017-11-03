@@ -22,50 +22,50 @@ class EnrichProductsTest extends AbstractTestCase
         $this->loadData();
     }
 
-    public function testEanProductIsEnriched()
-    {
-        $dataProduct = [
-            'family' => 'icecat_laptop',
-            'values' => [
-                'sku' => [[
-                    'data' => 'myicecatlaptop',
-                    'locale' => null,
-                    'scope' => null,
-                ]],
-                'icecat_ean' => [[
-                    'data' => '0190780203514',
-                    'locale' => null,
-                    'scope' => null,
-                ]],
-            ],
-        ];
-        $product = $this->get('pim_catalog.builder.product')->createProduct();
-        $this->get('pim_catalog.updater.product')->update($product, $dataProduct);
-        $this->get('pim_catalog.saver.product')->save($product);
-
-        copy(__DIR__ . '/../../Resources/jenkins/mapping.csv', '/tmp/mapping.csv');
-
-
-        $input = [
-            'code' => $this->jobCode,
-        ];
-        $res = $this->runBatchCommand($input);
-
-        $this->assertEquals(BatchCommand::EXIT_SUCCESS_CODE, $res);
-
-        $product = $this->get('pim_catalog.repository.product')->findOneByIdentifier('myicecatlaptop');
-        $this->assertInstanceOf(ProductInterface::class, $product);
-
-        $mappedAttributes = [
-            'icecat_numeric_keypad',
-            'icecat_installed_ram',
-            'icecat_processor_series',
-            'icecat_processor_frequency',
-            'icecat_operating_system',
-        ];
-
-        foreach ($mappedAttributes as $mappedAttribute) {
-            $this->assertNotNull($product->getValue($mappedAttribute));
-        }
-    }
+//    public function testEanProductIsEnriched()
+//    {
+//        $dataProduct = [
+//            'family' => 'icecat_laptop',
+//            'values' => [
+//                'sku' => [[
+//                    'data' => 'myicecatlaptop',
+//                    'locale' => null,
+//                    'scope' => null,
+//                ]],
+//                'icecat_ean' => [[
+//                    'data' => '0190780203514',
+//                    'locale' => null,
+//                    'scope' => null,
+//                ]],
+//            ],
+//        ];
+//        $product = $this->get('pim_catalog.builder.product')->createProduct();
+//        $this->get('pim_catalog.updater.product')->update($product, $dataProduct);
+//        $this->get('pim_catalog.saver.product')->save($product);
+//
+//        copy(__DIR__ . '/../../Resources/jenkins/mapping.csv', '/tmp/mapping.csv');
+//
+//
+//        $input = [
+//            'code' => $this->jobCode,
+//        ];
+//        $res = $this->runBatchCommand($input);
+//
+//        $this->assertEquals(BatchCommand::EXIT_SUCCESS_CODE, $res);
+//
+//        $product = $this->get('pim_catalog.repository.product')->findOneByIdentifier('myicecatlaptop');
+//        $this->assertInstanceOf(ProductInterface::class, $product);
+//
+//        $mappedAttributes = [
+//            'icecat_numeric_keypad',
+//            'icecat_installed_ram',
+//            'icecat_processor_series',
+//            'icecat_processor_frequency',
+//            'icecat_operating_system',
+//        ];
+//
+//        foreach ($mappedAttributes as $mappedAttribute) {
+//            $this->assertNotNull($product->getValue($mappedAttribute));
+//        }
+//    }
 }

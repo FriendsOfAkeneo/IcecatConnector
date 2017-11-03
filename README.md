@@ -1,6 +1,7 @@
 # Icecat Connector extension
 
-The Icecat Connector gives the capability to enrich Akeneo PIM product data with the rich Icecat Catalog. It can be used with both Open Icecat free catalog or Full Icecat paid catalog.
+The Icecat Connector gives the capability to enrich Akeneo PIM product data with the rich Icecat Catalog. 
+It can be used with both Open Icecat free catalog or Full Icecat paid catalog.
 
 ## Requirements
 
@@ -14,13 +15,18 @@ The Akeneo PIM instance must be connected to the internet to be able to reach th
 
 # Features
 
-This extension allows to enrich an already existing catalog with Icecat catalog data. It does not import any structural content like categories or families. This way you keep control of your catalog structuration and are not tied to Icecat taxonomy.
+This extension allows to enrich an already existing catalog with Icecat catalog data.
+It does not import any structural content like categories or families. 
+This way you keep control of your catalog structuration and are not tied to Icecat taxonomy.
 
-To enrich your product with Icecat content, you will also needs to have a unique attribute containing the product EAN. This attribute will be used to match Icecat product via their web API.
+To enrich your product with Icecat content, you will also needs to have a unique attribute containing the product EAN.
+This attribute will be used to match Icecat product via their web API.
 
-Existing Akeneo PIM attributes must also be mapped to Icecat features with a CSV file containing two main columns: the Akeneo attribute code and the corresponding Icecat feature ID. An import profile is provided by the extension to help in this mapping step.
+Existing Akeneo PIM attributes must also be mapped to Icecat features with a CSV file containing two main columns:
+the Akeneo attribute code and the corresponding Icecat feature ID.
+An import profile is provided by the extension to help in this mapping step.
 
-Once this mapping is done, the products data will be fetched with a cron task using Icecat XML web API.
+Once this mapping is done, the products data will be fetched with a mass edit task using Icecat XML web API.
 
 **Important**: This extension does not rely on Icecat taxonomy, and so there is no requirement or limitation on the Akeneo catalog structure.
 On the other hand, it is not possible to initialize an empty Akeneo PIM with this extension.
@@ -30,15 +36,22 @@ On the other hand, it is not possible to initialize an empty Akeneo PIM with thi
 ![Configuration screen](docs/img/icecat-config-01.png)
 
 The connector provides a configuration screen to set some important informations:
-- Icecat product EAN: the product attribute containing the Icecat product EAN. This attribute must be unique.
-- Description, Short Description, Summary Description, Short Summary Description: these are common data in the Icecat XML payload and they can be mapped to any Akeneo PIM text attribute.
+
+* Icecat credentials. You can check these credentials in the configuration screen.
+
+* Icecat product EAN: the product attribute containing the Icecat product EAN. This attribute must be unique.
+
+* Description, Short Description, Summary Description, Short Summary Description: these are common data in the Icecat XML payload and they can be mapped to any Akeneo PIM text attribute.
+
+* fallback_locale: Icecat locale used for non localizable attributes in Akeneo.
+
+* fallback_channel: The target channel in Akeneo.
 
 ## Import profiles
 
-There are 3 differents imports profiles in this extension:
+There are 2 differents imports profiles in this extension:
 - `icecat_download_features`: a profile to download all Icecat features and prepare the attributes mapping CSV file.
 - `icecat_import_features_mapping`: to upload the final attributes mapping CSV file.
-- `icecat_enrich_products`: this profile is used by a CRON task to enrich product content.
 
 ![Import profiles](docs/img/icecat-import-01.png)
 
@@ -148,19 +161,6 @@ LV | lv_LV (Latvian)
 ID | id_ID (Indonesian)
 SK | sk_SK (Slovakian)
 
-If you need to customize, please add the following section in your `app/config/config.yml`:
-
-```yaml
-pim_icecat_connector:
-    locale_mapping:
-        EN:
-         label: "Standard or UK English"
-         locale: en_GB
-```
-
-You can change any mapping this way. Only your changes are to be redefined, no need to rewrite
-all of them.
-
 ### (Optionnal) Example bundles
 
 This connector is shipped with complete example bundle, especially to override the ProductValue model.
@@ -199,21 +199,6 @@ You will habe to specify an option for this command:
 
 * `force` will apply the changes.
 
-## Extension parameters
-
-You may also need need to adjust some internal parameters if you want to use another locale.
-You can do it in the standard `app/config/parameters.yml` for a Symfony2 application.
-
-* `pim_icecat_connector.endpoint.product.ean: 'ean_upc=%%s;lang=en;output=productxml'`. 
-  This parameter set the product data endpoint and you should change it if you need to have the data in another locale.
-  You could for example use `ean_upc=%%s;lang=de;output=productxml` to get the german data.
-  
-* `pim_icecat_connector.fallback_locale: 'en_US'`. This parameter set the targeted locale in Akeneo.
-  Chances are that if you change the Icecat endpoint, you may alos change this parameter with `de_DE`.
-
-* `pim_icecat_connector.fallback_channel: 'ecommerce'`. 
-  The default target channel in Akeneo, but you can change it to enrich another channel.
-
 ## (optionnal) Fixtures examples
 
 This extension provides examples fixtures for attributes and family.
@@ -222,16 +207,16 @@ They are meant to be used in conjonction with the PimInstallerBundle:icecat_demo
 Once your application is installed with the `icecat_demo_dev` data, you can load these attributes and family with the
 shipped import profiles `attributes_csv_import` and `family_csv_import`.
 
-## Extension UI configuration
-
-Configure the Icecat credentials and special attributes in the PIM configuration screen.
-
 ## Build attributes mappings
 
 This is a big setup step. The operation consists in mapping Akeneo attributes on Icecat features.
 This can be splitted in three steps:
+
 * download the full Icecat features CSV file. It provides an empty CSV file ready for the mapping.
-* map needed features ID with Akeneo attributes codes in the CSV file. This step can be very long if you have many attributes to map.
+
+* map needed features ID with Akeneo attributes codes in the CSV file. 
+  This step can be very long if you have many attributes to map.
+
 * upload the CSV mapping.
 
 You will find more documentation on mapping in the [docs folder](docs/mapping.md).
