@@ -67,8 +67,8 @@ class EnrichProductProcessor extends AbstractProcessor
 
         $this->eanAttributeCode = $config->get('pim_icecat_connector.ean_attribute');
         $this->icecatLocales = explode(',', $config->get('pim_icecat_connector.locales'));
+        $this->fallbackLocale = $config->get('pim_icecat_connector.fallback_locale');
         $this->localeResolver = $localeResolver;
-        $this->fallbackLocale = $localeResolver->getPimLocaleCode($config->get('pim_icecat_connector.fallback_locale'));
     }
 
     /**
@@ -88,7 +88,7 @@ class EnrichProductProcessor extends AbstractProcessor
             ]);
             $context = [
                 'locale' => $this->localeResolver->getPimLocaleCode($icecatLocale),
-                'fallback_locale' => $this->fallbackLocale,
+                'fallback_locale' => $this->localeResolver->getPimLocaleCode($this->fallbackLocale),
             ];
             try {
                 $standardProduct = $this->xmlProductDecoder->decode($res->getBody()->getContents(), 'xml', $context);
