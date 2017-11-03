@@ -6,6 +6,7 @@ use Akeneo\Component\Batch\Model\StepExecution;
 use Oro\Bundle\ConfigBundle\Config\ConfigManager;
 use PhpSpec\ObjectBehavior;
 use Pim\Bundle\IcecatConnectorBundle\Enrich\EnrichProductProcessor;
+use Pim\Bundle\IcecatConnectorBundle\Enrich\LocaleResolverInterface;
 use Pim\Bundle\IcecatConnectorBundle\Http\HttpClient;
 use Pim\Bundle\IcecatConnectorBundle\Xml\XmlProductDecoder;
 use Pim\Component\Catalog\Updater\ProductUpdater;
@@ -17,10 +18,13 @@ class EnrichProductProcessorSpec extends ObjectBehavior
         XmlProductDecoder $xmlProductDecoder,
         ProductUpdater $productUpdater,
         ConfigManager $config,
+        LocaleResolverInterface $localeResolver,
         StepExecution $stepExecution
     ) {
         $config->get('pim_icecat_connector.ean_attribute')->willReturn('ean_attribute');
-        $this->beConstructedWith($httpClient, $xmlProductDecoder, $productUpdater, $config, '/icecatendpoint/%s');
+        $config->get('pim_icecat_connector.locales')->willReturn('US,FR');
+        $config->get('pim_icecat_connector.fallback_locale')->willReturn('US');
+        $this->beConstructedWith($httpClient, $xmlProductDecoder, $productUpdater, $config, $localeResolver, '/icecatendpoint/%s');
         $this->setStepExecution($stepExecution);
     }
 

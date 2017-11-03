@@ -1,3 +1,6 @@
+parameters:
+  pim_icecat_connector.resolver.locale.class: Pim\Bundle\IcecatConnectorBundle\Enrich\LocaleResolver
+
 services:
     pim_icecat_connector.controller.connection:
         class: Pim\Bundle\IcecatConnectorBundle\Controller\ConnectionController
@@ -43,3 +46,8 @@ services:
         class: Pim\Bundle\IcecatConnectorBundle\Mapping\Constraint\InvalidTypeConstraintValidator
         tags:
             - { name: validator.constraint_validator }
+
+    pim_icecat_connector.resolver.locale:
+        class: '%pim_icecat_connector.resolver.locale.class%'
+        arguments:
+            - '%locale_mapping%'

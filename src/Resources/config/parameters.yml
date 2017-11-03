@@ -1,5 +1,127 @@
 parameters:
     pim_icecat_connector.endpoint.server: 'https://data.icecat.biz/xml_s3/xml_server3.cgi'
     pim_icecat_connector.endpoint.product.prod_id: 'prod_id=%%s;vendor=%%s;lang=int;output=productxml'
-    pim_icecat_connector.endpoint.product.ean: 'ean_upc=%%s;lang=en;output=productxml'
+    pim_icecat_connector.endpoint.product.ean: 'ean_upc=%%s;lang=%%s;output=productxml'
     pim_icecat_connector.fallback_channel: 'ecommerce'
+
+    locale_mapping:
+        EN:
+           label: "Standard or UK English"
+           locale: en_GB
+        ZH_TW:
+            locale: zh_TW
+            label: "Chinese - traditional"
+        EN_SG:
+            locale: en_SG
+            label: "Singapore English"
+        EN_IN:
+            locale: en_IN
+            label: "Indian English"
+        DE_CH:
+            locale: de_CH
+            label: "Swiss German"
+        INT:
+            locale: null
+            label: "International standardized version"
+        US:
+            locale: en_US
+            label: "US English"
+        NL:
+            locale: nl_NL
+            label: "Dutch"
+        FR:
+            locale: fr_FR
+            label: "French"
+        DE:
+            locale: de_DE
+            label: "German"
+        IT:
+            locale: it_IT
+            label: "Italian"
+        ES:
+            locale: es_ES
+            label: "Spanish"
+        DK:
+            locale: da_DK
+            label: "Danish"
+        RU:
+            locale: ru_RU
+            label: "Russian"
+        PT:
+            locale: pt_PT
+            label: "Portuguese"
+        BR:
+            locale: pt_BR
+            label: "Brazilian Portuguese"
+        ZH:
+            locale: zh_CN
+            label: "Chinese (simplified)"
+        SE:
+            locale: sv_SE
+            label: "Swedish"
+        PL:
+            locale: pl_PL
+            label: "Polish"
+        CZ:
+            locale: cs_CZ
+            label: "Czech"
+        HU:
+            locale: hu_HU
+            label: "Hungarian"
+        FI:
+            locale: fi_FI
+            label: "Finnish"
+        NO:
+            locale: nn_NO
+            label: "Norwegian"
+        TR:
+            locale: tr_TR
+            label: "Turkish"
+        BG:
+            locale: bg_BG
+            label: "Bulgarian"
+        KA:
+            locale: ka_GE
+            label: "Georgian"
+        RO:
+            locale: ro_RO
+            label: "Romanian"
+        SR:
+            locale: sr_RS
+            label: "Serbian"
+        JA:
+            locale: ja_JP
+            label: "Japanese"
+        UK:
+            locale: uk_UA
+            label: "Ukrainian"
+        CA:
+            locale: ca_ES
+            label: "Catalan"
+        HR:
+            locale: hr_HR
+            label: "Croatian"
+        AR:
+            locale: ar_SA
+            label: "Arabic (Saudi Arabia)"
+        VI:
+            locale: vi_VN
+            label: "Vietnamese"
+        HE:
+            locale: he_IL
+            label: "Hebrew"
+        KO:
+            locale: ko_KR
+            label: "Korean"
+        LT:
+            locale: lt_LT
+            label: "Lithuanian"
+        LV:
+            locale: lv_LV
+            label: "Latvian"
+        ID:
+            locale: id_ID
+            label: "Indonesian"
+        SK:
+            locale: sk_SK
+            label: "Slovakian"

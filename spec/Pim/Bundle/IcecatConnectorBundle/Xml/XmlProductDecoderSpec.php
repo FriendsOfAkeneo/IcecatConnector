@@ -54,14 +54,14 @@ class XmlProductDecoderSpec extends ObjectBehavior
             $attributeMapper,
             $attributeRepository,
             $extendedMeasureRepository,
-            null,
-            null
+            'ecommerce'
         );
     }
 
     function it_throws_exception_on_invalid_xml()
     {
-        $this->shouldThrow(XmlDecodeException::class)->duringDecode('foo', null, []);
+        $this->shouldThrow(XmlDecodeException::class)
+            ->duringDecode('foo', null, ['locale' => 'en_US', 'fallback_locale' => 'en_US']);
     }
 
     function it_can_decode_a_en_string_with_default_icecat_attributes(
@@ -157,7 +157,8 @@ class XmlProductDecoderSpec extends ObjectBehavior
                 ],
         ];
 
-        $this->decode($this->enXml, null, [])->shouldReturn($standardItem);
+        $this->decode($this->enXml, null, ['locale' => 'en_US', 'fallback_locale' => 'en_US'])
+            ->shouldReturn($standardItem);
     }
 
     function it_can_decode_a_en_string_with_boolean_attributes(
@@ -189,7 +190,7 @@ class XmlProductDecoderSpec extends ObjectBehavior
                 ],
         ];
 
-        $this->decode($this->enXml, null, [])->shouldReturn($standardItem);
+        $this->decode($this->enXml, null, ['locale' => 'en_US', 'fallback_locale' => 'en_US'])->shouldReturn($standardItem);
     }
 
     function it_can_decode_a_en_string_with_metric_attributes(
@@ -224,7 +225,7 @@ class XmlProductDecoderSpec extends ObjectBehavior
                 ],
         ];
 
-        $this->decode($this->enXml, null, [])->shouldReturn($standardItem);
+        $this->decode($this->enXml, null, ['locale' => 'en_US', 'fallback_locale' => 'en_US'])->shouldReturn($standardItem);
     }
 
     function it_can_decode_a_en_string_with_number_integer_attributes(
@@ -256,7 +257,7 @@ class XmlProductDecoderSpec extends ObjectBehavior
                 ],
         ];
 
-        $this->decode($this->enXml, null, [])->shouldReturn($standardItem);
+        $this->decode($this->enXml, null, ['locale' => 'en_US', 'fallback_locale' => 'en_US'])->shouldReturn($standardItem);
     }
 
     function it_can_decode_a_en_string_with_number_float_attributes(
@@ -288,7 +289,7 @@ class XmlProductDecoderSpec extends ObjectBehavior
                 ],
         ];
 
-        $this->decode($this->enXml, null, [])->shouldReturn($standardItem);
+        $this->decode($this->enXml, null, ['locale' => 'en_US', 'fallback_locale' => 'en_US'])->shouldReturn($standardItem);
     }
 
     function it_can_decode_a_en_string_with_text_attributes(
@@ -320,7 +321,7 @@ class XmlProductDecoderSpec extends ObjectBehavior
                 ],
         ];
 
-        $this->decode($this->enXml, null, [])->shouldReturn($standardItem);
+        $this->decode($this->enXml, null, ['locale' => 'en_US', 'fallback_locale' => 'en_US'])->shouldReturn($standardItem);
     }
 
     function it_can_only_decode_xml_format()

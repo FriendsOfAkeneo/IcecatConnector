@@ -24,6 +24,9 @@ class EnrichProductProcessor extends AbstractProcessor
     /** @var XmlProductDecoder */
     protected $xmlProductDecoder;
 
+    /** @var string */
+    protected $fallbackLocale;
+
     /** @var ProductUpdater */
     private $productUpdater;
 
@@ -33,20 +36,28 @@ class EnrichProductProcessor extends AbstractProcessor
     /** @var string */
     protected $eanAttributeCode;
 
+    /** @var string[] */
+    protected $icecatLocales;
+
+    /** @var LocaleResolverInterface */
+    protected $localeResolver;
+
     /**
      * EnrichProductProcessor constructor.
      *
-     * @param HttpClient $httpClient
-     * @param XmlProductDecoder $xmlProductDecoder
-     * @param ProductUpdater $productUpdater
-     * @param ConfigManager $config
-     * @param string $icecatProductEndpoint
+     * @param HttpClient              $httpClient
+     * @param XmlProductDecoder       $xmlProductDecoder
+     * @param ProductUpdater          $productUpdater
+     * @param ConfigManager           $config
+     * @param LocaleResolverInterface $localeResolver
+     * @param string                  $icecatProductEndpoint
      */
     public function __construct(
         HttpClient $httpClient,
         XmlProductDecoder $xmlProductDecoder,
         ProductUpdater $productUpdater,
         ConfigManager $config,
+        LocaleResolverInterface $localeResolver,
         $icecatProductEndpoint
     ) {
         $this->httpClient = $httpClient;
@@ -55,6 +66,9 @@ class EnrichProductProcessor extends AbstractProcessor
         $this->productUpdater = $productUpdater;
 
         $this->eanAttributeCode = $config->get('pim_icecat_connector.ean_attribute');
+        $this->icecatLocales = explode(',', $config->get('pim_icecat_connector.locales'));
+        $this->localeResolver = $localeResolver;
+        $this->fallbackLocale = $localeResolver->getPimLocaleCode($config->get('pim_icecat_connector.fallback_locale'));
     }
 
     /**
@@ -62,30 +76,36 @@ class EnrichProductProcessor extends AbstractProcessor
      */
     public function process($item)
     {
-        $eanValue = (int)$item->getValue($this->eanAttributeCode)->getData();
+        $eanValue = (string)$item->getValue($this->eanAttributeCode)->getData();
 
-        $query = sprintf($this->icecatProductEndpoint, $eanValue);
+        foreach ($this->icecatLocales as $icecatLocale) {
+            $query = sprintf($this->icecatProductEndpoint, $eanValue, $icecatLocale);
 
-        $guzzle = $this->httpClient->getGuzzle();
-        $res = $guzzle->request('GET', '', [
-            'auth' => $this->httpClient->getCredentials(),
-            'query' => $query
-        ]);
-        try {
-            $standardProduct = $this->xmlProductDecoder->decode($res->getBody()->getContents(), 'xml');
-            $this->productUpdater->update($item, $standardProduct);
-        } catch (InvalidArgumentException $e) {
-            $this->stepExecution->addWarning($e->getMessage(), [], new DataInvalidItem($item));
+            $guzzle = $this->httpClient->getGuzzle();
+            $res = $guzzle->request('GET', '', [
+                'auth' => $this->httpClient->getCredentials(),
+                'query' => $query,
+            ]);
+            $context = [
+                'locale' => $this->localeResolver->getPimLocaleCode($icecatLocale),
+                'fallback_locale' => $this->fallbackLocale,
+            ];
+            try {
+                $standardProduct = $this->xmlProductDecoder->decode($res->getBody()->getContents(), 'xml', $context);
+                $this->productUpdater->update($item, $standardProduct);
+            } catch (InvalidArgumentException $e) {
+                $this->stepExecution->addWarning($e->getMessage(), [], new DataInvalidItem($item));
 
-            return null;
-        } catch (MapperException $e) {
-            $this->stepExecution->addFailureException($e);
+                return null;
+            } catch (MapperException $e) {
+                $this->stepExecution->addFailureException($e);
 
-            return null;
-        } catch (\Exception $e) {
-            $this->stepExecution->addWarning($e->getMessage(), [], new DataInvalidItem($item));
+                return null;
+            } catch (\Exception $e) {
+                $this->stepExecution->addWarning($e->getMessage(), [], new DataInvalidItem($item));
 
-            return null;
+                return null;
+            }
         }
 
         return $item;
