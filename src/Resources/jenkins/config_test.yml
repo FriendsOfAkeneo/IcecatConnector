@@ -7,7 +7,7 @@ pim_icecat_connector:
             value: akeneo-test44
             scope: app
         locales:
-            value: 'EN,FR'
+            value: 'US,FR'
             scope: app
         fallback_locale:
             value: 'US'
