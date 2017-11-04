@@ -28,3 +28,13 @@ services:
             - '@pim_connector.reader.database.product'
             - '@pim_icecat_connector.processor.enrich.product'
             - '@pim_connector.writer.database.product'
+
+    pim_icecat_connector.step.icecat_enrichment.import:
+        class: '%pim_connector.step.item_step.class%'
+        arguments:
+            - 'import'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            - '@pim_icecat_connector.reader.database.product'
+            - '@pim_icecat_connector.processor.enrich.product'
+            - '@pim_connector.writer.database.product'
