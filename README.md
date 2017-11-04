@@ -52,7 +52,7 @@ The connector provides a configuration screen to set some important informations
 There are 3 differents imports profiles in this extension:
 - `icecat_download_features`: a profile to download all Icecat features and prepare the attributes mapping CSV file.
 - `icecat_import_features_mapping`: to upload the final attributes mapping CSV file.
-- `import_icecat_enrichment`: this profile can be used by a CRON task to enrich product content.
+- `icecat_import_enrichment`: this profile can be used by a CRON task to enrich product content.
 
 ![Import profiles](docs/img/icecat-import-01.png)
 

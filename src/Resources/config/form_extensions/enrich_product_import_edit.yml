@@ -37,9 +37,9 @@ extensions:
             label: pim_enrich.form.job_instance.tab.properties.label.title
             readOnly: true
 
-    icecat-enrich-product-import-show-no-settings:
+    icecat-enrich-product-import-edit-no-settings:
         module: pimicecatconnector/job/message_no_settings
-        parent: icecat-enrich-product-import-show-properties
+        parent: icecat-enrich-product-import-edit-properties
         position: 110
         targetZone: global-settings
 
