@@ -98,11 +98,6 @@ In `app/AppKernel.php`:
     }
 ```
 
-### Add new Mass Operation:
-```
-app/console akeneo:batch:create-job "Akeneo Mass Edit Connector" "mass_edit_icecat_enrichment" "mass_edit" "mass_edit_icecat_enrichment"
-```
-
 More explanation about the ProductValue override can be found in Akeneo documentation: 
 https://docs.akeneo.com/1.7/cookbook/catalog_structure/overriding_the_orm_product_value.html
 
@@ -115,6 +110,18 @@ akeneo_storage_utils:
             original: PimEnterprise\Component\Catalog\Model\ProductValue
             override: Pim\Bundle\ExtendedCeBundle\Model\ProductValue
 ```
+
+### Add new Mass Operation:
+```
+app/console akeneo:batch:create-job "Akeneo Mass Edit Connector" "mass_edit_icecat_enrichment" "mass_edit" "mass_edit_icecat_enrichment"
+```
+
+In an Enterpise Edition context, you must also add the corresponding permissions:
+https://docs.akeneo.com/1.7/cookbook/mass_edition/register_a_new_mass_edit_action.html#phase-6-add-user-groups-permissions-to-job-profiles-enterprise-edition
+
+Copy the mass edit view `icecat-enrichment.html.twig` in your `app/Resources` directory.
+
+To facilitate this configuration, the bundle provides a `bin/setup.bash` to make this operations in one command line.
 
 ### Mapping between Icecat locales and PIM locales
 By default, content in specific language are set into one locale. Here is the existing mapping:
