@@ -4,7 +4,7 @@ def launchIntegrationTests = "no"
 
 class Globals {
     static pimVersion = "1.7"
-    static extensionBranch = "dev-master"
+    static extensionBranch = "1.2.x-dev"
     static mysqlVersion = "5.5"
 }
 

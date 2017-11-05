@@ -14,3 +14,4 @@ pim_icecat_connector:
     form.job_instance:
       tab.properties:
           output_file_path.title: Output file path
+      no_settings: This job has no configurable parameter.

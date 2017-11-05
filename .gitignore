@@ -1,4 +1,4 @@
+!bin/setup.bash
 bin
 vendor
-
 .php_cs.cache

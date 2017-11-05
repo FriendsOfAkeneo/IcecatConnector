@@ -37,14 +37,15 @@ class XmlProductDecoder implements DecoderInterface
     /** @var MeasureRepositoryInterface */
     protected $measureRepository;
 
+    /** @var string */
+    protected $fallbackLocale;
+
     /**
      * @param ConfigManager                $configManager
      * @param AttributeMapper              $attributeMapper
      * @param AttributeRepositoryInterface $attributeRepository
      * @param MeasureRepositoryInterface   $extendedMeasureRepository
      * @param string                       $scope
-     *
-     * @internal param ConfigManager $configManager
      */
     public function __construct(
         ConfigManager $configManager,
@@ -67,6 +68,8 @@ class XmlProductDecoder implements DecoderInterface
     {
         $standardItem = [];
         $icecatProduct = null;
+        $locale = $context['locale'];
+        $this->fallbackLocale = $context['fallback_locale'];
 
         try {
             $simpleXmlNode = simplexml_load_string($xmlString);
@@ -76,6 +79,7 @@ class XmlProductDecoder implements DecoderInterface
             if (!empty($pimAttributeCode)) {
                 $standardItem = $this->addProductValue(
                     $standardItem,
+                    $locale,
                     $pimAttributeCode,
                     null,
                     (string)$icecatProduct->ProductDescription->attributes()['LongDesc'],
@@ -87,6 +91,7 @@ class XmlProductDecoder implements DecoderInterface
             if (!empty($pimAttributeCode)) {
                 $standardItem = $this->addProductValue(
                     $standardItem,
+                    $locale,
                     $pimAttributeCode,
                     null,
                     (string)$icecatProduct->ProductDescription->attributes()['ShortDesc'],
@@ -98,6 +103,7 @@ class XmlProductDecoder implements DecoderInterface
             if (!empty($pimAttributeCode)) {
                 $standardItem = $this->addProductValue(
                     $standardItem,
+                    $locale,
                     $pimAttributeCode,
                     null,
                     (string)$icecatProduct->SummaryDescription->LongSummaryDescription,
@@ -109,6 +115,7 @@ class XmlProductDecoder implements DecoderInterface
             if (!empty($pimAttributeCode)) {
                 $standardItem = $this->addProductValue(
                     $standardItem,
+                    $locale,
                     $pimAttributeCode,
                     null,
                     (string)$icecatProduct->SummaryDescription->ShortSummaryDescription,
@@ -125,6 +132,7 @@ class XmlProductDecoder implements DecoderInterface
                     $unit = (string)$xmlFeature->LocalValue->Measure->Signs->Sign;
                     $standardItem = $this->addProductValue(
                         $standardItem,
+                        $locale,
                         $pimCode,
                         $value,
                         $localValue,
@@ -142,6 +150,7 @@ class XmlProductDecoder implements DecoderInterface
             if (!empty($pimAttributeCode)) {
                 $standardItem = $this->addProductValue(
                     $standardItem,
+                    $locale,
                     $pimAttributeCode,
                     null,
                     json_encode(array_values($pictures)),
@@ -162,24 +171,28 @@ class XmlProductDecoder implements DecoderInterface
 
     /**
      * @param array  $standardItem
+     * @param string $locale
      * @param string $pimCode
      * @param mixed  $value
      * @param mixed  $localValue
      * @param string $unit
-     *
      * @return array
      */
-    protected function addProductValue(array $standardItem, $pimCode, $value, $localValue, $unit)
+    protected function addProductValue(array $standardItem, $locale, $pimCode, $value, $localValue, $unit)
     {
         $pimAttribute = $this->attributeRepository->findOneByIdentifier($pimCode);
 
-        if (null === $pimAttribute) {
+        if (null === $pimAttribute
+            || (!$pimAttribute->isLocalizable() && $locale != $this->fallbackLocale)) {
             return $standardItem;
         }
 
-        $locale = null;
-        if ($pimAttribute->isLocalizable()) {
-            $locale = $this->locale;
+        if (!$pimAttribute->isLocalizable()) {
+            $locale = null;
+        }
+
+        if (!$pimAttribute->isLocalizable()) {
+            $locale = null;
         }
 
         $scope = null;
