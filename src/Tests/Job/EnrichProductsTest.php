@@ -13,7 +13,7 @@ use Pim\Component\Catalog\Model\ProductInterface;
  */
 class EnrichProductsTest extends AbstractTestCase
 {
-    private $jobCode = 'icecat_import_enrichment';
+    private $jobCode = 'icecat_enrich_products';
 
     public function setUp()
     {

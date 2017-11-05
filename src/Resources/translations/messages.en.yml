@@ -8,8 +8,8 @@ batch_jobs.icecat_import_features_mapping.validation.label: Validate file encodi
 batch_jobs.icecat_import_features_mapping.label: Import features mapping
 batch_jobs.icecat_import_features_mapping.import.label: Import features mapping
 batch_jobs.icecat_enrich_products.label: Enrich products from Icecat
-batch_jobs.icecat_import_enrichment.label: Enrich products from Icecat
-batch_jobs.icecat_import_enrichment.import.label: Enrich products from Icecat
+batch_jobs.icecat_enrich_products.label: Enrich products from Icecat
+batch_jobs.icecat_enrich_products.import.label: Enrich products from Icecat
 
 pim_enrich.mass_edit_action.icecat-enrichment.label: Enrich products from Icecat
 pim_enrich.mass_edit_action.icecat-enrichment.description: You are about to enrich product from Icecat, please check that the following settings are correct.
