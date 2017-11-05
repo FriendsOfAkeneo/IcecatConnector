@@ -54,7 +54,7 @@ services:
     pim_icecat_connector.job.import.enrich_products:
         class: '%pim_connector.job.simple_job.class%'
         arguments:
-            - 'icecat_import_enrichment'
+            - 'icecat_enrich_products'
             - '@event_dispatcher'
             - '@akeneo_batch.job_repository'
             -
@@ -96,7 +96,7 @@ services:
             -
                 - 'icecat_download_features'
                 - 'icecat_import_features_mapping'
-                - 'icecat_import_enrichment'
+                - 'icecat_enrich_products'
         tags:
             - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
 
@@ -104,7 +104,7 @@ services:
         class: '%pim_enrich.provider.form.job_instance.class%'
         arguments:
             -
-                icecat_import_enrichment: icecat-enrich-product-import
+                icecat_enrich_products: icecat-enrich-product-import
         tags:
             - { name: pim_enrich.provider.form, priority: 100 }
 
@@ -144,7 +144,7 @@ services:
         class: Pim\Bundle\IcecatConnectorBundle\JobParameters\DefaultValuesProvider\EnrichProducts
         arguments:
             -
-                - 'icecat_import_enrichment'
+                - 'icecat_enrich_products'
             - []
         tags:
             - { name: akeneo_batch.job.job_parameters.default_values_provider }

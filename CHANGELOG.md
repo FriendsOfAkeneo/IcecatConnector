@@ -1,3 +1,7 @@
+# 1.2.2
+## Improvements
+- MKP-719: MKP-719: revert enrich job to its previous name to avoid BC break
+
 # 1.2.1
 ## Improvements
 - MKP-719: fix mass edit operation to enrich products
