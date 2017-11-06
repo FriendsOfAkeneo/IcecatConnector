@@ -112,7 +112,7 @@ services:
         class: '%pim_enrich.provider.form.job_instance.class%'
         arguments:
             -
-                icecat_download_features: icecat-job-instance-csv-base-import
+                icecat_download_features: icecat-job-instance-xml-base-import
         tags:
             - { name: pim_enrich.provider.form, priority: 100 }
 

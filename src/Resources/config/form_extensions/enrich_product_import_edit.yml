@@ -2,6 +2,33 @@ extensions:
     icecat-enrich-product-import-edit:
         module: pim/form/common/edit-form
 
+    icecat-enrich-product-import-edit-mainImage:
+        module: pim/form/common/main-image
+        parent: icecat-enrich-product-import-edit
+        targetZone: main-image
+        config:
+            path: bundles/pimui/images/illustration-import-csv.svg
+
+    icecat-enrich-product-import-edit-user-navigation:
+        module: pim/menu/user-navigation
+        parent: icecat-enrich-product-import-edit
+        targetZone: user-menu
+        config:
+            userAccount: pim_menu.user.user_account
+            logout: pim_menu.user.logout
+
+    icecat-enrich-product-import-edit-breadcrumbs:
+        module: pim/common/breadcrumbs
+        parent: icecat-enrich-product-import-edit
+        targetZone: breadcrumbs
+        config:
+            tab: pim-menu-imports
+
+    icecat-enrich-product-import-edit-cache-invalidator:
+        module: pim/cache-invalidator
+        parent: icecat-enrich-product-import-edit
+        position: 1000
+
     icecat-enrich-product-import-edit-tabs:
         module: pim/form/common/form-tabs
         parent: icecat-enrich-product-import-edit
@@ -11,11 +38,23 @@ extensions:
     icecat-enrich-product-import-edit-properties:
         module: pim/job/common/edit/properties
         parent: icecat-enrich-product-import-edit-tabs
+        aclResourceId: pim_importexport_export_profile_property_edit
         targetZone: container
         position: 100
         config:
             tabTitle: pim_enrich.form.job_instance.tab.properties.title
             tabCode: pim-job-instance-properties
+
+    icecat-enrich-product-import-edit-history:
+        module: pim/common/tab/history
+        parent: icecat-enrich-product-import-edit-tabs
+        targetZone: container
+        aclResourceId: pim_importexport_import_profile_history
+        position: 130
+        config:
+            class: Akeneo\Component\Batch\Model\JobInstance
+            title: pim_enrich.form.job_instance.tab.history.title
+            tabCode: pim-job-instance-history
 
     icecat-enrich-product-import-edit-properties-code:
         module: pim/job/common/edit/field/text
@@ -35,13 +74,6 @@ extensions:
         config:
             fieldCode: label
             label: pim_enrich.form.job_instance.tab.properties.label.title
-            readOnly: true
-
-    icecat-enrich-product-import-edit-no-settings:
-        module: pimicecatconnector/job/message_no_settings
-        parent: icecat-enrich-product-import-edit-properties
-        position: 110
-        targetZone: global-settings
 
     icecat-enrich-product-import-edit-label:
         module: pim/job/common/edit/label
@@ -55,25 +87,48 @@ extensions:
         targetZone: meta
         position: 100
 
-    icecat-enrich-product-import-edit-back-to-grid:
-        module: pim/form/common/back-to-grid
+    icecat-enrich-product-import-edit-secondary-actions:
+        module: pim/form/common/secondary-actions
         parent: icecat-enrich-product-import-edit
-        targetZone: back
-        aclResourceId: pim_importexport_import_profile_index
-        position: 80
-        config:
-            backUrl: pim_importexport_import_profile_index
-
-    icecat-enrich-product-import-edit-launch:
-        module: pim/job/common/edit/upload-launch
-        parent: icecat-enrich-product-import-edit
-        aclResourceId: pim_importexport_import_profile_launch
         targetZone: buttons
-        position: 110
+        position: 50
+
+    icecat-enrich-product-import-edit-delete:
+        module: pim/job/import/edit/delete
+        parent: icecat-enrich-product-import-edit-secondary-actions
+        targetZone: secondary-actions
+        aclResourceId: pim_importexport_import_profile_remove
+        position: 100
         config:
-            launch: pim_enrich.form.job_instance.button.import.launch
-            upload: pim_enrich.form.job_instance.button.import.upload
-            route: pim_enrich_job_instance_rest_import_launch
-            identifier:
-                path: code
-                name: code
+            trans:
+                title: confirmation.remove.import_profile
+                content: pim_enrich.confirmation.delete_item
+                success: flash.job_instance.removed
+                failed: error.removing.job_instance
+            redirect: pim_importexport_import_profile_index
+
+    icecat-enrich-product-import-edit-save-buttons:
+        module: pim/form/common/save-buttons
+        parent: icecat-enrich-product-import-edit
+        targetZone: buttons
+        position: 120
+
+    icecat-enrich-product-import-edit-save:
+        module: pim/job-instance-import-edit-form/save
+        parent: icecat-enrich-product-import-edit
+        targetZone: buttons
+        position: 0
+        config:
+            redirectPath: pim_importexport_import_profile_show
+
+    icecat-enrich-product-import-edit-state:
+        module: pim/form/common/state
+        parent: icecat-enrich-product-import-edit
+        targetZone: state
+        position: 900
+        config:
+            entity: pim_enrich.entity.job_instance.title
+
+    icecat-enrich-product-import-edit-validation:
+        module: pim/job/common/edit/validation
+        parent: icecat-enrich-product-import-edit
