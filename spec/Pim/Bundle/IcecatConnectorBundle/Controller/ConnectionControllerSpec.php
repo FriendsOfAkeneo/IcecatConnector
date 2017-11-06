@@ -18,9 +18,7 @@ class ConnectionControllerSpec extends ObjectBehavior
         // provide valid arguments to make sure subject can be initialized
         $this->beConstructedWith([$client, $config, $icecatProductEndPoint]);
 
-        $this->shouldThrow(\Exception::class)->during('__construct', []);
         $this->shouldThrow(\Exception::class)->during('__construct', [null, $config, $icecatProductEndPoint]);
         $this->shouldThrow(\Exception::class)->during('__construct', [$client, null, $icecatProductEndPoint]);
-        $this->shouldThrow(\Exception::class)->during('__construct', [$client, $config]);
     }
 }
