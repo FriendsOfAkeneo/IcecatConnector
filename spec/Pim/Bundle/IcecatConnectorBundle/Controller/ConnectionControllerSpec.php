@@ -8,7 +8,7 @@ use Pim\Bundle\IcecatConnectorBundle\Http\HttpClient;
 
 class ConnectionControllerSpec extends ObjectBehavior
 {
-    function it_throws_exception_on_invalid_construct_parameters(
+    function it_is_initializable(
         HttpClient $client,
         ConfigManager $config
     )
@@ -17,8 +17,5 @@ class ConnectionControllerSpec extends ObjectBehavior
 
         // provide valid arguments to make sure subject can be initialized
         $this->beConstructedWith([$client, $config, $icecatProductEndPoint]);
-
-        $this->shouldThrow(\Exception::class)->during('__construct', [null, $config, $icecatProductEndPoint]);
-        $this->shouldThrow(\Exception::class)->during('__construct', [$client, null, $icecatProductEndPoint]);
     }
 }

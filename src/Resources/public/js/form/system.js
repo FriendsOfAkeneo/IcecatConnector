@@ -1,6 +1,7 @@
-"use strict";
+'use strict';
 
-define([
+define(
+    [
         'underscore',
         'oro/translator',
         'routing',
@@ -9,17 +10,18 @@ define([
         'pim/fetcher-registry',
         'pim/formatter/choices/base',
         'pim/initselect2',
-        'text!pimicecatconnector/template/system/group/configuration'
+        'pimicecatconnector/template/system/group/configuration'
     ],
     function (_,
-              __,
-              Routing,
-              $,
-              BaseForm,
-              FetcherRegistry,
-              ChoicesFormatter,
-              initSelect2,
-              template) {
+        __,
+        Routing,
+        $,
+        BaseForm,
+        FetcherRegistry,
+        ChoicesFormatter,
+        initSelect2,
+        template
+    ) {
         return BaseForm.extend({
             events: {
                 'change .pim-icecat-config': 'updateModel',
@@ -31,77 +33,91 @@ define([
             areCredentialsValid: null,
             fallbackChannel: null,
             supportedLocales: [
-                {id: 'INT', text: "International standardized version"},
-                {id: 'EN', text: "Standard or UK English"},
-                {id: 'US', text: "US English"},
-                {id: 'NL', text: "Dutch"},
-                {id: 'FR', text: "French"},
-                {id: 'DE', text: "German"},
-                {id: 'IT', text: "Italian"},
-                {id: 'ES', text: "Spanish"},
-                {id: 'DK', text: "Danish"},
-                {id: 'RU', text: "Russian"},
-                {id: 'PT', text: "Portuguese"},
-                {id: 'ZH', text: "Chinese (simplified)"},
-                {id: 'SE', text: "Swedish"},
-                {id: 'PL', text: "Polish"},
-                {id: 'CZ', text: "Czech"},
-                {id: 'HU', text: "Hungarian"},
-                {id: 'FI', text: "Finnish"},
-                {id: 'NO', text: "Norwegian"},
-                {id: 'TR', text: "Turkish"},
-                {id: 'BG', text: "Bulgarian"},
-                {id: 'KA', text: "Georgian"},
-                {id: 'RO', text: "Romanian"},
-                {id: 'SR', text: "Serbian"},
-                {id: 'JA', text: "Japanese"},
-                {id: 'UK', text: "Ukrainian"},
-                {id: 'CA', text: "Catalan"},
-                {id: 'HR', text: "Croatian"},
-                {id: 'AR', text: "Arabic"},
-                {id: 'VI', text: "Vietnamese"},
-                {id: 'HE', text: "Hebrew"},
-                {id: 'ZH', text: "Chinese (traditional)"},
-                {id: 'BR', text: "Brasilian Portuguese"},
-                {id: 'KO', text: "Korean"},
-                {id: 'EN_SG', text: "Singapore English"},
-                {id: 'EN_IN', text: "Indian English"},
-                {id: 'LT', text: "Lithuanian"},
-                {id: 'LV', text: "Latvian"},
-                {id: 'DE_CH', text: "Swiss German"},
-                {id: 'ID', text: "Indonesian"},
-                {id: 'SK', text: "Slovakian "}
+                {id: 'INT', text: 'International standardized version'},
+                {id: 'EN', text: 'Standard or UK English'},
+                {id: 'US', text: 'US English'},
+                {id: 'NL', text: 'Dutch'},
+                {id: 'FR', text: 'French'},
+                {id: 'DE', text: 'German'},
+                {id: 'IT', text: 'Italian'},
+                {id: 'ES', text: 'Spanish'},
+                {id: 'DK', text: 'Danish'},
+                {id: 'RU', text: 'Russian'},
+                {id: 'PT', text: 'Portuguese'},
+                {id: 'ZH', text: 'Chinese (simplified)'},
+                {id: 'SE', text: 'Swedish'},
+                {id: 'PL', text: 'Polish'},
+                {id: 'CZ', text: 'Czech'},
+                {id: 'HU', text: 'Hungarian'},
+                {id: 'FI', text: 'Finnish'},
+                {id: 'NO', text: 'Norwegian'},
+                {id: 'TR', text: 'Turkish'},
+                {id: 'BG', text: 'Bulgarian'},
+                {id: 'KA', text: 'Georgian'},
+                {id: 'RO', text: 'Romanian'},
+                {id: 'SR', text: 'Serbian'},
+                {id: 'JA', text: 'Japanese'},
+                {id: 'UK', text: 'Ukrainian'},
+                {id: 'CA', text: 'Catalan'},
+                {id: 'HR', text: 'Croatian'},
+                {id: 'AR', text: 'Arabic'},
+                {id: 'VI', text: 'Vietnamese'},
+                {id: 'HE', text: 'Hebrew'},
+                {id: 'ZH', text: 'Chinese (traditional)'},
+                {id: 'BR', text: 'Brasilian Portuguese'},
+                {id: 'KO', text: 'Korean'},
+                {id: 'EN_SG', text: 'Singapore English'},
+                {id: 'EN_IN', text: 'Indian English'},
+                {id: 'LT', text: 'Lithuanian'},
+                {id: 'LV', text: 'Latvian'},
+                {id: 'DE_CH', text: 'Swiss German'},
+                {id: 'ID', text: 'Indonesian'},
+                {id: 'SK', text: 'Slovakian '}
             ],
-            checkConnection: function () {
-                var form_username = this.getFormData()['pim_icecat_connector___credentials_username'] ?
-                    this.getFormData()['pim_icecat_connector___credentials_username'].value : '';
-                var form_password = this.getFormData()['pim_icecat_connector___credentials_password'] ?
-                    this.getFormData()['pim_icecat_connector___credentials_password'].value : '';
+
+            /**
+             * {@inheritdoc}
+             */
+            configure() {
+                this.trigger('tab:register', {
+                    code: this.code,
+                    label: this.label
+                });
+
+                return BaseForm.prototype.configure.apply(this, arguments);
+            },
+
+            checkConnection() {
+                const data = this.getFormData();
+                const form_username = data.pim_icecat_connector___credentials_username ?
+                    data.pim_icecat_connector___credentials_username.value : '';
+                const form_password = data.pim_icecat_connector___credentials_password ?
+                    data.pim_icecat_connector___credentials_password.value : '';
                 $.ajax
                 ({
-                    type: "POST",
+                    type: 'POST',
                     url: Routing.generate('pim_icecat_connector_check'),
                     data: {username: form_username, password: form_password},
                     success: function () {
-                        var prototype = $('#connection-status-prototype').html();
-                        var replacements = {
+                        const prototype = $('#connection-status-prototype').html();
+                        const replacements = {
                             '%granted%': 'granted',
                             '%icon%': 'ok',
                             '%status_message%': 'Credentials are valid'
                         };
-                        var connectionStatusHtml = prototype.replace(/%\w+%/g, function (all) {
+                        const connectionStatusHtml = prototype.replace(/%\w+%/g, function (all) {
                             return replacements[all] || all;
                         });
                         $('#connection-status').html(connectionStatusHtml);
                     },
-                    error: function (xhr, status, error) {
-                        var prototype = $('#connection-status-prototype').html();
-                        var replacements = {
+                    error: function () {
+                        const prototype = $('#connection-status-prototype').html();
+                        const replacements = {
                             '%granted%': 'nonGranted',
                             '%icon%': 'remove',
                             '%status_message%': 'Login and/or password is not valid'
                         };
-                        var connectionStatusHtml = prototype.replace(/%\w+%/g, function (all) {
+                        const connectionStatusHtml = prototype.replace(/%\w+%/g, function (all) {
                             return replacements[all] || all;
                         });
                         $('#connection-status').html(connectionStatusHtml);
@@ -115,32 +131,33 @@ define([
              * {@inheritdoc}
              */
             render: function () {
+                debugger;
                 this.$el.html(this.template({
-                    locales: this.getFormData()['pim_icecat_connector___locales'] ?
-                        this.getFormData()['pim_icecat_connector___locales'].value : '',
-                    fallback_locale: this.getFormData()['pim_icecat_connector___fallback_locale'] ?
-                        this.getFormData()['pim_icecat_connector___fallback_locale'].value : '',
-                    scope:  this.getFormData()['pim_icecat_connector___scope'] ?
-                        this.getFormData()['pim_icecat_connector___scope'].value : '',
-                    credentials_username: this.getFormData()['pim_icecat_connector___credentials_username'] ?
-                        this.getFormData()['pim_icecat_connector___credentials_username'].value : '',
-                    credentials_password: this.getFormData()['pim_icecat_connector___credentials_password'] ?
-                        this.getFormData()['pim_icecat_connector___credentials_password'].value : '',
-                    ean_attribute: this.getFormData()['pim_icecat_connector___ean_attribute'] ?
-                        this.getFormData()['pim_icecat_connector___ean_attribute'].value : '',
-                    description: this.getFormData()['pim_icecat_connector___description'] ?
-                        this.getFormData()['pim_icecat_connector___description'].value : '',
-                    short_description: this.getFormData()['pim_icecat_connector___short_description'] ?
-                        this.getFormData()['pim_icecat_connector___short_description'].value : '',
-                    summary_description: this.getFormData()['pim_icecat_connector___summary_description'] ?
-                        this.getFormData()['pim_icecat_connector___summary_description'].value : '',
-                    short_summary_description: this.getFormData()['pim_icecat_connector___short_summary_description'] ?
-                        this.getFormData()['pim_icecat_connector___short_summary_description'].value : '',
-                    pictures: this.getFormData()['pim_icecat_connector___pictures'] ?
-                        this.getFormData()['pim_icecat_connector___pictures'].value : ''
+                    locales: this.getFormData().pim_icecat_connector___locales ?
+                        this.getFormData().pim_icecat_connector___locales.value : '',
+                    fallback_locale: this.getFormData().pim_icecat_connector___fallback_locale ?
+                        this.getFormData().pim_icecat_connector___fallback_locale.value : '',
+                    scope: this.getFormData().pim_icecat_connector___scope ?
+                        this.getFormData().pim_icecat_connector___scope.value : '',
+                    credentials_username: this.getFormData().pim_icecat_connector___credentials_username ?
+                        this.getFormData().pim_icecat_connector___credentials_username.value : '',
+                    credentials_password: this.getFormData().pim_icecat_connector___credentials_password ?
+                        this.getFormData().pim_icecat_connector___credentials_password.value : '',
+                    ean_attribute: this.getFormData().pim_icecat_connector___ean_attribute ?
+                        this.getFormData().pim_icecat_connector___ean_attribute.value : '',
+                    description: this.getFormData().pim_icecat_connector___description ?
+                        this.getFormData().pim_icecat_connector___description.value : '',
+                    short_description: this.getFormData().pim_icecat_connector___short_description ?
+                        this.getFormData().pim_icecat_connector___short_description.value : '',
+                    summary_description: this.getFormData().pim_icecat_connector___summary_description ?
+                        this.getFormData().pim_icecat_connector___summary_description.value : '',
+                    short_summary_description: this.getFormData().pim_icecat_connector___short_summary_description ?
+                        this.getFormData().pim_icecat_connector___short_summary_description.value : '',
+                    pictures: this.getFormData().pim_icecat_connector___pictures ?
+                        this.getFormData().pim_icecat_connector___pictures.value : ''
                 }));
-                
-                var searchOptions = {
+
+                let searchOptions = {
                     options: {
                         types: [
                             'pim_catalog_text',
@@ -150,10 +167,9 @@ define([
                 };
 
 
-
                 FetcherRegistry.getFetcher('channel').search()
                     .then(function (channel) {
-                        var choices = _.chain(channel)
+                        const choices = _.chain(channel)
                             .map(function (channel) {
                                 return ChoicesFormatter.formatOne(channel);
                             })
@@ -167,10 +183,10 @@ define([
 
                 FetcherRegistry.getFetcher('attribute').search(searchOptions)
                     .then(function (attributes) {
-                        var choices = _.chain(attributes)
+                        const choices = _.chain(attributes)
                             .map(function (attribute) {
-                                var attributeGroup = ChoicesFormatter.formatOne(attribute.group);
-                                var attributeChoice = ChoicesFormatter.formatOne(attribute);
+                                const attributeGroup = ChoicesFormatter.formatOne(attribute.group);
+                                const attributeChoice = ChoicesFormatter.formatOne(attribute);
                                 attributeChoice.group = attributeGroup;
 
                                 return attributeChoice;
@@ -195,13 +211,13 @@ define([
 
                 FetcherRegistry.getFetcher('attribute').search(searchOptions)
                     .then(function (attributes) {
-                        var choices = _.chain(attributes)
+                        const choices = _.chain(attributes)
                             .filter(function (attribute) {
                                 return attribute.unique;
                             })
                             .map(function (attribute) {
-                                var attributeGroup = ChoicesFormatter.formatOne(attribute.group);
-                                var attributeChoice = ChoicesFormatter.formatOne(attribute);
+                                const attributeGroup = ChoicesFormatter.formatOne(attribute.group);
+                                const attributeChoice = ChoicesFormatter.formatOne(attribute);
                                 attributeChoice.group = attributeGroup;
 
                                 return attributeChoice;
@@ -224,10 +240,10 @@ define([
 
                 FetcherRegistry.getFetcher('attribute').search(searchOptions)
                     .then(function (attributes) {
-                        var choices = _.chain(attributes)
+                        const choices = _.chain(attributes)
                             .map(function (attribute) {
-                                var attributeGroup = ChoicesFormatter.formatOne(attribute.group);
-                                var attributeChoice = ChoicesFormatter.formatOne(attribute);
+                                const attributeGroup = ChoicesFormatter.formatOne(attribute.group);
+                                const attributeChoice = ChoicesFormatter.formatOne(attribute);
                                 attributeChoice.group = attributeGroup;
 
                                 return attributeChoice;
@@ -262,12 +278,12 @@ define([
             /**
              * Update model after value change
              *
-             * @param {Event}
+             * @param {Event} event
              */
-            updateModel: function (event) {
-                var name = 'pim_icecat_connector___' + event.target.name;
-                var data = this.getFormData();
-                var newValue = event.target.value;
+            updateModel(event) {
+                const name = 'pim_icecat_connector___' + event.target.name;
+                const data = this.getFormData();
+                const newValue = event.target.value;
                 if (name in data) {
                     data[name].value = newValue;
                 } else {
