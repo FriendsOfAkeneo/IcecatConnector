@@ -130,8 +130,7 @@ define(
             /**
              * {@inheritdoc}
              */
-            render: function () {
-                debugger;
+            render() {
                 this.$el.html(this.template({
                     locales: this.getFormData().pim_icecat_connector___locales ?
                         this.getFormData().pim_icecat_connector___locales.value : '',
@@ -185,9 +184,8 @@ define(
                     .then(function (attributes) {
                         const choices = _.chain(attributes)
                             .map(function (attribute) {
-                                const attributeGroup = ChoicesFormatter.formatOne(attribute.group);
                                 const attributeChoice = ChoicesFormatter.formatOne(attribute);
-                                attributeChoice.group = attributeGroup;
+                                attributeChoice.group = attribute.group;
 
                                 return attributeChoice;
                             })
@@ -216,9 +214,8 @@ define(
                                 return attribute.unique;
                             })
                             .map(function (attribute) {
-                                const attributeGroup = ChoicesFormatter.formatOne(attribute.group);
                                 const attributeChoice = ChoicesFormatter.formatOne(attribute);
-                                attributeChoice.group = attributeGroup;
+                                attributeChoice.group = attribute.group;
 
                                 return attributeChoice;
                             })
@@ -242,9 +239,8 @@ define(
                     .then(function (attributes) {
                         const choices = _.chain(attributes)
                             .map(function (attribute) {
-                                const attributeGroup = ChoicesFormatter.formatOne(attribute.group);
                                 const attributeChoice = ChoicesFormatter.formatOne(attribute);
-                                attributeChoice.group = attributeGroup;
+                                attributeChoice.group = attribute.group;
 
                                 return attributeChoice;
                             })

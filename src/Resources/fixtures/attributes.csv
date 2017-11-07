@@ -1,5 +1,5 @@
 code;label-fr_FR;label-de_DE;label-en_US;allowed_extensions;available_locales;date_max;date_min;decimals_allowed;default_metric_unit;group;is_read_only;localizable;max_characters;max_file_size;metric_family;minimum_input_length;negative_allowed;number_max;number_min;reference_data_name;scopable;sort_order;type;unique;useable_as_grid_filter;validation_regexp;validation_rule;wysiwyg_enabled
-icecat_picture_collection;Images Icecat;;Icecat pictures;;;;;0;;media;0;0;;;;0;0;;;;0;0;pim_catalog_text_collection;0;0;;url;0
-icecat_ean;EAN;EAN;EAN;;;;;;;technical;0;0;13;;;;;;;;0;0;pim_catalog_text;1;1;;;
-icecat_summary;Résumé;;Summary description;;;;;;;marketing;0;0;;;;;;;;;0;0;pim_catalog_textarea;0;0;;;0
-icecat_short_summary;Résumé court;;Short summary description;;;;;;;marketing;0;0;;;;;;;;;0;0;pim_catalog_text;0;0;;;
+icecat_picture_collection;Images Icecat;;Icecat pictures;;;;;0;;icecat_group;0;0;;;;0;0;;;;0;0;pim_catalog_text_collection;0;0;;url;0
+icecat_ean;EAN;EAN;EAN;;;;;;;icecat_group;0;0;13;;;;;;;;0;0;pim_catalog_text;1;1;;;
+icecat_summary;Résumé;;Summary description;;;;;;;icecat_group;0;0;;;;;;;;;0;0;pim_catalog_textarea;0;0;;;0
+icecat_short_summary;Résumé court;;Short summary description;;;;;;;icecat_group;0;0;;;;;;;;;0;0;pim_catalog_text;0;0;;;
