@@ -43,8 +43,7 @@ services:
             - 'mass_edit_icecat_enrichment'
             - '@event_dispatcher'
             - '@akeneo_batch.job_repository'
-            -
-                - '@pim_icecat_connector.step.icecat_enrichment.mass_edit'
+            - ['@pim_icecat_connector.step.icecat_enrichment.mass_edit']
         tags:
             -
                 name: akeneo_batch.job
@@ -124,19 +123,17 @@ services:
         tags:
             - { name: pim_enrich.provider.form, priority: 100 }
 
-    pim_icecat_connector.connector.job.job_parameters.default_values_provider.product_mass_edit:
+    pim_icecat_connector.job.default_values_provider.product_mass_edit:
         class: '%pim_enrich.connector.job.job_parameters.default_values_provider.product_mass_edit.class%'
         arguments:
-            -
-                - 'mass_edit_icecat_enrichment'
+            - ['mass_edit_icecat_enrichment']
         tags:
             - { name: akeneo_batch.job.job_parameters.default_values_provider }
 
-    pim_icecat_connector.connector.job.job_parameters.constraint_collection_provider.product_mass_edit:
+    pim_icecat_connector.job.constraint_collection_provider.product_mass_edit:
         class: '%pim_enrich.connector.job.job_parameters.constraint_collection_provider.product_mass_edit.class%'
         arguments:
-            -
-                - 'mass_edit_icecat_enrichment'
+            - ['mass_edit_icecat_enrichment']
         tags:
             - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
 

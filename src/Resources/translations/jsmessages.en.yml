@@ -26,3 +26,5 @@ batch_jobs:
     icecat_enrich_products.label: Enrich products from Icecat
     icecat_enrich_products.label: Enrich products from Icecat
     icecat_enrich_products.import.label: Enrich products from Icecat
+
+    mass_edit_icecat_enrichment.mass_edit_icecat_enrichment.label: Enrich products from Icecat
