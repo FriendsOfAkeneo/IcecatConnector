@@ -50,7 +50,7 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
                 docker.image("mysql:5.7")
                 .withRun("--name mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=akeneo_pim -e MYSQL_PASSWORD=akeneo_pim -e MYSQL_DATABASE=akeneo_pim --tmpfs=/var/lib/mysql/:rw,noexec,nosuid,size=1000m --tmpfs=/tmp/:rw,noexec,nosuid,size=300m") {
                     docker.image("akeneo/php:${phpVersion}")
-                    .inside("--link mysql:mysql --link elasticsearch:elasticsearch -v /home/akeneo/.composer:/home/akeneo/.composer -e COMPOSER_HOME=/home/akeneo/.composer") {
+                    .inside("--link mysql:mysql --link elasticsearch:elasticsearch -v /home/akeneo/.composer:/home/docker/.composer -e COMPOSER_HOME=/home/docker/.composer") {
                         unstash "pim_enterprise"
 
                         sh """
@@ -79,7 +79,7 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
                             cat vendor/akeneo/icecat-connector/src/Resources/jenkins/config_test.yml >> app/config/config_test.yml
                             mkdir -p app/build/logs
                         """
-
+                        sh "sleep 10"
                         sh "bin/console pim:install --force --env=test"
                         sh "bin/phpunit -c app/phpunit.xml --log-junit app/build/logs/phpunit.xml"
                     }
