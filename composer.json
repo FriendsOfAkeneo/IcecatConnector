@@ -23,6 +23,10 @@
         "guzzlehttp/guzzle": "6.*",
         "prewk/xml-string-streamer": "0.9.*"
     },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "@stable",
+        "phpspec/phpspec": "~3.4"
+    },
     "autoload": {
         "psr-4": {
             "Pim\\Bundle\\IcecatConnectorBundle\\": "src/"

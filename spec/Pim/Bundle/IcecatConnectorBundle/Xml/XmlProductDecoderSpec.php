@@ -149,7 +149,12 @@ class XmlProductDecoderSpec extends ObjectBehavior
                         [
                             0 =>
                                 [
-                                    'data' => '["http:\\/\\/images.icecat.biz\\/img\\/gallery_raw\\/pic1.jpeg","http:\\/\\/images.icecat.biz\\/img\\/gallery_raw\\/pic2.jpeg","http:\\/\\/images.icecat.biz\\/img\\/gallery_raw\\/pic3.jpeg","http:\\/\\/images.icecat.biz\\/img\\/gallery_raw\\/pic4.jpeg"]',
+                                    'data' => [
+                                        "http://images.icecat.biz/img/gallery_raw/pic1.jpeg",
+                                        "http://images.icecat.biz/img/gallery_raw/pic2.jpeg",
+                                        "http://images.icecat.biz/img/gallery_raw/pic3.jpeg",
+                                        "http://images.icecat.biz/img/gallery_raw/pic4.jpeg"
+                                    ],
                                     'locale' => NULL,
                                     'scope' => NULL,
                                 ],
