@@ -179,7 +179,8 @@ abstract class AbstractTestCase extends KernelTestCase
         $this->get('pim_catalog.remover.product')->removeAll($products);
 
         // remove non identifiers attributes
-        $attributes = $this->get('pim_catalog.repository.attribute')->getNonIdentifierAttributes();
+        //$attributes = $this->get('pim_catalog.repository.attribute')->getNonIdentifierAttributes();
+        $attributes = $this->get('pim_catalog.repository.attribute')->findAll();
         $this->get('pim_catalog.remover.attribute')->removeAll($attributes);
 
         // removes families
