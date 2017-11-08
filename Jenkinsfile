@@ -80,6 +80,8 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
                             mkdir -p app/build/logs
                         """
                         sh "sleep 10"
+                        sh "ls app/../vendor/akeneo/pim-enterprise-dev/src/PimEnterprise/Bundle/WorkflowBundle"
+                        sh "ls app/../vendor/akeneo/pim-enterprise-dev/src/PimEnterprise/Bundle/WorkflowBundle/Resources"
                         sh "bin/console pim:install --force --env=test"
                         sh "bin/phpunit -c app/phpunit.xml --log-junit app/build/logs/phpunit.xml"
                     }
