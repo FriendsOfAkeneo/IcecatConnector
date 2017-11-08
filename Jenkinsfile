@@ -78,7 +78,7 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
                         mkdir -p app/build/logs
                     """
 
-                    sh "app/console pim:install --force --env=test"
+                    sh "bin/console pim:install --force --env=test"
                     sh "bin/phpunit -c app/phpunit.xml --log-junit app/build/logs/phpunit.xml"
                 }
             }
