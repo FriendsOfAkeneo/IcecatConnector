@@ -35,7 +35,7 @@ class ImportFeaturesMappingTest extends AbstractTestCase
 
         $res = $this->runBatchCommand($input);
         $this->assertEquals(BatchCommand::EXIT_WARNING_CODE, $res);
-
+        sleep(5);
         $jobRepo = $this->get('akeneo_batch.job.job_instance_repository');
         /** @var JobInstance $job */
         $job = $jobRepo->findOneByIdentifier($this->jobCode);

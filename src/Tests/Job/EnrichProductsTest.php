@@ -39,12 +39,14 @@ class EnrichProductsTest extends AbstractTestCase
                 ]],
             ],
         ];
+        /** @var ProductInterface $product */
         $product = $this->get('pim_catalog.builder.product')->createProduct();
         $this->get('pim_catalog.updater.product')->update($product, $dataProduct);
         $this->get('pim_catalog.saver.product')->save($product);
 
-        copy(__DIR__ . '/../../Resources/jenkins/mapping.csv', '/tmp/mapping.csv');
+        sleep(10);
 
+        copy(__DIR__ . '/../../Resources/jenkins/mapping.csv', '/tmp/mapping.csv');
 
         $input = [
             'code' => $this->jobCode,

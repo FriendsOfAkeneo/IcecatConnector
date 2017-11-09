@@ -4,11 +4,14 @@ namespace Pim\Bundle\IcecatConnectorBundle\Tests;
 
 use Akeneo\Bundle\BatchBundle\Command\BatchCommand;
 use Akeneo\Bundle\BatchBundle\Command\CreateJobCommand;
+use Akeneo\Test\IntegrationTestsBundle\Configuration\CatalogInterface;
+use Akeneo\Test\IntegrationTestsBundle\Security\SystemUserAuthenticator;
 use Pim\Component\Catalog\AttributeTypes;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * @author    Mathias METAYER <mathias.metayer@akeneo.com>
@@ -23,17 +26,37 @@ abstract class AbstractTestCase extends KernelTestCase
         'password' => null,
     ];
 
+    /** @var KernelInterface */
+    protected $testKernel;
+
+    /** @var CatalogInterface */
+    protected $catalog;
+
     public function setUp()
     {
         static::bootKernel(['debug' => false]);
         $config = $this->get('oro_config.global');
         $this->credentials['username'] = $config->get('pim_icecat_connector.credentials_username');
         $this->credentials['password'] = $config->get('pim_icecat_connector.credentials_password');
-        $this->cleanData();
+
+        $container = static::$kernel->getContainer();
+        $authenticator = new SystemUserAuthenticator($container);
+        $authenticator->createSystemUser();
+
+        $this->testKernel = new \Pim\Bundle\IcecatConnectorBundle\Tests\AppKernelTest('test', false);
+        $this->testKernel->boot();
+
+        $this->catalog = $this->testKernel->getContainer()->get('akeneo_integration_tests.configuration.catalog');
+        $this->testKernel->getContainer()->set('akeneo_integration_tests.catalog.configuration',
+            $this->catalog->useMinimalCatalog());
+
+        $fixturesLoader = $this->testKernel->getContainer()->get('akeneo_integration_tests.loader.fixtures_loader');
+        $fixturesLoader->load();
     }
 
     /**
      * @param $serviceName
+     *
      * @return object
      */
     protected function get($serviceName)
@@ -43,6 +66,7 @@ abstract class AbstractTestCase extends KernelTestCase
 
     /**
      * @param string $name
+     *
      * @return mixed
      */
     protected function getParameter($name)
@@ -60,6 +84,7 @@ abstract class AbstractTestCase extends KernelTestCase
 
     /**
      * @param array $input
+     *
      * @return int
      */
     protected function runBatchCommand(array $input = [])
@@ -74,6 +99,7 @@ abstract class AbstractTestCase extends KernelTestCase
         }
 
         $batch = $application->find('akeneo:batch:job');
+
         return $batch->run(new ArrayInput($input), new NullOutput());
     }
 
@@ -92,9 +118,9 @@ abstract class AbstractTestCase extends KernelTestCase
         $cmd = $application->find('akeneo:batch:create-job');
         $input = new ArrayInput([
             'connector' => $connector,
-            'job' => $job,
-            'type' => 'import',
-            'code' => $job,
+            'job'       => $job,
+            'type'      => 'import',
+            'code'      => $job,
         ]);
         $cmd->run($input, new NullOutput());
     }
@@ -103,37 +129,43 @@ abstract class AbstractTestCase extends KernelTestCase
     {
         $attributes = [
             [
-                'code' => 'icecat_ean',
-                'type' => AttributeTypes::TEXT,
+                'code'   => 'icecat_ean',
+                'type'   => AttributeTypes::TEXT,
                 'unique' => true,
+                'group'  => 'other',
             ],
             [
                 'code' => 'icecat_numeric_keypad',
                 'type' => AttributeTypes::BOOLEAN,
+                'group'  => 'other',
             ],
             [
-                'code' => 'icecat_processor_frequency',
-                'type' => AttributeTypes::METRIC,
-                'metric_family' => 'Frequency',
-                'negative_allowed' => false,
-                'decimals_allowed' => true,
+                'code'                => 'icecat_processor_frequency',
+                'type'                => AttributeTypes::METRIC,
+                'metric_family'       => 'Frequency',
+                'negative_allowed'    => false,
+                'decimals_allowed'    => true,
                 'default_metric_unit' => 'MEGAHERTZ',
+                'group'  => 'other',
             ],
             [
-                'code' => 'icecat_installed_ram',
-                'type' => AttributeTypes::METRIC,
-                'metric_family' => 'Binary',
-                'negative_allowed' => false,
-                'decimals_allowed' => true,
+                'code'                => 'icecat_installed_ram',
+                'type'                => AttributeTypes::METRIC,
+                'metric_family'       => 'Binary',
+                'negative_allowed'    => false,
+                'decimals_allowed'    => true,
                 'default_metric_unit' => 'GIGABYTE',
+                'group'  => 'other',
             ],
             [
                 'code' => 'icecat_processor_series',
                 'type' => AttributeTypes::TEXT,
+                'group'  => 'other',
             ],
             [
                 'code' => 'icecat_operating_system',
                 'type' => AttributeTypes::TEXT,
+                'group'  => 'other',
             ],
         ];
 
@@ -149,9 +181,9 @@ abstract class AbstractTestCase extends KernelTestCase
 
         $family = $this->get('pim_catalog.factory.family')->create();
         $this->get('pim_catalog.updater.family')->update($family, [
-            'code' => 'icecat_laptop',
+            'code'               => 'icecat_laptop',
             'attribute_as_label' => 'sku',
-            'attributes' => [
+            'attributes'         => [
                 'icecat_ean',
                 'icecat_numeric_keypad',
                 'icecat_installed_ram',
@@ -161,30 +193,6 @@ abstract class AbstractTestCase extends KernelTestCase
             ],
         ]);
         $this->get('pim_catalog.saver.family')->save($family);
-    }
-
-    /**
-     * Removes unneeded data
-     */
-    private function cleanData()
-    {
-        // remove existing job instances
-        $em = $this->get('doctrine.orm.entity_manager');
-        $jobInstances = $em->getRepository($this->getParameter('akeneo_batch.entity.job_instance.class'))
-            ->findBy(['type' => 'import']);
-        $this->get('akeneo_batch.remover.job_instance')->removeAll($jobInstances);
-
-        // removes products
-        $products = $this->get('pim_catalog.repository.product')->findAll();
-        $this->get('pim_catalog.remover.product')->removeAll($products);
-
-        // remove non identifiers attributes
-        //$attributes = $this->get('pim_catalog.repository.attribute')->getNonIdentifierAttributes();
-        $attributes = $this->get('pim_catalog.repository.attribute')->findAll();
-        $this->get('pim_catalog.remover.attribute')->removeAll($attributes);
-
-        // removes families
-        $families = $this->get('pim_catalog.repository.family')->findAll();
-        $this->get('pim_catalog.remover.family')->removeAll($families);
+        sleep(10);
     }
 }
