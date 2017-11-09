@@ -47,8 +47,10 @@ abstract class AbstractTestCase extends KernelTestCase
         $this->testKernel->boot();
 
         $this->catalog = $this->testKernel->getContainer()->get('akeneo_integration_tests.configuration.catalog');
-        $this->testKernel->getContainer()->set('akeneo_integration_tests.catalog.configuration',
-            $this->catalog->useMinimalCatalog());
+        $this->testKernel->getContainer()->set(
+            'akeneo_integration_tests.catalog.configuration',
+            $this->catalog->useMinimalCatalog()
+        );
 
         $fixturesLoader = $this->testKernel->getContainer()->get('akeneo_integration_tests.loader.fixtures_loader');
         $fixturesLoader->load();
@@ -135,9 +137,9 @@ abstract class AbstractTestCase extends KernelTestCase
                 'group'  => 'other',
             ],
             [
-                'code' => 'icecat_numeric_keypad',
-                'type' => AttributeTypes::BOOLEAN,
-                'group'  => 'other',
+                'code'  => 'icecat_numeric_keypad',
+                'type'  => AttributeTypes::BOOLEAN,
+                'group' => 'other',
             ],
             [
                 'code'                => 'icecat_processor_frequency',
@@ -146,7 +148,7 @@ abstract class AbstractTestCase extends KernelTestCase
                 'negative_allowed'    => false,
                 'decimals_allowed'    => true,
                 'default_metric_unit' => 'MEGAHERTZ',
-                'group'  => 'other',
+                'group'               => 'other',
             ],
             [
                 'code'                => 'icecat_installed_ram',
@@ -155,17 +157,17 @@ abstract class AbstractTestCase extends KernelTestCase
                 'negative_allowed'    => false,
                 'decimals_allowed'    => true,
                 'default_metric_unit' => 'GIGABYTE',
-                'group'  => 'other',
+                'group'               => 'other',
             ],
             [
-                'code' => 'icecat_processor_series',
-                'type' => AttributeTypes::TEXT,
-                'group'  => 'other',
+                'code'  => 'icecat_processor_series',
+                'type'  => AttributeTypes::TEXT,
+                'group' => 'other',
             ],
             [
-                'code' => 'icecat_operating_system',
-                'type' => AttributeTypes::TEXT,
-                'group'  => 'other',
+                'code'  => 'icecat_operating_system',
+                'type'  => AttributeTypes::TEXT,
+                'group' => 'other',
             ],
         ];
 
