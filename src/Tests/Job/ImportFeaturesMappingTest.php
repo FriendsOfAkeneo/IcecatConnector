@@ -5,6 +5,7 @@ namespace Pim\Bundle\IcecatConnectorBundle\Tests\Job;
 use Akeneo\Bundle\BatchBundle\Command\BatchCommand;
 use Akeneo\Component\Batch\Model\JobExecution;
 use Akeneo\Component\Batch\Model\JobInstance;
+use Doctrine\ORM\EntityManager;
 use Pim\Bundle\IcecatConnectorBundle\Tests\AbstractTestCase;
 
 /**
@@ -35,10 +36,13 @@ class ImportFeaturesMappingTest extends AbstractTestCase
 
         $res = $this->runBatchCommand($input);
         $this->assertEquals(BatchCommand::EXIT_WARNING_CODE, $res);
-        sleep(5);
         $jobRepo = $this->get('akeneo_batch.job.job_instance_repository');
         /** @var JobInstance $job */
         $job = $jobRepo->findOneByIdentifier($this->jobCode);
+
+        /** @var EntityManager $em */
+        $em = $this->get('doctrine.orm.entity_manager');
+        $em->refresh($job);
 
         /** @var JobExecution $execution */
         $execution = $job->getJobExecutions()->last();
