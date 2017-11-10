@@ -15,9 +15,8 @@ class EnrichProductsTest extends AbstractTestCase
 {
     private $jobCode = 'icecat_enrich_products';
 
-    public function setUp()
+    public function additionnalSetup()
     {
-        parent::setUp();
         $this->createImportProfile('Icecat', $this->jobCode);
         $this->loadData();
     }

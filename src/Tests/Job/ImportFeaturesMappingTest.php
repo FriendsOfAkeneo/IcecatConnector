@@ -18,9 +18,8 @@ class ImportFeaturesMappingTest extends AbstractTestCase
     /** @var string */
     private $jobCode = 'icecat_import_features_mapping';
 
-    public function setUp()
+    public function additionnalSetup()
     {
-        parent::setUp();
         $this->createImportProfile('Icecat', $this->jobCode);
         if (file_exists('/tmp/mapping.csv')) {
             unlink('/tmp/mapping.csv');
@@ -39,10 +38,6 @@ class ImportFeaturesMappingTest extends AbstractTestCase
         $jobRepo = $this->get('akeneo_batch.job.job_instance_repository');
         /** @var JobInstance $job */
         $job = $jobRepo->findOneByIdentifier($this->jobCode);
-
-        /** @var EntityManager $em */
-        $em = $this->get('doctrine.orm.entity_manager');
-        $em->refresh($job);
 
         /** @var JobExecution $execution */
         $execution = $job->getJobExecutions()->last();
