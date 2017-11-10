@@ -7,6 +7,7 @@ It can be used with both Open Icecat free catalog or Full Icecat paid catalog.
 
 | IcecatConnectorBundle | Akeneo PIM Community Edition |
 |:---------------------:|:----------------------------:|
+| 2.0.*                 | v2.0.*                       |
 | 1.2.*                 | v1.7.*                       |
 | 1.1.*                 | v1.7.*                       |
 | 1.0.*                 | v1.6.*                       |
@@ -64,7 +65,7 @@ First, you must require the connector dependencies:
 
 ```php
 composer config repositories.icecat '{"type": "vcs", "url": "ssh://git@distribution.akeneo.com:443/IcecatConnector", "branch": "master"}'
-composer require akeneo/icecat-connector 1.2.*
+composer require akeneo/icecat-connector 2.0.*
 ```
 
 ## Registering the bundle
@@ -82,7 +83,7 @@ pim_icecat_connector:
 ### Register dependencies and override product value model
 
 The Icecat connector uses a new attribute type to store pictures url collection.
-You must then activate the dependencies bundles and add a custom one to override the original ProductValue class:
+You must then activate the dependencies bundles:
 
 In `app/AppKernel.php`:
 
@@ -93,23 +94,17 @@ In `app/AppKernel.php`:
             new \Pim\Bundle\ExtendedAttributeTypeBundle\PimExtendedAttributeTypeBundle(),
             new \Pim\Bundle\ExtendedMeasureBundle\PimExtendedMeasureBundle(),
             new \Pim\Bundle\IcecatConnectorBundle\PimIcecatConnectorBundle(),
-            new \MyCompany\Bundle\MyBundle\MyPimBundle(), // Your custom bundle with overriden ProductValue
         ];
     }
 ```
 
+### Add new Mass Operation:
+```
+app/console akeneo:batch:create-job "Akeneo Mass Edit Connector" "mass_edit_icecat_enrichment" "mass_edit" "mass_edit_icecat_enrichment"
+```
+
 More explanation about the ProductValue override can be found in Akeneo documentation: 
 https://docs.akeneo.com/1.7/cookbook/catalog_structure/overriding_the_orm_product_value.html
-
-Do not forget to update the mapping for your brand new product value in `app/config/config.yml`:
-
-```yaml
-akeneo_storage_utils:
-    mapping_overrides:
-        -
-            original: PimEnterprise\Component\Catalog\Model\ProductValue
-            override: Pim\Bundle\ExtendedCeBundle\Model\ProductValue
-```
 
 ### Add new Mass Operation:
 ```
@@ -118,8 +113,6 @@ app/console akeneo:batch:create-job "Akeneo Mass Edit Connector" "mass_edit_icec
 
 In an Enterpise Edition context, you must also add the corresponding permissions:
 https://docs.akeneo.com/1.7/cookbook/mass_edition/register_a_new_mass_edit_action.html#phase-6-add-user-groups-permissions-to-job-profiles-enterprise-edition
-
-Copy the mass edit view `icecat-enrichment.html.twig` in your `app/Resources` directory.
 
 To facilitate this configuration, the bundle provides a `bin/setup.bash` to make this operations in one command line.
 
@@ -169,36 +162,7 @@ LV | lv_LV (Latvian)
 ID | id_ID (Indonesian)
 SK | sk_SK (Slovakian)
 
-### (Optionnal) Example bundles
-
-This connector is shipped with complete example bundle, especially to override the ProductValue model.
-This is needed to use the new TextCollection attribute type.
-
-The easiest way to enable it is to use a symbolic link:
-
-```
-cd src
-ln -s ../vendor/akeneo/extended-attribute-type/doc/example/Pim Pim
-```
-
-After that, you will be able to use the example bundles in `app/AppKernel.php`:
-
-```php
-    protected function registerProjectBundles()
-    {
-        return [
-            new \Pim\Bundle\ExtendedAttributeTypeBundle\PimExtendedAttributeTypeBundle(),
-            new \Pim\Bundle\ExtendedMeasureBundle\PimExtendedMeasureBundle(),
-            new \Pim\Bundle\IcecatConnectorBundle\PimIcecatConnectorBundle(),
-            new \Pim\Bundle\ExtendedCeBundle\ExtendedCeBundle(),   // example CE bundle to activate the extended attributes
-            //new \Pim\Bundle\ExtendedEeBundle\ExtendedEeBundle(), // example EE bundle to activate the extended attributes
-        ];
-    }
-```
-
 ### Update the DB schema
-
-The ExtendedAttributeTypeBundle need to add some tables from the ProductValue override and you must update the Doctrine schema.
 
 One way to this is using the command `app/console doctrine:schema:update`. 
 You will habe to specify an option for this command:

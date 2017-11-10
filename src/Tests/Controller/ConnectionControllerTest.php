@@ -50,15 +50,14 @@ class ConnectionControllerTest extends AbstractTestCase
     private function getRequestMock($username, $password)
     {
         $map = [
-            ['username', null, false, $username],
-            ['password', null, false, $password],
+            ['username', null, $username],
+            ['password', null, $password],
         ];
 
         $requestMock = $this->getMockBuilder(Request::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $requestMock->expects($this->any())
-            ->method('get')
+        $requestMock->method('get')
             ->will($this->returnValueMap($map));
 
         return $requestMock;

@@ -3,13 +3,13 @@
 namespace Pim\Bundle\IcecatConnectorBundle\Enrich;
 
 use Akeneo\Component\Batch\Item\DataInvalidItem;
+use Akeneo\Component\StorageUtils\Updater\ObjectUpdaterInterface;
 use Oro\Bundle\ConfigBundle\Config\ConfigManager;
 use Pim\Bundle\EnrichBundle\Connector\Processor\AbstractProcessor;
 use Pim\Bundle\IcecatConnectorBundle\Exception\MapperException;
 use Pim\Bundle\IcecatConnectorBundle\Http\HttpClient;
 use Pim\Bundle\IcecatConnectorBundle\Xml\XmlProductDecoder;
 use Pim\Component\Catalog\Exception\InvalidArgumentException;
-use Pim\Component\Catalog\Updater\ProductUpdater;
 
 /**
  * Processor to enrich product information from Icecat.
@@ -30,7 +30,7 @@ class EnrichProductProcessor extends AbstractProcessor
     /** @var string */
     protected $fallbackLocale;
 
-    /** @var ProductUpdater */
+    /** @var ObjectUpdaterInterface */
     private $productUpdater;
 
     /** @var string */
@@ -50,7 +50,7 @@ class EnrichProductProcessor extends AbstractProcessor
      *
      * @param HttpClient              $httpClient
      * @param XmlProductDecoder       $xmlProductDecoder
-     * @param ProductUpdater          $productUpdater
+     * @param ObjectUpdaterInterface  $productUpdater
      * @param ConfigManager           $config
      * @param LocaleResolverInterface $localeResolver
      * @param string                  $icecatProductEndpoint
@@ -58,7 +58,7 @@ class EnrichProductProcessor extends AbstractProcessor
     public function __construct(
         HttpClient $httpClient,
         XmlProductDecoder $xmlProductDecoder,
-        ProductUpdater $productUpdater,
+        ObjectUpdaterInterface $productUpdater,
         ConfigManager $config,
         LocaleResolverInterface $localeResolver,
         $icecatProductEndpoint
@@ -86,11 +86,11 @@ class EnrichProductProcessor extends AbstractProcessor
 
             $guzzle = $this->httpClient->getGuzzle();
             $res = $guzzle->request('GET', '', [
-                'auth' => $this->httpClient->getCredentials(),
+                'auth'  => $this->httpClient->getCredentials(),
                 'query' => $query,
             ]);
             $context = [
-                'locale' => $this->localeResolver->getPimLocaleCode($icecatLocale),
+                'locale'          => $this->localeResolver->getPimLocaleCode($icecatLocale),
                 'fallback_locale' => $this->localeResolver->getPimLocaleCode($this->fallbackLocale),
             ];
             try {
