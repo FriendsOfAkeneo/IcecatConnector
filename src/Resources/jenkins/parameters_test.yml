@@ -13,6 +13,6 @@ parameters:
     index_hosts: 'elastic:changeme@elasticsearch:9200'
     elasticsearch_index_configuration_files:
         - '%kernel.root_dir%/../vendor/akeneo/pim-community-dev/src/Pim/Bundle/CatalogBundle/Resources/elasticsearch/index_configuration.yml'
-        - '%kernel.root_dir%/../vendor/akeneo/pim-enterprise-dev/src/PimEnterprise/Bundle/WorkflowBundle/Resources/elasticsearch/index_configuration.yml'
+        - '%kernel.root_dir%/../src/PimEnterprise/Bundle/WorkflowBundle/Resources/elasticsearch/index_configuration.yml'
         - '%kernel.root_dir%/../vendor/akeneo/extended-attribute-type/src/Resources/config/elasticsearch/index_configuration.yml'
     installer_data: 'PimIcecatConnectorBundle:installer_ee'
