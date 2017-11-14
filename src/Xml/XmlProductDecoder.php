@@ -289,10 +289,10 @@ class XmlProductDecoder implements DecoderInterface
      */
     protected function extractPictures($icecatGallery)
     {
-        if (!is_array($icecatGallery)) {
+        if ($icecatGallery instanceof SimpleXMLElement) {
             $icecatGallery = [$icecatGallery];
         }
-        
+
         $pictures = [];
         foreach ($icecatGallery as $xmlPicture) {
             $url = (string)$xmlPicture->attributes()['Original'];
