@@ -283,12 +283,16 @@ class XmlProductDecoder implements DecoderInterface
     }
 
     /**
-     * @param SimpleXMLElement[] $icecatGallery
+     * @param SimpleXMLElement|SimpleXMLElement[] $icecatGallery
      *
      * @return string[]
      */
-    protected function extractPictures(array $icecatGallery)
+    protected function extractPictures($icecatGallery)
     {
+        if ($icecatGallery instanceof SimpleXMLElement) {
+            $icecatGallery = [$icecatGallery];
+        }
+
         $pictures = [];
         foreach ($icecatGallery as $xmlPicture) {
             $url = (string)$xmlPicture->attributes()['Original'];
