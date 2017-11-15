@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\VarDumper\VarDumper;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -63,7 +64,7 @@ class XmlDecoderTestCommand extends ContainerAwareCommand
         ];
         $standardProduct = $decoder->decode($xmlString, 'xml', $context);
 
-        var_dump($standardProduct);
+        VarDumper::dump($standardProduct);
 
         return 0;
     }
