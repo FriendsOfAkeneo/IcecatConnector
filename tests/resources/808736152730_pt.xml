@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ICECAT-interface SYSTEM "http://data.icecat.biz/dtd/ICECAT-interface_response.dtd">
+<!-- source: Icecat.biz 2017 -->
+<ICECAT-interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://data.icecat.biz/xsd/ICECAT-interface_response.xsd">
+   <Product Code="1" HighPic="http://images.icecat.biz/img/gallery/img_24279_high_1502497646_1188_28949.jpg" HighPicHeight="1755" HighPicSize="767878" HighPicWidth="1554" ID="24279" LowPic="http://images.icecat.biz/img/gallery_lows/img_24279_low_1502497646_9848_28949.jpg" LowPicHeight="200" LowPicSize="36549" LowPicWidth="177" Name="Cartucho de tinta original 28 Tri-color" Pic500x500="http://images.icecat.biz/img/gallery_mediums/img_24279_medium_1502497646_3071_28949.jpg" Pic500x500Height="500" Pic500x500Size="165325" Pic500x500Width="442" Prod_id="C8728AE" Quality="ICECAT" ReleaseDate="2005-10-23" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_24279_thumb_1502497647_5848_28949.jpg" ThumbPicSize="3039" Title="HP Cartucho de tinta original 28 Tri-color">
+   <CategoryFeatureGroup ID="2247" No="-1"><FeatureGroup ID="14"><Name ID="510119" langid="6" Value="Peso y dimensiones"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="2248" No="5"><FeatureGroup ID="28"><Name ID="510132" langid="6" Value="Condiciones ambientales"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="15688" No="-100"><FeatureGroup ID="146"><Name ID="624351" langid="6" Value="Otras características"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="10676" No="10"><FeatureGroup ID="185"><Name ID="1219858" langid="6" Value="Características"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="15687" No="-80"><FeatureGroup ID="198"><Name ID="1788932" langid="6" Value="Datos logísticos"/></FeatureGroup></CategoryFeatureGroup>
+   <Category ID="377"><Name ID="496575" langid="6" Value="cartuchos de tinta"/></Category>
+     <EANCode EAN="0884962780732"/>
+     <EANCode EAN="0808736161114"/>
+     <EANCode EAN="5055344686316"/>
+     <EANCode EAN="0883585276745"/>
+     <EANCode EAN="8849627807256"/>
+     <EANCode EAN="0808736152747"/>
+     <EANCode EAN="0808736161121"/>
+     <EANCode EAN="0884962780725"/>
+     <EANCode EAN="0808736152754"/>
+     <EANCode EAN="0889899376911"/>
+     <EANCode EAN="0808736152730"/>
+     <EANCode EAN="0829160799254"/>
+     <EANCode EAN="0884962834305"/>
+     <EANCode EAN="0883585276738"/>
+     <EANCode EAN="0808736161138"/>
+     <EANCode EAN="0808736152761"/>
+     <EANCode EAN="8087361527232"/>
+     <EANCode EAN="0808736152716"/>
+     <EANCode EAN="0808736161107"/>
+     <EANCode EAN="0808736161152"/>
+     <EANCode EAN="0829160799247"/>
+     <EANCode EAN="0808736152723"/>
+     <EANCode EAN="0808736161145"/>
+     <EANCode EAN="2001133246004"/>
+   
+   <ReasonsToBuy/>
+   <BulletPoints/>
+   <ProductBundled/>
+       <ProductDescription ID="21269712" LongDesc="OverviewEl cartucho tricolor de inyección de tinta HP 28 produce impresiones con colores brillantes, de calidad fotográfica y de larga duración mediante la utilización de tintas con base de tinte formuladas para su utilización con el sistema de impresión HP con el fin de obtener resultados excepcionales cada vez que imprima.Features&lt;b&gt;Su volumen de 8 ml garantiza a los usuarios ocasionales excelentes resultados desde la primera a la última página.\nRendimiento típico de 190 páginas (con una densidad del 15 %).\nRiesgo mínimo de evaporación u obturación de los inyectores con una óptima relación calidad/precio.&lt;/b&gt;\n\n&lt;b&gt;Proporciona colores vivos para imágenes fotográficas y gráficos en color luminosos. Buena resistencia a la luz: copias resistentes a la decoloración durante más tiempo. Diseño avanzado del cabezal de impresión y la tinta, gotas minúsculas de 5 pl de tintas de color patentadas. Resultados nítidos y bien definidos siempre.&lt;/b&gt;\n\n&lt;b&gt;Combinado con el cartucho negro de inyección de tinta HP 27 para proporcionar calidad de impresión en cuatro colores.&lt;/b&gt;" ManualPDFSize="0" ManualPDFURL="" PDFSize="0" PDFURL="" ShortDesc="Cartucho tricolor de inyección de tinta HP 28." URL="" WarrantyInfo="Garantía: Los cartuchos de tinta, los cabezales, y otros consumibles de HP tienen cobertura para defectos de materiales y mano de obra durante el periodo de garantía.\nDeclaración estándar de garantía: Los productos HP están garantizados contra defectos en materiales y mano de obra al someterse al uso normal de acuerdo con las especificaciones establecidas hasta la fecha marcada en el producto. La garantía no cubre productos vacíos ni productos modificados de cualquier forma. Para obtener la información completa sobre la garantía, póngase en contacto con su distribuidor o consulte /support/inkjet_warranty. Puede que tenga derechos legales frente al vendedor, además de la garantía del fabricante, que no estén limitados por esta garantía.\n" langid="6"/>
+   
+   
+    <ProductFeature Localized="0" ID="149525114" Local_ID="0" Value="Cyan,Magenta,Yellow" CategoryFeature_ID="9666" CategoryFeatureGroup_ID="10676" No="100099" Presentation_Value="Cian, Magenta, Amarillo" Translated="1" Mandatory="1" Searchable="0">
+      <LocalValue Value="Cian, Magenta, Amarillo">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2037">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="506449" langid="6" Value="Colores de impresión"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="110759743" Local_ID="0" Value="HP Deskjet 3320, 3325, 3420, 3425, 3520, 3535, 3550, 3645, 3647, 3650, 3745, 3845, Deskjet 5650, 5652, 5655, 5850, Officejet 4105, 4110, 4212, 4215, 4219, 4252, 4255, 6110, PSC 1100, 1200, 1205, 1210, 1213, 1215, 1217, 1219, 1310, 1311, 1312, 1315, 1315s, 1317" CategoryFeature_ID="41689" CategoryFeatureGroup_ID="10676" No="100000" Presentation_Value="HP Deskjet 3320, 3325, 3420, 3425, 3520, 3535, 3550, 3645, 3647, 3650, 3745, 3845, Deskjet 5650, 5652, 5655, 5850, Officejet 4105, 4110, 4212, 4215, 4219, 4252, 4255, 6110, PSC 1100, 1200, 1205, 1210, 1213, 1215, 1217, 1219, 1310, 1311, 1312, 1315, 1315s, 1317" Translated="0" Mandatory="1" Searchable="0">
+      <LocalValue Value="HP Deskjet 3320, 3325, 3420, 3425, 3520, 3535, 3550, 3645, 3647, 3650, 3745, 3845, Deskjet 5650, 5652, 5655, 5850, Officejet 4105, 4110, 4212, 4215, 4219, 4252, 4255, 6110, PSC 1100, 1200, 1205, 1210, 1213, 1215, 1217, 1219, 1310, 1311, 1312, 1315, 1315s, 1317">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2190">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="504359" langid="6" Value="Productos compatibles"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="110759744" Local_ID="0" Value="70" CategoryFeature_ID="18696" CategoryFeatureGroup_ID="10676" No="100000" Presentation_Value="70 g" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="70">
+      <Measure ID="38">
+        <Signs><Sign ID="7447" langid="6"><![CDATA[g]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="3264">
+        <Measure ID="38" Sign="">
+          <Signs><Sign ID="7447" langid="6"><![CDATA[g]]></Sign></Signs>
+        </Measure>
+        <Name ID="506461" langid="6" Value="Peso de cartucho"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="110759741" Local_ID="0" Value="1" CategoryFeature_ID="27516" CategoryFeatureGroup_ID="10676" No="100000" Presentation_Value="1" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="1">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1675">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="506438" langid="6" Value="Cantidad"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="149525115" Local_ID="0" Value="Y" CategoryFeature_ID="6166" CategoryFeatureGroup_ID="10676" No="99999" Presentation_Value="Si" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Si">
+      <Measure ID="26">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="46">
+        <Measure ID="26" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="506417" langid="6" Value="Color"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="108831608" Local_ID="0" Value="5 - 95" CategoryFeature_ID="1932" CategoryFeatureGroup_ID="2248" No="116999" Presentation_Value="5 - 95%" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="5 - 95">
+      <Measure ID="64">
+        <Signs><Sign ID="7472" langid="6"><![CDATA[%]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="703">
+        <Measure ID="64" Sign="">
+          <Signs><Sign ID="7472" langid="6"><![CDATA[%]]></Sign></Signs>
+        </Measure>
+        <Name ID="1041816" langid="6" Value="Intervalo de humedad relativa para funcionamiento"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="108831720" Local_ID="0" Value="0 - 40" CategoryFeature_ID="5018" CategoryFeatureGroup_ID="2248" No="100034" Presentation_Value="0 - 40 °C" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="0 - 40">
+      <Measure ID="65">
+        <Signs><Sign ID="7473" langid="6"><![CDATA[°C]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="757">
+        <Measure ID="65" Sign="">
+          <Signs><Sign ID="7473" langid="6"><![CDATA[°C]]></Sign></Signs>
+        </Measure>
+        <Name ID="1041841" langid="6" Value="Intervalo de temperatura de almacenaje"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="100182539" Local_ID="0" Value="-15 - 35" CategoryFeature_ID="5556" CategoryFeatureGroup_ID="2248" No="100000" Presentation_Value="-15 - 35 °C" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="-15 - 35">
+      <Measure ID="65">
+        <Signs><Sign ID="7473" langid="6"><![CDATA[°C]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1112">
+        <Measure ID="65" Sign="">
+          <Signs><Sign ID="7473" langid="6"><![CDATA[°C]]></Sign></Signs>
+        </Measure>
+        <Name ID="1041966" langid="6" Value="Intervalo de temperatura operativa"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="108831544" Local_ID="0" Value="5 - 95" CategoryFeature_ID="12142" CategoryFeatureGroup_ID="2248" No="100000" Presentation_Value="5 - 95%" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="5 - 95">
+      <Measure ID="64">
+        <Signs><Sign ID="7472" langid="6"><![CDATA[%]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1383">
+        <Measure ID="64" Sign="">
+          <Signs><Sign ID="7472" langid="6"><![CDATA[%]]></Sign></Signs>
+        </Measure>
+        <Name ID="1042022" langid="6" Value="Intervalo de humedad relativa durante almacenaje"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="108831512" Local_ID="0" Value="140 x 112 x 35" CategoryFeature_ID="1926" CategoryFeatureGroup_ID="2247" No="116911" Presentation_Value="140 x 112 x 35 mm" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="140 x 112 x 35">
+      <Measure ID="24">
+        <Signs><Sign ID="7436" langid="6"><![CDATA[mm]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="49">
+        <Measure ID="24" Sign="">
+          <Signs><Sign ID="7436" langid="6"><![CDATA[mm]]></Sign></Signs>
+        </Measure>
+        <Name ID="508111" langid="6" Value="Dimensiones (Ancho x Profundidad x Altura)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="108831672" Local_ID="0" Value="45" CategoryFeature_ID="8707" CategoryFeatureGroup_ID="2247" No="100010" Presentation_Value="45 g" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="45">
+      <Measure ID="38">
+        <Signs><Sign ID="7447" langid="6"><![CDATA[g]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="94">
+        <Measure ID="38" Sign="">
+          <Signs><Sign ID="7447" langid="6"><![CDATA[g]]></Sign></Signs>
+        </Measure>
+        <Name ID="508122" langid="6" Value="Peso"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="97377205" Local_ID="0" Value="70" CategoryFeature_ID="5017" CategoryFeatureGroup_ID="2247" No="99980" Presentation_Value="70 g" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="70">
+      <Measure ID="38">
+        <Signs><Sign ID="7447" langid="6"><![CDATA[g]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="762">
+        <Measure ID="38" Sign="">
+          <Signs><Sign ID="7447" langid="6"><![CDATA[g]]></Sign></Signs>
+        </Measure>
+        <Name ID="1041845" langid="6" Value="Peso del paquete"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="97377191" Local_ID="0" Value="1920" CategoryFeature_ID="1928" CategoryFeatureGroup_ID="15687" No="100046" Presentation_Value="1920 pieza(s)" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="1920">
+      <Measure ID="144">
+        <Signs><Sign ID="7549" langid="6"><![CDATA[pieza(s)]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="732">
+        <Measure ID="144" Sign="">
+          <Signs><Sign ID="7549" langid="6"><![CDATA[pieza(s)]]></Sign></Signs>
+        </Measure>
+        <Name ID="1041832" langid="6" Value="Cantidad por palé"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="108831736" Local_ID="0" Value="166800" CategoryFeature_ID="144672" CategoryFeatureGroup_ID="15687" No="100039" Presentation_Value="166,8 kg" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="166,8">
+      <Measure ID="17">
+        <Signs><Sign ID="7429" langid="6"><![CDATA[kg]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="19033">
+        <Measure ID="38" Sign="">
+          <Signs><Sign ID="7447" langid="6"><![CDATA[g]]></Sign></Signs>
+        </Measure>
+        <Name ID="2023704" langid="6" Value="Peso del palé"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="108831560" Local_ID="0" Value="140 x 112 x 35" CategoryFeature_ID="10394" CategoryFeatureGroup_ID="15688" No="100000" Presentation_Value="140 x 112 x 35 mm" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="140 x 112 x 35">
+      <Measure ID="24">
+        <Signs><Sign ID="7436" langid="6"><![CDATA[mm]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="582">
+        <Measure ID="24" Sign="">
+          <Signs><Sign ID="7436" langid="6"><![CDATA[mm]]></Sign></Signs>
+        </Measure>
+        <Name ID="508152" langid="6" Value="Dimensiones del embalaje (alto x alto x peso)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="100191626" Local_ID="0" Value="1200 x 800 x 806" CategoryFeature_ID="29234" CategoryFeatureGroup_ID="10676" No="0" Presentation_Value="1200 x 800 x 806 mm" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="1200 x 800 x 806">
+      <Measure ID="24">
+        <Signs><Sign ID="7436" langid="6"><![CDATA[mm]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="4824">
+        <Measure ID="24" Sign="">
+          <Signs><Sign ID="7436" langid="6"><![CDATA[mm]]></Sign></Signs>
+        </Measure>
+        <Name ID="1042804" langid="6" Value="Dimensiones europeas del palé (An x F x Al)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="108831656" Local_ID="0" Value="600 x 200 x 164" CategoryFeature_ID="1933" CategoryFeatureGroup_ID="15688" No="17000" Presentation_Value="600 x 200 x 164" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="600 x 200 x 164">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="487">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="504719" langid="6" Value="Dimensiones de la caja de cartón grande (Ancho x Profunidad x Altura)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="108831800" Local_ID="0" Value="1200 x 800 x 806" CategoryFeature_ID="1927" CategoryFeatureGroup_ID="15688" No="16912" Presentation_Value="1200 x 800 x 806 mm" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="1200 x 800 x 806">
+      <Measure ID="24">
+        <Signs><Sign ID="7436" langid="6"><![CDATA[mm]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="530">
+        <Measure ID="24" Sign="">
+          <Signs><Sign ID="7436" langid="6"><![CDATA[mm]]></Sign></Signs>
+        </Measure>
+        <Name ID="1041743" langid="6" Value="Dimensiones del palé (Ancho x Profundidad x Altura)"/>
+      </Feature>
+    </ProductFeature>
+
+   <ProductGallery>
+     <ProductPicture LowPic="http://images.icecat.biz/img/gallery_lows/img_24279_low_1502497646_9848_28949.jpg" LowPicHeight="200" LowPicWidth="177" LowSize="36549" No="1" Original="http://images.icecat.biz/img/gallery_raw/img_24279_raw_1502497646_1173_28949.jpg" OriginalSize="361519" Pic="http://images.icecat.biz/img/gallery/img_24279_high_1502497646_1188_28949.jpg" Pic500x500="http://images.icecat.biz/img/gallery_mediums/img_24279_medium_1502497646_3071_28949.jpg" Pic500x500Height="500" Pic500x500Size="165325" Pic500x500Width="442" PicHeight="1755" PicWidth="1554" ProductPicture_ID="21745580" Size="767878" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_24279_thumb_1502497647_5848_28949.jpg" ThumbSize="3039" Type="ProductImage" langid="6"/>
+     <ProductPicture IsMain="Y" LowPic="http://images.icecat.biz/img/gallery_lows/img_24279_low_1502497646_9848_28949.jpg" LowPicHeight="200" LowPicWidth="177" LowSize="36549" No="1" Original="http://images.icecat.biz/img/gallery_raw/img_24279_raw_1502497646_1173_28949.jpg" OriginalSize="361519" Pic="http://images.icecat.biz/img/gallery/img_24279_high_1502497646_1188_28949.jpg" Pic500x500="http://images.icecat.biz/img/gallery_mediums/img_24279_medium_1502497646_3071_28949.jpg" Pic500x500Height="500" Pic500x500Size="165325" Pic500x500Width="442" PicHeight="1755" PicWidth="1554" ProductPicture_ID="22114838" Size="767878" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_24279_thumb_1502497647_5848_28949.jpg" ThumbSize="3039" Type="ProductImage"/>
+   </ProductGallery>
+       <ProductMultimediaObject>
+      <MultimediaObject ContentType="application/pdf" Date="2010-04-30 07:35:31" Description="Cartucho tricolor de inyección de tinta HP nº 28" Height="0" KeepAsURL="0" MultimediaObject_ID="277050" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="83266" Type="data sheet" URL="http://objects.icecat.biz/objects/HP_literature_es_es_5981-2671ESE.pdf" UUID="BF2E7930-E7E6-11E3-A35F-B56B4EB0E6FC" Width="0" langid="6"/>
+      <MultimediaObject ContentType="application/pdf" Date="2017-07-22 03:29:15" Description="Hoja informativa &quot;Guía antifalsificación para clientes corporativos&quot;" Height="0" KeepAsURL="0" MultimediaObject_ID="4975539" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="3982492" Type="pdf" URL="http://objects.icecat.biz/objects/mmo_24279_1500686858_8354_29321.pdf" UUID="180d456b-8772-4ddd-bf74-77cec9f34272" Width="0" langid="6"/>
+      <MultimediaObject ContentType="application/pdf" Date="2017-07-22 03:29:15" Description="Guía de compra para evitar falsificaciones" Height="0" KeepAsURL="0" MultimediaObject_ID="4975540" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="2884433" Type="pdf" URL="http://objects.icecat.biz/objects/mmo_24279_1500686865_8737_22167.pdf" UUID="bf131a4b-68b9-48cb-8ae8-f89e15df1faa" Width="0" langid="6"/>
+      <MultimediaObject ContentType="application/pdf" Date="2017-07-22 03:29:15" Description="Cartuchos de tinta HP originales resumen de compatibilidad" Height="0" KeepAsURL="0" MultimediaObject_ID="4975541" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="150961" Type="pdf" URL="http://objects.icecat.biz/objects/mmo_24279_1500686867_3735_12163.pdf" UUID="aee07a5f-2521-4bbc-aca7-a93b7b1e2f08" Width="0" langid="6"/>
+      <MultimediaObject ContentType="application/pdf" Date="2017-09-01 02:52:32" Description="Hoja informativa &quot;Compruebe sus compras '" Height="0" KeepAsURL="0" MultimediaObject_ID="6061399" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="3738721" Type="pdf" URL="http://objects.icecat.biz/objects/mmo_24279_1504227152_5105_13437.pdf" UUID="368BB839-CC71-4588-8E93-1D2BC1575DCE" Width="0" langid="6"/>
+    </ProductMultimediaObject>
+
+   	  <ProductRelated ID="114043059" Category_ID="377" Reversed="0" Preferred="0">
+	    <Product ID="5750064" Prod_id="NH-R8728C" ThumbPic="http://inishop.com/thumbs/5750064.jpg" Name="NH-R8728C">
+	      <Supplier ID="4913" Name="Ninestar"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="23529041" Category_ID="377" Reversed="0" Preferred="0">
+	    <Product ID="1527441" Prod_id="16.11.5414" ThumbPic="http://inishop.com/thumbs/1527441.jpg" Name="Dreikammer-Farbdruckpatrone f/ HP-DeskJet 3XXX">
+	      <Supplier ID="1837" Name="Value"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="1981665" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="95182" Prod_id="Q5601A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_95182_thumb_1506649807_6874_23843.jpg" Name="4215">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="27030121" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="129066" Prod_id="Q5894A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_129066_thumb_1505129269_7137_26110.jpg" Name="1215">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="89129474" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="8019197" Prod_id="Q1652A" ThumbPic="http://images.icecat.biz/thumbs/8019197.jpg" Name="PSC 1110">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="14992" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="35946" Prod_id="Q1638A#ABH" ThumbPic="http://images.icecat.biz/thumbs/35925.jpg" Name="Officejet 6110 All-in-One Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="585817" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="39143" Prod_id="Q1662A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_39143_thumb_1505129258_2174_6499.jpg" Name="1210">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="16103154" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="38831" Prod_id="Q1665A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/38831_4331471912.jpg" Name="1205">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="16850068" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="909886" Prod_id="Q5765A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_909886_thumb_1505129259_7569_2305.jpg" Name="PSC 1315">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="499946" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="111369" Prod_id="Q1661A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/111369_4917633327.jpg" Name="1200">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="26067947" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="52142" Prod_id="C8962A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_52142_thumb_1506649142_8508_24276.jpg" Name="Deskjet 5150 Color Inkjet">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="946761" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="122853" Prod_id="C9025A" ThumbPic="http://images.icecat.biz/thumbs/122853.jpg" Name="Deskjet 3745 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="27030128" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="111841" Prod_id="Q5763A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_111841_thumb_1505129259_8517_12028.jpg" Name="PSC 1310 all-in-one printer/scanner/copier">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="14788" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="35925" Prod_id="Q1638A" ThumbPic="http://images.icecat.biz/thumbs/35925.jpg" Name="Officejet 6110 All-in-One Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="133874430" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="18112664" Prod_id="Q5894A#ABH" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/18112664_3156180791.jpg" Name="1215">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="316598" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="52141" Prod_id="C8974A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_52141_thumb_1506649163_1643_23845.jpg" Name="Deskjet 3650 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="24561449" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="53770" Prod_id="C9007A" ThumbPic="http://images.icecat.biz/thumbs/53770.jpg" Name="Deskjet 5652 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="5323" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="33589" Prod_id="C8949A" ThumbPic="http://images.icecat.biz/thumbs/33589.jpg" Name="3325">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="5814879" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="125659" Prod_id="C9037A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_125659_thumb_1506649138_131_16760.jpg" Name="Deskjet 3845 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="5360" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="33567" Prod_id="C8947A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_33567_thumb_1506649129_4021_9436.jpg" Name="3420">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="27573137" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="55555" Prod_id="C8975A" ThumbPic="http://images.icecat.biz/thumbs/55555.jpg" Name="Color 5850">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="1988245" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="99335" Prod_id="Q5611A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_99335_thumb_1506649804_9891_4958.jpg" Name="Officejet 4255 All-in-One Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="88491600" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="584266" Prod_id="Q5611A#353" ThumbPic="http://images.icecat.biz/thumbs/95183.jpg" Name="Officejet 4255 All-in-One Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="502316" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="111836" Prod_id="Q1612A" ThumbPic="http://images.icecat.biz/thumbs/111836.jpg" Name="officejet 4105 printer/fax/scanner/copier">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="316570" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="52140" Prod_id="C8991A" ThumbPic="http://images.icecat.biz/thumbs/52140.jpg" Name="Deskjet 3550 Color inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="133874428" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="18106346" Prod_id="C8962Z" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_18106346_thumb_1506649142_5106_21842.jpg" Name="C8962Z">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="24561430" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="74419" Prod_id="Q1609A" ThumbPic="http://images.icecat.biz/thumbs/47053.jpg" Name="officejet 4110 printer/fax/scanner/copier">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="24561450" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="53804" Prod_id="C9007A#359" ThumbPic="http://images.icecat.biz/thumbs/53770.jpg" Name="Deskjet 5652 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="316696" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="52170" Prod_id="C8974A#358" ThumbPic="http://images.icecat.biz/thumbs/52141.jpg" Name="Deskjet 3650 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="24561453" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="1356723" Prod_id="C9007A#353" ThumbPic="http://images.icecat.biz/thumbs/53770.jpg" Name="Deskjet 5652 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="74283360" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="48666" Prod_id="Q1662A#ABH" ThumbPic="http://images.icecat.biz/thumbs/39143.jpg" Name="psc 1210 printer/scanner/copier">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="466682" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="98604" Prod_id="C8974A#358#*MAKRO" ThumbPic="http://images.icecat.biz/thumbs/98604.jpg" Name="Deskjet 3650 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="316665" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="52169" Prod_id="C8991A#358" ThumbPic="http://images.icecat.biz/thumbs/52140.jpg" Name="Deskjet 3550 Color inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="133874429" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="18112654" Prod_id="Q5805A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_18112654_thumb_1506649808_2248_23844.jpg" Name="Q5805A">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="133874431" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="18112692" Prod_id="Q7282A" ThumbPic="" Name="Q7282A">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="26067948" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="52177" Prod_id="C8962A#359" ThumbPic="http://images.icecat.biz/thumbs/52142.jpg" Name="Deskjet 5150 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="133874427" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="18106344" Prod_id="C8958A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_18106344_thumb_1506649129_3202_10010.jpg" Name="Drucker">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="27573138" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="64118" Prod_id="C8975A#358" ThumbPic="http://images.icecat.biz/thumbs/55555.jpg" Name="Deskjet 5850 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="316963" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="52196" Prod_id="C8974A#ABH" ThumbPic="http://images.icecat.biz/thumbs/52141.jpg" Name="Deskjet 3650 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="26067951" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="131931" Prod_id="C8962A#357" ThumbPic="http://images.icecat.biz/thumbs/52142.jpg" Name="Deskjet 5150 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="972193" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="280575" Prod_id="C9025A#353" ThumbPic="http://images.icecat.biz/thumbs/122853.jpg" Name="Deskjet 3745 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="16850012" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="123654" Prod_id="Q5765A#ABH" ThumbPic="http://images.icecat.biz/thumbs/123572.jpg" Name="PSC 1315 All-in-One Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="246433" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="48742" Prod_id="Q1609A#ABH" ThumbPic="http://images.icecat.biz/thumbs/47053.jpg" Name="officejet 4110 printer/fax/scanner/copier">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="24561452" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="136054" Prod_id="C9007A#303" ThumbPic="http://images.icecat.biz/thumbs/53770.jpg" Name="Deskjet 5652 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="1753700" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="101916" Prod_id="Q5601A#ABH" ThumbPic="http://images.icecat.biz/thumbs/95182.jpg" Name="Officejet 4215 All-in-One">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="27030129" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="1489043" Prod_id="C8975C" ThumbPic="http://images.icecat.biz/thumbs/1489043.jpg" Name="Deskjet 5850 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="27030130" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="1489260" Prod_id="C8989B" ThumbPic="http://images.icecat.biz/thumbs/1489260.jpg" Name="Deskjet 5160 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="24561451" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="62023" Prod_id="C9007A#358" ThumbPic="http://images.icecat.biz/thumbs/53770.jpg" Name="Deskjet 5652 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="486616" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="106219" Prod_id="C8991A#358#*CARREF" ThumbPic="http://images.icecat.biz/thumbs/106219.jpg" Name="Deskjet 3550 Color inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="17084347" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="1356697" Prod_id="Q5765A#353" ThumbPic="http://images.icecat.biz/thumbs/123572.jpg" Name="PSC 1315 All-in-One Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="24561433" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="33721" Prod_id="C8947A#358" ThumbPic="http://images.icecat.biz/thumbs/33567.jpg" Name="deskjet 3420 kleuren-inkjetprinter">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="26067946" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="1594880" Prod_id="Q5768A" ThumbPic="http://images.icecat.biz/thumbs/1594880.jpg" Name="PSC 1311 All-in-One Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="987166" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="285581" Prod_id="C9025A#358" ThumbPic="http://images.icecat.biz/thumbs/122853.jpg" Name="Deskjet 3745 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="24561435" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="33777" Prod_id="C8949A#358" ThumbPic="http://images.icecat.biz/thumbs/33589.jpg" Name="deskjet 3325 printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="27030120" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="125631" Prod_id="Q5894A#ABH#*DEALS" ThumbPic="http://images.icecat.biz/thumbs/125631.jpg" Name="PSC 1215 all-in-one printer/scanner/copier">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="1986047" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="350828" Prod_id="Q5611A#ABW#*IRISBDL" ThumbPic="http://images.icecat.biz/thumbs/350828.jpg" Name="Officejet 4255 All-in-One Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="512538" Category_ID="304" Reversed="0" Preferred="0">
+	    <Product ID="121956" Prod_id="Q1612A#ABH" ThumbPic="http://images.icecat.biz/thumbs/111836.jpg" Name="officejet 4105 printer/fax/scanner/copier">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="27573139" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="132134" Prod_id="C8975A#353" ThumbPic="http://images.icecat.biz/thumbs/55555.jpg" Name="Deskjet 5850 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="27573141" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="1356658" Prod_id="C8975A#303" ThumbPic="http://images.icecat.biz/thumbs/55555.jpg" Name="Deskjet 5850 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="26067949" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="62024" Prod_id="C8962A#358" ThumbPic="http://images.icecat.biz/thumbs/52142.jpg" Name="Deskjet 5150 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="26067952" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="133046" Prod_id="C8962A#303" ThumbPic="http://images.icecat.biz/thumbs/52142.jpg" Name="Deskjet 5150 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="26067953" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="1258101" Prod_id="C8962A#353" ThumbPic="http://images.icecat.biz/thumbs/52142.jpg" Name="Deskjet 5150 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="27573136" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="893816" Prod_id="C8991A#303" ThumbPic="http://images.icecat.biz/thumbs/52140.jpg" Name="Deskjet 3550 Color inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="27030131" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="1593974" Prod_id="C9013A" ThumbPic="" Name="Deskjet 3620 Color Inkjet Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+
+   
+   
+<SummaryDescription>
+<ShortSummaryDescription langid="6">HP Cartucho de tinta original 28 Tri-color, Cian, Magenta, Amarillo, HP Deskjet 3320, 3325, 3420, 3425, 3520, 3535, 3550, 3645, 3647, 3650, 3745, 3845, Deskjet 5650, 565, 70 g, 5 - 95%, 0 - 40 °C, -15 - 35 °C</ShortSummaryDescription>
+<LongSummaryDescription langid="6">HP Cartucho de tinta original 28 Tri-color. Colores de impresión: Cian, Magenta, Amarillo, Productos compatibles: HP Deskjet 3320, 3325, 3420, 3425, 3520, 3535, 3550, 3645, 3647, 3650, 3745, 3845, Deskjet 5650, 565, Peso de cartucho: 70 g. Dimensiones (Ancho x Profundidad x Altura): 140 x 112 x 35 mm, Peso: 45 g, Peso del paquete: 70 g. Cantidad por palé: 1920 pieza(s), Peso del palé: 166,8 kg. Dimensiones del embalaje (alto x alto x peso): 140 x 112 x 35 mm</LongSummaryDescription>
+</SummaryDescription>
+
+   <Supplier ID="1" Name="HP"/>
+   </Product>
+</ICECAT-interface>
