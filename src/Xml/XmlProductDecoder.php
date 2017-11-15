@@ -75,52 +75,56 @@ class XmlProductDecoder implements DecoderInterface
             $simpleXmlNode = simplexml_load_string($xmlString);
             $icecatProduct = $simpleXmlNode->Product;
 
-            $pimAttributeCode = $this->configManager->get('pim_icecat_connector.description');
-            if (!empty($pimAttributeCode)) {
-                $standardItem = $this->addProductValue(
-                    $standardItem,
-                    $locale,
-                    $pimAttributeCode,
-                    null,
-                    (string)$icecatProduct->ProductDescription->attributes()['LongDesc'],
-                    null
-                );
+            if ($icecatProduct->ProductDescription) {
+                $pimAttributeCode = $this->configManager->get('pim_icecat_connector.description');
+                if (!empty($pimAttributeCode)) {
+                    $standardItem = $this->addProductValue(
+                        $standardItem,
+                        $locale,
+                        $pimAttributeCode,
+                        null,
+                        (string)$icecatProduct->ProductDescription->attributes()['LongDesc'],
+                        null
+                    );
+                }
+
+                $pimAttributeCode = $this->configManager->get('pim_icecat_connector.short_description');
+                if (!empty($pimAttributeCode)) {
+                    $standardItem = $this->addProductValue(
+                        $standardItem,
+                        $locale,
+                        $pimAttributeCode,
+                        null,
+                        (string)$icecatProduct->ProductDescription->attributes()['ShortDesc'],
+                        null
+                    );
+                }
             }
 
-            $pimAttributeCode = $this->configManager->get('pim_icecat_connector.short_description');
-            if (!empty($pimAttributeCode)) {
-                $standardItem = $this->addProductValue(
-                    $standardItem,
-                    $locale,
-                    $pimAttributeCode,
-                    null,
-                    (string)$icecatProduct->ProductDescription->attributes()['ShortDesc'],
-                    null
-                );
-            }
+            if ($icecatProduct->SummaryDescription) {
+                $pimAttributeCode = $this->configManager->get('pim_icecat_connector.summary_description');
+                if (!empty($pimAttributeCode)) {
+                    $standardItem = $this->addProductValue(
+                        $standardItem,
+                        $locale,
+                        $pimAttributeCode,
+                        null,
+                        (string)$icecatProduct->SummaryDescription->LongSummaryDescription,
+                        null
+                    );
+                }
 
-            $pimAttributeCode = $this->configManager->get('pim_icecat_connector.summary_description');
-            if (!empty($pimAttributeCode)) {
-                $standardItem = $this->addProductValue(
-                    $standardItem,
-                    $locale,
-                    $pimAttributeCode,
-                    null,
-                    (string)$icecatProduct->SummaryDescription->LongSummaryDescription,
-                    null
-                );
-            }
-
-            $pimAttributeCode = $this->configManager->get('pim_icecat_connector.short_summary_description');
-            if (!empty($pimAttributeCode)) {
-                $standardItem = $this->addProductValue(
-                    $standardItem,
-                    $locale,
-                    $pimAttributeCode,
-                    null,
-                    (string)$icecatProduct->SummaryDescription->ShortSummaryDescription,
-                    null
-                );
+                $pimAttributeCode = $this->configManager->get('pim_icecat_connector.short_summary_description');
+                if (!empty($pimAttributeCode)) {
+                    $standardItem = $this->addProductValue(
+                        $standardItem,
+                        $locale,
+                        $pimAttributeCode,
+                        null,
+                        (string)$icecatProduct->SummaryDescription->ShortSummaryDescription,
+                        null
+                    );
+                }
             }
 
             foreach ($icecatProduct->ProductFeature as $xmlFeature) {
@@ -176,6 +180,7 @@ class XmlProductDecoder implements DecoderInterface
      * @param mixed  $value
      * @param mixed  $localValue
      * @param string $unit
+     *
      * @return array
      */
     protected function addProductValue(array $standardItem, $locale, $pimCode, $value, $localValue, $unit)
@@ -214,9 +219,9 @@ class XmlProductDecoder implements DecoderInterface
 
         $standardItem['values'][$pimCode] = [
             [
-                'data' => $localValue,
+                'data'   => $localValue,
                 'locale' => $locale,
-                'scope' => $scope,
+                'scope'  => $scope,
             ],
         ];
 
@@ -232,9 +237,10 @@ class XmlProductDecoder implements DecoderInterface
     protected function formatMetricValue($icecatValue, $icecatUnit)
     {
         $measure = $this->measureRepository->find($icecatUnit);
+
         return [
             'amount' => $icecatValue,
-            'unit' => $measure['unit'],
+            'unit'   => $measure['unit'],
         ];
     }
 
@@ -246,10 +252,12 @@ class XmlProductDecoder implements DecoderInterface
      */
     protected function formatPriceValue($icecatValue, $icecatUnit)
     {
-        return [[
-            'data' => $icecatValue,
-            'currency' => $icecatUnit,
-        ]];
+        return [
+            [
+                'data'     => $icecatValue,
+                'currency' => $icecatUnit,
+            ],
+        ];
     }
 
     /**
@@ -260,12 +268,14 @@ class XmlProductDecoder implements DecoderInterface
     protected function formatNumberValue($icecatValue)
     {
         $intValue = filter_var($icecatValue, FILTER_VALIDATE_INT);
+
         return false !== $intValue ? $intValue : $icecatValue;
     }
 
     /**
      * @param AttributeInterface $pimAttribute
      * @param string             $icecatValue
+     *
      * @return string
      */
     protected function findOptionCode(AttributeInterface $pimAttribute, $icecatValue)
