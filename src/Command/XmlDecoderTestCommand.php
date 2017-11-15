@@ -2,19 +2,17 @@
 
 namespace Pim\Bundle\IcecatConnectorBundle\Command;
 
-use Pim\Bundle\ExtendedMeasureBundle\Exception\UnknownUnitException;
-use Pim\Bundle\ExtendedMeasureBundle\Exception\UnresolvableUnitException;
-use Pim\Bundle\IcecatConnectorBundle\Measure\MeasureParser;
-use Prewk\XmlStringStreamer;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\VarDumper\VarDumper;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * A command to test the XmlProductDecoder with an inline XML file
+ *
+ * Usage:
+ * bin/console pim-icecat:xml:decode EN vendor/akeneo/icecat-connector/tests/resources/808736152730_en.xml --env=prod
  *
  * @author    JM Leroux <jean-marie.leroux@akeneo.com>
  * @copyright 2017 Akeneo SAS (http://www.akeneo.com)
