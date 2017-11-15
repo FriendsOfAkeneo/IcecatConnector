@@ -75,28 +75,30 @@ class XmlProductDecoder implements DecoderInterface
             $simpleXmlNode = simplexml_load_string($xmlString);
             $icecatProduct = $simpleXmlNode->Product;
 
-            $pimAttributeCode = $this->configManager->get('pim_icecat_connector.description');
-            if (!empty($pimAttributeCode)) {
-                $standardItem = $this->addProductValue(
-                    $standardItem,
-                    $locale,
-                    $pimAttributeCode,
-                    null,
-                    (string)$icecatProduct->ProductDescription->attributes()['LongDesc'],
-                    null
-                );
-            }
+            if ($icecatProduct->ProductDescription) {
+                $pimAttributeCode = $this->configManager->get('pim_icecat_connector.description');
+                if (!empty($pimAttributeCode)) {
+                    $standardItem = $this->addProductValue(
+                        $standardItem,
+                        $locale,
+                        $pimAttributeCode,
+                        null,
+                        (string)$icecatProduct->ProductDescription->attributes()['LongDesc'],
+                        null
+                    );
+                }
 
-            $pimAttributeCode = $this->configManager->get('pim_icecat_connector.short_description');
-            if (!empty($pimAttributeCode)) {
-                $standardItem = $this->addProductValue(
-                    $standardItem,
-                    $locale,
-                    $pimAttributeCode,
-                    null,
-                    (string)$icecatProduct->ProductDescription->attributes()['ShortDesc'],
-                    null
-                );
+                $pimAttributeCode = $this->configManager->get('pim_icecat_connector.short_description');
+                if (!empty($pimAttributeCode)) {
+                    $standardItem = $this->addProductValue(
+                        $standardItem,
+                        $locale,
+                        $pimAttributeCode,
+                        null,
+                        (string)$icecatProduct->ProductDescription->attributes()['ShortDesc'],
+                        null
+                    );
+                }
             }
 
             $pimAttributeCode = $this->configManager->get('pim_icecat_connector.summary_description');
