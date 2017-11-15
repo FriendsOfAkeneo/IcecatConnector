@@ -157,7 +157,7 @@ class XmlProductDecoder implements DecoderInterface
                     $locale,
                     $pimAttributeCode,
                     null,
-                    json_encode(array_values($pictures)),
+                    array_values($pictures),
                     null
                 );
             }

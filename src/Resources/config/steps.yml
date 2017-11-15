@@ -22,10 +22,10 @@ services:
     pim_icecat_connector.step.icecat_enrichment.mass_edit:
         class: '%pim_connector.step.item_step.class%'
         arguments:
-            - 'mass_edit_icecat_enrichment'
+            - 'perform'
             - '@event_dispatcher'
             - '@akeneo_batch.job_repository'
-            - '@pim_connector.reader.database.product'
+            - '@pim_enrich.reader.database.product_and_product_model'
             - '@pim_icecat_connector.processor.enrich.product'
             - '@pim_connector.writer.database.product'
 

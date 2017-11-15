@@ -1,6 +1,6 @@
-feature_id;pim_attribute_code
-1006;icecat_numeric_keypad
-11379;icecat_processor_frequency
-3233;icecat_operating_system
-11381;icecat_installed_ram
-21719;icecat_processor_series
+feature_id;pim_attribute_code;ignore_flag
+1006;icecat_numeric_keypad;0
+11379;icecat_processor_frequency;0
+3233;icecat_operating_system;0
+11381;icecat_installed_ram;0
+21719;icecat_processor_series;0

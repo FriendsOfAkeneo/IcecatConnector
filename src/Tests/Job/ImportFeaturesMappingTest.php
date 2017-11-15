@@ -5,6 +5,7 @@ namespace Pim\Bundle\IcecatConnectorBundle\Tests\Job;
 use Akeneo\Bundle\BatchBundle\Command\BatchCommand;
 use Akeneo\Component\Batch\Model\JobExecution;
 use Akeneo\Component\Batch\Model\JobInstance;
+use Doctrine\ORM\EntityManager;
 use Pim\Bundle\IcecatConnectorBundle\Tests\AbstractTestCase;
 
 /**
@@ -17,9 +18,8 @@ class ImportFeaturesMappingTest extends AbstractTestCase
     /** @var string */
     private $jobCode = 'icecat_import_features_mapping';
 
-    public function setUp()
+    public function additionnalSetup()
     {
-        parent::setUp();
         $this->createImportProfile('Icecat', $this->jobCode);
         if (file_exists('/tmp/mapping.csv')) {
             unlink('/tmp/mapping.csv');
@@ -35,7 +35,6 @@ class ImportFeaturesMappingTest extends AbstractTestCase
 
         $res = $this->runBatchCommand($input);
         $this->assertEquals(BatchCommand::EXIT_WARNING_CODE, $res);
-
         $jobRepo = $this->get('akeneo_batch.job.job_instance_repository');
         /** @var JobInstance $job */
         $job = $jobRepo->findOneByIdentifier($this->jobCode);

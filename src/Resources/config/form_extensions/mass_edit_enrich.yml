@@ -1,0 +1,13 @@
+extensions:
+    icecat-mass_edit-enrich:
+        module: pimicecatconnector/mass_edit/enrich
+        parent: pim-mass-product-edit
+        position: 500
+        config:
+            title: batch_jobs.icecat_enrich_products.label
+            label: 'Icecat enrichment'
+            labelCount: "{1}Enrich <span class=\"AknFullPage-title--highlight\">1 product</span>|]1, Inf[Enrich <span class=\"AknFullPage-title--highlight\">{{ itemsCount }} products</span>"
+            description: 'Enrich products with Icecat data'
+            code: mass_edit_icecat_enrichment
+            jobInstanceCode: mass_edit_icecat_enrichment
+            icon: icon-template

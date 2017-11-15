@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ICECAT-interface SYSTEM "http://data.icecat.biz/dtd/ICECAT-interface_response.dtd">
+<!-- source: Icecat.biz 2017 -->
+<ICECAT-interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://data.icecat.biz/xsd/ICECAT-interface_response.xsd">
+   <Product Code="1" HighPic="http://images.icecat.biz/img/gallery/img_4794974_high_1486631541_3516_30222.jpg" HighPicHeight="833" HighPicSize="548829" HighPicWidth="1000" ID="4794974" LowPic="http://images.icecat.biz/img/gallery_lows/img_4794974_low_1486631543_8843_30222.jpg" LowPicHeight="166" LowPicSize="60691" LowPicWidth="200" Name="10 Black Original Ink Cartridge" Pic500x500="http://images.icecat.biz/img/gallery_mediums/img_4794974_medium_1486631541_5569_30222.jpg" Pic500x500Height="416" Pic500x500Size="317326" Pic500x500Width="500" Prod_id="C4844A" Quality="ICECAT" ReleaseDate="2010-05-13" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_4794974_thumb_1486631545_1056_30222.jpg" ThumbPicSize="3856" Title="HP 10 Black Original Ink Cartridge">
+   <CategoryFeatureGroup ID="2247" No="-1"><FeatureGroup ID="14"><Name ID="5023" langid="1" Value="Weight &amp; dimensions"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="2248" No="5"><FeatureGroup ID="28"><Name ID="5067" langid="1" Value="Operational conditions"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="15688" No="-100"><FeatureGroup ID="146"><Name ID="624346" langid="1" Value="Other features"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="10676" No="10"><FeatureGroup ID="185"><Name ID="1219853" langid="1" Value="Features"/></FeatureGroup></CategoryFeatureGroup><CategoryFeatureGroup ID="15687" No="-80"><FeatureGroup ID="198"><Name ID="1788927" langid="1" Value="Logistics data"/></FeatureGroup></CategoryFeatureGroup>
+   <Category ID="377"><Name ID="755" langid="1" Value="ink cartridges"/></Category>
+     <EANCode EAN="0088698519646"/>
+     <EANCode EAN="0886980205440"/>
+     <EANCode EAN="0088698205440"/>
+     <EANCode EAN="0886982054404"/>
+   
+   <ReasonsToBuy/>
+   <BulletPoints/>
+   <ProductBundled/>
+       <ProductDescription ID="25611575" LongDesc="- Specially engineered HP dye-based color inks and pigmented black ink;\n- Specially designed to work with HP inkjet specialty papers, transparencies and everyday papers;\n- Works as a modular system with the HP 11 Color Ink Cartridges and HP 11 Printheads;\n- Individually replaceable ink cartridges maximize ink efficiency." ManualPDFSize="0" ManualPDFURL="" PDFSize="0" PDFURL="" ShortDesc="10 - 2200 pages, Black" URL="http://h10010.www1.hp.com/wwpc/us/en/sm/WF06c/A10-12771-64199-69422-69422-24421-31919-12882.html" WarrantyInfo="" langid="1"/>
+   
+   
+    <ProductFeature Localized="0" ID="241869457" Local_ID="0" Value="C4844A" CategoryFeature_ID="115075" CategoryFeatureGroup_ID="10676" No="100400" Presentation_Value="C4844A" Translated="0" Mandatory="1" Searchable="0">
+      <LocalValue Value="C4844A">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="15279">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1161027" langid="1" Value="OEM code"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="131991415" Local_ID="0" Value="Black" CategoryFeature_ID="9666" CategoryFeatureGroup_ID="10676" No="100099" Presentation_Value="Black" Translated="1" Mandatory="1" Searchable="0">
+      <LocalValue Value="Black">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2037">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="9107" langid="1" Value="Printing colours"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="131991419" Local_ID="0" Value="HP Color Inkjet CP 1700, Business Inkjet 1000, 1100, 1200, HP 2000c/cn,HP Business Inkjet 2200, 2300, 2600, 2800, HP 2500c/cm, Business Inkjet 3000, Officejet 9110, 9120, 9130, Officejet Pro K850" CategoryFeature_ID="41689" CategoryFeatureGroup_ID="10676" No="100000" Presentation_Value="HP Color Inkjet CP 1700, Business Inkjet 1000, 1100, 1200, HP 2000c/cn,HP Business Inkjet 2200, 2300, 2600, 2800, HP 2500c/cm, Business Inkjet 3000, Officejet 9110, 9120, 9130, Officejet Pro K850" Translated="0" Mandatory="1" Searchable="0">
+      <LocalValue Value="HP Color Inkjet CP 1700, Business Inkjet 1000, 1100, 1200, HP 2000c/cn,HP Business Inkjet 2200, 2300, 2600, 2800, HP 2500c/cm, Business Inkjet 3000, Officejet 9110, 9120, 9130, Officejet Pro K850">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="2190">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="11196" langid="1" Value="Compatible products"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="131991417" Local_ID="0" Value="Standard" CategoryFeature_ID="31950" CategoryFeatureGroup_ID="10676" No="200000" Presentation_Value="Standard" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Standard">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="6273">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="161617" langid="1" Value="Cartridge capacity"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="241869477" Local_ID="0" Value="2200" CategoryFeature_ID="140965" CategoryFeatureGroup_ID="10676" No="100100" Presentation_Value="2200 pages" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="2200">
+      <Measure ID="55">
+        <Signs><Sign ID="38" langid="1"><![CDATA[pages]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="23156">
+        <Measure ID="55" Sign="">
+          <Signs><Sign ID="38" langid="1"><![CDATA[pages]]></Sign></Signs>
+        </Measure>
+        <Name ID="1822566" langid="1" Value="Black ink page yield"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="131991420" Local_ID="0" Value="Black" CategoryFeature_ID="21306" CategoryFeatureGroup_ID="10676" No="100000" Presentation_Value="Black" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Black">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="3858">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="55162" langid="1" Value="BCP bubble graphic colour"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="131991416" Local_ID="0" Value="1" CategoryFeature_ID="27516" CategoryFeatureGroup_ID="10676" No="100000" Presentation_Value="1" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="1">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1675">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="5223" langid="1" Value="Quantity"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="131991422" Local_ID="0" Value="Inkjet" CategoryFeature_ID="8121" CategoryFeatureGroup_ID="10676" No="99999" Presentation_Value="Inkjet" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Inkjet">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="78">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="1493" langid="1" Value="Print technology"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="131991421" Local_ID="0" Value="Box" CategoryFeature_ID="39951" CategoryFeatureGroup_ID="10676" No="99800" Presentation_Value="Box" Translated="1" Mandatory="0" Searchable="0">
+      <LocalValue Value="Box">
+      <Measure ID="29">
+        <Signs/>
+      </Measure>
+    </LocalValue>
+      <Feature ID="4463">
+        <Measure ID="29" Sign="">
+          <Signs/>
+        </Measure>
+        <Name ID="60405" langid="1" Value="Package type"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="131991423" Local_ID="0" Value="-5 - 40" CategoryFeature_ID="5018" CategoryFeatureGroup_ID="2248" No="100034" Presentation_Value="-5 - 40 °C" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="-5 - 40">
+      <Measure ID="65">
+        <Signs><Sign ID="48" langid="1"><![CDATA[°C]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="757">
+        <Measure ID="65" Sign="">
+          <Signs><Sign ID="48" langid="1"><![CDATA[°C]]></Sign></Signs>
+        </Measure>
+        <Name ID="3045" langid="1" Value="Storage temperature (T-T)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="131991424" Local_ID="0" Value="5 - 40" CategoryFeature_ID="5556" CategoryFeatureGroup_ID="2248" No="100000" Presentation_Value="5 - 40 °C" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="5 - 40">
+      <Measure ID="65">
+        <Signs><Sign ID="48" langid="1"><![CDATA[°C]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="1112">
+        <Measure ID="65" Sign="">
+          <Signs><Sign ID="48" langid="1"><![CDATA[°C]]></Sign></Signs>
+        </Measure>
+        <Name ID="3765" langid="1" Value="Operating temperature (T-T)"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="131991425" Local_ID="0" Value="154.2" CategoryFeature_ID="5017" CategoryFeatureGroup_ID="2247" No="99980" Presentation_Value="154.2 g" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="154.2">
+      <Measure ID="38">
+        <Signs><Sign ID="22" langid="1"><![CDATA[g]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="762">
+        <Measure ID="38" Sign="">
+          <Signs><Sign ID="22" langid="1"><![CDATA[g]]></Sign></Signs>
+        </Measure>
+        <Name ID="3055" langid="1" Value="Package weight"/>
+      </Feature>
+    </ProductFeature>
+
+    <ProductFeature Localized="0" ID="131991426" Local_ID="0" Value="124.4 x 38.1 x 142.2" CategoryFeature_ID="10394" CategoryFeatureGroup_ID="15688" No="100000" Presentation_Value="124.4 x 38.1 x 142.2 mm" Translated="0" Mandatory="0" Searchable="0">
+      <LocalValue Value="124.4 x 38.1 x 142.2">
+      <Measure ID="24">
+        <Signs><Sign ID="3" langid="1"><![CDATA[mm]]></Sign></Signs>
+      </Measure>
+    </LocalValue>
+      <Feature ID="582">
+        <Measure ID="24" Sign="">
+          <Signs><Sign ID="3" langid="1"><![CDATA[mm]]></Sign></Signs>
+        </Measure>
+        <Name ID="2695" langid="1" Value="Package dimensions (WxDxH)"/>
+      </Feature>
+    </ProductFeature>
+
+   <ProductGallery>
+     <ProductPicture IsMain="Y" LowPic="http://images.icecat.biz/img/gallery_lows/img_4794974_low_1486631543_8843_30222.jpg" LowPicHeight="166" LowPicWidth="200" LowSize="60691" No="1" Original="http://images.icecat.biz/img/gallery_raw/img_4794974_raw_1486631541_3471_30222.jpg" OriginalSize="403211" Pic="http://images.icecat.biz/img/gallery/img_4794974_high_1486631541_3516_30222.jpg" Pic500x500="http://images.icecat.biz/img/gallery_mediums/img_4794974_medium_1486631541_5569_30222.jpg" Pic500x500Height="416" Pic500x500Size="317326" Pic500x500Width="500" PicHeight="833" PicWidth="1000" ProductPicture_ID="20442084" Size="548829" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_4794974_thumb_1486631545_1056_30222.jpg" ThumbSize="3856" Type="ProductImage"/>
+   </ProductGallery>
+       <ProductMultimediaObject>
+      <MultimediaObject ContentType="text/html" Date="2014-03-03 14:43:15" Description="CE Declaration Thermal Inkjet Cartridges for HP InkJet Printers" Height="0" KeepAsURL="1" MultimediaObject_ID="1697133" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="0" Type="certification" URL="http://objects.icecat.biz/objects/mmo-4794974-1697133.html" UUID="EB6B7112-E7E9-11E3-8D98-CE7B2F0ECC11" Width="0" langid="1"/>
+      <MultimediaObject ContentType="text/html" Date="2017-08-30 03:13:21" Description="Thermal Inkjet Printing Process" Height="0" KeepAsURL="1" MultimediaObject_ID="6046747" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="1683" Type="video/mp4" URL="http://objects.icecat.biz/objects/mmo-4794974-6046747.html" UUID="B5C0FB24-3BE2-4907-BFB9-D3188F5614DF" Width="0" langid="1"/>
+      <MultimediaObject ContentType="text/html" Date="2017-08-30 03:54:45" Description="Inkology - Reliability module" Height="0" KeepAsURL="1" MultimediaObject_ID="6048129" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="1683" Type="video/mp4" URL="http://objects.icecat.biz/objects/mmo-4794974-6048129.html" UUID="A991336E-36E0-4966-893C-5A85BBD569A7" Width="0" langid="1"/>
+      <MultimediaObject ContentType="text/html" Date="2017-02-09 10:12:11" Description="ColorLok" Height="0" KeepAsURL="1" MultimediaObject_ID="4919793" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="0" Type="video/mp4" URL="http://objects.icecat.biz/objects/mmo-4794974-4919793.html" UUID="819915b3-9797-45df-9550-d8bcbecee9b5" Width="0" langid="1"/>
+      <MultimediaObject ContentType="text/html" Date="2017-02-09 10:13:09" Description="HP Ink Technology" Height="0" KeepAsURL="1" MultimediaObject_ID="4920170" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="0" Type="video/mp4" URL="http://objects.icecat.biz/objects/mmo-4794974-4920170.html" UUID="79d17026-18fa-46bb-89b8-cab1244cfee5" Width="0" langid="1"/>
+      <MultimediaObject ContentType="text/html" Date="2017-02-09 10:13:09" Description="HP Inkology 1 - English" Height="0" KeepAsURL="1" MultimediaObject_ID="4920167" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="0" Type="video/mp4" URL="http://objects.icecat.biz/objects/mmo-4794974-4920167.html" UUID="08624568-4002-4d57-9a82-c1b05200c9e7" Width="0" langid="1"/>
+      <MultimediaObject ContentType="text/html" Date="2017-02-09 10:12:11" Description="Thermal Inkjet Printing Process" Height="0" KeepAsURL="1" MultimediaObject_ID="4919800" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="0" Type="video/mp4" URL="http://objects.icecat.biz/objects/mmo-4794974-4919800.html" UUID="0205c6fd-5ae1-4bee-bbaa-5cf58f2ad053" Width="0" langid="1"/>
+      <MultimediaObject ContentType="text/html" Date="2017-02-09 10:12:11" Description="HP Paperology" Height="0" KeepAsURL="1" MultimediaObject_ID="4919802" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="0" Type="video/mp4" URL="http://objects.icecat.biz/objects/mmo-4794974-4919802.html" UUID="e20eaaa2-f9f6-4715-94bc-f754b0ab5600" Width="0" langid="1"/>
+      <MultimediaObject ContentType="text/html" Date="2017-02-09 10:13:09" Description="Inkology - Quality module" Height="0" KeepAsURL="1" MultimediaObject_ID="4920165" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="0" Type="video/mp4" URL="http://objects.icecat.biz/objects/mmo-4794974-4920165.html" UUID="f8a169f6-d922-4b17-afa3-ceb5af7354a8" Width="0" langid="1"/>
+      <MultimediaObject ContentType="text/html" Date="2017-02-09 10:13:09" Description="Inkology - Reliability module" Height="0" KeepAsURL="1" MultimediaObject_ID="4920166" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="0" Type="video/mp4" URL="http://objects.icecat.biz/objects/mmo-4794974-4920166.html" UUID="b35a3b91-0d86-4a4b-bd82-983dc0f4e286" Width="0" langid="1"/>
+      <MultimediaObject ContentType="text/html" Date="2017-02-09 10:12:11" Description="Inkology - Episode 2" Height="0" KeepAsURL="1" MultimediaObject_ID="4919801" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="0" Type="video/mp4" URL="http://objects.icecat.biz/objects/mmo-4794974-4919801.html" UUID="b606cdfb-acbb-410d-9be1-4a7c7976d98a" Width="0" langid="1"/>
+      <MultimediaObject ContentType="text/html" Date="2017-02-09 10:13:09" Description="Inkology 2015 EMEA HP brand and legal approved" Height="0" KeepAsURL="1" MultimediaObject_ID="4920168" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="0" Type="video/mp4" URL="http://objects.icecat.biz/objects/mmo-4794974-4920168.html" UUID="cb97f2aa-e20f-4f2d-beb4-bd3a5b8c4c94" Width="0" langid="1"/>
+      <MultimediaObject ContentType="text/html" Date="2017-02-09 10:12:11" Description="Inkology 2015 LAR HP brand and legal approved_1080P" Height="0" KeepAsURL="1" MultimediaObject_ID="4919799" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="0" Type="video/mp4" URL="http://objects.icecat.biz/objects/mmo-4794974-4919799.html" UUID="8bae0640-bcaf-4f77-952e-1bc790b8be0b" Width="0" langid="1"/>
+      <MultimediaObject ContentType="text/html" Date="2017-02-09 10:13:09" Description="HP SureSupply Auto-Delivery Video" Height="0" KeepAsURL="1" MultimediaObject_ID="4920169" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="0" Type="video/mp4" URL="http://objects.icecat.biz/objects/mmo-4794974-4920169.html" UUID="5b2766c5-77f3-438e-a19c-8c69bbdfbe27" Width="0" langid="1"/>
+      <MultimediaObject ContentType="application/pdf" Date="2011-03-04 15:28:53" Description="hp no. 10  hp no. 11 and hp no. 82 ink supplies" Height="0" KeepAsURL="0" MultimediaObject_ID="355330" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="85215" Type="data sheet" URL="http://objects.icecat.biz/objects/HP_literature_uk_en_5980-3003EEE.pdf" UUID="EB6B66D6-E7E9-11E3-8D98-CE7B2F0ECC11" Width="0" langid="1"/>
+      <MultimediaObject ContentType="application/pdf" Date="2017-07-21 18:47:10" Description="Original HP Ink cartridges Compatibility chart CISMEA" Height="0" KeepAsURL="0" MultimediaObject_ID="4919798" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="325850" Type="pdf" URL="http://objects.icecat.biz/objects/mmo_4794974_1500655589_7912_7281.pdf" UUID="b081ab33-f079-490c-91a1-7df884047825" Width="0" langid="1"/>
+      <MultimediaObject ContentType="application/pdf" Date="2017-07-21 18:47:10" Description="Original HP Ink cartridges Compatibility chart EU+" Height="0" KeepAsURL="0" MultimediaObject_ID="4919797" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="366501" Type="pdf" URL="http://objects.icecat.biz/objects/mmo_4794974_1500655591_7631_12120.pdf" UUID="28a98d06-e83e-4f96-a6fc-110137d124f7" Width="0" langid="1"/>
+      <MultimediaObject ContentType="application/pdf" Date="2017-08-12 02:26:44" Description="HP TIJ 2.5 Industrial Inks selection guide A4" Height="0" KeepAsURL="0" MultimediaObject_ID="4919796" PreviewHeight="0" PreviewSize="0" PreviewUrl="" PreviewWidth="0" Size="798363" Type="pdf" URL="http://objects.icecat.biz/objects/mmo_4794974_1502497604_0872_18520.pdf" UUID="a9a626a0-f9b8-49c6-8ebf-429f058dce99" Width="0" langid="1"/>
+    </ProductMultimediaObject>
+
+   	  <ProductRelated ID="71582421" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="274182" Prod_id="C8174A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_274182_thumb_1500658484_1759_25688.jpg" Name="2800">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="152737694" Category_ID="2595" Reversed="0" Preferred="0">
+	    <Product ID="6579567" Prod_id="C7769-60373" ThumbPic="http://images.icecat.biz/thumbs/6579567.jpg" Name="C7769-60373">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="76861093" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="902167" Prod_id="C7770F" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_902167_thumb_1496969150_4138_29264.jpg" Name="Designjet 500 Plus (42-inch) Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="71582423" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="274278" Prod_id="C8164A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_274278_thumb_1506649118_1541_21842.jpg" Name="Business Inkjet 2800dtn Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="71582458" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="902138" Prod_id="C7769F" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_902138_thumb_1496969178_751_10433.jpg" Name="Designjet 500 Plus 24-in Roll Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="71582508" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="4720823" Prod_id="C8174A#613" ThumbPic="http://images.icecat.biz/thumbs/274182.jpg" Name="Business Inkjet 2800 Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="76602694" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="134294" Prod_id="C8154A" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_134294_thumb_1500658446_5521_29055.jpg" Name="Business Inkjet 1200d Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="72940929" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="3993890" Prod_id="Q6655A" ThumbPic="http://images.icecat.biz/thumbs/279800.jpg" Name="Designjet 70">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="115878927" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="14736815" Prod_id="C8174A#KIT" ThumbPic="http://images.icecat.biz/thumbs/14736815.jpg" Name="2800">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="71582506" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="4006426" Prod_id="C8174A#612" ThumbPic="http://images.icecat.biz/thumbs/4006426.jpg" Name="C8174A">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="75025960" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="5105367" Prod_id="C8164A#612" ThumbPic="http://images.icecat.biz/thumbs/274183.jpg" Name="Business Inkjet 2800dtn Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="72930320" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="1636984" Prod_id="Q6655A#407" ThumbPic="http://images.icecat.biz/thumbs/279800.jpg" Name="Designjet 70 Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="71582486" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="1636350" Prod_id="C7770G" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_1636350_thumb_1496969187_5066_13295.jpg" Name="Designjet 500ps Plus (42-inch) Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="71582509" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="4804225" Prod_id="C8174A#614" ThumbPic="http://images.icecat.biz/thumbs/274182.jpg" Name="Business Inkjet 2800 Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="72925525" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="902156" Prod_id="Q6655A#410" ThumbPic="http://images.icecat.biz/thumbs/279800.jpg" Name="Designjet 70 Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="71336557" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="3424436" Prod_id="C7796F" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_3424436_thumb_1496969174_9302_29145.jpg" Name="Designjet 110plus nr Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="71582446" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="612763" Prod_id="C7769G" ThumbPic="http://images.icecat.biz/img/gallery_thumbs/img_612763_thumb_1496969184_3377_6504.jpg" Name="Designjet 500ps Plus (24-inch) Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="131762467" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="17659755" Prod_id="C7769F#ABB" ThumbPic="http://images.icecat.biz/thumbs/17659755.jpg" Name="Designjet 500 Plus 24-in Roll Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="71288795" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="1696874" Prod_id="C7796F#410" ThumbPic="http://images.icecat.biz/thumbs/1655747.jpg" Name="Designjet 110plus nr Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="72925524" Category_ID="234" Reversed="0" Preferred="0">
+	    <Product ID="902155" Prod_id="Q6655A#408" ThumbPic="http://images.icecat.biz/thumbs/279800.jpg" Name="Designjet 70 Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="71281865" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="1646749" Prod_id="C7796F#411" ThumbPic="http://images.icecat.biz/thumbs/1655747.jpg" Name="Designjet 110plus nr Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="71306032" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="1969489" Prod_id="C7796F#411+C7796F#411" ThumbPic="http://images.icecat.biz/thumbs/1655747.jpg" Name="Designjet 110plus nr Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="71288796" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="1696881" Prod_id="C7796F#408" ThumbPic="http://images.icecat.biz/thumbs/1655747.jpg" Name="Designjet 110plus nr Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="71582476" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="1531233" Prod_id="C7769G#BOX" ThumbPic="http://images.icecat.biz/thumbs/482499.jpg" Name="Designjet 500ps Plus (24-inch) Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="71292709" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="1730963" Prod_id="C7796F#407" ThumbPic="http://images.icecat.biz/thumbs/1655747.jpg" Name="Designjet 110plus nr Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+	  <ProductRelated ID="131762468" Category_ID="230" Reversed="0" Preferred="0">
+	    <Product ID="17659760" Prod_id="C7770F#ABB" ThumbPic="http://images.icecat.biz/thumbs/17659760.jpg" Name="Designjet 500 Plus 42-in Roll Printer">
+	      <Supplier ID="1" Name="HP"/>
+	    </Product>
+	  </ProductRelated>
+
+   
+   
+<SummaryDescription>
+<ShortSummaryDescription langid="1">HP 10 Black Original Ink Cartridge, C4844A, Black, HP Color Inkjet CP 1700, Business Inkjet 1000, 1100, 1200, HP 2000c/cn,HP Business Inkjet 2200,..., Standard, 2200 pages, Black</ShortSummaryDescription>
+<LongSummaryDescription langid="1">HP 10 Black Original Ink Cartridge. OEM code: C4844A, Printing colours: Black, Compatible products: HP Color Inkjet CP 1700, Business Inkjet 1000, 1100, 1200, HP 2000c/cn,HP Business Inkjet 2200,.... Package weight: 154.2 g. Package dimensions (WxDxH): 124.4 x 38.1 x 142.2 mm</LongSummaryDescription>
+</SummaryDescription>
+
+   <Supplier ID="1" Name="HP"/>
+   </Product>
+</ICECAT-interface>

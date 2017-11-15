@@ -1,3 +1,11 @@
+# 2.0.0
+## Improvements
+- MKP-688: PIM 2.0 compatibility
+
+## BC breaks
+- Rename form extension `icecat-job-instance-csv-base-import-show` to `icecat-job-instance-xml-base-import-show`
+- Rename form extension `icecat-job-instance-csv-base-import-edit` to `icecat-job-instance-xml-base-import-edit`
+
 # 1.2.2
 ## Improvements
 - MKP-719: MKP-719: revert enrich job to its previous name to avoid BC break

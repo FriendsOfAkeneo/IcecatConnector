@@ -2,5 +2,9 @@ config:
     paths:
         pimicecatconnector/system/configuration: pimicecatconnector/js/form/system
         pimicecatconnector/template/system/group/configuration: pimicecatconnector/js/templates/system/group/configuration.html
+
         pimicecatconnector/job/message_no_settings: pimicecatconnector/js/job/message_no_settings
         pimicecatconnector/template/job/no_settings: pimicecatconnector/js/templates/job/no_settings.html
+
+        pimicecatconnector/mass_edit/enrich: pimicecatconnector/js/mass_edit/icecat_enrich
+        pimicecatconnector/template/mass_edit/enrich: pimicecatconnector/js/templates/mass_edit/enrich.html

@@ -15,9 +15,8 @@ class FeaturesDownloadTest extends AbstractTestCase
     /** @var string */
     private $jobCode = 'icecat_download_features';
 
-    public function setUp()
+    public function additionnalSetup()
     {
-        parent::setUp();
         $this->createImportProfile('Icecat', $this->jobCode);
     }
 
