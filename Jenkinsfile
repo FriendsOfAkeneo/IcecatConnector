@@ -1,6 +1,6 @@
 #!groovy
 
-def launchIntegrationTests = "no"
+def launchIntegrationTests = "yes"
 
 class Globals {
     static pimVersion = "2.0"
