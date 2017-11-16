@@ -2,180 +2,203 @@
     <img style="height: 80px; margin-bottom: 1em;"
          src="/bundles/pimicecatconnector/img/icecat-logo.png"/>
 </div>
-<div class="AknFormContainer AknFormContainer--withPadding">
-    <div class="AknFieldContainer">
-        <div class="AknFieldContainer-header">
-            <label class="AknFieldContainer-label"
-                   for="credentials_username"><%-
-                _.__('pim_icecat_connector.configuration.credentials_username') %></label>
+
+<div class="AknSubsection">
+    <header class="AknSubsection-title">
+        <span class="group-label"><%- _.__('pim_icecat_connector.configuration.section.credentials') %></span>
+    </header>
+    <div class="AknFormContainer AknFormContainer--withPadding">
+
+        <div class="AknFieldContainer">
+            <div class="AknFieldContainer-header">
+                <label class="AknFieldContainer-label"
+                       for="credentials_username"><%-
+                    _.__('pim_icecat_connector.configuration.credentials_username') %></label>
+            </div>
+            <div class="AknFieldContainer-inputContainer">
+                <input class="AknTextField pim-icecat-config pim-icecat-credentials"
+                       id="credentials_username" name="credentials_username"
+                       type="text" value="<%- credentials_username %>"/>
+            </div>
         </div>
-        <div class="AknFieldContainer-inputContainer">
-            <input class="AknTextField pim-icecat-config pim-icecat-credentials"
-                   id="credentials_username" name="credentials_username"
-                   type="text" value="<%- credentials_username %>"/>
+        <div class="AknFieldContainer">
+            <div class="AknFieldContainer-header">
+                <label class="AknFieldContainer-label"
+                       for="credentials_password"><%-
+                    _.__('pim_icecat_connector.configuration.credentials_password') %></label>
+            </div>
+            <div class="AknFieldContainer-inputContainer">
+                <input class="AknTextField pim-icecat-config pim-icecat-credentials"
+                       id="credentials_password" name="credentials_password"
+                       type="password" value="<%- credentials_password %>"/>
+            </div>
+
+        </div>
+        <div class="AknFieldContainer">
+            <div class="AknButtonList">
+                <div class="AknButton AknButtonList-item" id="check-connection">Check connection</div>
+            </div>
+            <div id="connection-status-prototype" style="display:none">
+                <i class="AknAcl-icon AknAcl-icon--%granted% icon-%icon%"></i>
+                %status_message%
+            </div>
+            <div id="connection-status" class="AknAcl">
+            </div>
         </div>
     </div>
-    <div class="AknFieldContainer">
-        <div class="AknFieldContainer-header">
-            <label class="AknFieldContainer-label"
-                   for="credentials_password"><%-
-                _.__('pim_icecat_connector.configuration.credentials_password') %></label>
+</div>
+
+<div class="AknSubsection">
+    <header class="AknSubsection-title">
+        <span class="group-label"><%- _.__('pim_icecat_connector.configuration.section.mapping') %></span>
+    </header>
+    <div class="AknFormContainer AknFormContainer--withPadding">
+        <div class="AknFieldContainer">
+            <div class="AknFieldContainer-header">
+                <label class="AknFieldContainer-label"
+                       for="ean_attribute"><%-
+                    _.__('pim_icecat_connector.configuration.ean_attribute')
+                    %></label>
+            </div>
+            <div class="AknFieldContainer-inputContainer">
+                <input class="pim-icecat-config select-field"
+                       id="ean_attribute" name="ean_attribute"
+                       type="hidden" value="<%- ean_attribute %>"/>
+            </div>
+            <div class="AknFieldContainer-footer">
+                Identifiers, text or number attributes
+            </div>
         </div>
-        <div class="AknFieldContainer-inputContainer">
-            <input class="AknTextField pim-icecat-config pim-icecat-credentials"
-                   id="credentials_password" name="credentials_password"
-                   type="password" value="<%- credentials_password %>"/>
+        <div class="AknFieldContainer">
+            <div class="AknFieldContainer-header">
+                <label class="AknFieldContainer-label"
+                       for="description"><%-
+                    _.__('pim_icecat_connector.configuration.description')
+                    %></label>
+            </div>
+            <div class="AknFieldContainer-inputContainer">
+                <input class="pim-icecat-config select-field pim-icecat-config-text"
+                       id="description" name="description"
+                       type="hidden" value="<%- description %>"/>
+            </div>
+            <div class="AknFieldContainer-footer">
+                Text or textarea attributes
+            </div>
+        </div>
+        <div class="AknFieldContainer">
+            <div class="AknFieldContainer-header">
+                <label class="AknFieldContainer-label"
+                       for="short_description"><%-
+                    _.__('pim_icecat_connector.configuration.short_description') %></label>
+            </div>
+            <div class="AknFieldContainer-inputContainer">
+                <input class="pim-icecat-config select-field pim-icecat-config-text"
+                       id="short_description" name="short_description"
+                       type="hidden" value="<%- short_description %>"/>
+            </div>
+            <div class="AknFieldContainer-footer">
+                Text or textarea attributes
+            </div>
+        </div>
+        <div class="AknFieldContainer">
+            <div class="AknFieldContainer-header">
+                <label class="AknFieldContainer-label"
+                       for="summary_description"><%-
+                    _.__('pim_icecat_connector.configuration.summary_description') %></label>
+            </div>
+            <div class="AknFieldContainer-inputContainer">
+                <input class="pim-icecat-config select-field pim-icecat-config-text"
+                       id="summary_description" name="summary_description"
+                       type="hidden" value="<%- summary_description %>"/>
+            </div>
+            <div class="AknFieldContainer-footer">
+                Text or textarea attributes
+            </div>
         </div>
 
-    </div>
-    <div class="AknFieldContainer">
-        <div class="AknButtonList">
-            <div class="AknButton AknButtonList-item" id="check-connection">Check connection</div>
+        <div class="AknFieldContainer">
+            <div class="AknFieldContainer-header">
+                <label class="AknFieldContainer-label"
+                       for="short_summary_description"><%-
+                    _.__('pim_icecat_connector.configuration.short_summary_description') %></label>
+            </div>
+            <div class="AknFieldContainer-inputContainer">
+                <input class="pim-icecat-config select-field pim-icecat-config-text"
+                       id="short_summary_description"
+                       name="short_summary_description"
+                       type="hidden" value="<%- short_summary_description %>"/>
+            </div>
+            <div class="AknFieldContainer-footer">
+                Text or textarea attributes
+            </div>
         </div>
-        <div id="connection-status-prototype" style="display:none">
-            <i class="AknAcl-icon AknAcl-icon--%granted% icon-%icon%"></i>
-            %status_message%
-        </div>
-        <div id="connection-status" class="AknAcl">
-        </div>
-    </div>
 
-    <div class="AknFieldContainer">
-        <div class="AknFieldContainer-header">
-            <label class="AknFieldContainer-label"
-                   for="ean_attribute"><%-
-                _.__('pim_icecat_connector.configuration.ean_attribute')
-                %></label>
-        </div>
-        <div class="AknFieldContainer-inputContainer">
-            <input class="pim-icecat-config select-field"
-                   id="ean_attribute" name="ean_attribute"
-                   type="hidden" value="<%- ean_attribute %>"/>
-        </div>
-        <div class="AknFieldContainer-footer">
-            Identifiers, text or number attributes
-        </div>
-    </div>
-    <div class="AknFieldContainer">
-        <div class="AknFieldContainer-header">
-            <label class="AknFieldContainer-label"
-                   for="description"><%-
-                _.__('pim_icecat_connector.configuration.description')
-                %></label>
-        </div>
-        <div class="AknFieldContainer-inputContainer">
-            <input class="pim-icecat-config select-field pim-icecat-config-text"
-                   id="description" name="description"
-                   type="hidden" value="<%- description %>"/>
-        </div>
-        <div class="AknFieldContainer-footer">
-            Text or textarea attributes
+        <div class="AknFieldContainer">
+            <div class="AknFieldContainer-header">
+                <label class="AknFieldContainer-label"
+                       for="pictures"><%-
+                    _.__('pim_icecat_connector.configuration.pictures') %></label>
+            </div>
+            <div class="AknFieldContainer-inputContainer">
+                <input class="pim-icecat-config select-field"
+                       id="pictures" name="pictures"
+                       type="hidden" value="<%- pictures %>"/>
+            </div>
+            <div class="AknFieldContainer-footer">
+                Text collections attributes only
+            </div>
         </div>
     </div>
-    <div class="AknFieldContainer">
-        <div class="AknFieldContainer-header">
-            <label class="AknFieldContainer-label"
-                   for="short_description"><%-
-                _.__('pim_icecat_connector.configuration.short_description') %></label>
-        </div>
-        <div class="AknFieldContainer-inputContainer">
-            <input class="pim-icecat-config select-field pim-icecat-config-text"
-                   id="short_description" name="short_description"
-                   type="hidden" value="<%- short_description %>"/>
-        </div>
-        <div class="AknFieldContainer-footer">
-            Text or textarea attributes
-        </div>
-    </div>
-    <div class="AknFieldContainer">
-        <div class="AknFieldContainer-header">
-            <label class="AknFieldContainer-label"
-                   for="summary_description"><%-
-                _.__('pim_icecat_connector.configuration.summary_description') %></label>
-        </div>
-        <div class="AknFieldContainer-inputContainer">
-            <input class="pim-icecat-config select-field pim-icecat-config-text"
-                   id="summary_description" name="summary_description"
-                   type="hidden" value="<%- summary_description %>"/>
-        </div>
-        <div class="AknFieldContainer-footer">
-            Text or textarea attributes
-        </div>
-    </div>
-    <div class="AknFieldContainer">
-        <div class="AknFieldContainer-header">
-            <label class="AknFieldContainer-label"
-                   for="locales">Locales selector</label>
-        </div>
-        <div class="AknFieldContainer-inputContainer">
-            <input class="pim-icecat-config select-field"
-                   id="locales" name="locales"
-                   type="hidden" value="<%- locales %>"/>
-        </div>
-        <div class="AknFieldContainer-footer">
-            Select locales from Icecat
-        </div>
-    </div>
+</div>
 
-    <div class="AknFieldContainer">
-        <div class="AknFieldContainer-header">
-            <label class="AknFieldContainer-label"
-                   for="fallback_locale">Fallback locale selector</label>
+<div class="AknSubsection">
+    <header class="AknSubsection-title">
+        <span class="group-label"><%- _.__('pim_icecat_connector.configuration.section.locales') %></span>
+    </header>
+    <div class="AknFormContainer AknFormContainer--withPadding">
+        <div class="AknFieldContainer">
+            <div class="AknFieldContainer-header">
+                <label class="AknFieldContainer-label"
+                       for="locales">Locales selector</label>
+            </div>
+            <div class="AknFieldContainer-inputContainer">
+                <input class="pim-icecat-config select-field"
+                       id="locales" name="locales"
+                       type="hidden" value="<%- locales %>"/>
+            </div>
+            <div class="AknFieldContainer-footer">
+                Select locales from Icecat
+            </div>
         </div>
-        <div class="AknFieldContainer-inputContainer">
-            <input class="pim-icecat-config select-field"
-                   id="fallback_locale" name="fallback_locale"
-                   type="hidden" value="<%- fallback_locale %>"/>
-        </div>
-        <div class="AknFieldContainer-footer">
-            Select one locale from Icecat
-        </div>
-    </div>
 
-    <div class="AknFieldContainer">
-        <div class="AknFieldContainer-header">
-            <label class="AknFieldContainer-label"
-                   for="scope">Channel selector</label>
+        <div class="AknFieldContainer">
+            <div class="AknFieldContainer-header">
+                <label class="AknFieldContainer-label"
+                       for="fallback_locale">Fallback locale selector</label>
+            </div>
+            <div class="AknFieldContainer-inputContainer">
+                <input class="pim-icecat-config select-field"
+                       id="fallback_locale" name="fallback_locale"
+                       type="hidden" value="<%- fallback_locale %>"/>
+            </div>
+            <div class="AknFieldContainer-footer">
+                Select one locale from Icecat
+            </div>
         </div>
-        <div class="AknFieldContainer-inputContainer">
-            <input class="pim-icecat-config select-field"
-                   id="scope" name="scope"
-                   type="hidden" value="<%- scope %>"/>
-        </div>
-        <div class="AknFieldContainer-footer">
-            Select one channel to enrich from Icecat.
-        </div>
-    </div>
 
-    <div class="AknFieldContainer">
-        <div class="AknFieldContainer-header">
-            <label class="AknFieldContainer-label"
-                   for="short_summary_description"><%-
-                _.__('pim_icecat_connector.configuration.short_summary_description') %></label>
-        </div>
-        <div class="AknFieldContainer-inputContainer">
-            <input class="pim-icecat-config select-field pim-icecat-config-text"
-                   id="short_summary_description"
-                   name="short_summary_description"
-                   type="hidden" value="<%- short_summary_description %>"/>
-        </div>
-        <div class="AknFieldContainer-footer">
-            Text or textarea attributes
-        </div>
-    </div>
-    <div class="AknFieldContainer">
-        <div class="AknFieldContainer-header">
-            <label class="AknFieldContainer-label"
-                   for="pictures"><%-
-                _.__('pim_icecat_connector.configuration.pictures') %></label>
-        </div>
-        <div class="AknFieldContainer-inputContainer">
-            <input class="pim-icecat-config select-field"
-                   id="pictures" name="pictures"
-                   type="hidden" value="<%- pictures %>"/>
-        </div>
-        <div class="AknFieldContainer-footer">
-            Text collections attributes only
+        <div class="AknFieldContainer">
+            <div class="AknFieldContainer-header">
+                <label class="AknFieldContainer-label"
+                       for="scope">Channel selector</label>
+            </div>
+            <div class="AknFieldContainer-inputContainer">
+                <input class="pim-icecat-config select-field"
+                       id="scope" name="scope"
+                       type="hidden" value="<%- scope %>"/>
+            </div>
+            <div class="AknFieldContainer-footer">
+                Select one channel to enrich from Icecat.
+            </div>
         </div>
     </div>
 </div>

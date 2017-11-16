@@ -2,6 +2,10 @@ pim_icecat_connector:
     configuration:
         tab:
             label: Icecat
+        section:
+            credentials: Credentials
+            mapping: Common attributes mapping
+            locales: Locales and channels
         credentials_username: API username
         credentials_password: API password
         ean_attribute: EAN attribute
