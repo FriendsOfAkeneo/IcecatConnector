@@ -53,7 +53,7 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
 
                     sh """
                         composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git", "branch": "master"}'
-                        php -d memory_limit=3G /usr/local/bin/composer require phpunit/phpunit:5.4.* akeneo/icecat-connector:${Globals.extensionBranch} --no-interaction --no-progress --prefer-dist
+                        php -d memory_limit=4G /usr/local/bin/composer require phpunit/phpunit:5.4.* akeneo/icecat-connector:${Globals.extensionBranch} --no-interaction --no-progress --prefer-dist
                     """
 
                     dir("vendor/akeneo/icecat-connector") {
