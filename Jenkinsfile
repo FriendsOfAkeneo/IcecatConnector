@@ -51,10 +51,6 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
                 .inside("--link mysql:mysql -v /home/akeneo/.composer:/home/akeneo/.composer -e COMPOSER_HOME=/home/akeneo/.composer") {
                     unstash "pim_enterprise"
 
-                    if (phpVersion != "5.6") {
-                        sh "composer require --no-update alcaeus/mongo-php-adapter"
-                    }
-
                     sh """
                         composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git", "branch": "master"}'
                         php -d memory_limit=3G /usr/local/bin/composer require phpunit/phpunit:5.4.* akeneo/icecat-connector:${Globals.extensionBranch} --no-interaction --no-progress --prefer-dist

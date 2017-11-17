@@ -219,6 +219,7 @@ class XmlProductDecoder implements DecoderInterface
             foreach ($icecatValues as $icecatValue) {
                 $pimValues[] = $this->findOptionCode($pimAttribute, $icecatValue, $locale);
             }
+            $localValue = $pimValues;
         } else {
             $localValue = $this->findOptionCode($pimAttribute, $localValue, $locale);
         }
