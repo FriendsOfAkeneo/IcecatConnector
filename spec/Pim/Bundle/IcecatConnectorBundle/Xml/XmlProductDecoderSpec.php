@@ -4,12 +4,14 @@ namespace spec\Pim\Bundle\IcecatConnectorBundle\Xml;
 
 use Oro\Bundle\ConfigBundle\Config\ConfigManager;
 use PhpSpec\ObjectBehavior;
+use Pim\Bundle\CatalogBundle\Entity\AttributeOptionValue;
 use Pim\Bundle\ExtendedAttributeTypeBundle\AttributeType\ExtendedAttributeTypes;
 use Pim\Bundle\ExtendedMeasureBundle\Repository\MeasureRepositoryInterface;
 use Pim\Bundle\IcecatConnectorBundle\Mapping\AttributeMapper;
 use Pim\Bundle\IcecatConnectorBundle\Xml\XmlDecodeException;
 use Pim\Component\Catalog\AttributeTypes;
 use Pim\Component\Catalog\Model\AttributeInterface;
+use Pim\Component\Catalog\Model\AttributeOptionInterface;
 use Pim\Component\Catalog\Repository\AttributeRepositoryInterface;
 use Prophecy\Argument;
 
@@ -38,6 +40,9 @@ class XmlProductDecoderSpec extends ObjectBehavior
 
     /** @var int */
     private $icecatTextFeatureId = 19653;
+
+    /** @var int */
+    private $icecatDropdownMultiFeatureId = 7061;
 
     function let(
         ConfigManager $configManager,
@@ -319,6 +324,47 @@ class XmlProductDecoderSpec extends ObjectBehavior
                         [
                             [
                                 'data' => 'Single SIM',
+                                'locale' => null,
+                                'scope' => null,
+                            ],
+                        ],
+                ],
+        ];
+
+        $this->decode($this->enXml, null, ['locale' => 'en_US', 'fallback_locale' => 'en_US'])->shouldReturn($standardItem);
+    }
+
+    function it_can_decode_a_en_string_with_multiselect_attributes(
+        AttributeInterface $multiSelectAttribute,
+        AttributeOptionInterface $option1,
+        AttributeOptionValue $optionValue1,
+        AttributeOptionInterface $option2,
+        AttributeOptionValue $optionValue2,
+        $attributeMapper,
+        $attributeRepository
+    ) {
+        $attributeMapper->getMapped($this->icecatDropdownMultiFeatureId)->willReturn('pim_multiselect');
+        $attributeMapper->getMapped(Argument::any())->willReturn(null);
+
+        $option1->setLocale(null)->willReturn(null);
+        $option2->setLocale(null)->willReturn(null);
+        $option1->getOptionValue()->willReturn($optionValue1);
+        $option2->getOptionValue()->willReturn($optionValue2);
+
+        $multiSelectAttribute->isLocalizable()->willReturn(false);
+        $multiSelectAttribute->isScopable()->willReturn(false);
+        $multiSelectAttribute->getType()->willReturn(AttributeTypes::OPTION_MULTI_SELECT);
+        $multiSelectAttribute->getOptions()->willReturn([$option1, $option2]);
+
+        $attributeRepository->findOneByIdentifier('pim_multiselect')->willReturn($multiSelectAttribute);
+
+        $standardItem = [
+            'values' =>
+                [
+                    'pim_multiselect' =>
+                        [
+                            [
+                                'data' => ['850','900','1800','1900'],
                                 'locale' => null,
                                 'scope' => null,
                             ],
