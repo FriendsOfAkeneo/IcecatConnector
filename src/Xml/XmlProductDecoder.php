@@ -213,15 +213,22 @@ class XmlProductDecoder implements DecoderInterface
             $localValue = $value == 'Y' ? true : false;
         } elseif (AttributeTypes::NUMBER === $pimAttribute->getType()) {
             $localValue = $this->formatNumberValue($value);
+        } elseif (AttributeTypes::OPTION_MULTI_SELECT === $pimAttribute->getType()) {
+            $icecatValues = explode(',', $localValue);
+            $pimValues = [];
+            foreach ($icecatValues as $icecatValue) {
+                $pimValues[] = $this->findOptionCode($pimAttribute, $icecatValue, $locale);
+            }
+            $localValue = $pimValues;
         } else {
-            $localValue = $this->findOptionCode($pimAttribute, $localValue);
+            $localValue = $this->findOptionCode($pimAttribute, $localValue, $locale);
         }
 
         $standardItem['values'][$pimCode] = [
             [
-                'data'   => $localValue,
+                'data' => $localValue,
                 'locale' => $locale,
-                'scope'  => $scope,
+                'scope' => $scope,
             ],
         ];
 
@@ -240,7 +247,7 @@ class XmlProductDecoder implements DecoderInterface
 
         return [
             'amount' => $icecatValue,
-            'unit'   => $measure['unit'],
+            'unit' => $measure['unit'],
         ];
     }
 
@@ -254,7 +261,7 @@ class XmlProductDecoder implements DecoderInterface
     {
         return [
             [
-                'data'     => $icecatValue,
+                'data' => $icecatValue,
                 'currency' => $icecatUnit,
             ],
         ];
@@ -275,14 +282,15 @@ class XmlProductDecoder implements DecoderInterface
     /**
      * @param AttributeInterface $pimAttribute
      * @param string             $icecatValue
+     * @param string             $locale Locale code
      *
      * @return string
      */
-    protected function findOptionCode(AttributeInterface $pimAttribute, $icecatValue)
+    protected function findOptionCode(AttributeInterface $pimAttribute, $icecatValue, $locale)
     {
         foreach ($pimAttribute->getOptions() as $option) {
             /** @var AttributeOption $option */
-            $option->setLocale($this->locale);
+            $option->setLocale($locale);
             $optionValue = $option->getOptionValue()->getValue();
             if ($optionValue == $icecatValue) {
                 return $option->getCode();
