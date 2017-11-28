@@ -43,15 +43,16 @@ if (launchIntegrationTests.equals("yes")) {
 def runIntegrationTest(phpVersion, mysqlVersion) {
     podIntegration(phpVersion, mysqlVersion, {
         try {
-            unstash "pim_enterprise"
 
+            unstash "pim_enterprise"
+                sh "chmod -R 777 ${env.WORKSPACE}"
             sh """
                 composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git", "branch": "master"}'
                 php -d memory_limit=3G /usr/local/bin/composer require phpunit/phpunit:5.4.* akeneo/icecat-connector:${Globals.extensionBranch} --no-interaction --no-progress --prefer-dist
             """
 
             dir("vendor/akeneo/icecat-connector") {
-                sh "chmod -R 777 ${env.WORKSPACE}"
+
                 unstash "icecat_extension"
             }
             sh 'composer dump-autoload -o'
