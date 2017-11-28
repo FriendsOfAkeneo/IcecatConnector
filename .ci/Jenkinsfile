@@ -19,6 +19,7 @@ stage("Checkout") {
     milestone 2
     podIntegration("7.1", "${Globals.mysqlVersion}", {
         checkout scm
+        sh "chmod -R 777 ${env.WORKSPACE}"
         stash "icecat_extension"
 
         checkout([$class: 'GitSCM',
@@ -50,6 +51,7 @@ def runIntegrationTest(phpVersion, mysqlVersion) {
             """
 
             dir("vendor/akeneo/icecat-connector") {
+                sh "chmod -R 777 ${env.WORKSPACE}"
                 unstash "icecat_extension"
             }
             sh 'composer dump-autoload -o'
