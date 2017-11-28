@@ -17,7 +17,7 @@ stage("Checkout") {
     }
 
     milestone 2
-    podIntegration(phpVersion, mysqlVersion, {
+    podIntegration("7.1", mysqlVersion, {
         checkout scm
         sh "chmod -R 777 ${env.WORKSPACE}"
         stash "icecat_extension"
