@@ -19,7 +19,6 @@ stage("Checkout") {
     milestone 2
     podIntegration("7.1", "${Globals.mysqlVersion}", {
         checkout scm
-        sh "chmod -R 777 ${env.WORKSPACE}"
         stash "icecat_extension"
 
         checkout([$class: 'GitSCM',
@@ -114,6 +113,7 @@ def podIntegration(phpVersion, mysqlVersion, body) {
         ]) { 
             node(podName) {
                 container("php") {
+                    sh "chmod -R 777 ${env.WORKSPACE}"
                     body()
                 }
             }
