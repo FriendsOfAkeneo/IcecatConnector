@@ -2,6 +2,7 @@
 
 namespace Pim\Bundle\IcecatConnectorBundle\Controller;
 
+use GuzzleHttp\Exception\ClientException;
 use Oro\Bundle\ConfigBundle\Config\ConfigManager;
 use Pim\Bundle\IcecatConnectorBundle\Http\HttpClient;
 use Symfony\Component\HttpFoundation\Request;
@@ -50,6 +51,7 @@ class ConnectionController
      * @param Request $request
      *
      * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function checkCredentials(Request $request)
     {
@@ -61,17 +63,27 @@ class ConnectionController
 
         $query = sprintf($this->icecatProductEndpoint, $eanValue, 'US');
 
-        $guzzle = $this->client->getGuzzle();
-        $guzzleResponse = $guzzle->request(
-            'GET',
-            '',
-            [
-                'auth' => [$username, $password],
-                'query' => $query,
-            ]
-        );
+        try {
+            $guzzle = $this->client->getGuzzle();
+            $guzzleResponse = $guzzle->request(
+                'GET',
+                '',
+                [
+                    'auth'  => [$username, $password],
+                    'query' => $query,
+                ]
+            );
 
-        $content = $guzzleResponse->getBody()->getContents();
+            $content = $guzzleResponse->getBody()->getContents();
+        } catch (ClientException $e) {
+            if (Response::HTTP_NOT_FOUND === $e->getCode()) {
+                return new Response(null, Response::HTTP_NOT_FOUND);
+            }
+            if (Response::HTTP_UNAUTHORIZED === $e->getCode()) {
+                return new Response(null, Response::HTTP_UNAUTHORIZED);
+            }
+            throw $e;
+        }
 
         $statusCode = Response::HTTP_UNAUTHORIZED;
         if (false === strpos($content, self::INVALID_LOGIN)
