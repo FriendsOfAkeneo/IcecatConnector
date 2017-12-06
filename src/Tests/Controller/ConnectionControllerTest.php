@@ -32,14 +32,17 @@ class ConnectionControllerTest extends AbstractTestCase
         $request = $this->getRequestMock('foo', 'bar');
         $response = $controller->checkCredentials($request);
 
+        $this->assertEquals(Response::HTTP_NOT_FOUND, $response->getStatusCode());
+
+        $request = $this->getRequestMock('akeneo-test', 'bar');
+        $response = $controller->checkCredentials($request);
+
         $this->assertEquals(Response::HTTP_UNAUTHORIZED, $response->getStatusCode());
-        $this->assertContains(ConnectionController::INVALID_LOGIN, $response->getContent());
 
         $request = $this->getRequestMock($this->getCredentials()['username'], 'invalidpassword');
         $response = $controller->checkCredentials($request);
 
         $this->assertEquals(Response::HTTP_UNAUTHORIZED, $response->getStatusCode());
-        $this->assertContains(ConnectionController::INVALID_PASSWORD, $response->getContent());
     }
 
     /**
