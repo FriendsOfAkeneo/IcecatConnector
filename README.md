@@ -20,8 +20,8 @@ This extension allows to enrich an already existing catalog with Icecat catalog 
 It does not import any structural content like categories or families. 
 This way you keep control of your catalog structuration and are not tied to Icecat taxonomy.
 
-To enrich your product with Icecat content, you will also needs to have a unique attribute containing the product EAN.
-This attribute will be used to match Icecat product via their web API.
+To enrich your product with Icecat content, you will also need to have a unique attribute containing the product EAN.
+This attribute will be used to match Icecat products via their web API.
 
 Existing Akeneo PIM attributes must also be mapped to Icecat features with a CSV file containing two main columns:
 the Akeneo attribute code and the corresponding Icecat feature ID.
@@ -72,7 +72,7 @@ composer require akeneo/icecat-connector 2.0.*
 
 ### Import routing file
 
-In `app/config/routing.yml`:
+In `app/config/routing.yml`, add the following entry:
 
 ```yml
 pim_icecat_connector:
@@ -104,7 +104,7 @@ app/console akeneo:batch:create-job "Akeneo Mass Edit Connector" "mass_edit_icec
 ```
 
 More explanation about the ProductValue override can be found in Akeneo documentation: 
-https://docs.akeneo.com/1.7/cookbook/catalog_structure/overriding_the_orm_product_value.html
+https://docs.akeneo.com/2.0/manipulate_pim_data/catalog_structure/overriding_the_orm_product_value.html
 
 ### Add new Mass Operation:
 ```
@@ -112,7 +112,7 @@ app/console akeneo:batch:create-job "Akeneo Mass Edit Connector" "mass_edit_icec
 ```
 
 In an Enterpise Edition context, you must also add the corresponding permissions:
-https://docs.akeneo.com/1.7/cookbook/mass_edition/register_a_new_mass_edit_action.html#phase-6-add-user-groups-permissions-to-job-profiles-enterprise-edition
+https://docs.akeneo.com/2.0/manipulate_pim_data/mass_edition/register_a_new_mass_edit_action.html#phase-6-add-user-groups-permissions-to-job-profiles-enterprise-edition
 
 To facilitate this configuration, the bundle provides a `bin/setup.bash` to make this operations in one command line.
 
@@ -164,17 +164,17 @@ SK | sk_SK (Slovakian)
 
 ### Update the DB schema
 
-One way to this is using the command `app/console doctrine:schema:update`. 
-You will habe to specify an option for this command:
+One way to this is using the command `bin/console doctrine:schema:update`. 
+You will have to specify an option for this command:
 
 * `dump-sql` will show you the changes without applying them.
 
 * `force` will apply the changes.
 
-## (optionnal) Fixtures examples
+## (optional) Fixtures examples
 
 This extension provides examples fixtures for attributes and family.
-They are meant to be used in conjonction with the PimInstallerBundle:icecat_demo_dev.
+They are meant to be used in conjunction with the PimInstallerBundle:icecat_demo_dev.
 
 Once your application is installed with the `icecat_demo_dev` data, you can load these attributes and family with the
 shipped import profiles `attributes_csv_import` and `family_csv_import`.
@@ -196,4 +196,4 @@ You will find more documentation on mapping in the [docs folder](docs/mapping.md
 ## Enrich products  
 
 The extension provides an `icecat_enrich_products` job that can be used manually or in a cron task via a dedicated import profile.
-This import profile will chack all products with an Icecat EAN attribute and call the Icecat API to get the data. 
+This import profile will check all products with an Icecat EAN attribute and call the Icecat API to get the data. 
