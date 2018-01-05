@@ -29,20 +29,19 @@ class ConnectionControllerTest extends AbstractTestCase
     {
         /** @var ConnectionController $controller */
         $controller = $this->get('pim_icecat_connector.controller.connection');
-        $request = $this->getRequestMock('foo', 'bar');
-        $response = $controller->checkCredentials($request);
 
-        $this->assertEquals(Response::HTTP_NOT_FOUND, $response->getStatusCode());
+        $invalidData = [
+            [null, null], // empty credentials
+            ['foo', 'bar'], // invalid login
+            [$this->getCredentials()['username'], 'invalidpassword'], // invalid password
+        ];
 
-        $request = $this->getRequestMock('akeneo-test', 'bar');
-        $response = $controller->checkCredentials($request);
-
-        $this->assertEquals(Response::HTTP_UNAUTHORIZED, $response->getStatusCode());
-
-        $request = $this->getRequestMock($this->getCredentials()['username'], 'invalidpassword');
-        $response = $controller->checkCredentials($request);
-
-        $this->assertEquals(Response::HTTP_UNAUTHORIZED, $response->getStatusCode());
+        foreach ($invalidData as $invalidCredentials) {
+            list($username, $password) = $invalidCredentials;
+            $request = $this->getRequestMock($username, $password);
+            $response = $controller->checkCredentials($request);
+            $this->assertEquals(Response::HTTP_UNAUTHORIZED, $response->getStatusCode());
+        }
     }
 
     /**
