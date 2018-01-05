@@ -10,20 +10,20 @@ stage("Tests") {
   withCredentials([string(credentialsId: 'composer-token', variable: 'token')]) {
     podTemplate(label: 'icecat-connector', containers: [
       containerTemplate(
-        name: "elasticsearch", 
-        image: "elasticsearch:5.5", 
-        resourceRequestCpu: '100m', 
+        name: "elasticsearch",
+        image: "elasticsearch:5.5",
+        resourceRequestCpu: '100m',
         resourceRequestMemory: '200Mi',
         envVars: [
           envVar(key: "ES_JAVA_OPTS", value: "-Xms512m -Xmx512m"),
           envVar(key: "FORCE", value: "true"),
-        ]        
+        ]
       ),
       containerTemplate(
-        name: "mysql", 
-        image: "mysql:5.7", 
-        resourceRequestCpu: '100m', 
-        resourceRequestMemory: '200Mi', 
+        name: "mysql",
+        image: "mysql:5.7",
+        resourceRequestCpu: '100m',
+        resourceRequestMemory: '200Mi',
         envVars: [
           envVar(key: "MYSQL_ROOT_PASSWORD", value: "root"),
           envVar(key: "MYSQL_USER", value: "akeneo_pim"),
@@ -35,11 +35,11 @@ stage("Tests") {
         ]
       ),
       containerTemplate(
-        name: "php", 
-        ttyEnabled: true, 
-        command: 'cat', 
-        image: "akeneo/php:7.1", 
-        resourceRequestCpu: '100m', 
+        name: "php",
+        ttyEnabled: true,
+        command: 'cat',
+        image: "akeneo/php:7.1",
+        resourceRequestCpu: '100m',
         resourceRequestMemory: '1000Mi',
         envVars: [
           envVar(key: "COMPOSER_AUTH", value: "{\"github-oauth\":{\"github.com\": \"$token\"}}")
@@ -71,14 +71,16 @@ stage("Tests") {
             sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedMeasureBundle\\\\PimExtendedMeasureBundle(),#' app/AppKernel.php
             sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedAttributeTypeBundle\\\\PimExtendedAttributeTypeBundle(),#' app/AppKernel.php
             cp vendor/akeneo/icecat-connector/src/Resources/jenkins/parameters_test.yml app/config/parameters_test.yml
+            cat vendor/akeneo/icecat-connector/src/Resources/jenkins/routing.yml >> app/config/routing.yml
             cp vendor/akeneo/icecat-connector/src/Resources/jenkins/phpunit.xml app/phpunit.xml
+            cat vendor/akeneo/icecat-connector/src/Resources/jenkins/config_test.yml >> app/config/config_test.yml
             mkdir -p app/build/logs
             sed -i \"s#index_hosts: .*#index_hosts: '127.0.0.1:9200'#g\" app/config/parameters_test.yml
             sed -i 's/database_host:.*/database_host: 127.0.0.1/' app/config/parameters_test.yml
             sleep 10
           """
 
-          sh "bin/console pim:install --force --env=test"
+          sh "bin/console pim:installer:db --env=test"
 
           try {
             sh "vendor/bin/phpunit -c app/phpunit.xml --log-junit app/build/logs/phpunit.xml"
