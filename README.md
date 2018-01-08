@@ -64,7 +64,6 @@ There are 3 differents imports profiles in this extension:
 First, you must require the connector dependencies:
 
 ```php
-composer config repositories.icecat '{"type": "vcs", "url": "ssh://git@distribution.akeneo.com:443/IcecatConnector", "branch": "master"}'
 composer require akeneo/icecat-connector 2.0.*
 ```
 
@@ -80,7 +79,7 @@ pim_icecat_connector:
     prefix: /icecat
 ```
 
-### Register dependencies and override product value model
+### Register dependencies
 
 The Icecat connector uses a new attribute type to store pictures url collection.
 You must then activate the dependencies bundles:
@@ -100,15 +99,7 @@ In `app/AppKernel.php`:
 
 ### Add new Mass Operation:
 ```
-app/console akeneo:batch:create-job "Akeneo Mass Edit Connector" "mass_edit_icecat_enrichment" "mass_edit" "mass_edit_icecat_enrichment"
-```
-
-More explanation about the ProductValue override can be found in Akeneo documentation: 
-https://docs.akeneo.com/2.0/manipulate_pim_data/catalog_structure/overriding_the_orm_product_value.html
-
-### Add new Mass Operation:
-```
-app/console akeneo:batch:create-job "Akeneo Mass Edit Connector" "mass_edit_icecat_enrichment" "mass_edit" "mass_edit_icecat_enrichment"
+bin/console akeneo:batch:create-job "Akeneo Mass Edit Connector" "mass_edit_icecat_enrichment" "mass_edit" "mass_edit_icecat_enrichment"
 ```
 
 In an Enterpise Edition context, you must also add the corresponding permissions:
@@ -164,7 +155,7 @@ SK | sk_SK (Slovakian)
 
 ### Update the DB schema
 
-One way to this is using the command `bin/console doctrine:schema:update`. 
+One way to this is using the command `bin/console doctrine:schema:update`.
 You will have to specify an option for this command:
 
 * `dump-sql` will show you the changes without applying them.
@@ -196,4 +187,4 @@ You will find more documentation on mapping in the [docs folder](docs/mapping.md
 ## Enrich products  
 
 The extension provides an `icecat_enrich_products` job that can be used manually or in a cron task via a dedicated import profile.
-This import profile will check all products with an Icecat EAN attribute and call the Icecat API to get the data. 
+This import profile will check all products with an Icecat EAN attribute and call the Icecat API to get the data.
