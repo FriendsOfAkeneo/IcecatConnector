@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "34f983ef53f781240fc18d62715fab31",
+    "content-hash": "8eca9fb760b452cb8640952796372ffc",
     "packages": [
         {
             "name": "akeneo/extended-attribute-type",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/akeneo/ExtendedAttributeTypeBundle.git",
-                "reference": "641dbe631c33c32b77187cdb30728e9e606fc881"
+                "reference": "01cb0f909ca9a35a6b0703fc994478f1e34bcebc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/akeneo/ExtendedAttributeTypeBundle/zipball/641dbe631c33c32b77187cdb30728e9e606fc881",
-                "reference": "641dbe631c33c32b77187cdb30728e9e606fc881",
+                "url": "https://api.github.com/repos/akeneo/ExtendedAttributeTypeBundle/zipball/01cb0f909ca9a35a6b0703fc994478f1e34bcebc",
+                "reference": "01cb0f909ca9a35a6b0703fc994478f1e34bcebc",
                 "shasum": ""
             },
             "require": {
-                "akeneo/pim-community-dev": "2.0.*"
+                "akeneo/pim-community-dev": "^2.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "@stable",
@@ -50,7 +50,7 @@
                 }
             ],
             "description": "Provides new attributes types for Akeneo PIM CE and EE",
-            "time": "2017-10-20T13:39:34+00:00"
+            "time": "2018-01-08T14:41:59+00:00"
         },
         {
             "name": "akeneo/extended-measure-bundle",
@@ -99,16 +99,16 @@
         },
         {
             "name": "akeneo/pim-community-dev",
-            "version": "v2.0.7",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/akeneo/pim-community-dev.git",
-                "reference": "25d243823116e5bb800509ac9d6354baee48c5ff"
+                "reference": "3f259c07dfa7d8f23fde331e19810c4676645e6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/akeneo/pim-community-dev/zipball/25d243823116e5bb800509ac9d6354baee48c5ff",
-                "reference": "25d243823116e5bb800509ac9d6354baee48c5ff",
+                "url": "https://api.github.com/repos/akeneo/pim-community-dev/zipball/3f259c07dfa7d8f23fde331e19810c4676645e6d",
+                "reference": "3f259c07dfa7d8f23fde331e19810c4676645e6d",
                 "shasum": ""
             },
             "require": {
@@ -154,7 +154,7 @@
                 "symfony/polyfill-apcu": "1.4.0",
                 "symfony/security-acl": "3.0.0",
                 "symfony/swiftmailer-bundle": "3.0.3",
-                "symfony/symfony": "3.3.6",
+                "symfony/symfony": "3.4.2",
                 "twig/extensions": "1.2.0"
             },
             "replace": {
@@ -189,8 +189,8 @@
                 "pdepend/pdepend": "2.1.*",
                 "phpmd/phpmd": "1.*",
                 "phpspec/phpspec": "~3.4.2",
-                "phpunit/phpunit": "~5.7.22",
-                "sebastian/exporter": "~2.0.0",
+                "phpunit/phpunit": "6.5.3",
+                "sebastian/exporter": "~3.1.0",
                 "sensiolabs/behat-page-object-extension": "2.1.0",
                 "squizlabs/php_codesniffer": "2.*"
             },
@@ -216,7 +216,8 @@
                     }
                 },
                 "branch-alias": {
-                    "dev-master": "2.1.x-dev",
+                    "dev-master": "2.2.x-dev",
+                    "dev-2.1": "2.1.x-dev",
                     "dev-2.0": "2.0.x-dev",
                     "dev-1.7": "1.7.x-dev",
                     "dev-1.6": "1.6.x-dev",
@@ -243,11 +244,6 @@
                     "app/AppKernel.php",
                     "app/AppCache.php",
                     "tests/AppKernelTest.php"
-                ]
-            },
-            "autoload-dev": {
-                "files": [
-                    "vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"
                 ]
             },
             "scripts": {
@@ -279,10 +275,10 @@
             ],
             "description": "Akeneo PIM, the future of catalog management is open!",
             "support": {
-                "source": "https://github.com/akeneo/pim-community-dev/tree/v2.0.7",
+                "source": "https://github.com/akeneo/pim-community-dev/tree/2.1",
                 "issues": "https://github.com/akeneo/pim-community-dev/issues"
             },
-            "time": "2017-11-23T08:49:28+00:00"
+            "time": "2017-12-21T14:28:15+00:00"
         },
         {
             "name": "ass/xmlsecurity",
@@ -1926,21 +1922,21 @@
         },
         {
             "name": "friendsofsymfony/oauth2-php",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/oauth2-php.git",
-                "reference": "fa2aecb1fca2a03fd5f9aca19fe9adb9dfff928c"
+                "reference": "486a6a5f70c3bfe8284a1e7e7b4b029b772d5b93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/oauth2-php/zipball/fa2aecb1fca2a03fd5f9aca19fe9adb9dfff928c",
-                "reference": "fa2aecb1fca2a03fd5f9aca19fe9adb9dfff928c",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/oauth2-php/zipball/486a6a5f70c3bfe8284a1e7e7b4b029b772d5b93",
+                "reference": "486a6a5f70c3bfe8284a1e7e7b4b029b772d5b93",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "symfony/http-foundation": "~2.0|~3.0"
+                "symfony/http-foundation": "~2.0|~3.0|~4.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0"
@@ -1976,7 +1972,7 @@
                 "oauth",
                 "oauth2"
             ],
-            "time": "2016-03-31T14:24:17+00:00"
+            "time": "2018-01-05T15:20:40+00:00"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -5100,43 +5096,45 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.3.6",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "6f80cbd2dd89c5308b14e03d806356fac72c263e"
+                "reference": "29961b693fa2157a3f349d1a801f9f8742be4e03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/6f80cbd2dd89c5308b14e03d806356fac72c263e",
-                "reference": "6f80cbd2dd89c5308b14e03d806356fac72c263e",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/29961b693fa2157a3f349d1a801f9f8742be4e03",
+                "reference": "29961b693fa2157a3f349d1a801f9f8742be4e03",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "~2.4",
                 "ext-xml": "*",
                 "fig/link-util": "^1.0",
-                "php": ">=5.5.9",
+                "php": "^5.5.9|>=7.0.8",
                 "psr/cache": "~1.0",
                 "psr/container": "^1.0",
                 "psr/link": "^1.0",
                 "psr/log": "~1.0",
                 "psr/simple-cache": "^1.0",
+                "symfony/polyfill-apcu": "~1.1",
                 "symfony/polyfill-intl-icu": "~1.0",
                 "symfony/polyfill-mbstring": "~1.0",
                 "symfony/polyfill-php56": "~1.0",
-                "symfony/polyfill-php70": "~1.0",
+                "symfony/polyfill-php70": "~1.6",
                 "symfony/polyfill-util": "~1.0",
-                "twig/twig": "~1.34|~2.4"
+                "twig/twig": "^1.35|^2.4.4"
             },
             "conflict": {
-                "phpdocumentor/reflection-docblock": "<3.0||>=3.2.0",
-                "phpdocumentor/type-resolver": "<0.2.0",
+                "phpdocumentor/reflection-docblock": "<3.0||>=3.2.0,<3.2.2",
+                "phpdocumentor/type-resolver": "<0.2.1",
                 "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0"
             },
             "provide": {
                 "psr/cache-implementation": "1.0",
                 "psr/container-implementation": "1.0",
+                "psr/log-implementation": "1.0",
                 "psr/simple-cache-implementation": "1.0"
             },
             "replace": {
@@ -5164,6 +5162,7 @@
                 "symfony/inflector": "self.version",
                 "symfony/intl": "self.version",
                 "symfony/ldap": "self.version",
+                "symfony/lock": "self.version",
                 "symfony/monolog-bridge": "self.version",
                 "symfony/options-resolver": "self.version",
                 "symfony/process": "self.version",
@@ -5193,6 +5192,7 @@
             },
             "require-dev": {
                 "cache/integration-tests": "dev-master",
+                "doctrine/annotations": "~1.0",
                 "doctrine/cache": "~1.6",
                 "doctrine/data-fixtures": "1.0.*",
                 "doctrine/dbal": "~2.4",
@@ -5201,17 +5201,15 @@
                 "egulias/email-validator": "~1.2,>=1.2.8|~2.0",
                 "monolog/monolog": "~1.11",
                 "ocramius/proxy-manager": "~0.4|~1.0|~2.0",
-                "phpdocumentor/reflection-docblock": "^3.0",
+                "phpdocumentor/reflection-docblock": "^3.0|^4.0",
                 "predis/predis": "~1.0",
-                "sensio/framework-extra-bundle": "^3.0.2",
-                "symfony/phpunit-bridge": "~3.2",
-                "symfony/polyfill-apcu": "~1.1",
+                "symfony/phpunit-bridge": "~3.4|~4.0",
                 "symfony/security-acl": "~2.8|~3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.3-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -5249,7 +5247,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-08-01T10:26:30+00:00"
+            "time": "2017-12-15T02:05:35+00:00"
         },
         {
             "name": "twig/extensions",
@@ -5633,16 +5631,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v2.8.3",
+            "version": "v2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "d9ec9b848cbf930c31dea3693d34dbd8b9c95295"
+                "reference": "454ddbe65da6a9297446f442bad244e8a99a9a38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/d9ec9b848cbf930c31dea3693d34dbd8b9c95295",
-                "reference": "d9ec9b848cbf930c31dea3693d34dbd8b9c95295",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/454ddbe65da6a9297446f442bad244e8a99a9a38",
+                "reference": "454ddbe65da6a9297446f442bad244e8a99a9a38",
                 "shasum": ""
             },
             "require": {
@@ -5669,7 +5667,8 @@
             "require-dev": {
                 "johnkary/phpunit-speedtrap": "^1.1 || ^2.0@dev",
                 "justinrainbow/json-schema": "^5.0",
-                "php-coveralls/php-coveralls": "^1.0.2",
+                "mikey179/vfsstream": "^1.6",
+                "php-coveralls/php-coveralls": "^2.0",
                 "php-cs-fixer/accessible-object": "^1.0",
                 "phpunit/phpunit": "^5.7.23 || ^6.4.3",
                 "symfony/phpunit-bridge": "^3.2.2 || ^4.0"
@@ -5709,7 +5708,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2017-11-26T20:45:16+00:00"
+            "time": "2017-12-08T16:36:20+00:00"
         },
         {
             "name": "gecko-packages/gecko-php-unit",
@@ -5909,29 +5908,35 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "3.1.1",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e"
+                "reference": "66465776cfc249844bde6d117abff1d22e06c2da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/8331b5efe816ae05461b7ca1e721c01b46bafb3e",
-                "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/66465776cfc249844bde6d117abff1d22e06c2da",
+                "reference": "66465776cfc249844bde6d117abff1d22e06c2da",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5",
-                "phpdocumentor/reflection-common": "^1.0@dev",
-                "phpdocumentor/type-resolver": "^0.2.0",
+                "php": "^7.0",
+                "phpdocumentor/reflection-common": "^1.0.0",
+                "phpdocumentor/type-resolver": "^0.4.0",
                 "webmozart/assert": "^1.0"
             },
             "require-dev": {
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^4.4"
+                "doctrine/instantiator": "~1.0.5",
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^6.4"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "phpDocumentor\\Reflection\\": [
@@ -5950,24 +5955,24 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2016-09-30T07:12:33+00:00"
+            "time": "2017-11-27T17:38:31+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "0.2.1",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "e224fb2ea2fba6d3ad6fdaef91cd09a172155ccb"
+                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/e224fb2ea2fba6d3ad6fdaef91cd09a172155ccb",
-                "reference": "e224fb2ea2fba6d3ad6fdaef91cd09a172155ccb",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/9c977708995954784726e25d0cd1dddf4e65b0f7",
+                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5",
+                "php": "^5.5 || ^7.0",
                 "phpdocumentor/reflection-common": "^1.0"
             },
             "require-dev": {
@@ -5997,7 +6002,7 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2016-11-25T06:54:22+00:00"
+            "time": "2017-07-14T14:27:02+00:00"
         },
         {
             "name": "phpspec/php-diff",
@@ -6039,16 +6044,16 @@
         },
         {
             "name": "phpspec/phpspec",
-            "version": "3.4.2",
+            "version": "3.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "4f42719d8d7a26063b9aa79a0f83ed56c79618f4"
+                "reference": "8e72ed3576f6e26baebb2c214a8dba344508e3bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/4f42719d8d7a26063b9aa79a0f83ed56c79618f4",
-                "reference": "4f42719d8d7a26063b9aa79a0f83ed56c79618f4",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/8e72ed3576f6e26baebb2c214a8dba344508e3bd",
+                "reference": "8e72ed3576f6e26baebb2c214a8dba344508e3bd",
                 "shasum": ""
             },
             "require": {
@@ -6117,7 +6122,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2017-08-05T20:07:26+00:00"
+            "time": "2017-12-06T09:12:11+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -6433,16 +6438,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.25",
+            "version": "5.7.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "4b1c822a68ae6577df38a59eb49b046712ec0f6a"
+                "reference": "7fbc25c13309de0c4c9bb48b7361f1eca34c7fbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4b1c822a68ae6577df38a59eb49b046712ec0f6a",
-                "reference": "4b1c822a68ae6577df38a59eb49b046712ec0f6a",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7fbc25c13309de0c4c9bb48b7361f1eca34c7fbd",
+                "reference": "7fbc25c13309de0c4c9bb48b7361f1eca34c7fbd",
                 "shasum": ""
             },
             "require": {
@@ -6511,7 +6516,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-11-14T14:50:51+00:00"
+            "time": "2017-12-17T06:14:38+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

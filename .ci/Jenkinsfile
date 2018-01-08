@@ -49,13 +49,13 @@ stage("Tests") {
       node('icecat-connector') {
         container("php") {
           checkout([$class: 'GitSCM',
-            branches: [[name: "2.0"]],
-            userRemoteConfigs: [[credentialsId: 'github-credentials', url: 'https://github.com/akeneo/pim-enterprise-dev.git']]
+            branches: [[name: "2.1"]],
+            userRemoteConfigs: [[credentialsId: 'github-credentials', url: 'https://github.com/akeneo/pim-enterprise-standard.git']]
           ])
 
           sh """
-            composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git", "branch": "master"}'
-            php -d memory_limit=3G /usr/local/bin/composer require akeneo/icecat-connector:2.0.x-dev --no-interaction --no-progress --prefer-dist
+            composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git"}'
+            php -d memory_limit=3G /usr/local/bin/composer require phpunit/phpunit akeneo/icecat-connector:2.0.x-dev --no-interaction --no-progress --prefer-dist
             chmod -R 777 vendor
           """
 
@@ -66,7 +66,7 @@ stage("Tests") {
 
           sh """
             composer dump-autoload -o
-            rm app/cache/* -rf
+            rm var/cache/* -rf
             sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\IcecatConnectorBundle\\\\PimIcecatConnectorBundle(),#' app/AppKernel.php
             sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedMeasureBundle\\\\PimExtendedMeasureBundle(),#' app/AppKernel.php
             sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedAttributeTypeBundle\\\\PimExtendedAttributeTypeBundle(),#' app/AppKernel.php
