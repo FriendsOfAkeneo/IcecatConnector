@@ -49,7 +49,7 @@ stage("Tests") {
       node('icecat-connector') {
         container("php") {
           checkout([$class: 'GitSCM',
-            branches: [[name: "2.0"]],
+            branches: [[name: "2.1"]],
             userRemoteConfigs: [[credentialsId: 'github-credentials', url: 'https://github.com/akeneo/pim-enterprise-dev.git']]
           ])
 
