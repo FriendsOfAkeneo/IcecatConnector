@@ -7,7 +7,7 @@ It can be used with both Open Icecat free catalog or Full Icecat paid catalog.
 
 | IcecatConnectorBundle | Akeneo PIM Community Edition |
 |:---------------------:|:----------------------------:|
-| 2.0.*                 | v2.0.*                       |
+| 2.0.*                 | v2.*                         |
 | 1.2.*                 | v1.7.*                       |
 | 1.1.*                 | v1.7.*                       |
 | 1.0.*                 | v1.6.*                       |
