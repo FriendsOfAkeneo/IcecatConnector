@@ -1,133 +1,94 @@
 #!groovy
 
-def launchIntegrationTests = "yes"
-
-class Globals {
-    static pimVersion = "2.0"
-    static extensionBranch = "2.0.x-dev"
-    static mysqlVersion = "5.7"
+milestone 1
+if (env.BRANCH_NAME =~ /^PR-/) {
+    input 'Launch tests?'
 }
+milestone 2
 
-stage("Checkout") {
-    milestone 1
-    if (env.BRANCH_NAME =~ /^PR-/) {
-        launchIntegrationTests = input(message: 'Launch tests?', parameters: [
-            choice(choices: 'yes\nno', description: 'Run integration tests', name: 'launchIntegrationTests'),
-        ])
-    }
+stage("Tests") {
+  withCredentials([string(credentialsId: 'composer-token', variable: 'token')]) {
+    podTemplate(label: 'icecat-connector', containers: [
+      containerTemplate(
+        name: "elasticsearch",
+        image: "elasticsearch:5.5",
+        resourceRequestCpu: '100m',
+        resourceRequestMemory: '200Mi',
+        envVars: [
+          envVar(key: "ES_JAVA_OPTS", value: "-Xms512m -Xmx512m"),
+          envVar(key: "FORCE", value: "true"),
+        ]
+      ),
+      containerTemplate(
+        name: "mysql",
+        image: "mysql:5.7",
+        resourceRequestCpu: '100m',
+        resourceRequestMemory: '200Mi',
+        envVars: [
+          envVar(key: "MYSQL_ROOT_PASSWORD", value: "root"),
+          envVar(key: "MYSQL_USER", value: "akeneo_pim"),
+          envVar(key: "MYSQL_PASSWORD", value: "akeneo_pim"),
+          envVar(key: "MYSQL_DATABASE", value: "akeneo_pim"),
+        ], volumes: [
+          emptyDirVolume(memory: true, mountPath: "/var/lib/mysql"),
+          emptyDirVolume(memory: true, mountPath: "/tmp")
+        ]
+      ),
+      containerTemplate(
+        name: "php",
+        ttyEnabled: true,
+        command: 'cat',
+        image: "akeneo/php:7.1",
+        resourceRequestCpu: '100m',
+        resourceRequestMemory: '1000Mi',
+        envVars: [
+          envVar(key: "COMPOSER_AUTH", value: "{\"github-oauth\":{\"github.com\": \"$token\"}}")
+        ]
+      ),
+    ]) {
+      node('icecat-connector') {
+        container("php") {
+          checkout([$class: 'GitSCM',
+            branches: [[name: "2.0"]],
+            userRemoteConfigs: [[credentialsId: 'github-credentials', url: 'https://github.com/akeneo/pim-enterprise-dev.git']]
+          ])
 
-    milestone 2
-    podIntegration("7.1", "${Globals.mysqlVersion}", {
-        checkout scm
-        sh "chmod -R 777 ${env.WORKSPACE}"
-        stash "icecat_extension"
-        deleteDir()
+          sh """
+            composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git", "branch": "master"}'
+            php -d memory_limit=3G /usr/local/bin/composer require akeneo/icecat-connector:2.0.x-dev --no-interaction --no-progress --prefer-dist
+            chmod -R 777 vendor
+          """
 
-        checkout([$class: 'GitSCM',
-             branches: [[name: "${Globals.pimVersion}"]],
-             userRemoteConfigs: [[credentialsId: 'github-credentials', url: 'https://github.com/akeneo/pim-enterprise-dev.git']]
-        ])
-        stash "pim_enterprise"
-   })
-}
+          dir("vendor/akeneo/icecat-connector") {
+            deleteDir()
+            checkout scm
+          }
 
-if (launchIntegrationTests.equals("yes")) {
-    stage("Integration tests") {
-        def tasks = [:]
+          sh """
+            composer dump-autoload -o
+            rm app/cache/* -rf
+            sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\IcecatConnectorBundle\\\\PimIcecatConnectorBundle(),#' app/AppKernel.php
+            sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedMeasureBundle\\\\PimExtendedMeasureBundle(),#' app/AppKernel.php
+            sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedAttributeTypeBundle\\\\PimExtendedAttributeTypeBundle(),#' app/AppKernel.php
+            cp vendor/akeneo/icecat-connector/src/Resources/jenkins/parameters_test.yml app/config/parameters_test.yml
+            cat vendor/akeneo/icecat-connector/src/Resources/jenkins/routing.yml >> app/config/routing.yml
+            cp vendor/akeneo/icecat-connector/src/Resources/jenkins/phpunit.xml app/phpunit.xml
+            cat vendor/akeneo/icecat-connector/src/Resources/jenkins/config_test.yml >> app/config/config_test.yml
+            mkdir -p app/build/logs
+            sed -i \"s#index_hosts: .*#index_hosts: '127.0.0.1:9200'#g\" app/config/parameters_test.yml
+            sed -i 's/database_host:.*/database_host: 127.0.0.1/' app/config/parameters_test.yml
+            sleep 10
+          """
 
-        tasks["phpunit-7.1-ee"] = {runIntegrationTest("7.1", "${Globals.mysqlVersion}")}
+          sh "bin/console pim:installer:db --env=test"
 
-        parallel tasks
-    }
-}
-
-def runIntegrationTest(phpVersion, mysqlVersion) {
-    podIntegration(phpVersion, mysqlVersion, {
-        try {
-            unstash "pim_enterprise"
-            sh "chmod -R 777 ${env.WORKSPACE}"
-
-            sh """
-                composer config repositories.icecat '{"type": "vcs", "url": "git@github.com:akeneo/icecat-connector.git", "branch": "master"}'
-                php -d memory_limit=3G /usr/local/bin/composer require akeneo/icecat-connector:${Globals.extensionBranch} --no-interaction --no-progress --prefer-dist
-            """
-            sh "chmod -R 777 ${env.WORKSPACE}"
-            dir("vendor/akeneo/icecat-connector") {
-
-                unstash "icecat_extension"
-            }
-            sh 'composer dump-autoload -o'
-
-            sh """
-                rm app/cache/* -rf
-                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\IcecatConnectorBundle\\\\PimIcecatConnectorBundle(),#' app/AppKernel.php
-                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedMeasureBundle\\\\PimExtendedMeasureBundle(),#' app/AppKernel.php
-                sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedAttributeTypeBundle\\\\PimExtendedAttributeTypeBundle(),#' app/AppKernel.php
-                cat app/AppKernel.php
-            """
-
-            sh """
-                cp vendor/akeneo/icecat-connector/src/Resources/jenkins/parameters_test.yml app/config/parameters_test.yml
-                cat vendor/akeneo/icecat-connector/src/Resources/jenkins/routing.yml >> app/config/routing.yml
-                cp vendor/akeneo/icecat-connector/src/Resources/jenkins/phpunit.xml app/phpunit.xml
-                cat vendor/akeneo/icecat-connector/src/Resources/jenkins/config_test.yml >> app/config/config_test.yml
-                mkdir -p app/build/logs
-
-                sed -i \"s#index_hosts: .*#index_hosts: '127.0.0.1:9200'#g\" app/config/parameters_test.yml
-                sed -i 's/database_host:.*/database_host: 127.0.0.1/' app/config/parameters_test.yml
-            """
-            sh "sleep 10"
-            sh "bin/console pim:install --force --env=test"
+          try {
             sh "vendor/bin/phpunit -c app/phpunit.xml --log-junit app/build/logs/phpunit.xml"
-        } finally {
+          } finally {
             junit "app/build/logs/*.xml"
+          }
         }
-    })
-}
-
-def podIntegration(phpVersion, mysqlVersion, body) {
-    def podName = "IcecatConnector-" + UUID.randomUUID().toString()
-    withCredentials([string(credentialsId: 'composer-token', variable: 'token')]) {
-        podTemplate(label: podName, containers: [
-            containerTemplate(name: "elasticsearch", image: "elasticsearch:5.5", resourceRequestCpu: '100m', resourceRequestMemory: '200Mi',
-                envVars: [
-                    envVar(key: "ES_JAVA_OPTS", value: "-Xms512m -Xmx512m"),
-                    envVar(key: "FORCE", value: "true"),
-                    ]        
-            ),
-            containerTemplate(name: "mysql", image: "mysql:${mysqlVersion}", resourceRequestCpu: '100m', resourceRequestMemory: '200Mi', 
-                envVars: [
-                    envVar(key: "MYSQL_ROOT_PASSWORD", value: "root"),
-                    envVar(key: "MYSQL_USER", value: "akeneo_pim"),
-                    envVar(key: "MYSQL_PASSWORD", value: "akeneo_pim"),
-                    envVar(key: "MYSQL_DATABASE", value: "akeneo_pim"),
-                ], volumes: [
-
-                    emptyDirVolume(memory: false, mountPath: "/var/lib/mysql"),
-                    emptyDirVolume(memory: false, mountPath: "/tmp")
-                ]
-            
-            ),
-            containerTemplate(name: "php", ttyEnabled: true, command: 'cat', image: "akeneo/php:${phpVersion}", resourceRequestCpu: '100m', resourceRequestMemory: '1000Mi',
-                envVars: [
-                    envVar(key: "COMPOSER_HOME", value: "${env.WORKSPACE}/.composer"),
-                    envVar(key: "COMPOSER_AUTH", value: "{\"github-oauth\":{\"github.com\": \"$token\"}}")
-                ]        
-            ),    
-        ]) { 
-            node(podName) {
-                container("php") {
-                    sh "chmod -R 777 ${env.WORKSPACE}"
-                    body()
-                }
-            }
-        }
+      }
     }
-}
-
-
-@NonCPS
-def clearTemplateNames() {
-    // see https://issues.jenkins-ci.org/browse/JENKINS-42184
-    currentBuild.rawBuild.getAction( PodTemplateAction.class )?.stack?.clear()
+  }
 }

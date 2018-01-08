@@ -19,7 +19,7 @@ class ConnectionController
     const INVALID_PASSWORD = 'Login or password are invalid';
 
     /** @const */
-    const INVALID_LOGIN = 'The requested XML data-sheet is not present in the Icecat database.';
+    const INVALID_LOGIN = 'File does not exist.';
 
     /** @var HttpClient */
     protected $client;
