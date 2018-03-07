@@ -43,7 +43,11 @@ abstract class AbstractTestCase extends KernelTestCase
         $authenticator = new SystemUserAuthenticator($container);
         $authenticator->createSystemUser();
 
-        $this->testKernel = new \Pim\Bundle\IcecatConnectorBundle\Tests\AppKernelTest('test', false);
+        $kernelClass = class_exists(
+            'PimEnterprise\Bundle\WorkflowBundle\PimEnterpriseWorkflowBundle'
+        ) ? AppKernelTestEe::class : AppKernelTest::class;
+
+        $this->testKernel = new $kernelClass('test', false);
         $this->testKernel->boot();
 
         $this->catalog = $this->testKernel->getContainer()->get('akeneo_integration_tests.configuration.catalog');

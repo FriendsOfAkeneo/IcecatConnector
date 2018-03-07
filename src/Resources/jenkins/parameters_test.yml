@@ -11,7 +11,7 @@ parameters:
     product_model_index_name: akeneo_pim_product_model
     product_and_product_model_index_name: akeneo_pim_product_and_product_model
     index_hosts: 'elastic:changeme@127.0.0.1:9200'
-    installer_data: 'PimIcecatConnectorBundle:installer_ce'
+    installer_data: 'PimInstallerBundle:minimal'
     elasticsearch_index_configuration_files:
         - '%kernel.root_dir%/../vendor/akeneo/pim-community-dev/src/Pim/Bundle/CatalogBundle/Resources/elasticsearch/index_configuration.yml'
         - '%kernel.root_dir%/../vendor/akeneo/extended-attribute-type/src/Resources/config/elasticsearch/index_configuration.yml'
