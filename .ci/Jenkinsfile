@@ -26,9 +26,9 @@ String[] pimEditions = ["ce", "ee"]
 def installExtension(pimEdition, extensionPath) {
 
     if (pimEdition.equals("ce")) {
-        cp ${extensionPath}/src/Resources/jenkins/parameters_test.yml app/config/parameters_test.yml
+        sh "cp ${extensionPath}/src/Resources/jenkins/parameters_test.yml app/config/parameters_test.yml"
     } else if (pimEdition.equals("ee")) {
-        cp ${extensionPath}/src/Resources/jenkins/parameters_test_ee.yml app/config/parameters_test.yml
+        sh "cp ${extensionPath}/src/Resources/jenkins/parameters_test_ee.yml app/config/parameters_test.yml"
     }
 
     sh """
