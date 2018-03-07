@@ -5,7 +5,6 @@ namespace Pim\Bundle\IcecatConnectorBundle\Tests\Job;
 use Akeneo\Bundle\BatchBundle\Command\BatchCommand;
 use Akeneo\Component\Batch\Model\JobExecution;
 use Akeneo\Component\Batch\Model\JobInstance;
-use Doctrine\ORM\EntityManager;
 use Pim\Bundle\IcecatConnectorBundle\Tests\AbstractTestCase;
 
 /**

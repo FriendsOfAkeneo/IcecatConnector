@@ -17,5 +17,5 @@ install:
   - composer --prefer-dist --no-interaction install
 
 script:
-  - ./vendor/bin/php-cs-fixer --dry-run -v fix --config=.php_cs.php
+  - ./vendor/bin/php-cs-fixer --dry-run -v fix
   - ./vendor/bin/phpspec run
