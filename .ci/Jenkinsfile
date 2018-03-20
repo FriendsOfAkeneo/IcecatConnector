@@ -86,7 +86,7 @@ stage("Build") {
                         sh "chmod -R 777 ${env.WORKSPACE}/pim"
                         sh "composer config cache-dir ${env.WORKSPACE}/cache"
                         sh "composer config repositories.extension '{\"type\": \"vcs\", \"url\": \"${Globals.extensionRepoUrl}\"}'"
-                        sh "composer require phpunit/phpunit:${Globals.phpunitVersion} ${Globals.vendorName}/${Globals.extensionName}:${Globals.extensionVersion} --no-ansi --optimize-autoloader --no-interaction --no-progress --prefer-dist --no-scripts --no-suggest"
+                        sh "composer require phpunit/phpunit:${Globals.phpunitVersion} ${Globals.vendorName}/${Globals.extensionName}:${Globals.extensionVersion} --no-ansi --optimize-autoloader --no-interaction --no-progress --prefer-dist --no-suggest"
                         stash "pim_${pimEdition}_${pimVersion}"
                         sh "chmod -R 777 ${env.WORKSPACE}/pim"
                         deleteDir()
