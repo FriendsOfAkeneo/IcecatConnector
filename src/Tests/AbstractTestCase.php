@@ -78,7 +78,7 @@ abstract class AbstractTestCase extends KernelTestCase
      */
     protected function get($serviceName)
     {
-        return static::$kernel->getContainer()->get($serviceName);
+        return $this->testKernel->getContainer()->get($serviceName);
     }
 
     /**
@@ -88,7 +88,7 @@ abstract class AbstractTestCase extends KernelTestCase
      */
     protected function getParameter($name)
     {
-        return static::$kernel->getContainer()->getParameter($name);
+        return $this->testKernel->getContainer()->getParameter($name);
     }
 
     /**
@@ -106,9 +106,9 @@ abstract class AbstractTestCase extends KernelTestCase
      */
     protected function runBatchCommand(array $input = [])
     {
-        $application = new Application(static::$kernel);
+        $application = new Application($this->testKernel);
         $batchCommand = new BatchCommand();
-        $batchCommand->setContainer(static::$kernel->getContainer());
+        $batchCommand->setContainer($this->testKernel->getContainer());
         $application->add($batchCommand);
 
         if (!array_key_exists('--no-log', $input)) {
@@ -128,9 +128,9 @@ abstract class AbstractTestCase extends KernelTestCase
      */
     protected function createImportProfile($connector, $job)
     {
-        $application = new Application(static::$kernel);
+        $application = new Application($this->testKernel);
         $batchCommand = new CreateJobCommand();
-        $batchCommand->setContainer(static::$kernel->getContainer());
+        $batchCommand->setContainer($this->testKernel->getContainer());
         $application->add($batchCommand);
         $cmd = $application->find('akeneo:batch:create-job');
         $input = new ArrayInput([
@@ -210,6 +210,6 @@ abstract class AbstractTestCase extends KernelTestCase
             ],
         ]);
         $this->get('pim_catalog.saver.family')->save($family);
-        sleep(10);
+        sleep(5);
     }
 }
