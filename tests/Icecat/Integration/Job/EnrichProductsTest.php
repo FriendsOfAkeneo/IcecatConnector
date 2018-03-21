@@ -45,7 +45,7 @@ class EnrichProductsTest extends AbstractTestCase
 
         sleep(10);
 
-        copy(__DIR__ . '/../../Resources/jenkins/mapping.csv', '/tmp/mapping.csv');
+        copy(__DIR__ . '/../resources/mapping.csv', '/tmp/mapping.csv');
 
         $input = [
             'code' => $this->jobCode,

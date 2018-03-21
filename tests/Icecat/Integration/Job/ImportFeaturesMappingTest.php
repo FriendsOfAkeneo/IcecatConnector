@@ -29,7 +29,7 @@ class ImportFeaturesMappingTest extends AbstractTestCase
     {
         $input = [
             'code' => $this->jobCode,
-            '--config' => '{"filePath": "' . realpath(__DIR__ . '/../../Resources/jenkins/featuresList.csv') . '"}',
+            '--config' => '{"filePath": "' . realpath(__DIR__ . '/../resources/featuresList.csv') . '"}',
         ];
 
         $res = $this->runBatchCommand($input);
