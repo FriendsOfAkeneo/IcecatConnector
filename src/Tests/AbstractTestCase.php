@@ -35,10 +35,6 @@ abstract class AbstractTestCase extends KernelTestCase
     public function setUp()
     {
         static::bootKernel(['debug' => false]);
-        $config = $this->get('oro_config.global');
-        $this->credentials['username'] = $config->get('pim_icecat_connector.credentials_username');
-        $this->credentials['password'] = $config->get('pim_icecat_connector.credentials_password');
-
         $container = static::$kernel->getContainer();
         $authenticator = new SystemUserAuthenticator($container);
         $authenticator->createSystemUser();
@@ -49,6 +45,10 @@ abstract class AbstractTestCase extends KernelTestCase
 
         $this->testKernel = new $kernelClass('test', false);
         $this->testKernel->boot();
+
+        $config = $this->get('oro_config.global');
+        $this->credentials['username'] = $config->get('pim_icecat_connector.credentials_username');
+        $this->credentials['password'] = $config->get('pim_icecat_connector.credentials_password');
 
         $this->catalog = $this->testKernel->getContainer()->get('akeneo_integration_tests.configuration.catalog');
         $this->testKernel->getContainer()->set(
