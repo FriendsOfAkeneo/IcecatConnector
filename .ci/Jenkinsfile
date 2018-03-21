@@ -26,15 +26,15 @@ String[] pimEditions = ["ce", "ee"]
 def installExtension(pimEdition, extensionPath) {
 
     if (pimEdition.equals("ce")) {
-        sh "cp ${extensionPath}/src/Resources/jenkins/parameters_test.yml app/config/parameters_test.yml"
+        sh "cp ${extensionPath}/.ci/resources/parameters_test.yml app/config/parameters_test.yml"
     } else if (pimEdition.equals("ee")) {
-        sh "cp ${extensionPath}/src/Resources/jenkins/parameters_test_ee.yml app/config/parameters_test.yml"
+        sh "cp ${extensionPath}/.ci/resources/parameters_test_ee.yml app/config/parameters_test.yml"
     }
 
     sh """
-        cp ${extensionPath}/src/Resources/jenkins/phpunit.xml app/phpunit.xml
-        cat ${extensionPath}/src/Resources/jenkins/config_test.yml >> app/config/config_test.yml
-        cat ${extensionPath}/src/Resources/jenkins/routing.yml >> app/config/routing.yml
+        cp ${extensionPath}/.ci/resources/phpunit.xml app/phpunit.xml
+        cat ${extensionPath}/.ci/resources/config_test.yml >> app/config/config_test.yml
+        cat ${extensionPath}/.ci/resources/routing.yml >> app/config/routing.yml
         sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\IcecatConnectorBundle\\\\PimIcecatConnectorBundle(),#' app/AppKernel.php
         sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedMeasureBundle\\\\PimExtendedMeasureBundle(),#' app/AppKernel.php
         sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedAttributeTypeBundle\\\\PimExtendedAttributeTypeBundle(),#' app/AppKernel.php
