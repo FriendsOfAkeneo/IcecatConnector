@@ -1,0 +1,15 @@
+measures_config:
+    KinematicViscosity:
+        standard: SQUARE_METER_PER_SECOND
+        units:
+            SQUARE_METER_PER_SECOND:
+                unece_code: 'S4'
+                convert: [{'mul': 1}]
+                symbol: 'm²/s'
+            SQUARE_MILLIMETER_PER_SECOND:
+                unece_code: 'C17'
+                convert: [{'div': 1000000}]
+                symbol: 'mm²/s'
+            SQUARE_METER_PER_HOUR:
+                convert: [{'mul': 3600}]
+                symbol: 'm²/h'

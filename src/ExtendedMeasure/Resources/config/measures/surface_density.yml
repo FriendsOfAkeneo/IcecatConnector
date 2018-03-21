@@ -1,0 +1,44 @@
+measures_config:
+    SurfaceDensity:
+        standard: KILOGRAM_PER_SQUARE_METER
+        units:
+            KILOGRAM_PER_SQUARE_METER:
+                unece_code: '28'
+                convert: [{'mul': 1}]
+                symbol: 'kg/m²'
+                name: 'kilogram per square meter'
+            GRAM_PER_SQUARE_METER:
+                unece_code: 'GM'
+                convert: [{'div': 1000}]
+                symbol: 'g/m²'
+                name: 'gram per square meter'
+            MILLIGRAM_PER_SQUARE_METER:
+                unece_code: 'GO'
+                convert: [{'div': 1000000}]
+                symbol: 'mg/m²'
+                name: 'milligram per square meter'
+            GRAM_PER_SQUARE_CENTIMETER:
+                unece_code: '25'
+                convert: [{'mul': 10}]
+                symbol: 'g/cm²'
+                name: 'gram per square centimeter'
+            MILLIGRAM_PER_SQUARE_CENTIMETER:
+                unece_code: 'H63'
+                convert: [{'mul': 0.01}]
+                symbol: 'mg/cm²'
+                name: 'milligram per square centimeter'
+            KILOGRAM_PER_SQUARE_CENTIMETER:
+                unece_code: 'D5'
+                convert: [{'mul': 10000}]
+                symbol: 'kg/cm²'
+                name: 'kilogram per square centimeter'
+            OUNCE_PER_SQUARE_YARD:
+                unece_code: 'ON'
+                convert: [{'mul': 0.03390575}]
+                symbol: 'oz/yd²'
+                name: 'ounce per square yard'
+            OUNCE_PER_SQUARE_FOOT:
+                unece_code: '37'
+                convert: [{'mul': 0.3051517}]
+                symbol: 'oz/ft²'
+                name: 'ounce per square foot'

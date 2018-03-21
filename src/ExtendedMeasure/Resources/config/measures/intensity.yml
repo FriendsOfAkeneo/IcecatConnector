@@ -1,0 +1,6 @@
+measures_config:
+    Intensity:
+        units:
+            MICROAMPERE:
+                convert: [{'div': 1000000}]
+                symbol: µA

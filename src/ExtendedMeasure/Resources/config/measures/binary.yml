@@ -1,0 +1,27 @@
+measures_config:
+    Binary:
+        units:
+            BIT:
+                convert: [{'mul': 0.125}]
+                symbol: 'b'
+                alternative_symbols: ['Bit']
+            KILOBIT:
+                unece_code: 'C37'
+                convert: [{'mul': 125}]
+                symbol: 'kbit'
+            MEGABIT:
+                unece_code: 'D36'
+                convert: [{'mul': 1250000}]
+                symbol: 'Mbit'
+            GIGABIT:
+                unece_code: 'B68'
+                convert: [{'mul': 1250000000}]
+                symbol: 'Gbit'
+            KILOBYTE:
+                convert: [{'mul': 1024}]
+                symbol: 'kB'
+                alternative_symbols: ['kByte']
+            MEGABYTE:
+                convert: [{'mul': 1048576}]
+                symbol: 'MB'
+                alternative_symbols: ['MByte', 'Mbyte']

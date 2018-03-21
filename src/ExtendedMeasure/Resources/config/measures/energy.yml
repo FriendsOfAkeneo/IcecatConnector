@@ -1,0 +1,143 @@
+measures_config:
+    Energy:
+        standard: JOULE
+        units:
+            JOULE:
+                unece_code: 'JOU'
+                convert: [{'mul': 1}]
+                symbol: 'J'
+                name: 'joule'
+            KILOJOULE:
+                unece_code: 'KJO'
+                convert: [{'mul': 1000}]
+                symbol: 'kJ'
+                name: 'kilojoule'
+            EXAJOULE:
+                unece_code: 'A68'
+                convert: [{'mul': 1000000000000000000}]
+                symbol: 'EJ'
+                name: 'exajoule'
+            PETAJOULE:
+                unece_code: 'C68'
+                convert: [{'mul': 1000000000000000}]
+                symbol: 'PJ'
+                name: 'petajoule'
+            TERAJOULE:
+                unece_code: 'D30'
+                convert: [{'mul': 1000000000000}]
+                symbol: 'TJ'
+                name: 'terajoule'
+            GIGAJOULE:
+                unece_code: 'GV'
+                convert: [{'mul': 1000000000}]
+                symbol: 'GJ'
+                name: 'gigajoule'
+            MEGAJOULE:
+                unece_code: '3B'
+                convert: [{'mul': 1000000}]
+                symbol: 'MJ'
+                name: 'megajoule'
+            MILLIJOULE:
+                unece_code: 'C15'
+                convert: [{'mul': 0.001}]
+                symbol: 'mJ'
+                name: 'millijoule'
+            FEMTOJOULE:
+                unece_code: 'A70'
+                convert: [{'div': 1000000000000000}]
+                symbol: 'fJ'
+                name: 'femtojoule'
+            ATTOJOULE:
+                unece_code: 'A13'
+                convert: [{'div': 1000000000000000000}]
+                symbol: 'aJ'
+                name: 'attojoule'
+            CALORIE:
+                convert: [{'div': 4.184}]
+                symbol: 'cal'
+                name: 'calorie'
+            KILOCALORIE:
+                convert: [{'div': 4184}]
+                symbol: 'kcal'
+                name: 'kilocalorie'
+            WATT_HOUR:
+                unece_code: 'WHR'
+                convert: [{'mul': 3600}]
+                symbol: 'W·h'
+                name: 'watt hour'
+            WATT_MINUTE:
+                convert: [{'mul': 60}]
+                symbol: 'W·min'
+                name: 'watt minute'
+                alternative_symbols: ['W/m']
+            MEGAWATT_HOUR:
+                unece_code: 'MWH'
+                convert: [{'mul': 3600000000}]
+                symbol: 'MW·h'
+                name: 'megawatt hour'
+            KILOWATT_HOUR:
+                unece_code: 'KWH'
+                convert: [{'mul': 3600000}]
+                symbol: 'kW·h'
+                name: 'kilowatt hour'
+                alternative_symbols: ['kWh']
+            KILOWATT_DAY:
+                convert: [{'mul': 86400000}]
+                symbol: 'kW·d'
+                name: 'kilowatt day'
+                alternative_symbols: ['kWd', 'kW/24h']
+            GIGAWATT_HOUR:
+                unece_code: 'GWH'
+                convert: [{'mul': 3600000000000}]
+                symbol: 'GW·h'
+                name: 'gigawatt hour'
+            TERAWATT_HOUR:
+                unece_code: 'D32'
+                convert: [{'mul': 3600000000000000}]
+                symbol: 'TW·h'
+                name: 'terawatt hour'
+            ERG:
+                unece_code: 'A57'
+                convert: [{'div': 10000000}]
+                symbol: 'erg'
+                name: 'erg'
+            ELECTRONVOLT:
+                unece_code: 'A53'
+                convert: [{'mul': 0.0000000000000000001602176487}]
+                symbol: 'eV'
+                name: 'electronvolt'
+            MEGAELECTRONVOLT:
+                unece_code: 'B71'
+                convert: [{'mul': 0.0000000000001602176487}]
+                symbol: 'MeV'
+                name: 'megaelectronvolt'
+            GIGAELECTRONVOLT:
+                unece_code: 'A85'
+                convert: [{'mul': 0.0000000001602176487}]
+                symbol: 'GeV'
+                name: 'gigaelectronvolt'
+            KILOELECTRONVOLT:
+                unece_code: 'B29'
+                convert: [{'mul': 0.0000000000000001602176487}]
+                symbol: 'keV'
+                name: 'kiloelectronvolt'
+            FOOT_POUND_FORCE:
+                unece_code: '85'
+                convert: [{'mul': 1.355818}]
+                symbol: 'ft·lbf'
+                name: 'foot pound-force'
+            FOOT_POUNDAL:
+                unece_code: 'N46'
+                convert: [{'mul': 0.04214011}]
+                symbol: 'ft·pdl'
+                name: 'foot poundal'
+            INCH_POUNDAL:
+                unece_code: 'N47'
+                convert: [{'mul': 0.003511677}]
+                symbol: 'in·pdl'
+                name: 'inch poundal'
+
+            KILOVOLT_AMPERE_REACTIVE_HOUR:
+                convert: [{'mul': 3600000}]
+                symbol: 'kvarh'
+                name: 'kilovolt-ampere per  reactive hour'

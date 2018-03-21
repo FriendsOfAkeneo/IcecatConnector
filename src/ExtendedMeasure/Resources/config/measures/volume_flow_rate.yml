@@ -1,0 +1,102 @@
+measures_config:
+    VolumeFlowRate:
+        standard: CUBIC_METER_PER_SECOND
+        units:
+            CUBIC_METER_PER_SECOND:
+                unece_code: 'MQS'
+                convert: [{'mul': 1}]
+                symbol: 'm³/s'
+                name: 'cubic meter per second'
+            CUBIC_METER_PER_MINUTE:
+                unece_code: 'G53'
+                convert: [{'mul': 60}]
+                symbol: 'm³/min'
+                name: 'cubic meter per minute'
+            CUBIC_METER_PER_HOUR:
+                unece_code: 'MQH'
+                convert: [{'mul': 3600}]
+                symbol: 'm³/h'
+                name: 'cubic meter per hour'
+            CUBIC_METER_PER_DAY:
+                unece_code: 'G52'
+                convert: [{'mul': 86400}]
+                symbol: 'm³/d'
+                name: 'cubic meter per day'
+
+            MILLILITRE_PER_SECOND:
+                unece_code: '40'
+                convert: [{'mul': 0.000001}]
+                symbol: 'ml/s'
+                name: 'millilitre per second'
+            MILLILITRE_PER_MINUTE:
+                unece_code: '41'
+                convert: [{'mul': 0.000001}, {'mul': 60'}]
+                symbol: 'ml/min'
+                name: 'millilitre per minute'
+            MILLILITRE_PER_HOUR:
+                unece_code: 'G55'
+                convert: [{'mul': 0.000001}, {'mul': 3600'}]
+                symbol: 'ml/h'
+                name: 'millilitre per hour'
+            MILLILITRE_PER_DAY:
+                unece_code: 'G54'
+                convert: [{'mul': 0.000001}, {'mul': 86400'}]
+                symbol: 'ml/d'
+                name: 'millilitre per day'
+
+            CUBIC_CENTIMETER_PER_SECOND:
+                unece_code: '2J'
+                convert: [{'mul': 0.000001}]
+                symbol: 'cm³/s'
+                name: 'cubic centimeter per second'
+            CUBIC_CENTIMETER_PER_MINUTE:
+                unece_code: 'G49'
+                convert: [{'mul': 0.000001}, {'mul': 60}]
+                symbol: 'cm³/min'
+                name: 'cubic centimeter per minute'
+            CUBIC_CENTIMETER_PER_HOUR:
+                unece_code: 'G48'
+                convert: [{'mul': 0.000001}, {'mul': 3600}]
+                symbol: 'cm³/h'
+                name: 'cubic centimeter per hour'
+            CUBIC_CENTIMETER_PER_DAY:
+                unece_code: 'G52'
+                convert: [{'mul': 0.000001}, {'mul': 86400}]
+                symbol: 'cm³/d'
+                name: 'cubic centimeter per day'
+
+            CUBIC_DECIMETER_PER_MINUTE:
+                convert: [{'mul': 0.001}, {'mul': 60'}]
+                symbol: 'dm³/min'
+                name: 'cubic decimeter per minute'
+            CUBIC_DECIMETER_PER_HOUR:
+                unece_code: 'E92'
+                convert: [{'mul': 0.001}, {'mul': 3600'}]
+                symbol: 'dm³/h'
+                name: 'cubic decimeter per hour'
+
+            LITER_PER_SECOND:
+                unece_code: 'G51'
+                convert: [{'mul': 0.001}]
+                symbol: 'l/s'
+                name: 'liter per second'
+            LITER_PER_MINUTE:
+                unece_code: 'L2'
+                convert: [{'mul': 0.001}, {'mul': 60'}]
+                symbol: 'l/min'
+                name: 'liter per minute'
+            LITER_PER_HOUR:
+                convert: [{'mul': 0.001}, {'mul': 3600'}]
+                symbol: 'l/h'
+                name: 'liter per hour'
+            LITER_PER_DAY:
+                unece_code: 'LD'
+                convert: [{'mul': 0.001}, {'mul': 86400}]
+                symbol: 'l/d'
+                name: 'liter per day'
+
+            KILOLITER_PER_HOUR:
+                unece_code: '4X'
+                convert: [{'mul': 3600}]
+                symbol: 'kl/h'
+                name: 'kiloliter per hour'

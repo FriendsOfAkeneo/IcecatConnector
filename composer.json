@@ -30,7 +30,9 @@
     },
     "autoload": {
         "psr-4": {
-            "Pim\\Bundle\\IcecatConnectorBundle\\": "src/"
+            "Pim\\Bundle\\IcecatConnectorBundle\\": "src/Icecat/",
+            "Pim\\Bundle\\IcecatConnectorBundle\\Tests\\": "tests/Integration/",
+            "Pim\\Bundle\\ExtendedMeasureBundle\\": "src/ExtendedMeasure/"
         },
         "psr-0": {
             "spec": "spec/"

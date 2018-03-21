@@ -1,0 +1,48 @@
+measures_config:
+    Resistance:
+        units:
+            MILLIOHM:
+                unece_code: 'E45'
+                convert: [{'mul': 0.001}]
+                symbol: 'mΩ'
+                name: 'milliohm'
+                alternative_symbols: ['mOhm']
+            OHM:
+                unece_code: 'OHM'
+                convert: [{'mul': 1}]
+                symbol: 'Ω'
+                name: 'ohm'
+                alternative_symbols: ['Ohm']
+            KILOHM:
+                unece_code: 'B49'
+                convert: [{'mul': 1000}]
+                symbol: 'kΩ'
+                name: 'kiloomh'
+                alternative_symbols: ['kOhm']
+            MEGOHM:
+                unece_code: 'B75'
+                convert: [{'mul': 1000000}]
+                symbol: 'MΩ'
+                name: 'megaohm'
+                alternative_symbols: ['Mohm']
+            # Added
+            GIGAOHM:
+                unece_code: 'A87'
+                convert: [{'mul': 1000000000}]
+                symbol: 'GΩ'
+                name: 'gigaohm'
+            TERAOHM:
+                unece_code: 'H44'
+                convert: [{'mul': 1000000000000}]
+                symbol: 'TΩ'
+                name: 'teraohm'
+            MICROOHM:
+                unece_code: 'B94'
+                convert: [{'mul': 0.000001}]
+                symbol: 'µΩ'
+                name: 'microohm'
+            NANOOHM:
+                unece_code: 'P22'
+                convert: [{'mul': 0.000000001}]
+                symbol: 'nΩ'
+                name: 'nanoohm'

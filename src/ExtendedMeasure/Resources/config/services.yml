@@ -1,0 +1,8 @@
+parameters:
+    pim_extended_measures.repository.class: Pim\Bundle\ExtendedMeasureBundle\Repository\MeasureRepository
+
+services:
+    pim_extended_measures.repository:
+        class: '%pim_extended_measures.repository.class%'
+        arguments:
+            - '%akeneo_measure.measures_config%'

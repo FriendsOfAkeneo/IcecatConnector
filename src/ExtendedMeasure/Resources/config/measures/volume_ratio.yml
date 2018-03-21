@@ -1,0 +1,34 @@
+measures_config:
+    VolumeRatio:
+        standard: LITER_PER_LITER
+        units:
+            LITER_PER_LITER:
+                unece_code: 'K62'
+                convert: [{'mul': 1}]
+                symbol: 'l/l'
+                name: 'liter per liter'
+            MICROLITER_PER_LITER:
+                unece_code: 'J36'
+                convert: [{'div': 1000000}]
+                symbol: 'µl/l'
+                name: 'microliter per liter'
+            CUBIC_CENTIMETER_PER_CUBIC_METER:
+                unece_code: 'J87'
+                convert: [{'div': 1000000}]
+                symbol: 'cm³/m³'
+                name: 'cubic centimeter per cubic meter'
+            CUBIC_DECIMETER_PER_CUBIC_METER:
+                unece_code: 'J91'
+                convert: [{'div': 1000}]
+                symbol: 'dm³/m³'
+                name: 'cubic decimeter per cubic meter'
+            MILLILITER_PER_LITER:
+                unece_code: 'L19'
+                convert: [{'div': 1000}]
+                symbol: 'ml/l'
+                name: 'milliliter per liter'
+            CUBIC_MILLILITER_PER_LITER:
+                unece_code: 'L21'
+                convert: [{'mul': 1000000000}]
+                symbol: 'mm³/m³'
+                name: 'cubic milliliter per liter'

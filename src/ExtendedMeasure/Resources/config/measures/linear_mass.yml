@@ -1,0 +1,30 @@
+measures_config:
+    LinearMass:
+        standard: KILOGRAM_PER_METER
+        units:
+            KILOGRAM_PER_METER:
+                unece_code: 'KL'
+                convert: [{'mul': 1}]
+                symbol: 'kg/m'
+            KILOGRAM_PER_MILLIMETER:
+                unece_code: 'KW'
+                convert: [{'mul': 1000}]
+                symbol: 'kg/mm'
+            KILOGRAM_PER_CENTIMETER:
+                convert: [{'mul': 100}]
+                symbol: 'kg/cm'
+            KILOGRAM_PER_KILOMETER:
+                unece_code: 'M31'
+                convert: [{'div': 1000}]
+                symbol: 'kg/km'
+
+            GRAM_PER_METER:
+                unece_code: 'GF'
+                convert: [{'div': 1000}]
+                symbol: 'g/m'
+
+            DENIER:
+                unece_code: 'M83'
+                convert: [{'mul': 1.11}, {'div': 10000000}]
+                symbol: 'D'
+                name: 'denier'

@@ -1,0 +1,112 @@
+measures_config:
+    Etim_LampChange:
+        standard: AX
+        units:
+            AX:
+                convert: [{'mul': 1}]
+                symbol: 'ax'
+    Etim_Power:
+        standard: ETIM_WATT_PEAK
+        units:
+            ETIM_WATT_PEAK:
+                convert: [{'mul': 1}]
+                symbol: 'Wp'
+            ETIM_WATT:
+                convert: [{'mul': 1}]
+                symbol: 'W'
+            ETIM_KILOWATT:
+                convert: [{'mul': 1}]
+                symbol: 'kW'
+            ETIM_WATT_PER_SQUARE_METER:
+                convert: [{'mul': 1}]
+                symbol: 'W/m²'
+            ETIM_KILOWATT_PER_SQUARE_METER:
+                convert: [{'mul': 1}]
+                symbol: 'kW/m²'
+            ETIM_JOULE:
+                convert: [{'mul': 1}]
+                symbol: 'J'
+            ETIM_WATT_MINUTE:
+                convert: [{'mul': 1}]
+                symbol: 'W·min'
+            ETIM_VOLT_AMPERE:
+                convert: [{'mul': 1}]
+                symbol: 'V·A'
+    Etim_Weight:
+        standard: ETIM_GRAM
+        units:
+            ETIM_GRAM:
+                convert: [{'mul': 1}]
+                symbol: 'g'
+            ETIM_KILOGRAM:
+                convert: [{'mul': 1}]
+                symbol: 'kg'
+            ETIM_KILOGRAM_PER_METER:
+                convert: [{'mul': 1}]
+                symbol: 'kg/m'
+            ETIM_TON:
+                convert: [{'mul': 1}]
+                symbol: 't'
+            ETIM_NEWTON:
+                convert: [{'mul': 1}]
+                symbol: 'N'
+            ETIM_KILONEWTON:
+                convert: [{'mul': 1}]
+                symbol: 'kN'
+    Etim_Energy:
+        standard: KILOWATT_HOUR_PER_YEAR
+        units:
+            KILOWATT_HOUR_PER_YEAR:
+                convert: [{'mul': 1}]
+                symbol: 'kWh/year'
+    Etim_TemperatureDrift:
+        standard: PERCENT_PER_KELVIN
+        units:
+            PERCENT_PER_KELVIN:
+                convert: [{'mul': 1}]
+                symbol: '%/K'
+    Etim_Pixel:
+        standard: MP
+        units:
+            MP:
+                convert: [{'mul': 1}]
+                symbol: 'MP'
+    Etim_SpecificEnergy:
+        standard: KILOJOULE_PER_OHM
+        units:
+            KILOJOULE_PER_OHM:
+                convert: [{'mul': 1}]
+                symbol: 'kJ/Ohm'
+    Etim_Viscosity:
+        standard: PASCAL_SECOND
+        units:
+            PASCAL_SECOND:
+                convert: [{'mul': 1}]
+                symbol: 'Pa/s'
+    Etim_DataTransmissionRate:
+        standard: ETIM_BAUD
+        units:
+            ETIM_BAUD:
+                convert: [{'mul': 1}]
+                symbol: 'Bd'
+            ETIM_KILOBYTE_PER_SECOND:
+                convert: [{'mul': 1}]
+                symbol: 'kbyte/s'
+            ETIM_MEGABYTE_PER_SECOND:
+                convert: [{'mul': 1}]
+                symbol: 'Mbyte/s'
+    Etim_Capacity:
+        standard: ETIM_AMPEREHOUR
+        units:
+            ETIM_AMPEREHOUR:
+                convert: [{'mul': 1}]
+                symbol: 'Ah'
+            ETIM_MILLIAMPEREHOUR:
+                convert: [{'mul': 1}]
+                symbol: 'mAh'
+            ETIM_MILLIMETER:
+                convert: [{'mul': 1}]
+                symbol: 'mm'
+            ETIM_MICROFARAD:
+                convert: [{'mul': 1}]
+                symbol: 'µF'

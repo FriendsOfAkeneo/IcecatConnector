@@ -1,0 +1,23 @@
+measures_config:
+    Irradiance:
+        standard: WATT_PER_SQUARE_METER
+        units:
+            WATT_PER_SQUARE_METER:
+                unece_code: 'D54'
+                convert: [{'mul': 1}]
+                symbol: 'W/m²'
+                name: 'watt per square meter'
+            KILOWATT_PER_SQUARE_METER:
+                convert: [{'mul': 1}]
+                symbol: 'kW/m²'
+                name: 'kilowatt per square meter'
+            MILLIWATT_PER_SQUARE_METER:
+                unece_code: 'C32'
+                convert: [{'div': 1000}]
+                symbol: 'mW/m²'
+                name: 'milliwatt per square meter'
+            PICOWATT_PER_SQUARE_METER:
+                unece_code: 'C74'
+                convert: [{'div': 1000}]
+                symbol: 'pW/m²'
+                name: 'picowatt per square meter'

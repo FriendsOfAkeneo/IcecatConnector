@@ -1,0 +1,9 @@
+measures_config:
+    ThermalConductivity:
+        standard: WATT_PER_METER_KELVIN
+        units:
+            WATT_PER_METER_KELVIN:
+                unece_code: 'D53'
+                convert: [{'mul': 1}]
+                symbol: 'W/(m·K)'
+                alternative_symbols: ['W/K', 'W/mK']

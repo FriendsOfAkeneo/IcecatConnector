@@ -1,0 +1,24 @@
+measures_config:
+    LinearResistance:
+        standard: OHM_PER_METER
+        units:
+            OHM_PER_METER:
+                unece_code: 'H26'
+                convert: [{ mul: 1 }]
+                symbol: Ω/m
+            OHM_PER_KILOMETER:
+                unece_code: 'F56'
+                convert: [{ div: 1000 }]
+                symbol: Ω/km
+            MEGAOHM_PER_METER:
+                unece_code: 'H37'
+                convert: [{ mul: 1000000 }]
+                symbol: MΩ/m
+            MEGAOHM_PER_KILOMETER:
+                unece_code: 'H36'
+                convert: [{ mul: 1000 }]
+                symbol: MΩ/km
+            MILLIOHM_PER_METER:
+                unece_code: 'F54'
+                convert: [{ div: 1000 }]
+                symbol: mΩ/m

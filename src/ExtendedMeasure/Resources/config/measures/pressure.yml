@@ -1,0 +1,97 @@
+measures_config:
+    Pressure:
+        units:
+            MILLIBAR:
+                unece_code: 'MBR'
+                convert: [{'mul': 1000}]
+                symbol: 'mBar'
+                name: 'millibar'
+                alternative_symbols: ['mbar']
+            BAR:
+                unece_code: 'BAR'
+                name: 'bar'
+                alternative_symbols: ['bar']
+            PASCAL:
+                unece_code: 'PAL'
+                convert: [{'div': 100000}]
+                symbol: 'Pa'
+                name: 'pascal'
+            HECTOPASCAL:
+                unece_code: 'A97'
+                convert: [{'div': 1000}]
+                symbol: 'hPa'
+                name: 'hectopascal'
+            ATM:
+                unece_code: 'ATM'
+                convert: [{'mul': 0.986923}]
+                symbol: atm
+                name: 'standard atmosphere'
+            # Added
+            MICROPASCAL:
+                unece_code: 'B96'
+                convert: [{'div': 100000000000}]
+                symbol: 'µPa'
+                name: 'micropascal'
+            MILLIPASCAL:
+                unece_code: '74'
+                convert: [{'div': 100000000}]
+                symbol: 'mPa'
+                name: 'millipascal'
+            MEGAPASCAL:
+                unece_code: 'MPA'
+                convert: [{'mul': 10}]
+                symbol: 'MPa'
+                name: 'megapascal'
+            DECAPASCAL:
+                unece_code: 'H75'
+                convert: [{'div': 10000}]
+                symbol: 'daPa'
+                name: 'decapascal'
+            KILOPASCAL:
+                unece_code: 'KPA'
+                convert: [{'div': 100'}]
+                symbol: 'kPa'
+                name: 'kilopascal'
+            GIGAPASCAL:
+                unece_code: 'A89'
+                convert: [{'mul': 10000}]
+                symbol: 'GPa'
+                name: 'gigapascal'
+
+            MICROBAR:
+                unece_code: 'B85'
+                convert: [{'div': 1000000}]
+                symbol: 'µbar'
+                name: 'microbar'
+            HECTOBAR:
+                unece_code: 'HBA'
+                convert: [{'mul': 100}]
+                symbol: 'hbar'
+                name: 'hectobar'
+            KILOBAR:
+                unece_code: 'HBA'
+                convert: [{'mul': 1000}]
+                symbol: 'kbar'
+                name: 'kilobar'
+
+            NEWTON_PER_SQUARE_METER:
+                unece_code: 'C55'
+                convert: [{'div': 100000}]
+                symbol: 'N/m²'
+                name: 'newton per square meter'
+            NEWTON_PER_SQUARE_MILLIMETER:
+                unece_code: 'C56'
+                convert: [{'mul': 10}]
+                symbol: 'N/mm²'
+                name: 'newton per square millimeter'
+            NEWTON_PER_SQUARE_CENTIMETER:
+                unece_code: 'E01'
+                convert: [{'div': 10}]
+                symbol: 'N/cm²'
+                name: 'newton per square centimeter'
+
+            HN:
+                unece_code: 'HN'
+                name: 'conventional millimeter of mercury'
+                convert: [{'mul': 0.001333224}]
+                symbol: 'mm Hg'

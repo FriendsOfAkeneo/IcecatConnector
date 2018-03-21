@@ -1,0 +1,37 @@
+measures_config:
+    SurfaceTension:
+        standard: NEWTON_PER_METER
+        units:
+            MILLINEWTON_PER_METER:
+                unece_code: 'C22'
+                convert: [{'div': 1000}]
+                symbol: 'mN/m'
+                name: 'millinewton per meter'
+            NEWTON_PER_METER:
+                unece_code: '4P'
+                convert: [{'mul': 1}]
+                symbol: 'N/m'
+                name: 'newton per meter'
+            NEWTON_PER_DECIMETER:
+                convert: [{'mul': 10}]
+                symbol: 'N/dm'
+                name: 'newton per decimeter'
+            NEWTON_PER_CENTIMETER:
+                unece_code: 'M23'
+                convert: [{'mul': 100}]
+                symbol: 'N/cm'
+                name: 'newton per centimeter'
+            NEWTON_PER_KILOMETER:
+                unece_code: 'N31'
+                convert: [{'mul': 1000}]
+                symbol: 'N/km'
+                name: 'newton per kilometer'
+            POUNDAL_PER_INCH:
+                unece_code: 'N32'
+                convert: [{'mul': 5.443110}]
+                symbol: 'pdl/in'
+                name: 'poundal per inch'
+            POUNDFORCE_PER_YARD:
+                unece_code: 'N33'
+                convert: [{'mul': 4.864635}]
+                symbol: 'lbf/yd'

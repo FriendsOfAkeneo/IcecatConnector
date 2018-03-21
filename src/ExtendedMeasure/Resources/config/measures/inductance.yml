@@ -1,0 +1,34 @@
+measures_config:
+    Inductance:
+        standard: HENRY
+        units:
+            MILLIHENRY:
+                unece_code: 'C14'
+                convert: [{'div': 1000}]
+                symbol: 'mH'
+                name: 'millihenry'
+            MICROHENRY:
+                unece_code: 'B90'
+                convert: [{'div': 1000000}]
+                symbol: 'µH'
+                name: 'microhenry'
+            NANOHENRY:
+                unece_code: 'C43'
+                convert: [{'div': 1000000000}]
+                symbol: 'nH'
+                name: 'nanohenry'
+            PICOHENRY:
+                unece_code: 'C43'
+                convert: [{'div': 1000000000000}]
+                symbol: 'pH'
+                name: 'picohenry'
+            HENRY:
+                unece_code: '81'
+                convert: [{'mul': 1}]
+                symbol: 'H'
+                name: 'henry'
+            KILOHENRY:
+                unece_code: 'P24'
+                convert: [{'mul': 1000}]
+                symbol: 'kH'
+                name: 'kilohenry'

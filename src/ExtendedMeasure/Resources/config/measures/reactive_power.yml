@@ -1,0 +1,20 @@
+measures_config:
+    ReactivePower:
+        standard: VAR
+        units:
+            # reactive power
+            VAR:
+                unece_code: 'D44'
+                convert: [{'mul': 1}]
+                symbol: 'var'
+                name: 'var'
+            KILOVAR:
+                unece_code: 'KVR'
+                convert: [{'mul': 1000}]
+                symbol: 'kvar'
+                name: 'kilovar'
+            MEGAVAR:
+                unece_code: 'MAR'
+                convert: [{'mul': 1000000}]
+                symbol: 'Mvar'
+                name: 'megavar'

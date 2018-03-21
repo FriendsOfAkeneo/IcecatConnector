@@ -1,0 +1,90 @@
+measures_config:
+    Duration:
+        standard: SECOND
+        units:
+            MILLISECOND:
+                unece_code: 'C26'
+                convert: [{'mul': 0.001}]
+                symbol: 'ms'
+                name: 'millisecond'
+            SECOND:
+                unece_code: 'SEC'
+                convert: [{'mul': 1}]
+                symbol: 's'
+                name: 'second'
+            MINUTE:
+                unece_code: 'MIN'
+                convert: [{'mul': 60}]
+                symbol: 'min'
+                name: 'minute'
+            HOUR:
+                unece_code: 'HUR'
+                convert: [{'mul': 3600}]
+                symbol: 'h'
+                name: 'hour'
+            DAY:
+                unece_code: 'DAY'
+                convert: [{'mul': 86400}]
+                symbol: 'd'
+                name: 'day'
+            # Added
+            KILOSECOND:
+                unece_code: 'B52'
+                convert: [{'mul': 1000}]
+                symbol: 'ks'
+                name: 'kilosecond'
+            MILLISECOND:
+                unece_code: 'C26'
+                convert: [{'div': 1000}]
+                symbol: 'ms'
+                name: 'millisecond'
+            PICOSECOND:
+                unece_code: 'H70'
+                convert: [{'div': 1000000000000}]
+                symbol: 'ps'
+                name: 'picosecond'
+            NANOSECOND:
+                unece_code: 'C47'
+                convert: [{'div': 1000000000}]
+                symbol: 'ns'
+                name: 'nanosecond'
+            MICROSECOND:
+                unece_code: 'B98'
+                convert: [{'div': 1000000}]
+                symbol: 'µs'
+                name: 'microsecond'
+            WEEK:
+                unece_code: 'WEE'
+                convert: [{'mul': 604800}]
+                symbol: 'wk'
+                name: 'week'
+            MONTH:
+                unece_code: 'MON'
+                convert: [{'mul': 2629800}]
+                symbol: 'mo'
+                name: 'month'
+            YEAR:
+                unece_code: 'ANN'
+                convert: [{'mul': 31557600}]
+                symbol: 'y'
+                name: 'year'
+            TROPICAL_YEAR:
+                unece_code: 'D42'
+                convert: [{'mul': 31556925}]
+                symbol: 'y (tropical)'
+                name: 'tropical year'
+            COMMON_YEAR:
+                unece_code: 'L95'
+                convert: [{'mul': 31536000}]
+                symbol: 'y (365 days)'
+                name: 'common year'
+            SIDEREAL_YEAR:
+                unece_code: 'L96'
+                convert: [{'mul': 31558150}]
+                symbol: 'y (sidereal)'
+                name: 'sidereal year'
+            SHAKE:
+                unece_code: 'M56'
+                convert: [{'div': 100000000}]
+                symbol: 'shake'
+                name: 'shake'

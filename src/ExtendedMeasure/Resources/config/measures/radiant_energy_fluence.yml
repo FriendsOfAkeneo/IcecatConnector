@@ -1,0 +1,12 @@
+measures_config:
+    RadiantEnergyFluence:
+        standard: GRAM_PER_LITER
+        units:
+            JOULE_PER_SQUARE_METER:
+                unece_code: 'B13'
+                convert: [{'mul': 1}]
+                symbol: 'J/m²'
+            JOULE_PER_SQUARE_CENTIMETER:
+                unece_code: 'E43'
+                convert: [{'mul': 10000}]
+                symbol: 'J/cm²'

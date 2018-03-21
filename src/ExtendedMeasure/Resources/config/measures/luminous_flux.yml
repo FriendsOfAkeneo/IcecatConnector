@@ -1,0 +1,9 @@
+measures_config:
+    LuminousFlux:
+        standard: LUMEN
+        units:
+            LUMEN:
+                unece_code: 'LUM'
+                convert: [{'mul': 1}]
+                symbol: lm
+                name: 'lumen'

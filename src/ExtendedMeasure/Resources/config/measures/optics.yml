@@ -1,0 +1,9 @@
+measures_config:
+    Optics:
+        standard: DIOPTRE
+        units:
+            DIOPTRE:
+                convert: [{'mul': 1}]
+                symbol: 'dpt'
+                name: 'diopter'
+                alternative_symbols: ['dioptre']

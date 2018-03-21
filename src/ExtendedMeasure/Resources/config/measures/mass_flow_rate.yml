@@ -1,0 +1,66 @@
+measures_config:
+    MassFlowRate:
+        standard: KILOGRAM_PER_SECOND
+        units:
+            KILOGRAM_PER_SECOND:
+                unece_code: 'KGS'
+                convert: [{'mul': 1}]
+                symbol: 'kg/s'
+                name: 'kilogram per second'
+            KILOGRAM_PER_MINUTE:
+                unece_code: 'F31'
+                convert: [{'mul': 60}]
+                symbol: 'kg/min'
+                name: 'kilogram per minute'
+            KILOGRAM_PER_HOUR:
+                unece_code: 'E93'
+                convert: [{'mul': 3600}]
+                symbol: 'kg/h'
+                name: 'kilogram per hour'
+            KILOGRAM_PER_DAY:
+                unece_code: 'F30'
+                convert: [{'mul': 86400}]
+                symbol: 'kg/d'
+                name: 'kilogram per day'
+
+            GRAM_PER_SECOND:
+                unece_code: 'F29'
+                convert: [{'div': 1000}]
+                symbol: 'g/s'
+                name: 'gram per second'
+            GRAM_PER_MINUTE:
+                unece_code: 'F28'
+                convert: [{'div': 1000}, {'mul': 60}]
+                symbol: 'g/min'
+                name: 'gram per minute'
+            GRAM_PER_HOUR:
+                unece_code: 'F27'
+                convert: [{'div': 1000}, {'mul': 3600}]
+                symbol: 'g/h'
+                name: 'gram per hour'
+            GRAM_PER_DAY:
+                unece_code: 'F26'
+                convert: [{'div': 1000}, {'mul': 86400}]
+                symbol: 'g/d'
+                name: 'gram per day'
+
+            MILLIGRAM_PER_SECOND:
+                unece_code: 'F34'
+                convert: [{'div': 1000000}]
+                symbol: 'mg/s'
+                name: 'milligram per second'
+            MILLIGRAM_PER_MINUTE:
+                unece_code: 'F33'
+                convert: [{'div': 1000000}, {'mul': 60}]
+                symbol: 'mg/min'
+                name: 'milligram per minute'
+            MILLIGRAM_PER_HOUR:
+                unece_code: '4M'
+                convert: [{'div': 1000000}, {'mul': 3600}]
+                symbol: 'mg/h'
+                name: 'milligram per hour'
+            MILLIGRAM_PER_DAY:
+                unece_code: 'F32'
+                convert: [{'div': 1000000}, {'mul': 86400}]
+                symbol: 'mg/d'
+                name: 'milligram per day'

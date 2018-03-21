@@ -1,0 +1,125 @@
+measures_config:
+    Power:
+        standard: WATT
+        units:
+            WATT:
+                unece_code: 'WTT'
+                convert: [{'mul': 1}]
+                symbol: W
+                name: 'watt'
+            KILOWATT:
+                unece_code: 'KWT'
+                convert: [{'mul': 1000}]
+                symbol: kW
+                name: 'kilowatt'
+            MEGAWATT:
+                unece_code: 'MAW'
+                convert: [{'mul': 1000000}]
+                symbol: MW
+                name: 'magewatt'
+            GIGAWATT:
+                unece_code: 'A90'
+                convert: [{'mul': 1000000000}]
+                symbol: GW
+                name: 'gigawatt'
+            TERAWATT:
+                unece_code: 'D31'
+                convert: [{'mul': 1000000000000}]
+                symbol: TW
+                name: 'terawatt'
+            # Added
+            MILLIWATT:
+                unece_code: 'C31'
+                convert: [{'mul': 0.001}]
+                symbol: 'mW'
+                name: 'milliwatt'
+            MICROWATT:
+                unece_code: 'D80'
+                convert: [{'div': 1000000}]
+                symbol: 'µW'
+                name: 'microwatt'
+            NANOWATT:
+                unece_code: 'C49'
+                convert: [{'div': 1000000000}]
+                symbol: 'nW'
+                name: 'nanowatt'
+            PICOWATT:
+                unece_code: 'C75'
+                convert: [{'div': 1000000000000}]
+                symbol: 'pW'
+                name: 'picowatt'
+            WATER_HORSE:
+                unece_code: 'F80'
+                convert: [{'mul': 746.043}]
+                symbol: 'CV'
+                name: 'water horse power'
+            HORSEPOWER:
+                unece_code: 'K43'
+                convert: [{'mul': 746}]
+                symbol: 'electric hp'
+                name: 'horse power (electric)'
+            JOULE_PER_SECOND:
+                unece_code: 'P14'
+                convert: [{'mul': 1}]
+                symbol: 'J/s'
+                name: 'joule per second'
+            JOULE_PER_MINUTE:
+                unece_code: 'P15'
+                convert: [{'div': 60}]
+                symbol: 'J/min'
+                name: 'joule per minute'
+            JOULE_PER_HOUR:
+                unece_code: 'P16'
+                convert: [{'div': 3600}]
+                symbol: 'J/h'
+                name: 'joule per hour'
+            JOULE_PER_DAY:
+                unece_code: 'P17'
+                convert: [{'div': 86400}]
+                symbol: 'J/d'
+                name: 'joule per day'
+            KILOJOULE_PER_SECOND:
+                unece_code: 'P18'
+                convert: [{'mul': 1000}]
+                symbol: 'kJ/s'
+                name: 'kilojoule per second'
+            KILOJOULE_PER_MINUTE:
+                unece_code: 'P19'
+                convert: [{'mul': 1000}, {'div': 60}]
+                symbol: 'kJ/min'
+                name: 'kilojoule per minute'
+            KILOJOULE_PER_HOUR:
+                unece_code: 'P20'
+                convert: [{'mul': 1000}, {'div': 3600}]
+                symbol: 'kJ/h'
+                name: 'kilojoule per hour'
+            KILOJOULE_PER_DAY:
+                unece_code: 'P21'
+                convert: [{'mul': 1000}, {'div': 86400}]
+                symbol: 'kJ/d'
+                name: 'kilojoule per day'
+
+            # apparent power
+            VOLT_AMPERE:
+                unece_code: 'D46'
+                convert: [{'mul': 1}]
+                symbol: 'V·A'
+                name: 'volt - ampere'
+                alternative_symbols: ['VA']
+            MEGAVOLT_AMPERE:
+                unece_code: 'MVA'
+                convert: [{'mul': 1000000}]
+                symbol: 'MV·A'
+                name: 'megavolt - ampere'
+            KILOVOLT_AMPERE:
+                unece_code: 'KVA'
+                convert: [{'mul': 1000}]
+                symbol: 'kV·A'
+                name: 'kilovolt - ampere'
+                alternative_symbols: ['kVA']
+            MILLIVOLT_AMPERE:
+                unece_code: 'M35'
+                convert: [{'mul': 1}]
+                symbol: 'mV·A'
+                name: 'millivolt - ampere'
+
