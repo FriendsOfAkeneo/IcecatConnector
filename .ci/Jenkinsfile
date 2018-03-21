@@ -20,7 +20,7 @@ class Globals {
 // user input
 String launchUnitTests = "yes"
 String launchIntegrationTests = "yes"
-String[] pimVersions = ["2.0","2.1"]
+String[] pimVersions = ["2.0","2.2"]
 String[] pimEditions = ["ce", "ee"]
 
 def installExtension(pimEdition, extensionPath) {
@@ -33,7 +33,6 @@ def installExtension(pimEdition, extensionPath) {
 
     sh """
         cp ${extensionPath}/src/Resources/jenkins/phpunit.xml app/phpunit.xml
-        cp app/config/parameters_test.yml app/config/parameters.yml
         cat ${extensionPath}/src/Resources/jenkins/config_test.yml >> app/config/config_test.yml
         cat ${extensionPath}/src/Resources/jenkins/routing.yml >> app/config/routing.yml
         sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\IcecatConnectorBundle\\\\PimIcecatConnectorBundle(),#' app/AppKernel.php
@@ -86,7 +85,7 @@ stage("Build") {
                         sh "chmod -R 777 ${env.WORKSPACE}/pim"
                         sh "composer config cache-dir ${env.WORKSPACE}/cache"
                         sh "composer config repositories.extension '{\"type\": \"vcs\", \"url\": \"${Globals.extensionRepoUrl}\"}'"
-                        sh "composer require phpunit/phpunit:${Globals.phpunitVersion} ${Globals.vendorName}/${Globals.extensionName}:${Globals.extensionVersion} --no-ansi --optimize-autoloader --no-interaction --no-progress --prefer-dist --no-scripts --no-suggest"
+                        sh "composer require phpunit/phpunit:${Globals.phpunitVersion} ${Globals.vendorName}/${Globals.extensionName}:${Globals.extensionVersion} --no-ansi --optimize-autoloader --no-interaction --no-progress --prefer-dist --no-suggest"
                         stash "pim_${pimEdition}_${pimVersion}"
                         sh "chmod -R 777 ${env.WORKSPACE}/pim"
                         deleteDir()
