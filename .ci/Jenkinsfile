@@ -21,7 +21,7 @@ class Globals {
 String launchUnitTests = "yes"
 String launchIntegrationTests = "yes"
 String[] pimVersions = ["2.0","2.2"]
-String[] pimEditions = ["ce", "ee"]
+String[] pimEditions = ["ee", "ce"]
 
 def installExtension(pimEdition, extensionPath) {
 
