@@ -15,7 +15,7 @@
 
     <testsuites>
         <testsuite name="Icecat_Connector_Integration_Tests">
-            <directory suffix="Test.php">../vendor/akeneo/icecat-connector/src/Tests</directory>
+            <directory suffix="Test.php">../vendor/akeneo/icecat-connector/tests/IcecatConnector</directory>
         </testsuite>
     </testsuites>
 
