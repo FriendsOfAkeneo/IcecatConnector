@@ -7,7 +7,8 @@ It can be used with both Open Icecat free catalog or Full Icecat paid catalog.
 
 | IcecatConnectorBundle | Akeneo PIM Community Edition |
 |:---------------------:|:----------------------------:|
-| 2.0.*                 | v2.*                         |
+| 2.1.*                 | >= v2.2                      |
+| 2.0.*                 | v2.0, v2.1                   |
 | 1.2.*                 | v1.7.*                       |
 | 1.1.*                 | v1.7.*                       |
 | 1.0.*                 | v1.6.*                       |
@@ -64,7 +65,7 @@ There are 3 differents imports profiles in this extension:
 First, you must require the connector dependencies:
 
 ```php
-composer require akeneo/icecat-connector 2.0.*
+composer require akeneo/icecat-connector 2.1.*
 ```
 
 ## Registering the bundle
@@ -103,7 +104,7 @@ bin/console akeneo:batch:create-job "Akeneo Mass Edit Connector" "mass_edit_icec
 ```
 
 In an Enterpise Edition context, you must also add the corresponding permissions:
-https://docs.akeneo.com/2.0/manipulate_pim_data/mass_edition/register_a_new_mass_edit_action.html#phase-6-add-user-groups-permissions-to-job-profiles-enterprise-edition
+https://docs.akeneo.com/2.2/manipulate_pim_data/mass_edition/register_a_new_mass_edit_action.html#phase-6-add-user-groups-permissions-to-job-profiles-enterprise-edition
 
 To facilitate this configuration, the bundle provides a `bin/setup.bash` to make this operations in one command line.
 
