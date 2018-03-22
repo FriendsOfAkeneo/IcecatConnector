@@ -32,7 +32,7 @@ def installExtension(pimEdition, extensionPath) {
     }
 
     sh """
-        cp ${extensionPath}/.ci/resources/phpunit.xml app/phpunit.xml
+        cp ${extensionPath}/.ci/phpunit.xml app/phpunit.xml
         cat ${extensionPath}/.ci/resources/config_test.yml >> app/config/config_test.yml
         cat ${extensionPath}/.ci/resources/routing.yml >> app/config/routing.yml
         sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\IcecatConnectorBundle\\\\PimIcecatConnectorBundle(),#' app/AppKernel.php
