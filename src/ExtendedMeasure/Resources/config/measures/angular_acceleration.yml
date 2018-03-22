@@ -1,0 +1,14 @@
+measures_config:
+    AngularAcceleration:
+        standard: RADIAN_PER_SECOND_SQUARED
+        units:
+            RADIAN_PER_SECOND_SQUARED:
+                unece_code: '2B'
+                convert: [{'mul': 1}]
+                symbol: 'rad/s²'
+                name: 'radian per second squared'
+            DEGREE_PER_SECOND_SQUARED:
+                unece_code: 'M45'
+                convert: [{'mul': 0.01745329}]
+                symbol: '°/s²'
+                name: 'degree per second squared'

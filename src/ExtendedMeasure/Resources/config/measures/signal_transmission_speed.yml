@@ -1,0 +1,20 @@
+measures_config:
+    SignalTransmissionSpeed:
+        standard: BAUD
+        units:
+            BAUD:
+                convert: [{'mul': 1}]
+                symbol: 'Bd'
+                name: 'Baud'
+            KILOBAUD:
+                convert: [{'mul': 1000}]
+                symbol: 'kBd'
+                name: 'Kilobaud'
+            MEGABAUD:
+                convert: [{'mul': 1000000}]
+                symbol: 'MBd'
+                name: 'Megabaud'
+            GIGABAUD:
+                convert: [{'mul': 1000000000}]
+                symbol: 'GBd'
+                name: 'Gigabaud'

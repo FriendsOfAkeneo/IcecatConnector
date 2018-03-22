@@ -1,0 +1,122 @@
+measures_config:
+    Number:
+        standard: DECIMAL
+        units:
+            DECIMAL:
+                unece_code: '28'
+                convert: [{'mul': 1}]
+                symbol: 'unit'
+                name: 'piece'
+            PAIR:
+                unece_code: 'PR'
+                convert: [{'mul': 2}]
+                symbol: 'pair'
+            SCORE:
+                unece_code: 'SCO'
+                convert: [{'mul': 20}]
+                symbol: 'score'
+                name: 'score (20 units)'
+            TRILLION:
+                unece_code: 'TRL'
+                convert: [{'mul': 1000000000000000000}]
+                symbol: 'T'
+                name: 'trillion'
+            BILLION:
+                unece_code: 'BIL'
+                convert: [{'mul': 1000000000000}]
+                symbol: 'billion'
+                name: 'billion'
+            MILLIARD:
+                unece_code: 'MLD'
+                convert: [{'mul': 1000000000}]
+                symbol: 'milliard'
+                name: 'milliard'
+            MILLION:
+                unece_code: 'MO'
+                convert: [{'mul': 1000000}]
+                symbol: 'M'
+                name: 'million'
+            THOUSAND:
+                unece_code: 'MIL'
+                convert: [{'mul': 1000}]
+                symbol: 'k'
+                name: 'thousand'
+            HUNDRED:
+                unece_code: 'CEN'
+                convert: [{'mul': 100}]
+                symbol: 'hundred'
+                name: 'hundred'
+            DOZEN:
+                unece_code: 'DZN'
+                convert: [{'mul': 12}]
+                symbol: 'DOZ'
+                name: 'dozen'
+            HALF_DOZEN:
+                unece_code: 'HD'
+                convert: [{'mul': 6}]
+                symbol: 'half-dozen'
+                name: 'half dozen'
+            QUARTER_DOZEN:
+                unece_code: 'QD'
+                convert: [{'mul': 3}]
+                symbol: 'quarter-dozen'
+                name: 'quarter dozen'
+
+            PERCENT:
+                unece_code: 'P1'
+                convert: [{'div': 100}]
+                symbol: '%'
+                name: 'percent'
+            PERMILLE:
+                unece_code: 'NX'
+                convert: [{'div': 1000}]
+                symbol: '‰'
+                name: 'part per thousand'
+            PERCENT_PER_TEN_THOUSAND:
+                unece_code: 'H91'
+                convert: [{'div': 1000000}]
+                symbol: '%/10000'
+                name: 'percent per ten thousand'
+            PERCENT_PER_HUNDRED_THOUSAND:
+                unece_code: 'H92'
+                convert: [{'div': 10000000}]
+                symbol: '%/100000'
+                name: 'percent per one hundred thousand'
+            PERCENT_PER_HUNDRED:
+                unece_code: 'H93'
+                convert: [{'div': 10000}]
+                symbol: '%/100'
+                name: 'percent per hundred'
+            PERCENT_PER_THOUSAND:
+                unece_code: 'H94'
+                convert: [{'div': 100000}]
+                symbol: '%/1000'
+                name: 'percent per thousand'
+
+            GROSS:
+                unece_code: 'GRO'
+                convert: [{'mul': 144}]
+                symbol: 'gr'
+                name: 'gross'
+            GREAT_GROSS:
+                unece_code: 'GGR'
+                convert: [{'mul': 1728}]
+                symbol: 'great gross'
+                name: 'great gross'
+
+            PART_PER_HUNDRED_THOUSAND:
+                unece_code: 'E40'
+                convert: [{'div': 100000}]
+                symbol: 'ppht'
+                name: 'part per hundred thousand'
+            PART_PER_MILLION:
+                unece_code: '59'
+                convert: [{'div': 1000000}]
+                symbol: 'ppm'
+                name: 'part per million'
+            PART_PER_BILLION:
+                unece_code: '61'
+                convert: [{'div': 1000000000}]
+                symbol: 'ppb'
+                name: 'part per billion'
+

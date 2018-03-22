@@ -1,0 +1,8 @@
+measures_config:
+    FreezingCapacity:
+        standard: KILOGRAM_PER_DAY
+        units:
+            KILOGRAM_PER_DAY:
+                convert: [{'mul': 1}]
+                symbol: 'kg/24h'
+                name: 'kilogram per day'

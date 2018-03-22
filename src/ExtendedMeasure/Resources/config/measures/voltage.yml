@@ -1,0 +1,35 @@
+measures_config:
+    Voltage:
+        standard: VOLT
+        units:
+            MILLIVOLT:
+                unece_code: '2Z'
+                convert: [{'mul': 0.001}]
+                symbol: 'mV'
+                name: 'millivolt'
+            VOLT:
+                unece_code: 'VLT'
+                convert: [{'mul': 1}]
+                symbol: 'V'
+                name: 'volt'
+            KILOVOLT:
+                unece_code: 'KVT'
+                convert: [{'mul': 1000}]
+                symbol: 'kV'
+                name: 'kilovolt'
+            # Added
+            MEGAVOLT:
+                unece_code: 'B78'
+                convert: [{'mul': 1000000}]
+                symbol: 'MV'
+                name: 'megavolt'
+            MICROVOLT:
+                unece_code: 'D82'
+                convert: [{'div': 1000000}]
+                symbol: 'µV'
+                name: 'microvolt'
+            PICOVOLT:
+                unece_code: 'N99'
+                convert: [{'div': 1000000000000}]
+                symbol: 'pV'
+                name: 'picovolt'

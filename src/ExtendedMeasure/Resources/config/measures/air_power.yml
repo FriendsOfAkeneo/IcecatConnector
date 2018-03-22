@@ -1,0 +1,7 @@
+measures_config:
+    AirPower:
+        standard: AIRWATT
+        units:
+            AIRWATT:
+                convert: [{'mul': 1}]
+                symbol: 'AirWatt'

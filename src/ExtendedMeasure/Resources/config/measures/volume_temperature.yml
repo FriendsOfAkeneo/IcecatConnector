@@ -1,0 +1,24 @@
+measures_config:
+    VolumeTemperature:
+        standard: CUBIC_METER_PER_KELVIN
+        units:
+            CUBIC_METER_PER_KELVIN:
+                unece_code: 'G29'
+                convert: [{'mul': 1}]
+                symbol: 'm³/K'
+                name: 'cubic meter per kelvin'
+            CUBIC_CENTIMETER_PER_KELVIN:
+                unece_code: 'G27'
+                convert: [{'div': 1000000}]
+                symbol: 'cm³/K'
+                name: 'cubic centimeter per kelvin'
+            LITER_PER_KELVIN:
+                unece_code: 'G28'
+                convert: [{'div': 1000}]
+                symbol: 'l/K'
+                name: 'liter per Kelvin'
+            MILLITER_PER_KELVIN:
+                unece_code: 'G30'
+                convert: [{'div': 1000000}]
+                symbol: 'ml/K'
+                name: 'milliliter per Kelvin'

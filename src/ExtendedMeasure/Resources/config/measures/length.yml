@@ -1,0 +1,149 @@
+measures_config:
+    Length:
+        units:
+            MILLIMETER:
+                unece_code: 'MMT'
+                convert: [{'mul': 0.001}]
+                symbol: 'mm'
+                name: 'millimeter'
+            CENTIMETER:
+                unece_code: 'CMT'
+                convert: [{'mul': 0.01}]
+                symbol: 'cm'
+                name: 'centimeter'
+            DECIMETER:
+                unece_code: 'DMT'
+                convert: [{'mul': 0.1}]
+                symbol: 'dm'
+                name: 'decimeter'
+            METER:
+                unece_code: 'MTR'
+                convert: [{'mul': 1}]
+                symbol: 'm'
+                name: 'meter'
+            DEKAMETER:
+                unece_code: 'A45'
+                convert: [{'mul': 10}]
+                symbol: 'dam'
+                name: 'decameter'
+            HECTOMETER:
+                unece_code: 'HMT'
+                convert: [{'mul': 100}]
+                symbol: 'hm'
+                name: 'hectometer'
+            KILOMETER:
+                unece_code: 'KMT'
+                convert: [{'mul': 1000}]
+                symbol: 'km'
+                name: 'kilometer'
+            MIL:
+                unece_code: '77'
+                convert: [{'mul': 0.0000254}]
+                symbol: 'mil'
+                name: 'milli-inch'
+            INCH:
+                unece_code: 'INH'
+                convert: [{'mul': 0.0254}]
+                symbol: 'in'
+                name: 'inch'
+                alternative_symbols: ['inch']
+            FEET:
+                unece_code: 'FOT'
+                convert: [{'mul': 0.3048}]
+                symbol: 'ft'
+                name: 'foot'
+            YARD:
+                unece_code: 'YRD'
+                convert: [{'mul': 0.9144}]
+                symbol: 'yd'
+                name: 'yard'
+            CHAIN:
+                unece_code: 'M49'
+                convert: [{'mul': 20.1168}]
+                symbol: ch
+                name: "chain"
+                alternative_symbols: ["Gunter's chain"]
+            FURLONG:
+                unece_code: 'M50'
+                convert: [{'mul': 201.168}]
+                symbol: 'fur'
+                name: 'furlong'
+            MILE:
+                unece_code: 'SMI'
+                convert: [{'mul': 1609.344}]
+                symbol: 'mi'
+                name: 'Mile'
+                alternative_symbols: ['mile']
+            # added
+            MICROMETER:
+                unece_code: '4H'
+                convert: [{'mul': 0.000001}]
+                symbol: 'µm'
+                name: 'micrometer'
+                alternative_symbols: ['micron']
+            NANOMETER:
+                unece_code: 'C45'
+                convert: [{'mul': 0.000000001}]
+                symbol: 'nm'
+                name: 'nanometer'
+            PICOMETER:
+                unece_code: 'C52'
+                convert: [{'mul': 0.000000000001}]
+                symbol: 'pm'
+                name: 'picometer'
+            FENTOMETER:
+                unece_code: 'A71'
+                convert: [{'mul': 0.000000000000001}]
+                symbol: 'fm'
+                name: 'fentometer'
+            NAUTICAL_MILE:
+                unece_code: 'NMI'
+                convert: [{'mul': 1852}]
+                symbol: 'n mile'
+                name: 'nautical mile'
+            ANGSTROM:
+                unece_code: 'A11'
+                convert: [{'mul': 0.00000000001}]
+                symbol: 'Å'
+                name: 'angstrom'
+            ASTRONOMICAL_UNIT:
+                unece_code: 'A12'
+                convert: [{'mul': 149597870000}]
+                symbol: 'ua'
+                name: 'astronomical unit'
+            PARSEC:
+                unece_code: 'C63'
+                convert: [{'mul': 30856780000000000}]
+                symbol: 'pc'
+                name: 'parsec'
+            FRENCH_GAUGE:
+                unece_code: 'H79'
+                convert: [{'div': 3}]
+                symbol: 'Fq'
+                name: 'Franch gauge'
+            FATHOM:
+                unece_code: 'AK'
+                convert: [{'mul': 1.8288 }]
+                symbol: 'fth'
+                name: 'fathom'
+            MICROINCH:
+                unece_code: 'M7'
+                convert: [{'mul': 0.0000254}]
+                symbol: 'µin'
+                name: 'micro-inch'
+            LIGHT_YEAR:
+                unece_code: 'B57'
+                convert: [{'mul': 9460730000000000}]
+                symbol: 'ly'
+                name: 'light year'
+            ROD:
+                unece_code: 'F49'
+                convert: [{'mul': 5.029210}]
+                symbol: 'rd'
+                name: 'rod'
+            MEGAMETER:
+                unece_code: 'MAM'
+                convert: [{'mul': 1000000}]
+                symbol: 'Mm'
+                name: 'Megameter'
+

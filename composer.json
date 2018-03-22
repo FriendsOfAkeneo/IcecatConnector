@@ -17,8 +17,7 @@
     ],
     "require": {
         "php": ">=7.1",
-        "akeneo/extended-attribute-type": "2.0.*",
-        "akeneo/extended-measure-bundle": "0.1.*",
+        "akeneo/extended-attribute-type": "2.1.*",
         "akeneo/pim-community-dev": "^2.0",
         "guzzlehttp/guzzle": "6.*",
         "prewk/xml-string-streamer": "0.9.*"
@@ -30,7 +29,9 @@
     },
     "autoload": {
         "psr-4": {
-            "Pim\\Bundle\\IcecatConnectorBundle\\": "src/"
+            "Pim\\Bundle\\IcecatConnectorBundle\\": "src/IcecatConnector/",
+            "Pim\\Bundle\\IcecatConnectorBundle\\Tests\\": "tests/IcecatConnector/Integration/",
+            "Pim\\Bundle\\ExtendedMeasureBundle\\": "src/ExtendedMeasure/"
         },
         "psr-0": {
             "spec": "spec/"

@@ -1,0 +1,15 @@
+measures_config:
+    Force:
+        standard: NEWTON
+        units:
+            NEWTON:
+                convert: [{'mul': 1}]
+                symbol: 'N'
+                name: 'newton'
+            KILONEWTON:
+                convert: [{'mul': 1000}]
+                symbol: 'kN'
+                name: 'kilo-newton'
+            DECANEWTON:
+                convert: [{'mul': 10}]
+                symbol: 'daN'

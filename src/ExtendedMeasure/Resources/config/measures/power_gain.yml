@@ -1,0 +1,11 @@
+measures_config:
+    AntennaGain:
+        standard: DBI
+        units:
+            DECIBEL_ISOTROPIC:
+                convert: [{'mul': 1}]
+                symbol: 'dBi'
+                alternative_symbols: ['dBµV']
+            DECIBEL_DIPOLE:
+                convert: [{'add': 2.15}]
+                symbol: 'dBd'

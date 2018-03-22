@@ -1,0 +1,12 @@
+measures_config:
+    Illuminance:
+        standard: LUX
+        units:
+            LUX:
+                unece_code: 'LUX'
+                convert: [{ mul: 1 }]
+                symbol: 'lx'
+            KILOLUX:
+                unece_code: 'KLX'
+                convert: [{ mul: 1000 }]
+                symbol: 'klx'

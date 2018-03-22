@@ -1,0 +1,39 @@
+measures_config:
+    Capacitance:
+        standard: FARAD
+        units:
+            ATTOFARAD:
+                unece_code: 'H48'
+                convert: [{'div': 1000000000000000000}]
+                symbol: 'aF'
+                name: 'attofarad'
+            PICOFARAD:
+                unece_code: '4T'
+                convert: [{'div': 1000000000000}]
+                symbol: 'pF'
+                name: 'picofarad'
+            NANOFARAD:
+                unece_code: 'C41'
+                convert: [{'div': 1000000000}]
+                symbol: 'nF'
+                name: 'nanofarad'
+            MICROFARAD:
+                unece_code: '4O'
+                convert: [{'div': 1000000}]
+                symbol: 'µF'
+                name: 'microfarad'
+            MILLIFARAD:
+                unece_code: 'C10'
+                convert: [{'div': 1000}]
+                symbol: 'mF'
+                name: 'millifarad'
+            FARAD:
+                unece_code: 'FAR'
+                convert: [{'mul': 1}]
+                symbol: 'F'
+                name: 'farad'
+            KILOFARAD:
+                unece_code: 'N90'
+                convert: [{'mul': 1000}]
+                symbol: 'kF'
+                name: 'kilofarad'

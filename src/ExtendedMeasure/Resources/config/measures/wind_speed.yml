@@ -1,0 +1,7 @@
+measures_config:
+    WindSpeed:
+        standard: BEAUFORT_SCALE
+        units:
+            BEAUFORT_SCALE:
+                convert: [{'mul': 1}]
+                symbol: 'Bft'

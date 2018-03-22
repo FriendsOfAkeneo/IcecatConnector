@@ -1,0 +1,6 @@
+measures_config:
+    Weight:
+        units:
+            MICROGRAM:
+                convert: [{'div': 1000000000}]
+                symbol: 'µg'

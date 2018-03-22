@@ -50,7 +50,7 @@ class XmlProductDecoderSpec extends ObjectBehavior
         AttributeRepositoryInterface $attributeRepository,
         MeasureRepositoryInterface $extendedMeasureRepository
     ) {
-        $xmlResourcesDirectory = __DIR__ . '/../../../../../tests/resources';
+        $xmlResourcesDirectory = __DIR__ . '/../Resources';
         $this->enXml = file_get_contents($xmlResourcesDirectory . '/8806088281285-en.xml');
         $this->deXml = file_get_contents($xmlResourcesDirectory . '/8806088281285-de.xml');
 

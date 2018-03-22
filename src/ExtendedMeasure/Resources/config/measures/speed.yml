@@ -1,0 +1,63 @@
+measures_config:
+    Speed:
+        standard: METER_PER_SECOND
+        units:
+            METER_PER_SECOND:
+                unece_code: 'MTS'
+                convert: [{'mul': 1}]
+                symbol: 'm/s'
+                name: 'meter per second'
+            KILOMETER_PER_HOUR:
+                unece_code: 'KMH'
+                convert: [{'mul': 1000}, {'div': 3600}]
+                symbol: 'km/h'
+                name: 'kilometer per hour'
+
+            # Added
+            KNOT:
+                unece_code: 'KNT'
+                convert: [{'mul': 0.514444}]
+                symbol: 'kn'
+                name: 'knot'
+            MILLIMETER_PER_SECOND:
+                unece_code: 'C16'
+                convert: [{'div': 1000}]
+                symbol: 'mm/s'
+                name: 'millimeter per second'
+            CENTIMETER_PER_SECOND:
+                unece_code: '2M'
+                convert: [{'div': 100}]
+                symbol: 'cm/s'
+                name: 'centimeter per second'
+
+            MILLIMETER_PER_HOUR:
+                unece_code: 'H67'
+                convert: [{'div': 3600000}]
+                symbol: 'mm/h'
+                name: 'millimeter per hour'
+            CENTIMETER_PER_HOUR:
+                unece_code: 'H49'
+                convert: [{'div': 360000}]
+                symbol: 'cm/h'
+                name: 'centimeter per hour'
+            MILLIMETER_PER_MINUTE:
+                unece_code: 'C16'
+                convert: [{'div': 60000}]
+                symbol: 'mm/min'
+                name: 'millimeter per minute'
+            CENTIMETER_PER_MINUTE:
+                convert: [{'div': 6000}]
+                symbol: 'cm/min'
+                name: 'centimeter per minute'
+            METER_PER_MINUTE:
+                unece_code: '2X'
+                convert: [{'div': 60}]
+                symbol: 'm/min'
+                name: 'meter per minute'
+
+            INCH_PER_SECOND:
+                convert: [{'mul': 0.0254}]
+                symbol: 'inch/s'
+            INCH_PER_MINUTE:
+                convert: [{'mul': 0.0254}, {'div': 60}]
+                symbol: 'inch/min'

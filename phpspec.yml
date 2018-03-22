@@ -1,0 +1,7 @@
+suites:
+    icecat:
+        namespace: Pim\Bundle\IcecatConnectorBundle
+        src_path: src/IcecatConnector
+    extended_measure:
+        namespace: Pim\Bundle\ExtendedMeasureBundle
+        src_path: src/ExtendedMeasure

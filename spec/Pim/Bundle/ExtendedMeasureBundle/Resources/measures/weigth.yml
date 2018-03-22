@@ -1,0 +1,25 @@
+measures_config:
+    Weight:
+        standard: GRAM
+        units:
+            GRAM:
+                convert: [{'mul': 1}]
+                symbol: 'g'
+                name: 'gram'
+                unece_code: 'GRM'
+
+            KILOGRAM:
+                convert: [{'mul': 1000}]
+                symbol: 'kg'
+                name: 'kilo gram'
+                unece_code: 'KGM'
+                alternative_symbols: ['kilo']
+
+            BADMETER:
+                convert: [{'mul': 666}]
+                symbol: 'm'
+
+            DUPLICATE_UNIT:
+                convert: [{'mul': 666}]
+                symbol: 'bar'
+

@@ -1,0 +1,14 @@
+measures_config:
+    AngularVelocity:
+        standard: RADIAN_PER_SECOND
+        units:
+            RADIAN_PER_SECOND:
+                unece_code: '2A'
+                convert: [{'mul': 1}]
+                symbol: 'rad/s'
+                name: 'radian per second'
+            REVOLUTION_PER_MINUTE:
+                unece_code: 'M46'
+                convert: [{'mul': 0.1047198}]
+                symbol: 'r/min'
+                name: 'revolution per minute'

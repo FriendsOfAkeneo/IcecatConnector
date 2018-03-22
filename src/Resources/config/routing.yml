@@ -1,4 +1,0 @@
-pim_icecat_connector_check:
-    path: /check
-    defaults: { _controller: pim_icecat_connector.controller.connection:checkCredentials }
-    methods: [POST]

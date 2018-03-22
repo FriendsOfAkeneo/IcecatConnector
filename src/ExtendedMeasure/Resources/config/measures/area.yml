@@ -1,0 +1,92 @@
+measures_config:
+    Area:
+        standard: SQUARE_METER
+        units:
+            SQUARE_MILLIMETER:
+                unece_code: 'MMK'
+                convert: [{'mul': 0.000001}]
+                symbol: 'mm²'
+                name: 'square millimeter'
+            SQUARE_CENTIMETER:
+                unece_code: 'CMK'
+                convert: [{'mul': 0.0001}]
+                symbol: 'cm²'
+                name: 'square centimeter'
+            SQUARE_DECIMETER:
+                unece_code: 'DMK'
+                convert: [{'mul': 0.01}]
+                symbol: 'dm²'
+                name: 'square decimeter'
+            SQUARE_METER:
+                unece_code: 'MTK'
+                convert: [{'mul': 1}]
+                symbol: 'm²'
+                name: 'square meter'
+            SQUARE_DEKAMETER:
+                unece_code: 'H16'
+                convert: [{'mul': 100}]
+                symbol: 'dam²'
+                name: 'square decameter'
+            ARE:
+                unece_code: 'ARE'
+                convert: [{'mul': 100}]
+                symbol: 'a'
+                name: 'are'
+            SQUARE_HECTOMETER:
+                unece_code: 'H17'
+                convert: [{'mul': 10000}]
+                symbol: 'hm²'
+                name: 'square hectometer'
+            HECTARE:
+                unece_code: 'HAR'
+                convert: [{'mul': 10000}]
+                symbol: 'ha'
+                name: 'hectare'
+            SQUARE_KILOMETER:
+                unece_code: 'KMK'
+                convert: [{'mul': 1000000}]
+                symbol: 'km²'
+                name: 'square kilometer'
+            SQUARE_INCH:
+                unece_code: 'INK'
+                convert: [{'mul': 0.00064516}]
+                symbol: 'in²'
+                name: 'square inch'
+            SQUARE_FOOT:
+                unece_code: 'FTK'
+                convert: [{'mul': 0.09290304}]
+                symbol: 'ft²'
+                name: 'square foot'
+            SQUARE_YARD:
+                unece_code: 'YDK'
+                convert: [{'mul': 0.83612736}]
+                symbol: 'yd²'
+                name: 'square yard'
+            ACRE:
+                unece_code: 'ACR'
+                convert: [{mul: 4046.856422}]
+                symbol: 'acre'
+                name: 'acre'
+            SQUARE_MILE:
+                unece_code: 'MIK'
+                convert: [{'mul': 2589988.110336}]
+                symbol: 'mi²'
+                name: 'square mile'
+            # Added
+            SQUARE_MICROMETRE:
+                unece_code: 'H30'
+                convert: [{'div': 1000000000000}]
+                symbol: 'µm²'
+                name: 'square micrometre'
+                alternative_symbols: ['square micron']
+            DECARE:
+                unece_code: 'DAA'
+                convert: [{'mul': 1000}]
+                symbol: 'daa'
+                name: 'decare'
+            CIRCULAR_MIL:
+                unece_code: 'M47'
+                convert: [{'mul': 5.067075}, {'div': 10000000000}]
+                symbol: 'cmil'
+                name: 'circular mil'
+

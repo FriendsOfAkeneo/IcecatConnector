@@ -1,0 +1,34 @@
+measures_config:
+    Luminance:
+        standard: CANDELA_PER_SQUARE_METER
+        units:
+            CANDELA_PER_SQUARE_METER:
+                unece_code: 'A24'
+                convert: [{'mul': 1}]
+                symbol: 'cd/m²'
+                name: 'candela per square meter'
+            CANDELA_PER_SQUARE_INCH:
+                unece_code: 'P28'
+                convert: [{'mul': 1550.003}]
+                symbol: 'cd/in²'
+                name: 'candela per square inch'
+            FOOTLAMBERT:
+                unece_code: 'P29'
+                convert: [{'mul': 3.426259}]
+                symbol: 'ftL'
+                name: 'footlambert'
+            LAMBERT:
+                unece_code: 'P30'
+                convert: [{'mul': 3183.099}]
+                symbol: 'Lb'
+                name: 'lambert'
+            STILB:
+                unece_code: 'P31'
+                convert: [{'mul': 10000}]
+                symbol: 'sb'
+                name: 'stilb'
+            CANDELA_PER_SQUARE_FOOT:
+                unece_code: 'P32'
+                convert: [{'mul': 10.76391}]
+                symbol: 'cd/ft²'
+                name: 'candela per square foot'

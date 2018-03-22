@@ -1,0 +1,7 @@
+measures_config:
+    MechanicalLifetime:
+        standard: CONTACT
+        units:
+            CONTACT:
+                convert: [{'mul': 1}]
+                symbol: 'c (contacts)'

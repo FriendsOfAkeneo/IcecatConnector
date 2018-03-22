@@ -1,0 +1,34 @@
+measures_config:
+    Torque:
+        standard: NEWTON_METER
+        units:
+            NEWTON_METER:
+                unece_code: 'NU'
+                convert: [{'mul': 1}]
+                symbol: 'N·m'
+                alternative_symbols: ['Nm']
+            MEGANEWTON_METER:
+                unece_code: 'B74'
+                convert: [{'mul': 1000000}]
+                symbol: 'MN·m'
+            KILONEWTON_METER:
+                unece_code: 'B48'
+                convert: [{'mul': 1000}]
+                symbol: 'kN·m'
+            DECINEWTON_METER:
+                unece_code: 'DN'
+                convert: [{'div': 10}]
+                symbol: 'dN·m'
+            CENTINEWTON_METER:
+                unece_code: 'J72'
+                convert: [{'div': 100}]
+                symbol: 'cN·m'
+            MILLINEWTON_METER:
+                unece_code: 'D83'
+                convert: [{'div': 1000}]
+                symbol: 'mN·m'
+            MICRONEWTON_METER:
+                unece_code: 'B93'
+                convert: [{'div': 1000000}]
+                symbol: 'µN·m'
+

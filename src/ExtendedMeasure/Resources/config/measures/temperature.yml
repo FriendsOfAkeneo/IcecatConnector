@@ -1,0 +1,20 @@
+measures_config:
+    Temperature:
+        standard: KELVIN
+        units:
+            CELSIUS:
+                convert: [{'add': 273.15}]
+                symbol: °C
+            FAHRENHEIT:
+                convert: [{'sub': 32}, {'div': 1.8}, {'add': 273.15}]
+                symbol: °F
+            KELVIN:
+                convert: [{'mul': 1}]
+                symbol: °K
+                alternative_symbols: ['K']
+            RANKINE:
+                convert: [{'div': 1.8}]
+                symbol: °R
+            REAUMUR:
+                convert: [{'mul': 1.25}, {'add': 273.15}]
+                symbol: °r

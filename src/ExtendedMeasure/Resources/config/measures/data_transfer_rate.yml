@@ -1,0 +1,94 @@
+measures_config:
+    DataTransferRate:
+        standard: BIT_PER_SECOND
+        units:
+            BIT_PER_SECOND:
+                unece_code: 'B10'
+                convert: [{'mul': 1}]
+                symbol: 'bit/s'
+                name: 'bit per second'
+            KILOBIT_PER_SECOND:
+                unece_code: 'C74'
+                convert: [{'mul': 1000}]
+                symbol: 'kbit/s'
+                name: 'kilobit per second'
+                alternative_symbols: ['kBit/s']
+            MEGABIT_PER_SECOND:
+                unece_code: 'E20'
+                convert: [{'mul': 1000000}]
+                symbol: 'Mbit/s'
+                name: 'megabit per second'
+            GIGABIT_PER_SECOND:
+                unece_code: 'B80'
+                convert: [{'mul': 1000000000}]
+                symbol: 'Gbit/s'
+                name: 'gigabit per second'
+            TERABIT_PER_SECOND:
+                unece_code: 'E84'
+                convert: [{'mul': 1000000000000}]
+                symbol: 'Tbit/s'
+                name: 'terabit per second'
+            PETABIT_PER_SECOND:
+                unece_code: 'E79'
+                convert: [{'mul': 1000000000000000}]
+                symbol: 'Pbit/s'
+                name: 'petabit per second'
+            EXABIT_PER_SECOND:
+                unece_code: 'E58'
+                convert: [{'mul': 10000000000000000000}]
+                symbol: 'Ebit/s'
+                name: 'exabit per second'
+
+            GIGABIT_PER_MINUTE:
+                convert: [{'mul': 1000000000}, {'mul': 60}]
+                symbol: 'Gbit/m'
+            MEGABIT_PER_HOUR:
+                convert: [{'mul': 1000000}, {'mul': 3600}]
+                symbol: 'Mbit/h'
+            GIGABIT_PER_HOUR:
+                convert: [{'mul': 1000000000}, {'mul': 3600}]
+                symbol: 'Gbit/h'
+
+            BYTE_PER_SECOND:
+                unece_code: 'P93'
+                convert: [{'mul': 8}]
+                symbol: 'byte/s'
+                name: 'byte per second'
+            OCTET_PER_SECOND:
+                unece_code: 'Q13'
+                convert: [{'mul': 8}]
+                symbol: 'o/s'
+                name: 'octet per second'
+            KILOBYTE_PER_SECOND:
+                unece_code: 'P94'
+                convert: [{'mul': 8000}]
+                symbol: 'kbyte/s'
+                name: 'kilobyte per second'
+                alternative_symbols: ['kBps']
+            MEGABYTE_PER_SECOND:
+                unece_code: 'P95'
+                convert: [{'mul': 8000000}]
+                symbol: 'Mbyte/s'
+                name: 'megabyte per second'
+                alternative_symbols: ['MBps', 'Mbps']
+            GIGABYTE_PER_SECOND:
+                convert: [{'mul': 8000000000}]
+                symbol: 'GByte/s'
+                name: 'gigabyte per second'
+            GIGABYTE_PER_MINUTE:
+                convert: [{'mul': 8000000000},{'div': 60}]
+                symbol: 'GByte/min'
+                name: 'gigabyte per minute'
+
+            MEGABYTE_PER_HOUR:
+                convert: [{'mul': 8000000}, {'mul': 3600}]
+                symbol: 'MByte/h'
+                name: 'megabyte per hour'
+            GIGABYTE_PER_HOUR:
+                convert: [{'mul': 8000000000}, {'mul': 3600}]
+                symbol: 'GByte/h'
+                name: 'gigabyte per hour'
+            TERABYTE_PER_HOUR:
+                convert: [{'mul': 8000000000}, {'mul': 3600}]
+                symbol: 'TByte/h'
+                name: 'terabyte per hour'

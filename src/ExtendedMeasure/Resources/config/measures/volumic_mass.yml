@@ -1,0 +1,33 @@
+measures_config:
+    VolumicMass:
+        standard: GRAM_PER_LITER
+        units:
+            GRAM_PER_LITER:
+                unece_code: 'GL'
+                convert: [{'mul': 1}]
+                symbol: 'g/l'
+            GRAM_PER_MILLILITER:
+                unece_code: 'GJ'
+                convert: [{'mul': 1000}]
+                symbol: 'g/ml'
+            GRAM_PER_CUBIC_CENTIMETER:
+                unece_code: '23'
+                convert: [{'mul': 1000}]
+                symbol: 'g/cm³'
+            GRAM_PER_CUBIC_METER:
+                unece_code: 'A93'
+                convert: [{'div': 1000}]
+                symbol: 'g/m³'
+            KILOGRAM_PER_CUBIC_METER:
+                unece_code: 'KMQ'
+                convert: [{'mul': 1}]
+                symbol: 'kg/m³'
+            KILOGRAM_PER_LITER:
+                unece_code: 'B35'
+                convert: [{'mul': 10}]
+                symbol: 'kg/l'
+                alternative_symbols: ['kg/L']
+            TON_PER_CUBIC_METER:
+                unece_code: 'D41'
+                convert: [{'mul': 1000}]
+                symbol: 't/m³'

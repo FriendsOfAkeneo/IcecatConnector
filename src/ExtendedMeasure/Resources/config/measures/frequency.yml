@@ -1,0 +1,29 @@
+measures_config:
+    Frequency:
+        standard: HERTZ
+        units:
+            HERTZ:
+                unece_code: 'HTZ'
+                convert: [{'mul': 1}]
+                symbol: 'Hz'
+                name: 'hertz'
+            KILOHERTZ:
+                unece_code: 'KHZ'
+                convert: [{'mul': 1000}]
+                symbol: 'kHz'
+                name: 'kilohertz'
+            MEGAHERTZ:
+                unece_code: 'MHZ'
+                convert: [{'mul': 1000000}]
+                symbol: 'MHz'
+                name: 'megahertz'
+            GIGAHERTZ:
+                unece_code: 'A86'
+                convert: [{'mul': 1000000000}]
+                symbol: 'GHz'
+                name: 'gigahertz'
+            TERAHERTZ:
+                unece_code: 'D29'
+                convert: [{'mul': 1000000000000}]
+                symbol: 'THz'
+                name: 'terahertz'

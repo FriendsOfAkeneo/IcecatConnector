@@ -1,0 +1,13 @@
+measures_config:
+    Acceleration:
+        standard: METER_PER_SQUARE_SECOND
+        units:
+            METER_PER_SQUARE_SECOND:
+                convert: [{'mul': 1}]
+                symbol: 'm/s²'
+                name: 'meter per square second'
+            G:
+                convert: [{'mul': 9.8}]
+                symbol: 'g'
+                name: 'g-force'
+                alternative_symbols: ['G']

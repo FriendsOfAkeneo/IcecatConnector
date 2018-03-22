@@ -1,0 +1,49 @@
+measures_config:
+    PlaneAngle:
+        standard: RADIAN
+        units:
+            RADIAN:
+                unece_code: 'C81'
+                convert: [{'mul': 1}]
+                symbol: 'rad'
+                name: 'radian'
+            MILLIRADIAN:
+                unece_code: 'C25'
+                convert: [{'mul': 0.001}]
+                symbol: 'mrad'
+                name: 'milliradian'
+            MICRORADIAN:
+                unece_code: 'B97'
+                convert: [{'mul': 0.000001}]
+                symbol: 'µrad'
+                name: 'microradian'
+            DEGREE:
+                unece_code: 'DD'
+                convert: [{'mul': 0.01745329}]
+                symbol: '°'
+                name: 'degree'
+            MINUTE:
+                unece_code: 'D61'
+                convert: [{'mul': 0.0002908882}]
+                symbol: "'"
+                name: 'minute'
+            SECOND:
+                unece_code: 'D62'
+                convert: [{'mul': 0.000004848137}]
+                symbol: '"'
+                name: 'second'
+            GON:
+                unece_code: 'A91'
+                convert: [{'mul': 0.01570796}]
+                symbol: 'gon'
+                name: 'gon'
+            MIL:
+                unece_code: 'M43'
+                convert: [{'mul': 0.0009817477}]
+                symbol: 'mil'
+                name: 'mil'
+            REVOLUTION:
+                unece_code: 'M44'
+                convert: [{'mul': 6.283185}]
+                symbol: 'rev'
+                name: 'revolution'

@@ -1,0 +1,20 @@
+measures_config:
+    SoundPower:
+        standard: DECIBEL
+        units:
+            DECIBEL:
+                unece_code: '2N'
+                convert: [{'mul': 1}]
+                symbol: 'dB'
+                name: 'decibel'
+                alternative_symbols: ['dBA', 'dB(A)', 'db(A)']
+            NEPER:
+                unece_code: 'C50'
+                convert: [{'mul': 8.6858896381}]
+                symbol: 'nep'
+                name: 'neper'
+            BEL:
+                unece_code: 'M72'
+                convert: [{'div': 10}]
+                symbol: 'B'
+                name: 'bel'

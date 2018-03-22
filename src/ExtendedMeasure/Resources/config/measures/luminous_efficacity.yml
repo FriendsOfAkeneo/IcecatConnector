@@ -1,0 +1,8 @@
+measures_config:
+    LuminousIntensity:
+        standard: LUMEN_PER_WATT
+        units:
+            LUMEN_PER_WATT:
+                unece_code: 'B61'
+                convert: [{'mul': 1}]
+                symbol: 'lm/W'

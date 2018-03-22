@@ -1,0 +1,24 @@
+measures_config:
+    LuminousIntensity:
+        standard: CANDELA
+        units:
+            CANDELA:
+                unece_code: 'CDL'
+                convert: [{'mul': 1}]
+                symbol: 'cd'
+            KILOCANDELA:
+                unece_code: 'P33'
+                convert: [{'mul': 1000}]
+                symbol: 'kcd'
+            MEGACANDELA:
+                unece_code: 'P34'
+                convert: [{'mul': 1000000}]
+                symbol: 'mcd'
+            HEFNER_KERZE:
+                unece_code: 'P35'
+                convert: [{'mul': 0.903}]
+                symbol: 'HK'
+            INTERNATIONAL_CANDLE:
+                unece_code: 'P36'
+                convert: [{'mul': 1.019}]
+                symbol: 'IK'

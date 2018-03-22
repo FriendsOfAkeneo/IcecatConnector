@@ -1,0 +1,248 @@
+measures_config:
+    Volume:
+        standard: CUBIC_METER
+        units:
+            CUBIC_MILLIMETER:
+                unece_code: 'MMQ'
+                convert: [{'mul': 0.000000001}]
+                symbol: 'mm³'
+                name: 'cubic millimeter'
+            CUBIC_CENTIMETER:
+                unece_code: 'CMQ'
+                convert: [{'mul': 0.000001}]
+                symbol: 'cm³'
+                name: 'cubic centimeter'
+            MILLILITER:
+                unece_code: 'MLT'
+                convert: [{'mul': 0.000001}]
+                symbol: 'ml'
+                name: 'millilitre'
+            CENTILITER:
+                unece_code: 'CLT'
+                convert: [{'mul': 0.00001}]
+                symbol: 'cl'
+                name: 'centiliter'
+            DECILITER:
+                unece_code: 'DLT'
+                convert: [{'mul': 0.0001}]
+                symbol: 'dl'
+                name: 'deciliter'
+            CUBIC_DECIMETER:
+                unece_code: 'DMQ'
+                convert: [{'mul': 0.001}]
+                symbol: 'dm³'
+                name: 'cubic decimeter'
+            LITER:
+                unece_code: 'LTR'
+                convert: [{'mul': 0.001}]
+                symbol: 'l'
+                name: 'liter'
+            CUBIC_METER:
+                unece_code: 'MTQ'
+                convert: [{'mul': 1}]
+                symbol: 'm³'
+                name: 'cubic meter'
+            OUNCE:
+                unece_code: 'OZI'
+                convert: [{'mul': 0.00454609}, {'div': 160}]
+                symbol: 'oz'
+                name: 'fluid ounce (UK)'
+                alternative_symbols: ['fl oz (UK)']
+            PINT:
+                unece_code: 'PTI'
+                convert: [{'mul': 0.00454609}, {'div': 8}]
+                symbol: 'pt (UK)'
+                name: 'pint (UK)'
+            GALLON:
+                unece_code: 'GLI'
+                convert: [{'mul': 0.00454609}]
+                symbol: 'gal (UK)'
+                name: 'gallon (UK)'
+            CUBIC_FOOT:
+                unece_code: 'cubic foot'
+                convert: [{'mul': 6.54119159}, {'div': 231}]
+                symbol: 'ft³'
+                name: 'cubic foot'
+            CUBIC_INCH:
+                unece_code: 'INQ'
+                convert: [{'mul': 0.0037854118}, {'div': 231}]
+                symbol: 'in³'
+                name: 'cubic inch'
+            CUBIC_YARD:
+                unece_code: 'YDQ'
+                convert: [{'mul': 0.764554861}]
+                symbol: 'yd³'
+                name: 'cubic yard'
+            # Added
+            MEGALITER:
+                unece_code: 'MAL'
+                convert: [{'mul': 1000}]
+                symbol: 'Ml'
+                name: 'megaliter'
+            HECTOLITER:
+                unece_code: 'HLT'
+                convert: [{'div': 10}]
+                symbol: hl
+                name: 'hectoliter'
+            CUBIC_DECAMETER:
+                unece_code: 'DMA'
+                convert: [{'mul': 1000}]
+                symbol: 'dam³'
+                name: 'cubic decameter'
+            CUBIC_HECTOMETER:
+                unece_code: 'H19'
+                convert: [{'mul': 1000000}]
+                symbol: 'hm³'
+                name: 'cubic hectometer'
+            CUBIC_KILOMETER:
+                unece_code: 'H20'
+                convert: [{'mul': 1000000000}]
+                symbol: 'km³'
+                name: 'cubic kilometer'
+            MICROLITER:
+                unece_code: '4G'
+                convert: [{'div': 1000000000}]
+                symbol: 'µl'
+                name: 'microliter'
+            KILOLITER:
+                unece_code: 'K6'
+                convert: [{'mul': 1}]
+                symbol: 'kl'
+                name: 'kiloliter'
+            DECALITER:
+                unece_code: 'A44'
+                convert: [{'div': 100}]
+                symbol: 'dal'
+                name: 'decaliter'
+            CUBIC_FOOT:
+                unece_code: 'WSD'
+                convert: [{'mul': 4.672}]
+                symbol: 'std'
+                name: 'standard cubic foot'
+            GALLON_US:
+                unece_code: 'GLL'
+                convert: [{'mul': 0.003785412}]
+                symbol: 'gal (US)'
+                name: 'gallon (US)'
+            PINT_US:
+                unece_code: 'PTL'
+                convert: [{'mul': 0.000473176}]
+                symbol: 'pt (US)'
+                name: 'pint (US)'
+                alternative_symbols: ['liq pt (US)']
+            QUART:
+                unece_code: 'QTI'
+                convert: [{'mul': 0.0011365225}]
+                symbol: 'qt (UK)'
+                name: 'quart (UK)'
+            QUART_US:
+                unece_code: 'QTL'
+                convert: [{'mul': 0.0009463529}]
+                symbol: 'qt (US)'
+                name: 'quart (US)'
+                alternative_symbols: ['liq qt (US)']
+            DRY_PINT:
+                unece_code: 'PTD'
+                convert: [{'mul': 0.0005506105}]
+                symbol: 'dry pt (US)'
+                name: 'dry pint (US)'
+            BARREL_UK:
+                unece_code: 'J57'
+                convert: [{'mul': 0.15911315}]
+                symbol: 'bbl (UK liq.)'
+                name: 'barrel (UK petrolum)'
+            PECK_UK:
+                unece_code: 'L43'
+                convert: [{'mul': 0.009092181}]
+                symbol: 'pk (UK)'
+                name: 'peck (UK)'
+            TON_UK:
+                unece_code: 'L84'
+                convert: [{'mul': 1.1893}]
+                symbol: 'British shipping ton'
+                name: 'ton (UK shipping)'
+            TON_US:
+                unece_code: 'L86'
+                convert: [{'mul': 1.1326}]
+                symbol: '(US) shipping ton'
+                name: 'ton (US shipping)'
+            OUNCE_UK:
+                unece_code: 'OZA'
+                convert: [{'mul': 0.00002957353}]
+                symbol: 'fl oz (US)'
+                name: 'fluid ounce (US)'
+            BUSHEL_UK:
+                unece_code: 'BUI'
+                convert: [{'mul': 0.03636872}]
+                symbol: 'bushel (UK)'
+                name: 'bushel (UK)'
+            BUSHEL_US:
+                unece_code: 'BUA'
+                convert: [{'mul': 0.03523907}]
+                symbol: 'bu'
+                name: 'bushel (US)'
+            BARREL_US:
+                unece_code: 'BLL'
+                convert: [{'mul': 0.1589873}]
+                symbol: 'barrel (US)'
+                name: 'barrel (US)'
+            DRY_BARREL_US:
+                unece_code: 'BLD'
+                convert: [{'mul': 0.115627}]
+                symbol: 'bbl (US)'
+                name: 'dry barrel (US)'
+            DRY_GALLON_US:
+                unece_code: 'GLD'
+                convert: [{'mul': 0.004404884}]
+                symbol: 'dry gal (US)'
+                name: 'dry gallon (US)'
+            DRY_QUART_US:
+                unece_code: 'QTD'
+                convert: [{'mul': 0.001101221}]
+                symbol: 'dry qt (US)'
+                name: 'dry quart (US)'
+            STERE:
+                unece_code: 'G26'
+                convert: [{'mul': 1}]
+                symbol: 'st'
+                name: 'stere'
+            CUP:
+                unece_code: 'G21'
+                convert: [{'mul': 0.0002365882}]
+                symbol: 'cup (US)'
+                name: 'cup'
+            TABLESPOON:
+                unece_code: 'G24'
+                convert: [{'mul': 0.00001478676}]
+                symbol: 'tablespoon (US)'
+                name: 'tablespoon (US)'
+            TEASPOON:
+                unece_code: 'G25'
+                convert: [{'mul': 0.000004928922}]
+                symbol: 'teaspoon (US)'
+                name: 'teaspoon (US)'
+            PECK_US:
+                unece_code: 'G23'
+                convert: [{'mul': 0.008809768}]
+                symbol: 'pk (US)'
+                name: 'peck'
+            ACRE_FOOT:
+                unece_code: 'M67'
+                convert: [{'mul': 1233.489}]
+                symbol: 'acre-ft'
+                name: 'acre-foot'
+            CORD:
+                unece_code: 'M68'
+                convert: [{'mul': 3.624556}]
+                symbol: 'cord'
+                name: 'cord'
+            CUBIC_MILE:
+                unece_code: 'M69'
+                convert: [{'mul': 4168182000}]
+                symbol: 'mi³'
+                name: 'cubic mile'
+            TON_REGISTER:
+                unece_code: 'M70'
+                convert: [{'mul': 2.831685}]
+                symbol: 'RT'
+                name: 'ton register'
