@@ -41,7 +41,7 @@ def installExtension(pimEdition, extensionPath) {
     """
 
     if (pimEdition.equals("ee")) {
-        sh "sed -i 's#// your app bundles should be registered here#\\0\\nAkeneoEnterprise\\\\Test\\\\IntegrationTestsBundle\\\\AkeneoEnterpriseIntegrationTestsBundle(),#' app/AppKernel.php"
+        sh "sed -i 's#// your app bundles should be registered here#\\0\\nnew AkeneoEnterprise\\\\Test\\\\IntegrationTestsBundle\\\\AkeneoEnterpriseIntegrationTestsBundle(),#' app/AppKernel.php"
     }
 
     sh """
