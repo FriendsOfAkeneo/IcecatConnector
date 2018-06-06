@@ -14,12 +14,24 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class ConnectionControllerTest extends AbstractTestCase
 {
+    /** @var array */
+    private static $credentials = [];
+
+    protected function setUp()
+    {
+        parent::setUp();
+        $config = $this->get('oro_config.global');
+        self::$credentials = [
+            'username' => $config->get('pim_icecat_connector.credentials_username'),
+            'password' => $config->get('pim_icecat_connector.credentials_password'),
+        ];
+    }
+
     public function testIcecatConnectionOk()
     {
-        $credentials = $this->getCredentials();
         /** @var ConnectionController $controller */
         $controller = $this->get('pim_icecat_connector.controller.connection');
-        $request = $this->getRequestMock($credentials['username'], $credentials['password']);
+        $request = $this->getRequestMock(static::$credentials['username'], static::$credentials['password']);
         $response = $controller->checkCredentials($request);
 
         $this->assertEquals(Response::HTTP_OK, $response->getStatusCode());
@@ -33,7 +45,7 @@ class ConnectionControllerTest extends AbstractTestCase
         $invalidData = [
             [null, null], // empty credentials
             ['foo', 'bar'], // invalid login
-            [$this->getCredentials()['username'], 'invalidpassword'], // invalid password
+            [static::$credentials['username'], 'invalidpassword'], // invalid password
         ];
 
         foreach ($invalidData as $invalidCredentials) {

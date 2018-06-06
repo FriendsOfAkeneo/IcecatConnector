@@ -5,20 +5,24 @@ namespace Pim\Bundle\IcecatConnectorBundle\Tests\Job;
 use Akeneo\Bundle\BatchBundle\Command\BatchCommand;
 use Akeneo\Component\Batch\Model\JobExecution;
 use Akeneo\Component\Batch\Model\JobInstance;
-use Pim\Bundle\IcecatConnectorBundle\Tests\AbstractTestCase;
+use Pim\Component\Catalog\Repository\AttributeRepositoryInterface;
 
 /**
  * @author    Mathias METAYER <mathias.metayer@akeneo.com>
  * @copyright 2017 Akeneo SAS (http://www.akeneo.com)
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-class ImportFeaturesMappingTest extends AbstractTestCase
+class ImportFeaturesMappingTest extends AbstractJobTestCase
 {
     /** @var string */
     private $jobCode = 'icecat_import_features_mapping';
 
-    public function additionnalSetup()
+    /**
+     * {@inheritdoc}
+     */
+    public function setUp()
     {
+        parent::setUp();
         $this->createImportProfile('Icecat', $this->jobCode);
         if (file_exists('/tmp/mapping.csv')) {
             unlink('/tmp/mapping.csv');
@@ -27,6 +31,23 @@ class ImportFeaturesMappingTest extends AbstractTestCase
 
     public function testImportGeneratesWarningOnNotFoundAttribute()
     {
+        /** @var AttributeRepositoryInterface $attributeRepository */
+        $attributeCodesToRemove = [
+            'icecat_numeric_keypad',
+            'icecat_processor_frequency',
+            'icecat_operating_system',
+            'icecat_installed_ram',
+            'icecat_processor_series',
+        ];
+        $attributeRepository = $this->get('pim_catalog.repository.attribute');
+        $attributeRemover = $this->get('pim_catalog.remover.attribute');
+        foreach ($attributeCodesToRemove as $attributeCode) {
+            $attribute = $attributeRepository->findOneByIdentifier($attributeCode);
+            if (null !== $attribute) {
+                $attributeRemover->remove($attribute);
+            }
+        }
+
         $input = [
             'code' => $this->jobCode,
             '--config' => '{"filePath": "' . realpath(__DIR__ . '/../Resources/featuresList.csv') . '"}',
@@ -54,8 +75,6 @@ class ImportFeaturesMappingTest extends AbstractTestCase
 
     public function testValidImportGeneratesMappingFile()
     {
-        $this->loadData();
-
         $input = [
             'code' => $this->jobCode,
             '--config' => '{"filePath": "' . realpath(__DIR__ . '/../Resources/featuresList.csv') . '"}',
