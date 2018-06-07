@@ -38,6 +38,14 @@ def installExtension(pimEdition, extensionPath) {
         sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\IcecatConnectorBundle\\\\PimIcecatConnectorBundle(),#' app/AppKernel.php
         sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedMeasureBundle\\\\PimExtendedMeasureBundle(),#' app/AppKernel.php
         sed -i 's#// your app bundles should be registered here#\\0\\nnew Pim\\\\Bundle\\\\ExtendedAttributeTypeBundle\\\\PimExtendedAttributeTypeBundle(),#' app/AppKernel.php
+    """
+
+    if (pimEdition.equals("ee")) {
+        sh "sed -i 's#// your app bundles should be registered here#\\0\\nnew AkeneoEnterprise\\\\Test\\\\IntegrationTestsBundle\\\\AkeneoEnterpriseIntegrationTestsBundle(),#' app/AppKernel.php"
+    }
+
+    sh """
+        sed -i 's#// your app bundles should be registered here#\\0\\nnew Akeneo\\\\Test\\\\IntegrationTestsBundle\\\\AkeneoIntegrationTestsBundle(),#' app/AppKernel.php
         rm ./var/cache/* -rf
     """
 

@@ -3,20 +3,24 @@
 namespace Pim\Bundle\IcecatConnectorBundle\Tests\Jobs;
 
 use Akeneo\Bundle\BatchBundle\Command\BatchCommand;
-use Pim\Bundle\IcecatConnectorBundle\Tests\AbstractTestCase;
+use Pim\Bundle\IcecatConnectorBundle\Tests\Job\AbstractJobTestCase;
 
 /**
  * @author    Mathias METAYER <mathias.metayer@akeneo.com>
  * @copyright 2017 Akeneo SAS (http://www.akeneo.com)
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-class FeaturesDownloadTest extends AbstractTestCase
+class FeaturesDownloadTest extends AbstractJobTestCase
 {
     /** @var string */
     private $jobCode = 'icecat_download_features';
 
-    public function additionnalSetup()
+    /**
+     * {@inheritdoc}
+     */
+    protected function setUp()
     {
+        parent::setUp();
         $this->createImportProfile('Icecat', $this->jobCode);
     }
 

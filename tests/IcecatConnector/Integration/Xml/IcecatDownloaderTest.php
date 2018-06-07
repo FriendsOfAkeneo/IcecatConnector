@@ -13,21 +13,22 @@ class IcecatDownloaderTest extends AbstractTestCase
 {
     public function testXmlIcecatDownloader()
     {
+        $targetDirectory = '/tmp';
         $featuresListFile = 'FeaturesList.xml.gz';
-        if (file_exists($featuresListFile)) {
-            unlink($featuresListFile);
+        if (file_exists($targetDirectory . DIRECTORY_SEPARATOR . $featuresListFile)) {
+            unlink($targetDirectory . DIRECTORY_SEPARATOR . $featuresListFile);
         }
         $uncompressedFeaturesListFile = 'FeaturesList.xml';
-        if (file_exists($uncompressedFeaturesListFile)) {
-            unlink($uncompressedFeaturesListFile);
+        if (file_exists($targetDirectory . DIRECTORY_SEPARATOR . $uncompressedFeaturesListFile)) {
+            unlink($targetDirectory . DIRECTORY_SEPARATOR . $uncompressedFeaturesListFile);
         }
-        $targetDirectory = '/tmp';
+
 
         $downloader = $this->get('pim_icecat_connector.xml.downloader');
         $downloadedFile = $downloader->download($featuresListFile, $targetDirectory, true);
 
-        $this->assertTrue(file_exists($targetDirectory . DIRECTORY_SEPARATOR . $featuresListFile));
-        $this->assertTrue(file_exists($targetDirectory . DIRECTORY_SEPARATOR . $uncompressedFeaturesListFile));
-        $this->assertEquals($targetDirectory . DIRECTORY_SEPARATOR . $uncompressedFeaturesListFile, $downloadedFile);
+        static::assertTrue(file_exists($targetDirectory . DIRECTORY_SEPARATOR . $featuresListFile));
+        static::assertTrue(file_exists($targetDirectory . DIRECTORY_SEPARATOR . $uncompressedFeaturesListFile));
+        static::assertEquals($targetDirectory . DIRECTORY_SEPARATOR . $uncompressedFeaturesListFile, $downloadedFile);
     }
 }
