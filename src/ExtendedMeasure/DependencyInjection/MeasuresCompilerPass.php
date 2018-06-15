@@ -35,7 +35,7 @@ class MeasuresCompilerPass implements CompilerPassInterface
         $measuresConfig = [];
 
         $measuresFinder = new Finder();
-        $measuresFinder->files()->in($this->configDirectory)->name(('*.yml'));
+        $measuresFinder->files()->in($this->configDirectory)->name('*.yml')->sortByName();
 
         foreach ($measuresFinder as $file) {
             $measuresConfig = $this->processFile($file, $measuresConfig);
